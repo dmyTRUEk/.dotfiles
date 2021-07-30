@@ -126,7 +126,7 @@ set shiftwidth=4            " On pressing tab, insert 4 spaces
 set expandtab               " use spaces instead of tabs
 set autoindent              " set tabs automatically, when starting new line
 
-" Dont wrap lines:
+" Dont wrap lines: 
 " set nowrap
 
 " Scroll content instead of cursor line

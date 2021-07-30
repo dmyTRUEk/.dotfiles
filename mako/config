@@ -1,0 +1,37 @@
+# dmyTRUEk's Mako Config
+#
+# for testing:
+# reload mako config:
+#   makoctl reload
+# send test notification:
+#   notify-send 'test'
+
+sort=+time
+
+# font=Noto Sans 9
+# border-size=3
+background-color=#333333
+text-color=#ffffff
+# margin=10
+# padding=15
+width=300
+height=100
+
+border-color=#000000
+# border-radius=0
+
+# Timeout:
+# ignore-timeout=0
+# default-timeout=5000
+
+group-by=summary
+max-visible=3
+
+layer=overlay
+anchor=bottom-right
+
+[mode=do-not-disturb]
+invisible=1
+
+
+

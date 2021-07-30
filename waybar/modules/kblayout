@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-#query='select(.change == "xkb_layout") | .input.xkb_active_layout_name | sub("English \\(US\\)"; "En") | sub("Russian"; "Ru")'
-#swaymsg -m -t SUBSCRIBE "['input']" | jq --unbuffered -r "$query"
+# dmyTRUEk's Waybar module (kblayout) file
 
 swaymsg \
   --type get_inputs | \

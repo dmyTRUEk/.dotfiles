@@ -1,4 +1,4 @@
-# dmyTRUEk's Sway config
+# dmyTRUEk's Sway config file
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
@@ -158,6 +158,9 @@ input * scroll_factor 2.0
     # sticky enable|disable|toggle - show window on all workspaces (as pin in kde)
     # layout default|splith|splitv|stacking|tabbed
 
+    # if window have title bar (border), its text will be aligned to center
+    title_align center
+
     for_window [window_role="pop-up"] floating enable
     for_window [window_role="bubble"] floating enable
     for_window [window_role="task_dialog"] floating enable
@@ -166,11 +169,6 @@ input * scroll_factor 2.0
     for_window [window_type="menu"] floating enable
     for_window [window_role="About"] floating enable
     for_window [class="xdg-desktop-portal-kde"] floating enable
-    #for_window [class="ksysguard"] floating enable
-    #for_window [class="ksysguard"] sticky enable
-    #for_window [app_id="mpv"] layout tabbed
-    #for_window [class="Wine"] floating enable
-    #for_window [app_id="lutris"] floating enable
 
     # Auto floating for windows like Terminals started with Mod+Shift+Return
     # if app_id contains "folating" word, then make it floating:
@@ -183,12 +181,16 @@ input * scroll_factor 2.0
     #for_window [app_id="gwenview"] layout tabbed
     for_window [app_id="gwenview"] fullscreen enable
 
-    # if window have title bar (border), its text will be aligned to center
-    title_align center
+    # make firefox picture-in-picture floating and sticky
+    for_window [title="Picture-in-Picture"] floating enable, sticky enable
 
-    # make firefox picture-in-picture floating
-    for_window [app_id="firefox" title="^Picture-in-Picture$"] \
-        floating enable, sticky enable
+    # make discord picture-in-picture floating and sticky
+    # for_window [title="^((?!Discord).)*$"] floating enable, sticky enable
+    # for_window [class="discord"] floating enable, sticky enable
+    # for_window [class="discord" title="Discord"] floating disable, sticky disable
+    # for_window [class="discord" window_role="browser-window"] floating enable, sticky enable
+    # current solution: just run discord, and if you want to make picture-in-picture window
+    #   to be floating and sticky, just do it by hands ;)
 
 
 ## Multimedia keys
@@ -300,14 +302,17 @@ input * scroll_factor 2.0
     $btrbindsym $mod+f fullscreen
     $btrbindsym F11 fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    # Move focus to the parent container
+    $btrbindsym $mod+a focus parent
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    $btrbindsym $mod+a focus parent
+    # Toggle the current focus (window) between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Toggle Sticky (make window appear on all workspaces)
+    bindsym $mod+Shift+s sticky toggle
 
 
 ## Scratchpad:
@@ -380,6 +385,7 @@ default_border none
 
 
 ### Auto Start:
+# ?
 include @sysconfdir@/sway/config.d/*
 
 # Polkit KDE Authentication, need for windows that requests password:
@@ -391,6 +397,10 @@ exec $(xdg-user-dir)/Code/rust/sway-rkbd-rs/target/release/sway-rkbd-rs
 # Mako: notification manager:
 # config file in: ~/.config/mako/config
 exec mako
+
+# Pamac is Manjaro package manager
+exec /usr/bin/pamac-tray-plasma
+# exec /usr/bin/pamac-daemon
 
 # Startup Dropbox:
 exec /usr/bin/dropbox

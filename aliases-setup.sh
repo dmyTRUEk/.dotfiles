@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# dmyTRUEk's aliases setup
+# dmyTRUEk's aliases setup file
 #
 # run it:
 # sh aliases-setup.sh
@@ -8,7 +8,6 @@
 
 
 # My Custom ALIASes:
-# P.S.: you cant use global variables, because after exec_always, it forgets everything
 alias_name="ff" && alias_path=$(xdg-user-dir)/.local/bin/$alias_name && echo -e "#\!/bin/sh\nexec firefox" > $alias_path && chmod +x $alias_path
 
 alias_name="tg" && alias_path=$(xdg-user-dir)/.local/bin/$alias_name && echo -e "#\!/bin/sh\nXCURSOR_THEME=breeze_cursors\nexec telegram-desktop" > $alias_path && chmod +x $alias_path

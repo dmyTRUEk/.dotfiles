@@ -6,8 +6,7 @@
 
 
 
-### Variables
-
+### VARIABLES
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
@@ -31,8 +30,9 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 
 
-### Output configuration
 
+
+### OUTPUT CONFIGURATION
 ## Wallpaper (Background):
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
@@ -51,106 +51,6 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 default_border none
 # gaps inner 10
 # gaps outer -10
-
-
-### Idle configuration
-
-# Example configuration:
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-
-
-
-### Input configuration
-
-# Example configuration:
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-input * {
-    xkb_layout "us,ua"
-    xkb_options "grp:alt_shift_toggle"
-}
-
-
-## Mouse Cursor:
-seat seat0 xcursor_theme breeze_cursors 24
-
-## Mouse Scroll Factor (speed)
-input * scroll_factor 2.0
-
-##
-# seat * keep_keyboard_layout per_window
-
-
-
-### Key bindings
-
-## Basics:
-
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+Return exec $term --class="$term_floating"
-
-    # Kill focused window
-    # bindsym $mod+Shift+q kill
-    $btrbindsym $mod+q kill
-
-    # Start your launcher
-    # TODO:
-    $btrbindsym $mod+d exec $menu
-    # $btrbindsym --release $mod exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    floating_modifier $mod normal
-
-    # Reload the configuration file
-    $btrbindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    # bindsym $mod+Shift+e exec swaynag -t warning \
-    #     -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' \
-    #     -b 'Yes, exit sway' 'swaymsg exit'
-
-    $btrbindsym $mod+Shift+e exec swaynag -t warning -m \
-        'You pressed the exit shortcut. What do you want?' \
-        -b 'Shutdown' 'systemctl poweroff' \
-        -b 'Reboot' 'systemctl reboot' \
-        -b 'Sleep' 'systemctl suspend' \
-        -b 'Logout' 'swaymsg exit' \
-
-    # Screenshots:
-    # screenshot of current monitor?
-    bindsym Print exec \
-        filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
-        && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
-        && wl-copy "file://$filename" -t text/uri-list
-
-    # screenshot of rectangular selection
-    bindsym Control+Print exec \
-        filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
-        && grim -g "$(slurp)" "$filename" \
-        && wl-copy "file://$filename" -t text/uri-list
-
-    # screenshot of all monitor?
-    # bindsym Alt+Print exec grim $(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png')
-
-    # screenshot of rectangular selection to copy/paste buffer
-    # bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
-
-
 
 ## Custom window options:
     # for_window <criteria> <command>
@@ -196,8 +96,97 @@ input * scroll_factor 2.0
     # if this doesnt work, just increase sleep time in discord_pip.sh
     for_window [class="discord"] exec sh -c $(xdg-user-dir)/.config/sway/scripts/discord_pip.sh
 
-## Multimedia keys
 
+
+
+
+### IDLE CONFIGURATION
+# Example configuration:
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+
+
+
+
+
+### INPUT CONFIGURATION
+# Example configuration:
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+input * {
+    xkb_layout "us,ua"
+    xkb_options "grp:alt_shift_toggle"
+}
+
+
+## Mouse Cursor:
+seat seat0 xcursor_theme breeze_cursors 24
+
+## Mouse Scroll Factor (speed)
+input * scroll_factor 2.0
+
+
+
+
+
+### KEY BINDINGS
+
+## Basics:
+    # Start a terminal
+    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $term --class="$term_floating"
+
+    # Kill focused window
+    $btrbindsym $mod+q kill
+
+    # Start your launcher
+    $btrbindsym $mod+d exec $menu
+    # TODO:
+    # $btrbindsym --release $mod exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    $btrbindsym $mod+Shift+c reload
+
+    # Exit Sway
+    $btrbindsym $mod+Shift+e exec swaynag -t warning -m \
+        'You pressed the exit shortcut. What do you want?' \
+        -b 'Shutdown' 'systemctl poweroff' \
+        -b 'Reboot' 'systemctl reboot' \
+        -b 'Sleep' 'systemctl suspend' \
+        -b 'Logout' 'swaymsg exit' \
+
+    # Screenshots:
+    # screenshot of current monitor?
+    bindsym Print exec \
+        filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+        && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
+        && wl-copy "file://$filename" -t text/uri-list
+
+    # screenshot of rectangular selection
+    bindsym Control+Print exec \
+        filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+        && grim -g "$(slurp)" "$filename" \
+        && wl-copy "file://$filename" -t text/uri-list
+
+
+## Multimedia keys
+    # if sound doesnt work at all, try changing this number ;)
     set $audio_src_id 1
 
     # Pulse Audio controls
@@ -215,7 +204,6 @@ input * scroll_factor 2.0
 
 
 ## Moving Focus:
-
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -245,7 +233,6 @@ input * scroll_factor 2.0
 
 
 ## Workspaces:
-
     # Switch to next/prev workspace
     bindsym $mod+tab workspace next
     bindsym $mod+Shift+tab workspace prev
@@ -285,12 +272,9 @@ input * scroll_factor 2.0
     bindsym $mod+Shift+8 move container to workspace $workspace_8
     bindsym $mod+Shift+9 move container to workspace $workspace_9
     bindsym $mod+Shift+0 move container to workspace $workspace_10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
 
 
 ## Layout stuff:
-
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits respectively.
     $btrbindsym $mod+b splith
@@ -319,7 +303,6 @@ input * scroll_factor 2.0
 
 
 ## Scratchpad:
-
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
     # By default, when you get window from sratchpad, its floating,
@@ -360,36 +343,40 @@ mode "resize" {
 
 
 
-### Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
+
+
+### STATUS BAR:
 bar {
     swaybar_command waybar
 }
 
 
 
-### Auto Start:
+
+
+### AUTO START:
 # ?
 include @sysconfdir@/sway/config.d/*
 
-# Polkit KDE Authentication, need for windows that requests password:
+# Polkit KDE Authentication - for apps that requests password
 exec /usr/lib/polkit-kde-authentication-agent-1
 
-# sway-rkbd-rs: Remembers keyboard layout for each window:
+# sway-rkbd-rs - Remembers keyboard layout for each window
+# TODO: change this to /usr/local/bin
 exec $(xdg-user-dir)/Code/rust/sway-rkbd-rs/target/release/sway-rkbd-rs
 
-# Mako: notification manager:
+# Mako - notification manager
 # config file in: ~/.config/mako/config
 exec mako
 
-# Pamac is Manjaro package manager
-exec /usr/bin/pamac-tray-plasma
+# Pamac - Manjaro package manager
+exec pamac-tray-plasma
 # exec /usr/bin/pamac-daemon
 
-# Startup Dropbox:
-exec /usr/bin/dropbox
+# Dropbox
+exec dropbox
 
-# KDE Connect:
+# KDE Connect
 # exec kdeconnect-indicator
 exec /usr/lib/kdeconnectd
 
@@ -399,7 +386,7 @@ exec /usr/lib/kdeconnectd
 
 
 
-### My Custom ALIASes: moved to ~/aliases-setup.sh
+### MY CUSTOM ALIASES: moved to ~/setup-aliases.sh
 
 
 

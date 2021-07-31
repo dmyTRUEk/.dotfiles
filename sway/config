@@ -47,6 +47,10 @@ output * bg ~/Dropbox/Pictures/Wallpapers/vector_control_dreams.jpg fill
 # for screen sharing:
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# Windows borders and gaps:
+default_border none
+# gaps inner 10
+# gaps outer -10
 
 
 ### Idle configuration
@@ -103,15 +107,13 @@ input * scroll_factor 2.0
     $btrbindsym $mod+q kill
 
     # Start your launcher
-    $btrbindsym $mod+d exec $menu
     # TODO:
-    # bindsym --release --no-repeat $mod exec $menu
+    $btrbindsym $mod+d exec $menu
+    # $btrbindsym --release $mod exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
     floating_modifier $mod normal
 
     # Reload the configuration file
@@ -168,6 +170,12 @@ input * scroll_factor 2.0
     for_window [window_type="dialog"] floating enable
     for_window [window_type="menu"] floating enable
     for_window [window_role="About"] floating enable
+
+    # for_window [title="dialog"] floating enable
+    # for_window [instance="gl"] floating enable
+    # for_window [window_role="pop-up"] floating enable
+    # for_window [window_role="task_dialog"] floating enable
+
     for_window [class="xdg-desktop-portal-kde"] floating enable
 
     # Auto floating for windows like Terminals started with Mod+Shift+Return
@@ -181,17 +189,12 @@ input * scroll_factor 2.0
     #for_window [app_id="gwenview"] layout tabbed
     for_window [app_id="gwenview"] fullscreen enable
 
-    # make firefox picture-in-picture floating and sticky
+    # make Firefox Picture-In-Picture floating and sticky
     for_window [title="Picture-in-Picture"] floating enable, sticky enable
 
-    # make discord picture-in-picture floating and sticky
-    # for_window [title="^((?!Discord).)*$"] floating enable, sticky enable
-    # for_window [class="discord"] floating enable, sticky enable
-    # for_window [class="discord" title="Discord"] floating disable, sticky disable
-    # for_window [class="discord" window_role="browser-window"] floating enable, sticky enable
-    # current solution: just run discord, and if you want to make picture-in-picture window
-    #   to be floating and sticky, just do it by hands ;)
-
+    # make Discord Picture-In-Picture floating and sticky
+    # if this doesnt work, just increase sleep time in discord_pip.sh
+    for_window [class="discord"] exec sh -c $(xdg-user-dir)/.config/sway/scripts/discord_pip.sh
 
 ## Multimedia keys
 
@@ -356,31 +359,12 @@ mode "resize" {
 }
 
 
-## Status Bar:
+
+### Status Bar:
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
-
-    # position bottom
-
-    # font JetBrains Mono 10
-
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #323232ff #323232ff #ffffff
-    # }
-
-    # separator_symbol '|'
-
-    # # When the status_command prints a new line to stdout, swaybar updates.
-    # # The default just shows the current date and time.
-    # status_command while date +'%Y %b %d, %a, %H:%M:%S'; do sleep 1; done
 }
-
-default_border none
-# gaps inner 10
-# gaps outer -10
 
 
 

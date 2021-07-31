@@ -129,10 +129,9 @@ eval $(thefuck --alias)
 alias ls=lsd
 alias cat=bat
 # alias find=fd
-# alias rm=rip
-# alias cd=z
-# alias du=ncdu
+# alias du=dua
 # alias fzf=sk
+alias yay=paru
 
 
 

@@ -12,6 +12,8 @@ ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 # folders:
 ln -sfn ~/.dotfiles/alacritty ~/.config/
 ln -sfn ~/.dotfiles/mako ~/.config/
+ln -sfn ~/.dotfiles/nvim ~/.config/
+ln -sfn ~/.dotfiles/paru ~/.config/
 ln -sfn ~/.dotfiles/sway ~/.config/
 ln -sfn ~/.dotfiles/waybar ~/.config/
 

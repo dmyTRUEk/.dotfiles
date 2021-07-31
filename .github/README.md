@@ -6,14 +6,14 @@ and other distros, where you can install all needed programs.
 
 
 ## List of programs:
-- [Vim](https://www.vim.org/)
+- [Vim](https://www.vim.org/) + [NeoVim](https://neovim.io/)
 - [Zsh](https://www.zsh.org/) + [Oh My ZSH!](https://ohmyz.sh/)
 - [Git](https://git-scm.com/)
 - [Sway](https://swaywm.org/)
   - [Alacritty](https://github.com/alacritty/alacritty)
   - [Waybar](https://github.com/Alexays/Waybar)
   - [Mako](https://github.com/emersion/mako)
-- \+ My custom aliases
+- \+ My custom aliases, which are useful for dmenu
 
 
 

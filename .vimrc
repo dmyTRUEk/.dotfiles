@@ -1,4 +1,4 @@
-" ----------------- This is dmyTRUEk's .vimrc file -----------------
+" ----------------- This is dmyTRUEk's VIM config file -----------------
 "
 " v1.0 - 2019.11.01:
 "   added: syntax, vim-plug, vim-sublime-monokai,

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# dmyTRUEk's setup config files links script
+# 
 # This file leaves real files in ~/.dotfiles
 #   and makes links in all needed locations
 

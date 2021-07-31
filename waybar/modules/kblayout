@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# dmyTRUEk's Waybar module (kblayout) file
+# dmyTRUEk's Waybar module script for current layout
 
 swaymsg \
   --type get_inputs | \

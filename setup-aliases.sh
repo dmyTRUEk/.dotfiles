@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# dmyTRUEk's aliases setup file
+# dmyTRUEk's setup aliases script
 #
 # run it:
 # sh aliases-setup.sh

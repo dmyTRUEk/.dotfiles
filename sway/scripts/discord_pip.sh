@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script makes discord picture-in-picture window
+# dmyTRUEk's Discord picture-in-picture auto positioning script
 
 # if its broken, use mkdir ~/test/updater_lt6_ge6 to see what works, and what no
 if [ $(swaymsg -t get_tree | grep 'discord updater' -i | wc -l) -gt 0 ]; then

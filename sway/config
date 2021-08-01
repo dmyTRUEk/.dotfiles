@@ -35,7 +35,7 @@
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/black.png
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/cyberpunk_2077_bg_2.jpg
     # set $lockscreen_wallpaper $wallpaper
-    # set $lock_command exec sh -c $(xdg-user-dir)/.config/sway/scripts/lock_screen_manually.sh
+    set $lock_command exec sh -c $(xdg-user-dir)/.config/sway/scripts/lock_screen_manually.sh
 
 
 
@@ -172,9 +172,7 @@
     $btrbindsym $mod+Shift+c reload
 
     # Lock Screen
-    # TODO
-    # $btrbindsym $mod+l $lock_command
-    # $btrbindsym $mod+l exec sleep 5; output dpms * off; swaylock; output dpms * on
+    $btrbindsym $mod+l $lock_command
 
     # Exit Sway
     $btrbindsym $mod+Shift+e exec swaynag -t warning -m \

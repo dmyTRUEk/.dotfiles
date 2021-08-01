@@ -381,8 +381,8 @@ exec dropbox
 exec /usr/lib/kdeconnectd
 
 # Clipman:
-# exec wl-paste -t text --watch clipman store
-# exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
+#exec wl-paste -t text --watch clipman store
+#exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
 
 

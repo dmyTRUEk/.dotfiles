@@ -126,12 +126,27 @@ eval $(thefuck --alias)
 
 
 
+### My Custom Aliases for Terminal:
+
+## Useful programs:
 alias ls=lsd
 alias cat=bat
 # alias find=fd
 # alias du=dua
 # alias fzf=sk
 alias yay=paru
+
+## VIM related:
+alias neovim=nvim
+alias vim=nvim
+alias vi=nvim
+# typos:
+alias iv=nvim
+alias imv=nvim
+alias ivm=nvim
+alias miv=nvim
+alias mvi=nvim
+alias vmi=nvim
 
 
 

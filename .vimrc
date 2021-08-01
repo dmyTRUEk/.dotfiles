@@ -130,7 +130,7 @@ set autoindent              " set tabs automatically, when starting new line
 " set nowrap
 
 " Scroll content instead of cursor line
-set ttymouse=sgr
+" set ttymouse=sgr
 
 " remove ESC delay:
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/

@@ -7,55 +7,63 @@
 
 
 ### VARIABLES
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+    # Logo key. Use Mod1 for Alt.
+    set $mod Mod4
 
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+    # Home row direction keys, like vim
+    set $left h
+    set $down j
+    set $up k
+    set $right l
 
-# Keyboard shortcuts, that doesnt work with secondary languages must use `$btrbindsym`
-# btr stands for better
-set $btrbindsym bindsym --to-code
+    # Keyboard shortcuts, that doesnt work with secondary languages must use `$btrbindsym`
+    # btr stands for better
+    set $btrbindsym bindsym --to-code
 
-# Your preferred terminal emulator
-set $term alacritty
+    # Your preferred terminal emulator
+    set $term alacritty
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+    # Your preferred application launcher
+    # Note: pass the final command to swaymsg so that the resulting window can be opened
+    # on the original workspace that the command was run on.
+    set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+    # Wallpaper
+    set $wallpaper ~/Dropbox/Pictures/Wallpapers/vector_control_dreams.jpg
+
+    # Lockscreen
+    # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/black.png
+    # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/cyberpunk_2077_bg_2.jpg
+    # set $lockscreen_wallpaper $wallpaper
+    # set $lock_command exec sh -c $(xdg-user-dir)/.config/sway/scripts/lock_screen_manually.sh
 
 
 
 
 
 ### OUTPUT CONFIGURATION
-## Wallpaper (Background):
-# Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-# output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    # Wallpaper (Background)
+    # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
+    # output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    # output * bg ~/Dropbox/Pictures/Wallpapers/pinetree_pablo-garcia-saldana.jpg fill
+    output * bg $wallpaper fill
 
-# output * bg ~/Dropbox/Pictures/Wallpapers/pinetree_pablo-garcia-saldana.jpg fill
-output * bg ~/Dropbox/Pictures/Wallpapers/vector_control_dreams.jpg fill
+    # Example configuration
+    #   output HDMI-A-1 resolution 1920x1080 position 1920,0
+    # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# Example configuration:
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+    # for screen sharing
+    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-# for screen sharing:
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    # Windows borders and gaps
+    default_border none
+    # gaps inner 10
+    # gaps outer -10
 
-# Windows borders and gaps:
-default_border none
-# gaps inner 10
-# gaps outer -10
-
-## Custom window options:
+## Custom window options
     # for_window <criteria> <command>
     #
-    # Some useful commands:
+    # Some useful commands
     # floating enable|disable|toggle
     # sticky enable|disable|toggle - show window on all workspaces (as pin in kde)
     # layout default|splith|splitv|stacking|tabbed
@@ -79,7 +87,7 @@ default_border none
     for_window [class="xdg-desktop-portal-kde"] floating enable
 
     # Auto floating for windows like Terminals started with Mod+Shift+Return
-    # if app_id contains "folating" word, then make it floating:
+    # if app_id contains "folating" word, then make it floating
     for_window [app_id="floating"] floating enable
 
     # polkit is Authentification Agent
@@ -101,40 +109,40 @@ default_border none
 
 
 ### IDLE CONFIGURATION
-# Example configuration:
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+    # Example configuration
+    # This will lock your screen after 300 seconds of inactivity, then turn off
+    # your displays after another 300 seconds, and turn your screens back on when
+    # resumed. It will also lock your screen before your computer goes to sleep.
+    # TODO
+    # exec swayidle -w \
+    #          timeout 300 'swaylock -f -c 000000' \
+    #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    #          before-sleep 'swaylock -f -c 000000'
 
 
 
 
 
 ### INPUT CONFIGURATION
-# Example configuration:
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-input * {
-    xkb_layout "us,ua"
-    xkb_options "grp:alt_shift_toggle"
-}
+    # Example configuration
+    #   input "2:14:SynPS/2_Synaptics_TouchPad" {
+    #       dwt enabled
+    #       tap enabled
+    #       natural_scroll enabled
+    #       middle_emulation enabled
+    #   }
+    # You can get the names of your inputs by running: swaymsg -t get_inputs
+    # Read `man 5 sway-input` for more information about this section.
+    input * {
+        xkb_layout "us,ua"
+        xkb_options "grp:alt_shift_toggle"
+    }
 
+    ## Mouse Cursor
+    seat seat0 xcursor_theme breeze_cursors 24
 
-## Mouse Cursor:
-seat seat0 xcursor_theme breeze_cursors 24
-
-## Mouse Scroll Factor (speed)
-input * scroll_factor 2.0
+    ## Mouse Scroll Factor (speed)
+    input * scroll_factor 2.0
 
 
 
@@ -142,7 +150,7 @@ input * scroll_factor 2.0
 
 ### KEY BINDINGS
 
-## Basics:
+## Basics
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+Return exec $term --class="$term_floating"
@@ -152,7 +160,7 @@ input * scroll_factor 2.0
 
     # Start your launcher
     $btrbindsym $mod+d exec $menu
-    # TODO:
+    # TODO
     # $btrbindsym --release $mod exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -163,6 +171,11 @@ input * scroll_factor 2.0
     # Reload the configuration file
     $btrbindsym $mod+Shift+c reload
 
+    # Lock Screen
+    # TODO
+    # $btrbindsym $mod+l $lock_command
+    # $btrbindsym $mod+l exec sleep 5; output dpms * off; swaylock; output dpms * on
+
     # Exit Sway
     $btrbindsym $mod+Shift+e exec swaynag -t warning -m \
         'You pressed the exit shortcut. What do you want?' \
@@ -171,7 +184,7 @@ input * scroll_factor 2.0
         -b 'Sleep' 'systemctl suspend' \
         -b 'Logout' 'swaymsg exit' \
 
-    # Screenshots:
+    # Screenshots
     # screenshot of current monitor?
     bindsym Print exec \
         filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
@@ -190,20 +203,21 @@ input * scroll_factor 2.0
     set $audio_src_id 1
 
     # Pulse Audio controls
-    # increase sound volume:
-    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $audio_src_id +5%
-    # decrease sound volume:
-    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $audio_src_id -5%
-    # mute/unmute sound:
-    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $audio_src_id toggle
+    # --locked - makes it work even on locked screen
+    # increase sound volume
+    bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $audio_src_id +5%
+    # decrease sound volume
+    bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $audio_src_id -5%
+    # mute/unmute sound
+    bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $audio_src_id toggle
 
     # Media player controls
-    bindsym XF86AudioPlay exec playerctl play-pause
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioPrev exec playerctl previous
 
 
-## Moving Focus:
+## Moving Focus
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -232,7 +246,7 @@ input * scroll_factor 2.0
     focus_follows_mouse always
 
 
-## Workspaces:
+## Workspaces
     # Switch to next/prev workspace
     bindsym $mod+tab workspace next
     bindsym $mod+Shift+tab workspace prev
@@ -274,7 +288,7 @@ input * scroll_factor 2.0
     bindsym $mod+Shift+0 move container to workspace $workspace_10
 
 
-## Layout stuff:
+## Layout stuff
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits respectively.
     $btrbindsym $mod+b splith
@@ -302,7 +316,7 @@ input * scroll_factor 2.0
     bindsym $mod+Shift+s sticky toggle
 
 
-## Scratchpad:
+## Scratchpad
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
     # By default, when you get window from sratchpad, its floating,
@@ -317,7 +331,7 @@ input * scroll_factor 2.0
     bindsym $mod+minus scratchpad show
 
 
-## Resizing containers:
+## Resizing containers
 $btrbindsym $mod+r mode "resize"
 mode "resize" {
     set $resize_step 16px
@@ -345,7 +359,7 @@ mode "resize" {
 
 
 
-### STATUS BAR:
+### STATUS BAR
 bar {
     swaybar_command waybar
 }
@@ -354,12 +368,16 @@ bar {
 
 
 
-### AUTO START:
+### AUTO START
+## Daemons
 # ?
 include @sysconfdir@/sway/config.d/*
 
 # Polkit KDE Authentication - for apps that requests password
 exec /usr/lib/polkit-kde-authentication-agent-1
+
+# Sddm - for lock screen
+# exec systemctl enable sddm.service
 
 # sway-rkbd-rs - Remembers keyboard layout for each window
 # TODO: change this to /usr/local/bin
@@ -380,10 +398,14 @@ exec dropbox
 # exec kdeconnect-indicator
 exec /usr/lib/kdeconnectd
 
-# Clipman:
+# Clipman
 #exec wl-paste -t text --watch clipman store
 #exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
+## Programs default workspaces
+# TODO
+# assign [app_id="firefox"] workspace 2
+# assign [app_id="pcmanfm-qt"] workspace 3
 
 
 ### MY CUSTOM ALIASES: moved to ~/setup-aliases.sh

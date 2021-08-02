@@ -17,14 +17,14 @@ where you can install all needed programs.
   - [Mako](https://github.com/dmyTRUEk/dotfiles/tree/main/mako)
 - Git
 - [Paru](https://github.com/dmyTRUEk/dotfiles/blob/main/paru/paru.conf)
-  --- [yay](https://github.com/Jguer/yay) alanog written in [Rust](https://www.rust-lang.org/)
+  \- [yay](https://github.com/Jguer/yay) alanog written in [Rust](https://www.rust-lang.org/)
 
 ### Setup Scripts:
 - [Dotfiles](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
-  --- creates symbolic links in desired locations to real dotfiles
+  \- creates symbolic links in desired locations to real dotfiles
   (real dotfiles located in `~/.dotfiles/`)
 - [Aliases](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-aliases.sh)
-  --- useful for dmenu, creates "aliases" (shell scripts) in `~/.local/bin/`
+  \- useful for dmenu, creates "aliases" (shell scripts) in `~/.local/bin/`
 
 
 
@@ -50,7 +50,7 @@ where you can install all needed programs.
 
 
 
-## FAQ --- Frequently Asked Questions:
+## FAQ - Frequently Asked Questions:
 
 ### Some symbols doesnt show correctly
 Solution: install `ttf-font-awesome` package

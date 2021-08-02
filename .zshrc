@@ -95,7 +95,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+
+
+#### User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$PATH:/home/myshko/Development/flutter/bin"
@@ -119,8 +121,8 @@ export PATH="$PATH:/home/myshko/Development/flutter/bin"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="vim ~/.zshrc"
+# alias ohmyzsh="vim ~/.oh-my-zsh"
 
 eval $(thefuck --alias)
 
@@ -146,7 +148,17 @@ alias imv=nvim
 alias ivm=nvim
 alias miv=nvim
 alias mvi=nvim
+# alias vim=nvim
 alias vmi=nvim
+
+## GIT typos:
+# alias gi=git
+alias igt=git
+alias itg=git
+# alias git=git
+alias gti=git
+alias tig=git
+alias tgi=git
 
 
 

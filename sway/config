@@ -332,25 +332,39 @@
 ## Resizing containers
 $btrbindsym $mod+r mode "resize"
 mode "resize" {
-    set $resize_step 16px
-    # right will grow   the containers width
-    # left  will shrink the containers width
-    # up    will grow   the containers height
-    # down  will shrink the containers height
-    bindsym $right resize grow   width $resize_step
-    bindsym $left  resize shrink width $resize_step
-    bindsym $up    resize grow   height $resize_step
-    bindsym $down  resize shrink height $resize_step
-
-    # Same, with arrow keys
-    bindsym Right resize grow   width $resize_step
-    bindsym Left  resize shrink width $resize_step
-    bindsym Up    resize grow   height $resize_step
-    bindsym Down  resize shrink height $resize_step
+    set $resize_step_small 16px
+    set $resize_step_big 64px
 
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
+
+    # right will grow   the containers width
+    # left  will shrink the containers width
+    # up    will grow   the containers height
+    # down  will shrink the containers height
+
+    # Small step:
+    bindsym $right resize grow   width $resize_step_small
+    bindsym $left  resize shrink width $resize_step_small
+    bindsym $up    resize grow   height $resize_step_small
+    bindsym $down  resize shrink height $resize_step_small
+    # Same, with arrow keys
+    bindsym Right resize grow   width $resize_step_small
+    bindsym Left  resize shrink width $resize_step_small
+    bindsym Up    resize grow   height $resize_step_small
+    bindsym Down  resize shrink height $resize_step_small
+
+    # Big step:
+    bindsym Shift+$right resize grow   width $resize_step_big
+    bindsym Shift+$left  resize shrink width $resize_step_big
+    bindsym Shift+$up    resize grow   height $resize_step_big
+    bindsym Shift+$down  resize shrink height $resize_step_big
+    # Same, with arrow keys
+    bindsym Shift+Right resize grow   width $resize_step_big
+    bindsym Shift+Left  resize shrink width $resize_step_big
+    bindsym Shift+Up    resize grow   height $resize_step_big
+    bindsym Shift+Down  resize shrink height $resize_step_big
 }
 
 

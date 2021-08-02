@@ -40,6 +40,8 @@
         /* }, */
     },
 
+    /// MODULES:
+
     "custom/keyboard-layout": {
         "exec": "$(xdg-user-dir)/.config/waybar/modules/kblayout",
         "format": "{}",
@@ -69,7 +71,7 @@
         "format": "{:%Y %b %d, %H:%M:%S}",
         // for rices:
         /* "format": "{:2077 Jul 27, 20:58:32}", */
-        "tooltip": false,
+        "tooltip-format": "<big><tt>{:%B %Y}</tt></big>\n<tt><small>{calendar}</small></tt>",
     },
 
     "tray": {

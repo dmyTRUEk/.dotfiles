@@ -7,6 +7,8 @@
 
 
 
+# TODO: rewrite using functions
+
 # My Custom ALIASes:
 alias_name="ff" && alias_path=$(xdg-user-dir)/.local/bin/$alias_name && echo -e "#\!/bin/sh\nexec firefox" > $alias_path && chmod +x $alias_path
 

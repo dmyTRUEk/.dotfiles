@@ -5,6 +5,10 @@
 # This file leaves real files in ~/.dotfiles
 #   and makes links in all needed locations
 
+# TODO: maybe use it?
+# BASEDIR=$(dirname "$0")
+# echo "$BASEDIR"
+
 # files:
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc

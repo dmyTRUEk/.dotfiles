@@ -172,7 +172,7 @@
     $btrbindsym $mod+Shift+c reload
 
     # Lock Screen
-    $btrbindsym $mod+l $lock_command
+    $btrbindsym $mod+Escape $lock_command
 
     # Exit Sway
     $btrbindsym $mod+Shift+e exec swaynag -t warning -m \
@@ -180,7 +180,7 @@
         -b 'Shutdown' 'systemctl poweroff' \
         -b 'Reboot' 'systemctl reboot' \
         -b 'Sleep' 'systemctl suspend' \
-        -b 'Logout' 'swaymsg exit' \
+        -b 'Logout' 'swaymsg exit'
 
     # Screenshots
     # screenshot of current monitor?

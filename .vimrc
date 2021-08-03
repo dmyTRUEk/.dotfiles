@@ -279,6 +279,11 @@ let g:AutoPairsMapCh=0
 
 
 
+" Surrounding settings:
+" TODO: change so that `ys(` dont add spaces inside
+
+
+
 " AIRLINE settings:
 let g:airline_powerline_fonts=1
 "let g:airline_detect_spelllang=1

@@ -189,69 +189,71 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
 " PLUGINS:
+call plug#begin('~/.vim/plugged')
 
-" themes:
+" Color Themes:
 "Plug 'nlknguyen/papercolor-theme'
 "Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'kjssad/quantum.vim'
 Plug 'morhetz/gruvbox'
 
-" vim extentions:
+" Status Bar (bottom):
 Plug 'vim-airline/vim-airline'
-" better bottom status bar
 
+" File Manager inside vim (default on left side):
 Plug 'scrooloose/nerdtree'
-" folders viewer inside vim (default on left side)
 
-Plug 'tpope/vim-surround'
+" Vim Surround:
 " cs'<t> inside '' => 'Hello world' -> <t>Hello world</t>
+Plug 'tpope/vim-surround'
 
-" for coding:
+" Auto Completion:
 Plug 'valloric/youcompleteme'   
 ", {'for': ['cpp', 'python']}
 
+" Close Brackets automatically:
 Plug 'jiangmiao/auto-pairs'
-" close brackets automatically
 
+" Comments manager: use 'gcc' (not C compiler) to comment/uncomment line:
 Plug 'tpope/vim-commentary'
-" use 'gcc' (not c compiler) to comment line
 
+" Git wrapper so awesome, it should be illegal:
 " Plug 'tpope/vim-fugitive'
-" a git wrapper so awesome, it should be illegal
 
+" ? Syntax Highlight:
 " Plug 'scrooloose/syntastic'
-" for syntax highlight
-"
+
+" Rust Syntax:
 " Plug 'rust-lang/rust.vim'
-" for rust syntax
 
-" for latex:
+" for LaTeX:
 Plug 'lervag/vimtex'        ,{'for': ['tex']}
-" for LaTeX
 
+" Snippets (i use it for LaTeX):
 Plug 'sirver/ultisnips'     ,{'for': ['tex']}
-" for snippets in LaTeX
+
+" Kotlin Syntax:
+Plug 'udalov/kotlin-vim'
 
 call plug#end()
 
 
 
 " COLORSCHEME settings:
-" papercolor:
+" Papercolor:
 "set background=light
 "colorscheme PaperColor
 
-" sublimemonokai:
+" Sublimemonokai:
 "colorscheme sublimemonokai
 
-" quantum:
+" Quantum:
 "set termguicolors   " enable true colors support
 "set background=light   " light theme
 "colorscheme quantum
 
-" gruvbox:
+" Gruvbox:
 set background=dark
 colorscheme gruvbox
 
@@ -263,9 +265,9 @@ let g:ycm_min_num_of_chars_for_completion=1
 
 
 " NERDTree settings:
-" autocmd VimEnter * NERDTree         " launch on startup
 autocmd VimEnter * set mouse=a      " enable changing panes size by mouse
-autocmd VimEnter * wincmd w         " auto move to main panel
+" autocmd VimEnter * NERDTree       " launch on startup
+" autocmd VimEnter * wincmd w       " auto move to main panel
 
 let NERDTreeSortOrder = ['[[extension]]']       " sort by type
 let NERDTreeNaturalSort=1           " Sort files in natural order (f1, f5, f10, f100)
@@ -275,6 +277,7 @@ let NERDTreeNaturalSort=1           " Sort files in natural order (f1, f5, f10, 
 
 
 " AutoPairs settings:
+" TODO: what does this do?
 let g:AutoPairsMapCh=0
 
 
@@ -293,7 +296,7 @@ let g:airline_powerline_fonts=1
 "let g:airline_section_gutter=""
 "let g:airline_section_x=""
 let g:airline_section_y=""
-let g:airline_section_z="Line: %l/%L Col: %c"
+let g:airline_section_z="Line: %l/%L, Col: %c"
 "let g:airline_section_error=""
 "let g:airline_section_warning=""
 
@@ -437,25 +440,24 @@ let g:UltiSnipsEditSplit="vertical"
 
 
 
-
 " LEADER MAPS:
 
-" set leader key
+" Set leader key:
 let mapleader=" "
 
-" save (Write) file:
+" Save (Write) file:
 nnoremap <Leader>w :w <CR>
 
-" quit:
+" Quit:
 nnoremap <Leader>q :q <CR>
 
-" save (Write) all files:
+" Save (Write) All files:
 nnoremap <Leader>W :wa <CR>
 
-" quit all without saving:
+" Quit All without saving:
 nnoremap <Leader>Q :qa! <CR>
 
-" save all and quit all:
+" Save All and Quit All:
 nnoremap <Leader>A :wqa <CR>
 
 

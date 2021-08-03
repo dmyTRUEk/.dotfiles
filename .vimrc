@@ -449,6 +449,17 @@ nnoremap <Leader>w :w <CR>
 " quit:
 nnoremap <Leader>q :q <CR>
 
+" save (Write) all files:
+nnoremap <Leader>W :wa <CR>
+
+" quit all without saving:
+nnoremap <Leader>Q :qa! <CR>
+
+" save all and quit all:
+nnoremap <Leader>A :wqa <CR>
+
+
+
 " NERDTreeToggle:
 nnoremap <Leader>n :NERDTreeToggle <CR>
 

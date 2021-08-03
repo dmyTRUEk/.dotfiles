@@ -47,6 +47,7 @@ where you can install all needed programs.
 - [fluix-dev](https://github.com/fluix-dev/dotfiles)
 - [MIAH7](https://github.com/MIAH7/dotfiles)
 - [MuratovAS](https://github.com/MuratovAS/dotfiles)
+- [1edenec](https://github.com/1edenec/ledosway)
 
 
 

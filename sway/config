@@ -234,7 +234,8 @@
     set $workspace_1 1 Firefox
     set $workspace_2 2 Telegram
     set $workspace_3 3 Files
-    set $workspace_4 4 Terminal
+    # set $workspace_4 4 Terminal
+    set $workspace_4 4
     # set $workspace_5 5 SysMonitor
     set $workspace_5 5
     set $workspace_6 6

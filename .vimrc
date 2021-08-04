@@ -94,6 +94,11 @@
 "     rewritten plugins section
 "   removed: nerdtree on startup
 "
+" v4.0.0 - 2021.08.04:
+"   added: if term=alacritty => term=xterm-256color (for some bug fix),
+"     vim or neovim specific settings, cursor min dist from edges,
+"     custom airline_section_x = vim/neovim
+"
 
 
 
@@ -113,6 +118,7 @@ set autochdir               " change current dir to file's dir
 set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
 " set showcmd                 " show last command (if you pressed 'j' then 'j' will be showed)
+set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 
 " for better search:
 set incsearch               " show search results immedeatly
@@ -129,14 +135,41 @@ set autoindent              " set tabs automatically, when starting new line
 " Dont wrap lines: 
 " set nowrap
 
-" Scroll content instead of cursor line
-" set ttymouse=sgr
-
 " remove ESC delay:
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-" set esckeys                "However, this will break any sequences using Escape in insert mode, DOESNT WORK?
+" set esckeys                "However, this will break any sequences using Escape in insert mode
 set timeoutlen=1000
 set ttimeoutlen=0
+
+" Fix Vim/Neovim and Alacritty compatibility:
+" source: https://github.com/alacritty/alacritty/issues/919
+if &term == 'alacritty'
+    " if some strange BUG will occur => remove next line:
+    set term=xterm-256color
+    " execute "set <xUp>=\e[1;*A"
+    " execute "set <xDown>=\e[1;*B"
+    " execute "set <xRight>=\e[1;*C"
+    " execute "set <xLeft>=\e[1;*D"
+endif
+
+
+" VIM or NEOVIM specific configs
+" https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
+" https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
+if has('nvim')
+    " echom "NEOVIM"
+
+    let g:airline_section_x="NEOVIM"
+
+else
+    " echom "VIM"
+
+    " Scroll content instead of cursor line
+    " set ttymouse=sgr
+
+    let g:airline_section_x="VIM"
+
+endif
 
 
 
@@ -294,7 +327,7 @@ let g:airline_powerline_fonts=1
 "let g:airline_section_b=""
 "let g:airline_section_c=""
 "let g:airline_section_gutter=""
-"let g:airline_section_x=""
+" let g:airline_section_x=""
 let g:airline_section_y=""
 let g:airline_section_z="Line: %l/%L, Col: %c"
 "let g:airline_section_error=""

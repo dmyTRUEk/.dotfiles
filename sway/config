@@ -399,8 +399,7 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 # exec systemctl enable sddm.service
 
 # sway-rkbd-rs - Remembers keyboard layout for each window
-# TODO: change this to /usr/local/bin or smt
-exec $(xdg-user-dir)/Code/rust/sway-rkbd-rs/target/release/sway-rkbd-rs
+exec $(xdg-user-dir)/.local/bin/sway-rkbd-rs-v020
 
 # Mako - notification manager
 # config file in: ~/.config/mako/config

@@ -118,7 +118,7 @@ set autochdir               " change current dir to file's dir
 set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
 " set showcmd                 " show last command (if you pressed 'j' then 'j' will be showed)
-set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
+" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 
 " for better search:
 set incsearch               " show search results immedeatly

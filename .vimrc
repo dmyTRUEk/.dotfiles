@@ -32,8 +32,8 @@
 "       Plug 'blahblah', {'for': ['a', 'b']}
 "
 " v1.6.2 - 2020.03.14:
-" 	added: no preview on autocomplete
-" 	edited: set default theme
+"   added: no preview on autocomplete
+"   edited: set default theme
 "
 " v1.7 - 2020.03.21:
 "   edited: smart and auto tabs equal 4 spaces
@@ -219,9 +219,9 @@ let &t_SI.="\e[6 q"         "SI = insert mode
 
 " if vim-plug not installed then install:
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " PLUGINS:
@@ -374,48 +374,48 @@ let g:UltiSnipsEditSplit="vertical"
 " my snippets (~/.vim/UltiSnips/tex.snippets):
 " snippet b "begin{...} ... end{}" b
 " \begin{$1}
-" 	$2
+"     $2
 " \end{$1}
 " $0
 " endsnippet
 " 
 " snippet e "begin{equation} ... end{}" b
 " \begin{equation}
-" 	$1
+"     $1
 " \end{equation}
 " $0
 " endsnippet
 " 
 " snippet it "begin{itemize} ... end{}" b
 " \begin{itemize}
-" 	$1
+"     $1
 " \end{itemize}
 " $0
 " endsnippet
 " 
 " snippet n "begin{enumerate} ... end{}" b
 " \begin{enumerate}
-" 	$1
+"     $1
 " \end{enumerate}
 " $0
 " endsnippet
 " 
 " snippet s "begin{split} ... end{}" b
 " \begin{split}
-" 	$1
+"     $1
 " \end{split}
 " endsnippet
 " 
 " snippet c "begin{center} ... end{}" b
 " \begin{center}
-" 	$1
+"     $1
 " \end{center}
 " $0
 " endsnippet
 " 
 " snippet ca "begin{cases} ... end{}" b
 " \begin{cases}
-" 	$1
+"     $1
 " \end{cases}
 " $0
 " endsnippet
@@ -445,7 +445,7 @@ let g:UltiSnipsEditSplit="vertical"
 " snippet es "begin{equation+split} ... end{}" b
 " \begin{equation}
 " \begin{split}
-" 	$1
+"     $1
 " \end{split}
 " \end{equation}
 " $0
@@ -454,7 +454,7 @@ let g:UltiSnipsEditSplit="vertical"
 " snippet le "begin{fleqn+eqn}" b
 " \begin{fleqn} [\parindent]
 " \begin{equation}
-" 	$1
+"     $1
 " \end{equation}
 " \end{fleqn}
 " $0

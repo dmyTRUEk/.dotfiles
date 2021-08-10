@@ -99,6 +99,11 @@
 "     vim or neovim specific settings, cursor min dist from edges,
 "     custom airline_section_x = vim/neovim
 "
+" v4.1.0 - 2021.08.10:
+"   added: leader+hjkl to move between windows in vim
+"   edited: fixed goto definition and back
+"   removed: scrolloff, compile latex and c/c++
+"
 
 
 
@@ -173,27 +178,24 @@ endif
 
 
 
-" my BINDINGS:
+" remaps in NORMAL mode:
 nnoremap <F2> <C-w>
 nnoremap <F3> ^
 nnoremap <F4> $
 
-" move in insert mode:
+" remaps in INSRET mode:
+" move in insert:
 inoremap <C-H> <Left>
 inoremap <C-J> <Down>
 inoremap <C-K> <Up>
 inoremap <C-L> <Right>
 
+" remaps in VISUAL mode:
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " make Y copy till end of line
 map Y y$
-
-" {TODO} Use Alt-k and Alt-j to move line or selected lines up and down
-" nnoremap <A-j> :m .+1<CR>==
-" nnoremap <A-k> :m .-2<CR>==
-" inoremap <A-j> <Esc>:m .+1<CR>==gi
-" inoremap <A-k> <Esc>:m .-2<CR>==gi
-" vnoremap <A-j> :m '>+1<CR>gv=gv
-" vnoremap <A-k> :m '<-2<CR>gv=gv
 
 
 
@@ -498,19 +500,23 @@ nnoremap <Leader>A :wqa <CR>
 " NERDTreeToggle:
 nnoremap <Leader>n :NERDTreeToggle <CR>
 
+" move between windows inside vim:
+nnoremap <Leader>h :wincmd h<CR>
+nnoremap <Leader>j :wincmd j<CR>
+nnoremap <Leader>k :wincmd k<CR>
+nnoremap <Leader>l :wincmd l<CR>
+
 " go to Definition:
-nnoremap <silent> <Leader>d md :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>d mD :YcmCompleter GoTo<CR>
 " go to Back
-nnoremap <silent> <Leader>b `d
+nnoremap <silent> <Leader>b `D :delmarks D<CR>
 
 " compile Latex to pdf:
-nnoremap <Leader>l :w <bar> :PdfLaTeX <CR>
+" nnoremap <Leader>l :w <bar> :PdfLaTeX <CR>
+" TODO: setup auto compile latex files on save
 
 " run Python code:
 nnoremap <Leader>p :wa <bar> :! python % <CR>
-
-" compile+run C++ code:
-nnoremap <Leader>c :wa <bar> :! g++ % -o "%<" && ./"%<" <CR>
 
 " compile+run Rust code:
 nnoremap <Leader>r :wa <bar> :! cargo run <CR>

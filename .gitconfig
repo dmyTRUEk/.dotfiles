@@ -2,7 +2,7 @@
 	email = 25669613+dmyTRUEk@users.noreply.github.com
 	name = dmyTRUEk
 [core]
-	editor = vim
+	editor = nvim
 [credential]
 	helper = store
 [init]

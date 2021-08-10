@@ -271,6 +271,11 @@ Plug 'sirver/ultisnips'     ,{'for': ['tex']}
 " Kotlin Syntax:
 Plug 'udalov/kotlin-vim'
 
+" Telescope:
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 
@@ -510,6 +515,10 @@ nnoremap <Leader>l :wincmd l<CR>
 nnoremap <silent> <Leader>d mD :YcmCompleter GoTo<CR>
 " go to Back
 nnoremap <silent> <Leader>b `D :delmarks D<CR>
+
+" Telescope:
+nnoremap <Leader>f :Telescope find_files<CR>
+nnoremap <Leader>g :Telescope live_grep<CR>
 
 " compile Latex to pdf:
 " nnoremap <Leader>l :w <bar> :PdfLaTeX <CR>

@@ -390,8 +390,8 @@ selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  save_to_clipboard: true
-  # save_to_clipboard: false
+  # save_to_clipboard: true
+  save_to_clipboard: false
 
 cursor:
   # Cursor style
@@ -759,6 +759,12 @@ key_bindings:
   # Windows, Linux, and BSD only (in fact, all except MacOS)
   - { key: V,              mods: Control|Shift,         action: Paste            }
   - { key: C,              mods: Control|Shift,         action: Copy             }
+
+  # - { key: H,              mods: Control,               action: Left}
+  # - { key: J,              mods: Control,               action: Down}
+  # - { key: K,              mods: Control,               action: Up}
+  # - { key: L,              mods: Control,               action: Right}
+
   #- { key: F,              mods: Control|Shift, mode: ~Search,    action: SearchForward    }
   #- { key: B,              mods: Control|Shift, mode: ~Search,    action: SearchBackward   }
   #- { key: C,              mods: Control|Shift, mode: Vi|~Search, action: ClearSelection   }
@@ -769,10 +775,6 @@ key_bindings:
   #- { key: NumpadAdd,      mods: Control,                         action: IncreaseFontSize }
   #- { key: Minus,          mods: Control,                         action: DecreaseFontSize }
   #- { key: NumpadSubtract, mods: Control,                         action: DecreaseFontSize }
-  # - { key: Left,           mods: Control,               action: None             }
-  # - { key: Right,          mods: Control,               action: None             }
-  # - { key: Up,             mods: Control,               action: None             }
-  # - { key: Down,           mods: Control,               action: None             }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }

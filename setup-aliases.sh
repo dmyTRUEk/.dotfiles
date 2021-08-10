@@ -24,5 +24,6 @@ alias_name="ds" && alias_path=$(xdg-user-dir)/.local/bin/$alias_name && echo -e 
 
 alias_name="anst" && alias_path=$(xdg-user-dir)/.local/bin/$alias_name && echo -e "#\!/bin/sh\n_JAVA_AWT_WM_NONREPARENTING=1 android-studio" > $alias_path && chmod +x $alias_path
 
+alias_name="pych" && alias_path=$(xdg-user-dir)/.local/bin/$alias_name && echo -e "#\!/bin/sh\n_JAVA_AWT_WM_NONREPARENTING=1 pycharm" > $alias_path && chmod +x $alias_path
 
 

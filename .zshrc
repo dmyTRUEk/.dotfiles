@@ -4,7 +4,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/myshko/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -75,22 +75,16 @@ plugins=(
     colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
-    #oh-my-zsh
-    #antigen
-
-    archlinux
-
-    git
-
-    tmux
-
-    python
-    pip
-    pylint
-    pep8
-
+    #git
     rust
     cargo
+    pip
+    #antigen
+    #archlinux
+    #tmux
+    #python
+    #pylint
+    #pep8
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 #### User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:/home/myshko/Development/flutter/bin"
+export PATH="$PATH:$HOME/Development/flutter/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -131,34 +125,50 @@ eval $(thefuck --alias)
 ### My Custom Aliases for Terminal:
 
 ## Useful programs:
-alias ls=lsd
-alias cat=bat
-# alias find=fd
-# alias du=dua
-# alias fzf=sk
-alias yay=paru
+alias ls='lsd'
+alias cat='bat'
+# alias find='fd'
+# alias du='dua'
+# alias fzf='sk'
+alias yay='paru'
+
+# Useful aliases:
+alias cl='clear'
+# alias la='ls -a'
+# alias ll='ls -l'
 
 ## VIM related:
-alias neovim=nvim
-alias vim=nvim
-alias vi=nvim
+alias v='nvim'
+alias neovim='nvim'
+# alias vim='nvim'
+# alias vi='nvim'
 # typos:
-alias iv=nvim
-alias imv=nvim
-alias ivm=nvim
-alias miv=nvim
-alias mvi=nvim
-# alias vim=nvim
-alias vmi=nvim
+# alias iv='nvim'
+# alias imv='nvim'
+# alias ivm='nvim'
+# alias miv='nvim'
+# alias mvi='nvim'
+# alias vim='nvim'
+# alias vmi='nvim'
 
-## GIT typos:
-# alias gi=git
-alias igt=git
-alias itg=git
-# alias git=git
-alias gti=git
-alias tig=git
-alias tgi=git
+## GIT related:
+alias g='git'
+alias gs='git status'
+alias gsu='git status -u'
+alias ga='git add'
+alias ga.='git add .'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gpush='git push'
+alias gpull='git pull'
+# typos:
+# alias gi='git'
+# alias igt='git'
+# alias itg='git'
+# alias git='git'
+# alias gti='git'
+# alias tig='git'
+# alias tgi='git'
 
 
 

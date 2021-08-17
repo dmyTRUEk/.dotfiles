@@ -155,8 +155,10 @@
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+Return exec $term --class="$term_floating"
 
-    # Kill focused window
+    # Terminate focused window
     $btrbindsym $mod+q kill
+    # Kill focused window
+    $btrbindsym $mod+Shift+q kill 9
 
     # Start your launcher
     $btrbindsym $mod+d exec $menu

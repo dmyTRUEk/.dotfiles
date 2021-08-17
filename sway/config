@@ -142,7 +142,7 @@
     seat seat0 xcursor_theme breeze_cursors 24
 
     ## Mouse Scroll Factor (speed)
-    input * scroll_factor 2.0
+    #input * scroll_factor 2.0
 
 
 

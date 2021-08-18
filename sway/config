@@ -29,13 +29,14 @@
     set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
     # Wallpaper
-    set $wallpaper ~/Dropbox/Pictures/Wallpapers/vector_control_dreams.jpg
+    # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
+    set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/solis-2560×1440.jpg
 
     # Lockscreen
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/black.png
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/cyberpunk_2077_bg_2.jpg
     # set $lockscreen_wallpaper $wallpaper
-    set $lock_command exec sh -c $(xdg-user-dir)/.config/sway/scripts/lock_screen_manually.sh
+    set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
 
 
 
@@ -102,7 +103,7 @@
 
     # make Discord Picture-In-Picture floating and sticky
     # if this doesnt work, just increase sleep time in discord_pip.sh
-    for_window [class="discord"] exec sh -c $(xdg-user-dir)/.config/sway/scripts/discord_pip.sh
+    for_window [class="discord"] exec sh -c $HOME/.config/sway/scripts/discord_pip.sh
 
 
 
@@ -187,13 +188,13 @@
     # Screenshots
     # screenshot (of current monitor?)
     bindsym Print exec \
-        filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+        filename=$HOME/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
         && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
         && wl-copy "file://$filename" -t text/uri-list
 
     # screenshot of rectangular selection
     bindsym Control+Print exec \
-        filename=$(xdg-user-dir)/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+        filename=$HOME/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
         && grim -g "$(slurp)" "$filename" \
         && wl-copy "file://$filename" -t text/uri-list
 
@@ -401,7 +402,7 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 # exec systemctl enable sddm.service
 
 # sway-rkbd-rs - Remembers keyboard layout for each window
-exec $(xdg-user-dir)/.local/bin/sway-rkbd-rs-v020
+exec $HOME/.local/bin/sway-rkbd-rs-v020
 
 # Mako - notification manager
 # config file in: ~/.config/mako/config
@@ -426,9 +427,6 @@ exec /usr/lib/kdeconnectd
 # TODO
 # assign [app_id="firefox"] workspace 2
 # assign [app_id="pcmanfm-qt"] workspace 3
-
-
-### MY CUSTOM ALIASES: moved to ~/setup-aliases.sh
 
 
 

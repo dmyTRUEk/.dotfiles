@@ -134,6 +134,11 @@ alias yay='paru'
 
 # Useful aliases:
 alias cl='clear'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
 # alias la='ls -a'
 # alias ll='ls -l'
 

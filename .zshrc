@@ -127,9 +127,9 @@ eval $(thefuck --alias)
 ## Useful programs:
 alias ls='lsd'
 alias cat='bat'
-# alias find='fd'
-# alias du='dua'
-# alias fzf='sk'
+#alias find='fd'
+#alias du='dua'
+#alias fzf='sk'
 alias yay='paru'
 
 # Useful aliases:
@@ -139,43 +139,29 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-# alias la='ls -a'
-# alias ll='ls -l'
+#alias la='ls -a'
+#alias ll='ls -l'
 
 ## VIM related:
 alias v='nvim'
 alias neovim='nvim'
-# alias vim='nvim'
-# alias vi='nvim'
-# typos:
-# alias iv='nvim'
-# alias imv='nvim'
-# alias ivm='nvim'
-# alias miv='nvim'
-# alias mvi='nvim'
-# alias vim='nvim'
-# alias vmi='nvim'
+#alias vim='nvim'
+#alias vi='nvim'
 
 ## GIT related:
 alias g='git'
-alias gs='git status'
-alias gsu='git status -u'
+#alias gs='git status'
+alias gs='git status -u'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias ga='git add'
 alias ga.='git add .'
+alias gr='git restore --staged'
+alias gr.='git restore --staged .'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gpush='git push'
 alias gpull='git pull'
-# typos:
-# alias gi='git'
-# alias igt='git'
-# alias itg='git'
-# alias git='git'
-# alias gti='git'
-# alias tig='git'
-# alias tgi='git'
 
 
 

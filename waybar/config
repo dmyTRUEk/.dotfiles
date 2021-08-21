@@ -6,23 +6,29 @@
     /* "height": 20, */
 
     "modules-left": [
+        "sway/window",
+    ],
+
+    "modules-center": [
         "sway/workspaces",
         "sway/mode",
     ],
 
-    /* "modules-center": [ */
-    /*     "sway/window", */
-    /* ], */
-
     "modules-right": [
         "tray",
         "custom/keyboard-layout",
-        /* "pulseaudio", */
+        "pulseaudio",
         "clock",
     ],
 
+
+
     "sway/window": {
-        "max-length": 50,
+        "max-length": 60,
+        /* "rewrite": { */
+        /*     "(.*) - Mozilla Firefox": "🌎 $1", */
+        /*     "(.*) - zsh": "> [$1]", */
+        /* } */
     },
 
     "sway/workspaces": {
@@ -48,22 +54,23 @@
         /* "format": " {}", */
     },
 
-    /* "pulseaudio": { */
-    /*     "format": "{volume}% {icon}", */
-    /*     "format-bluetooth": "{volume}% {icon}", */
-    /*     "format-muted": "", */
-    /*     "format-icons": { */
-    /*         "headphone": "", */
-    /*         "hands-free": "", */
-    /*         "headset": "", */
-    /*         "phone": "", */
-    /*         "portable": "", */
-    /*         "car": "", */
-    /*         "default": ["", ""], */
-    /*     }, */
-    /*     "scroll-step": 1, */
-    /*     "on-click-right": "pavucontrol", */
-    /* }, */
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": " 0%",
+        "format-icons": {
+            /* "headphone": "", */
+            /* "hands-free": "", */
+            /* "headset": "", */
+            /* "phone": "", */
+            /* "portable": "", */
+            /* "car": "", */
+            //           0    1    2    3    4    5    6    7    8    9
+            "default": ["", "", "", "", "", "", "", "", "", ""],
+        },
+        "scroll-step": 1,
+        "on-click-right": "pavucontrol",
+    },
 
     // time and date
     "clock": {
@@ -75,7 +82,7 @@
     },
 
     "tray": {
-        "icon-size": 20,
+        "icon-size": 18,
         "spacing": 10,
     },
 }

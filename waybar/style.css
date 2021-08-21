@@ -1,6 +1,6 @@
 /** dmyTRUEk's Waybar CSS file */
 
-/* Reset all styles */
+/* Set for all */
 * {
     border: none;
     border-radius: 0;
@@ -10,11 +10,9 @@
 }
 
 #waybar {
-    /* background: #31363b; */
-    color: #ffffff;
     background: #333333;
+    color: #ffffff;
     font-family: JetBrains Mono, Cantarell, Noto Sans, sans-serif;
-    /* font-family: Awesome, Cantarell, Noto Sans, sans-serif; */
     font-size: 13px;
 }
 
@@ -24,8 +22,8 @@
 
 #workspaces button {
     color: #ffffff;
-    padding-bottom: 2px;
-    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
     padding-left: 8px;
     padding-right: 8px;
     box-shadow: inset 0 0px #000000;
@@ -68,22 +66,24 @@
 #tray,
 #mode,
 #idle_inhibitor {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
     /* margin: 0 0px; */
 }
 
-/* #custom-weather { */
-/*     border-bottom: 3px solid #3daee9; */
-/* } */
+
 
 /* #custom-keyboard-layout { */
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
 
+
+
 /* #clock { */
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
+
+
 
 /* #battery { */
 /*     background-color: #ffffff; */
@@ -93,13 +93,6 @@
 /* #battery.charging { */
 /*     color: #ffffff; */
 /*     background-color: #26A65B; */
-/* } */
-
-/* @keyframes blink { */
-/*     to { */
-/*         background-color: #ffffff; */
-/*         color: #000000; */
-/*     } */
 /* } */
 
 /* #battery.critical:not(.charging) { */
@@ -112,9 +105,13 @@
 /*     animation-direction: alternate; */
 /* } */
 
-label:focus {
-    background-color: #000000;
-}
+
+
+/* label:focus { */
+/*     background-color: #000000; */
+/* } */
+
+
 
 /* #cpu { */
 /*     border-bottom: 3px solid #3daee9; */
@@ -124,6 +121,8 @@ label:focus {
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
 
+
+
 /* #network { */
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
@@ -132,13 +131,17 @@ label:focus {
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
 
-#pulseaudio {
-    border-bottom: 3px solid #3daee9;
-}
 
-#pulseaudio.muted {
-    border-bottom: 3px solid #3daee9;
-}
+
+/* #pulseaudio { */
+/*     border-bottom: 3px solid #3daee9; */
+/* } */
+
+/* #pulseaudio.muted { */
+/*     border-bottom: 3px solid #3daee9; */
+/* } */
+
+
 
 /* #temperature { */
 /*     border-bottom: 3px solid #3daee9; */
@@ -148,9 +151,13 @@ label:focus {
 /*     background-color: #eb4d4b; */
 /* } */
 
+
+
 #tray {
-    
+    /* margin: 5px; */
 }
+
+
 
 #idle_inhibitor {
     background-color: #2d3436;
@@ -160,6 +167,4 @@ label:focus {
     background-color: #ecf0f1;
     color: #2d3436;
 }
-
-
 

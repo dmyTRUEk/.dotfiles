@@ -151,7 +151,7 @@ alias neovim='nvim'
 ## GIT related:
 alias g='git'
 #alias gs='git status'
-alias gs='git status -u'
+alias gs='git status -u --find-renames=1'
 alias gss='git status'
 alias gd='git diff'
 alias gds='git diff --staged'

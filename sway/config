@@ -38,6 +38,21 @@
     # set $lockscreen_wallpaper $wallpaper
     set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
 
+    # Workspaces names
+    set $workspace_1 1 Firefox
+    set $workspace_2 2 Telegram
+    set $workspace_3 3 Files
+    # set $workspace_4 4 Terminal
+    set $workspace_4 4
+    # set $workspace_5 5 SysMonitor
+    set $workspace_5 5
+    set $workspace_6 6
+    set $workspace_7 7
+    set $workspace_8 8
+    set $workspace_9 9
+    set $workspace_10 10
+
+
 
 
 
@@ -72,6 +87,13 @@
     # if window have title bar (border), its text will be aligned to center
     title_align center
 
+    # Programs default workspaces
+    assign [app_id="firefox"]              workspace $workspace_1
+    assign [app_id="telegram"]             workspace $workspace_2
+    assign [app_id="dolphin"]              workspace $workspace_3
+    assign [app_id="plasma-systemmonitor"] workspace $workspace_10
+
+    # Windows rules
     for_window [window_role="pop-up"] floating enable
     for_window [window_role="bubble"] floating enable
     for_window [window_role="task_dialog"] floating enable
@@ -95,8 +117,10 @@
     for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
     for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] border normal
 
+    # Image Viewers:
     #for_window [app_id="gwenview"] layout tabbed
     for_window [app_id="gwenview"] fullscreen enable
+    for_window [class="Display"] floating enable
 
     # make Pavucontrol floating in bottom right corner:
     for_window [app_id="pavucontrol"] floating enable, move position cursor, move up 22px
@@ -236,20 +260,6 @@
     bindsym $mod+tab workspace next
     bindsym $mod+Shift+tab workspace prev
 
-    # Set workspaces names
-    set $workspace_1 1 Firefox
-    set $workspace_2 2 Telegram
-    set $workspace_3 3 Files
-    # set $workspace_4 4 Terminal
-    set $workspace_4 4
-    # set $workspace_5 5 SysMonitor
-    set $workspace_5 5
-    set $workspace_6 6
-    set $workspace_7 7
-    set $workspace_8 8
-    set $workspace_9 9
-    set $workspace_10 10
-
     # Switch to workspace
     bindsym $mod+1 workspace $workspace_1
     bindsym $mod+2 workspace $workspace_2
@@ -272,6 +282,12 @@
     bindsym $mod+Shift+8 move container to workspace $workspace_8
     bindsym $mod+Shift+9 move container to workspace $workspace_9
     bindsym $mod+Shift+0 move container to workspace $workspace_10
+
+    # Shortcuts for start programs:
+    bindsym $mod+F1  workspace $workspace_1,  exec firefox
+    bindsym $mod+F2  workspace $workspace_2,  exec telegram-desktop
+    bindsym $mod+F3  workspace $workspace_3,  exec dolphin
+    bindsym $mod+F10 workspace $workspace_10, exec plasma-systemmonitor
 
 
 ## Layout stuff
@@ -425,11 +441,4 @@ exec /usr/lib/kdeconnectd
 # Clipman
 #exec wl-paste -t text --watch clipman store
 #exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
-
-## Programs default workspaces
-# TODO
-# assign [app_id="firefox"] workspace 2
-# assign [app_id="pcmanfm-qt"] workspace 3
-
-
 

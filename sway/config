@@ -30,7 +30,7 @@
 
     # Wallpaper
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
-    set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/solis-2560×1440.jpg
+    set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/solis-2560x1440.jpg
 
     # Lockscreen
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/black.png

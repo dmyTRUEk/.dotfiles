@@ -4,7 +4,7 @@
 
 
 
-lockscreen_wallpaper=$HOME/Dropbox/Pictures/Wallpapers/art/solis-2560×1440.jpg
+lockscreen_wallpaper=$HOME/Dropbox/Pictures/Wallpapers/art/solis-2560x1440.jpg
 delay_turn_off_screen=10
 tmp_file=/tmp/for_sway_scripts__lock_screen_manually__swayidle_pid.txt
 

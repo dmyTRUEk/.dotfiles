@@ -104,16 +104,21 @@
 "   edited: fixed goto definition and back
 "   removed: scrolloff, compile latex and c/c++
 "
+" v4.2.0 - 2021.09.14:
+"   added: vim-latex-zathura synchronization
+"
 
 
 
 
+
+" detect filetype (ft) on vim init
+filetype indent on
 
 " VIM settings:
 set nocompatible            " dont use 'vi' (before vim) compability
 set encoding=utf-8          " use utf-8 encoding
 filetype plugin indent on   " turns on 'detection', 'plugin' and 'indent' at once
-" filetype plugin indent on   " show existing tab with 4 spaces width
 syntax enable               " highlight syntax
 
 set number relativenumber   " set line numbers relative to caret
@@ -268,6 +273,9 @@ Plug 'lervag/vimtex'        ,{'for': ['tex']}
 " Snippets (i use it for LaTeX):
 Plug 'sirver/ultisnips'     ,{'for': ['tex']}
 
+" Async Run:
+Plug 'skywind3000/asyncrun.vim'
+
 " Kotlin Syntax:
 Plug 'udalov/kotlin-vim'
 
@@ -347,29 +355,59 @@ let g:Powerline_symbols='unicode'
 
 
 
+
+
 " for LaTeX:
-command PdfLaTeX ! echo '\n\n\n\n\n' && pdflatex -halt-on-error %:t
-"if (&ft=='tex')
-    " command PdfLaTeX ! echo '\n\n\n\n\n' && pdflatex -halt-on-error %:t
-    " command wp w PdfLaTeX
-"endif
+command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
-let g:tex_flavor='latex'
-" look at: https://habr.com/ru/post/445066/
-" let g:vimtex_view_general_viewer='okular'
-" let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
-" let g:vimtex_view_general_options_latexmk='--unique'
-let g:vimtex_quickfix_mode=0
-" set conceallevel=1
-" let g:tex_conceal='abdmg'
+" function CompileLaTeXtoPDFf()
+"     CompileLaTeXtoPDF
+" endfunction
+
+function SynctexFromVimToZathura()
+    " remove 'silent' for debugging
+    " execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+    execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . expand('%:t:r') . ".pdf"
+endfunction
+
+function CompileLaTeXtoPDFsilent()
+    " AsyncRun CompileLaTeXtoPDFf()
+    " let tmp = timer_start(2000, 'CompileLaTeXtoPDFf')    
+    " let command = "!pdflatex -halt-on-error -synctex=1 " . bufname('%') . " &\n"
+    " execute command
+    " call system("pdflatex -halt-on-error -synctex=1 " . bufname('%') . " &")
+    silent exec "!pdflatex -halt-on-error -synctex=1 " . bufname('%')
+endfunction
+
+function SetupEverythingForLaTeX()
+    let g:tex_flavor='latex'
+    " look at: https://habr.com/ru/post/445066/
+    " let g:vimtex_view_general_viewer='okular'
+    " let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
+    " let g:vimtex_view_general_options_latexmk='--unique'
+    let g:vimtex_quickfix_mode=0
+    " set conceallevel=1
+    " let g:tex_conceal='abdmg'
+
+    let g:vimtex_view_method='zathura'
+
+    " snippets for LaTeX:
+    let g:UltiSnipsExpandTrigger='<F8>'
+    let g:UltiSnipsJumpForwardTrigger='<F8>'
+    let g:UltiSnipsJumpBackwardTrigger='<F9>'
+    let g:UltiSnipsEditSplit="vertical"
+
+    autocmd CursorMoved *.tex call SynctexFromVimToZathura()
+
+    " TODO:
+    " autocmd BufWritePost *.tex CompileLaTeXtoPDF
+    " autocmd InsertLeave *.tex call CompileLaTeXtoPDFsilent()
+
+endfunction
+
+autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
 
 
-
-" snippets for LaTeX:
-let g:UltiSnipsExpandTrigger='<F8>'
-let g:UltiSnipsJumpForwardTrigger='<F8>'
-let g:UltiSnipsJumpBackwardTrigger='<F9>'
-let g:UltiSnipsEditSplit="vertical"
 
 " my snippets (~/.vim/UltiSnips/tex.snippets):
 " snippet b "begin{...} ... end{}" b
@@ -520,9 +558,8 @@ nnoremap <silent> <Leader>b `D :delmarks D<CR>
 nnoremap <Leader>f :Telescope find_files<CR>
 nnoremap <Leader>g :Telescope live_grep<CR>
 
-" compile Latex to pdf:
-" nnoremap <Leader>l :w <bar> :PdfLaTeX <CR>
-" TODO: setup auto compile latex files on save
+" compile LaTeX:
+nnoremap <Leader>l :w <bar> CompileLaTeXtoPDF <CR>
 
 " run Python code:
 nnoremap <Leader>p :wa <bar> :! python % <CR>

@@ -360,6 +360,12 @@ let g:Powerline_symbols='unicode'
 " for LaTeX:
 command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
+" snippets for LaTeX:
+let g:UltiSnipsExpandTrigger='<F8>'
+let g:UltiSnipsJumpForwardTrigger='<F8>'
+let g:UltiSnipsJumpBackwardTrigger='<F9>'
+let g:UltiSnipsEditSplit="horizontal"
+
 " function CompileLaTeXtoPDFf()
 "     CompileLaTeXtoPDF
 " endfunction
@@ -391,11 +397,6 @@ function SetupEverythingForLaTeX()
 
     let g:vimtex_view_method='zathura'
 
-    " snippets for LaTeX:
-    let g:UltiSnipsExpandTrigger='<F8>'
-    let g:UltiSnipsJumpForwardTrigger='<F8>'
-    let g:UltiSnipsJumpBackwardTrigger='<F9>'
-    let g:UltiSnipsEditSplit="vertical"
 
     autocmd CursorMoved *.tex call SynctexFromVimToZathura()
 

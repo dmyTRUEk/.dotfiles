@@ -369,24 +369,45 @@ let g:UltiSnipsEditSplit="horizontal"
 " function CompileLaTeXtoPDFf()
 "     CompileLaTeXtoPDF
 " endfunction
+" function CompileLaTeXtoPDFsilent()
+"     " AsyncRun CompileLaTeXtoPDFf()
+"     " let tmp = timer_start(2000, 'CompileLaTeXtoPDFf')    
+"     " let command = "!pdflatex -halt-on-error -synctex=1 " . bufname("%") . " &\n"
+"     " execute command
+"     " call system("pdflatex -halt-on-error -synctex=1 " . bufname("%") . " &")
+"     silent exec "!pdflatex -halt-on-error -synctex=1 " . bufname("%")
+" endfunction
 
 function SynctexFromVimToZathura()
     " remove 'silent' for debugging
     " execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
-    execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . expand('%:t:r') . ".pdf"
+    execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
 endfunction
 
-function CompileLaTeXtoPDFsilent()
-    " AsyncRun CompileLaTeXtoPDFf()
-    " let tmp = timer_start(2000, 'CompileLaTeXtoPDFf')    
-    " let command = "!pdflatex -halt-on-error -synctex=1 " . bufname('%') . " &\n"
-    " execute command
-    " call system("pdflatex -halt-on-error -synctex=1 " . bufname('%') . " &")
-    silent exec "!pdflatex -halt-on-error -synctex=1 " . bufname('%')
+function CompileLaTeXtoPDFasync()
+    if g:is_now_compiling == 0
+        " lock another possible instances of this function:
+        let g:is_now_compiling = 1
+        " save file before compiling:
+        execute "w"
+        " compile file:
+        call jobstart(
+        \   "pdflatex -halt-on-error -synctex=1 " . bufname("%"),
+        \   {"on_exit": { j, c, e ->
+        \       execute("echom 'pdflatex finished. exit code: ".c."'", "")
+        \   }}
+        \)
+        " TODO call this on `on_exit`, also save last_exit_code, and synctex must synchronize only if last_exit_code==0
+        " synchronize latex (vim) and pdf (zathura) using new synctex file:
+        "call SynctexFromVimToZathura()
+        " unlock another possible instances of this function:
+        let g:is_now_compiling = 0
+    endif
 endfunction
 
 function SetupEverythingForLaTeX()
     let g:tex_flavor='latex'
+
     " look at: https://habr.com/ru/post/445066/
     " let g:vimtex_view_general_viewer='okular'
     " let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
@@ -397,12 +418,16 @@ function SetupEverythingForLaTeX()
 
     let g:vimtex_view_method='zathura'
 
-
+    " things for reactivity/dynamics:
     autocmd CursorMoved *.tex call SynctexFromVimToZathura()
+    autocmd CursorMovedI *.tex call SynctexFromVimToZathura()
 
-    " TODO:
-    " autocmd BufWritePost *.tex CompileLaTeXtoPDF
-    " autocmd InsertLeave *.tex call CompileLaTeXtoPDFsilent()
+    let g:is_now_compiling = 0
+
+    " autocmd CursorHold *.tex call CompileLaTeXtoPDFasync()
+    " autocmd CursorHoldI *.tex call CompileLaTeXtoPDFasync()
+    autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
+    " autocmd CursorMovedI *.tex call CompileLaTeXtoPDFasync()
 
 endfunction
 

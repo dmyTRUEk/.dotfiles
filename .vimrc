@@ -420,13 +420,15 @@ function SetupEverythingForLaTeX()
 
     " things for reactivity/dynamics:
     autocmd CursorMoved *.tex call SynctexFromVimToZathura()
-    autocmd CursorMovedI *.tex call SynctexFromVimToZathura()
+    " autocmd CursorMovedI *.tex call SynctexFromVimToZathura()
 
     let g:is_now_compiling = 0
 
-    " autocmd CursorHold *.tex call CompileLaTeXtoPDFasync()
+    " set hold delay
+    set updatetime=1500
+    autocmd CursorHold *.tex call CompileLaTeXtoPDFasync()
     " autocmd CursorHoldI *.tex call CompileLaTeXtoPDFasync()
-    autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
+    " autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
     " autocmd CursorMovedI *.tex call CompileLaTeXtoPDFasync()
 
 endfunction

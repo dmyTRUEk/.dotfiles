@@ -1,3 +1,29 @@
+# dmyTRUEk's snippets for LaTeX
+#
+# snippet modificators:
+#   b -> will work only at begin of line
+#   i -> inword, so that `text/` + <F8> -> `text\frac{...}{...}`
+#   r -> regex name
+#     abc?d? = [ab, abc, abcd]
+
+
+
+# AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+snippet ab "above = overset{...}{...}"
+\overset{$1}{$2} $0
+endsnippet
+
+snippet "angs?" "Angstroms" ir
+\text{\normalfont\AA}
+endsnippet
+
+snippet avg "average" i
+\left\langle $1 \right\rangle $0
+endsnippet
+
+
+
+# BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 snippet b "begin{...} ... end{}" b
 \begin{$1}
 	$2
@@ -5,47 +31,110 @@ snippet b "begin{...} ... end{}" b
 $0
 endsnippet
 
-snippet e "begin{equation} ... end{}" b
-\begin{equation}
-	$1
-\end{equation}
-$0
+snippet bbc "big brackets { }" i
+\left{ $1 \right} $0
 endsnippet
 
-snippet it "begin{itemize} ... end{}" b
-\begin{itemize}
-	$1
-\end{itemize}
-$0
+snippet "bbr?" "big brackets ( )" ir
+\left( $1 \right) $0
 endsnippet
 
-snippet n "begin{enumerate} ... end{}" b
-\begin{enumerate}
-	$1
-\end{enumerate}
-$0
+snippet bbs "big brackets [ ]" i
+\left[ $1 \right] $0
 endsnippet
 
-snippet s "begin{split} ... end{}" b
-\begin{split}
-	$1
-\end{split}
+snippet be "below = underset{...}{...}"
+\underset{$1}{$2} $0
 endsnippet
 
-snippet c "begin{center} ... end{}" b
+
+
+# CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+snippet c "center = begin{center} ... end{}" b
 \begin{center}
 	$1
 \end{center}
 $0
 endsnippet
 
-snippet ca "begin{cases} ... end{}" b
+snippet ca "cases = begin{cases} ... end{}" b
 \begin{cases}
 	$1
 \end{cases}
 endsnippet
 
-snippet f "begin{figure} ... end{}" b
+snippet "compl?e?x?" "complex numbers symbol = C" ir
+\mathbb{C}
+endsnippet
+
+# also named `vp`
+snippet cp "cross product = [A x B]" i
+\left[ $1 \times $2 \right] $0
+endsnippet
+
+
+
+# DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+snippet d "differential = dx" i
+\dd{$1}$0
+endsnippet
+
+snippet deg "degree symbol = ^o" i
+\text{°}$0
+endsnippet
+
+#snippet div "divergence" i
+#div
+#endsnippet
+
+snippet ds "displaystyle = make formuls big if they are small" i
+\displaystyle $0
+endsnippet
+
+
+
+# EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+snippet e "equation = begin{equation} ... end{}" b
+\begin{equation}
+	$1
+\end{equation}
+$0
+endsnippet
+
+snippet ec "equation+cases = begin{equation+cases} ... end{}" b
+\begin{equation}
+\begin{cases}
+	$1
+\end{cases}
+\end{equation}
+$0
+endsnippet
+
+snippet eq "equivalent = ≡" i
+\equiv
+endsnippet
+
+snippet eqbydef "equal by def = =_{def}" i
+\underset{def}{=}
+endsnippet
+
+snippet es "equation+split = begin{equation+split} ... end{}" b
+\begin{equation}
+\begin{split}
+	$1
+\end{split}
+\end{equation}
+$0
+endsnippet
+
+snippet ex "exp = e^{...}" i
+e^{$1}$0
+endsnippet
+
+
+
+# FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+snippet f "image = begin{figure} ... end{}" b
 \begin{figure} [H]
     \centering
     \includegraphics[scale=0.9]{$1}
@@ -55,7 +144,419 @@ snippet f "begin{figure} ... end{}" b
 $0
 endsnippet
 
-snippet t "begin{center+tabular} ... end{}" b
+snippet fol "follows = =>" i
+\quad\Rightarrow\quad
+endsnippet
+
+snippet foll "long follows = ==>" i
+\qquad\Rightarrow\qquad
+endsnippet
+
+
+
+# GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+snippet ga "alpha" i
+\alpha
+endsnippet
+
+snippet gA "Alpha" i
+\Alpha
+endsnippet
+
+snippet gb "beta" i
+\beta
+endsnippet
+
+snippet gB "Beta" i
+\Beta
+endsnippet
+
+snippet gc "gamma" i
+\gamma
+endsnippet
+
+snippet gC "Gamma" i
+\Gamma
+endsnippet
+
+snippet gd "delta" i
+\delta
+endsnippet
+
+snippet gD "Delta" i
+\Delta
+endsnippet
+
+snippet ge "epsilon" i
+\varepsilon
+endsnippet
+
+snippet gE "Epsilon" i
+\Epsilon
+endsnippet
+
+snippet "geta?" "eta" ir
+\eta
+endsnippet
+
+snippet "gEta?" "eta" ir
+\Eta
+endsnippet
+
+snippet gf "phi" i
+\varphi
+endsnippet
+
+snippet gF "Phi" i
+\Phi
+endsnippet
+
+snippet gg "gamma" i
+\gamma
+endsnippet
+
+snippet gG "Gamma" i
+\Gamma
+endsnippet
+
+snippet gh "chi" i
+\chi
+endsnippet
+
+snippet gH "Chi" i
+\Chi
+endsnippet
+
+snippet gi "iota" i
+\iota
+endsnippet
+
+snippet gI "Iota" i
+\Iota
+endsnippet
+
+#snippet gj "alpha" i
+#\alpha
+#endsnippet
+
+#snippet gJ "Alpha" i
+#\Alpha
+#endsnippet
+
+snippet gk "kappa" i
+\varkappa
+endsnippet
+
+snippet gK "Kappa" i
+\Kappa
+endsnippet
+
+snippet gl "lambda" i
+\lambda
+endsnippet
+
+snippet gL "Lambda" i
+\Lambda
+endsnippet
+
+snippet gm "mu" i
+\mu
+endsnippet
+
+snippet gM "Mu" i
+\Mu
+endsnippet
+
+snippet gn "nu" i
+\nu
+endsnippet
+
+snippet gN "Nu" i
+\Nu
+endsnippet
+
+snippet go "omega" i
+\omega
+endsnippet
+
+snippet gO "Omega" i
+\Omega
+endsnippet
+
+snippet gp "psi" i
+\psi
+endsnippet
+
+snippet gP "Psi" i
+\Psi
+endsnippet
+
+snippet gpi "pi" i
+\pi
+endsnippet
+
+snippet gPi "Pi" i
+\Pi
+endsnippet
+
+#snippet gq "alpha" i
+#\alpha
+#endsnippet
+
+#snippet gQ "Alpha" i
+#\Alpha
+#endsnippet
+
+snippet gr "rho" i
+\rho
+endsnippet
+
+snippet gR "Rho" i
+\Rho
+endsnippet
+
+snippet "grad?" "gradient = nabla vector" i
+\overrightarrow{\nabla}$0
+endsnippet
+
+snippet gs "sigma" i
+\sigma
+endsnippet
+
+snippet gS "Sigma" i
+\Sigma
+endsnippet
+
+snippet gt "theta" i
+\theta
+endsnippet
+
+snippet gT "Theta" i
+\Theta
+endsnippet
+
+snippet "gtau?" "tau" ir
+\tau
+endsnippet
+
+snippet "gTau?" "Tau" ir
+\Tau
+endsnippet
+
+snippet gu "upsilon" i
+\upsilon
+endsnippet
+
+snippet gU "Upsilon" i
+\Upsilon
+endsnippet
+
+snippet gv "nu" i
+\nu
+endsnippet
+
+snippet gV "Nu" i
+\Nu
+endsnippet
+
+snippet gw "omega" i
+\omega
+endsnippet
+
+snippet gW "Omega" i
+\Omega
+endsnippet
+
+snippet gx "xi" i
+\xi
+endsnippet
+
+snippet gX "Xi" i
+\Xi
+endsnippet
+
+#snippet gy "alpha" i
+#\alpha
+#endsnippet
+
+#snippet gY "Alpha" i
+#\Alpha
+#endsnippet
+
+snippet gz "zeta" i
+\zeta
+endsnippet
+
+snippet gZ "Zeta" i
+\Zeta
+endsnippet
+
+
+
+# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+snippet h "hat (operator) = A^" i
+\hat{$1}$0
+endsnippet
+
+snippet half "... / 2" i
+\frac{$1}{2}$0
+endsnippet
+
+
+
+# IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+snippet i "\item ..."
+\item $0
+endsnippet
+
+snippet inf "infinity" i
+\infty
+endsnippet
+
+snippet ins "insertion" i
+\Bigg| \ $1 \ \Bigg| $0
+endsnippet
+
+snippet int "integral" i
+\int\limits_{$1}^{$2} \dd{$3} $0
+endsnippet
+
+snippet intii "integral" i
+\int\limits_{-\infty}^{+\infty} \dd{$1} $0
+endsnippet
+
+snippet intzi "integral" i
+\int\limits_{0}^{+\infty} \dd{$1} $0
+endsnippet
+
+snippet inv "1 / ..." i
+\frac{1}{$1}$0
+endsnippet
+
+snippet it "itemize = begin{itemize} ... end{}" b
+\begin{itemize}
+	$1
+\end{itemize}
+$0
+endsnippet
+
+
+
+# JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+
+
+
+# KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+
+
+
+# LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+snippet lap "laplace = Δ" i
+\Delta
+endsnippet
+
+
+snippet le "left equation = begin{fleqn+eqn}" b
+\begin{fleqn} [\parindent]
+\begin{equation}
+	$1
+\end{equation}
+\end{fleqn}
+$0
+endsnippet
+
+snippet lim "limits when = ---...--->" i
+\underset{$1}{\rightarrow} $0
+endsnippet
+
+
+
+# MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+snippet m "matrix" i
+\begin{pmatrix}
+    $1
+\end{pmatrix} $0
+endsnippet
+
+
+
+# NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+snippet n "enumerate = begin{enumerate} ... end{}" b
+\begin{enumerate}
+	$1
+\end{enumerate}
+$0
+endsnippet
+
+snippet num "42.0 * 10^{76}" i
+$1 \cdot 10^{$2} $0
+endsnippet
+
+
+
+# OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+
+
+# PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+# also named `gp`
+snippet pi "pi" i
+\pi
+endsnippet
+
+
+
+# QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+
+
+
+# RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+#snippet rot "rotor (curl)" i
+#rot
+#endsnippet
+
+
+
+# SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+snippet s "section{...}" b
+\section{$1}
+$0
+endsnippet
+
+snippet sp "split = begin{split} ... end{}" b
+\begin{split}
+	$1
+\end{split}
+endsnippet
+
+snippet ss "subsection{...}" b
+\subsection{$1}
+$0
+endsnippet
+
+snippet s2 "subsection{...}" b
+\subsection{$1}
+$0
+endsnippet
+
+snippet s3 "subsubsection{...}" b
+\subsubsection{$1}
+$0
+endsnippet
+
+snippet sss "subsubsection{...}" b
+\subsubsection{$1}
+$0
+endsnippet
+
+snippet sum "sum" i
+\sum\limits_{$1}^{$2} $0
+endsnippet
+
+
+
+# TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+snippet t "table = begin{center+tabular} ... end{}" b
 \begin{table} [H]
 \begin{center}
 \begin{tabular} {|c|c|}
@@ -69,38 +570,54 @@ snippet t "begin{center+tabular} ... end{}" b
 $0
 endsnippet
 
-
-
-snippet es "begin{equation+split} ... end{}" b
-\begin{equation}
-\begin{split}
-	$1
-\end{split}
-\end{equation}
-$0
-endsnippet
-
-snippet le "begin{fleqn+eqn}" b
-\begin{fleqn} [\parindent]
-\begin{equation}
-	$1
-\end{equation}
-\end{fleqn}
-$0
+snippet today "Today Date" i
+`date +%4Y.%2m.%2d`
 endsnippet
 
 
 
+# UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+
+
+
+# VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+snippet "ve?c?" "vector" ir
+\vec{$1}$0
+endsnippet
+
+snippet vect "long vector" i
+\overrightarrow{$1}$0
+endsnippet
+
+# also named `cp`
+snippet vp "vector product = [A x B]" i
+\left[ $1 \times $2 \right] $0
+endsnippet
+
+snippet vs "vspace" i
+\vspace{$1} $0
+endsnippet
+
+
+
+# WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+
+
+# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+# YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+
+
+
+# ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
+
+
+# SYMBOLS SYMBOLS SYMBOLS SYMBOLS SYMBOLS SYMBOLS SYMBOLS SYMBOLS SYMBOLS SYMBOLS
 snippet / "\frac{}{}" i
 \frac{$1}{$2}$0
 endsnippet
 
-snippet i "\item ..."
-\item $0
-endsnippet
-
-
-
-snippet today "Today Date" i
-`date +%4Y.%2m.%2d`
-endsnippet

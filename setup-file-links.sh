@@ -21,6 +21,7 @@ ln -sfn ~/.dotfiles/mako ~/.config/
 ln -sfn ~/.dotfiles/nvim ~/.config/
 ln -sfn ~/.dotfiles/paru ~/.config/
 ln -sfn ~/.dotfiles/sway ~/.config/
-ln -sfn ~/.dotfiles/waybar ~/.config/
 ln -sfn ~/.dotfiles/UltiSnips ~/.vim/
+ln -sfn ~/.dotfiles/waybar ~/.config/
+ln -sfn ~/.dotfiles/zathura ~/.config/
 

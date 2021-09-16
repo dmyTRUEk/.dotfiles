@@ -366,42 +366,45 @@ let g:UltiSnipsJumpForwardTrigger='<F8>'
 let g:UltiSnipsJumpBackwardTrigger='<F9>'
 let g:UltiSnipsEditSplit="horizontal"
 
-" function CompileLaTeXtoPDFf()
-"     CompileLaTeXtoPDF
-" endfunction
-" function CompileLaTeXtoPDFsilent()
-"     " AsyncRun CompileLaTeXtoPDFf()
-"     " let tmp = timer_start(2000, 'CompileLaTeXtoPDFf')    
-"     " let command = "!pdflatex -halt-on-error -synctex=1 " . bufname("%") . " &\n"
-"     " execute command
-"     " call system("pdflatex -halt-on-error -synctex=1 " . bufname("%") . " &")
-"     silent exec "!pdflatex -halt-on-error -synctex=1 " . bufname("%")
-" endfunction
-
 function SynctexFromVimToZathura()
     " remove 'silent' for debugging
     " execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
     execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
 endfunction
 
+function SynctexFromVimToZathuraSafe()
+    if g:compile_latex_to_pdf_last_exit_code == 0
+        call SynctexFromVimToZathura()
+    endif
+endfunction
+
+function CompileLaTeXtoPDFasyncOnExit(j, c, e)
+    let g:compile_latex_to_pdf_prev_exit_code = g:compile_latex_to_pdf_last_exit_code
+    let g:compile_latex_to_pdf_last_exit_code = a:c
+    echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_last_exit_code
+    
+    " synchronize latex (vim) and pdf (zathura) using new synctex file:
+    " this `if` needed for case when prev compile wasnt successful, and
+    " therefore simply calling `SynctexFromVimToZathuraSafe()` will
+    " open new window + reload old one.
+    if g:compile_latex_to_pdf_prev_exit_code == 0
+        call SynctexFromVimToZathuraSafe()
+    endif
+    
+    " unlock another possible instances of this function:
+    let g:compile_latex_to_pdf_is_now_compiling = 0
+endfunction
+
 function CompileLaTeXtoPDFasync()
-    if g:is_now_compiling == 0
+    if g:compile_latex_to_pdf_is_now_compiling == 0
         " lock another possible instances of this function:
-        let g:is_now_compiling = 1
+        let g:compile_latex_to_pdf_is_now_compiling = 1
+
         " save file before compiling:
         execute "w"
+
         " compile file:
-        call jobstart(
-        \   "pdflatex -halt-on-error -synctex=1 " . bufname("%"),
-        \   {"on_exit": { j, c, e ->
-        \       execute("echom 'pdflatex finished. exit code: ".c."'", "")
-        \   }}
-        \)
-        " TODO call this on `on_exit`, also save last_exit_code, and synctex must synchronize only if last_exit_code==0
-        " synchronize latex (vim) and pdf (zathura) using new synctex file:
-        "call SynctexFromVimToZathura()
-        " unlock another possible instances of this function:
-        let g:is_now_compiling = 0
+        call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "CompileLaTeXtoPDFasyncOnExit"})
     endif
 endfunction
 
@@ -419,10 +422,12 @@ function SetupEverythingForLaTeX()
     let g:vimtex_view_method='zathura'
 
     " things for reactivity/dynamics:
-    autocmd CursorMoved *.tex call SynctexFromVimToZathura()
-    " autocmd CursorMovedI *.tex call SynctexFromVimToZathura()
+    autocmd CursorMoved *.tex call SynctexFromVimToZathuraSafe()
+    " autocmd CursorMovedI *.tex call SynctexFromVimToZathuraSafe()
 
-    let g:is_now_compiling = 0
+    let g:compile_latex_to_pdf_is_now_compiling = 0
+    let g:compile_latex_to_pdf_last_exit_code = 1
+    let g:compile_latex_to_pdf_prev_exit_code = 1
 
     " set hold delay
     set updatetime=1500

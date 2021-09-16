@@ -366,10 +366,20 @@ let g:UltiSnipsJumpForwardTrigger='<F8>'
 let g:UltiSnipsJumpBackwardTrigger='<F9>'
 let g:UltiSnipsEditSplit="horizontal"
 
+" you may want disable it, if you want to see only .tex, without .pdf
+function SynctexFromVimToZathuraDisable()
+    let g:is_synctex_from_vim_to_zathura_must_work = 0
+endfunction
+function SynctexFromVimToZathuraEnable()
+    let g:is_synctex_from_vim_to_zathura_must_work = 1
+endfunction
+
 function SynctexFromVimToZathura()
     " remove 'silent' for debugging
     " execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
-    execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
+    if g:is_synctex_from_vim_to_zathura_must_work
+        execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
+    endif
 endfunction
 
 function SynctexFromVimToZathuraSafe()
@@ -422,6 +432,8 @@ function SetupEverythingForLaTeX()
     let g:vimtex_view_method='zathura'
 
     " things for reactivity/dynamics:
+    let g:is_synctex_from_vim_to_zathura_must_work = 1
+
     autocmd CursorMoved *.tex call SynctexFromVimToZathuraSafe()
     " autocmd CursorMovedI *.tex call SynctexFromVimToZathuraSafe()
 

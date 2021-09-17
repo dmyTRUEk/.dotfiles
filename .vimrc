@@ -107,6 +107,9 @@
 " v4.2.0 - 2021.09.14:
 "   added: vim-latex-zathura synchronization
 "
+" v4.2.1 - 2021.09.17:
+"   added: fractional scrolloff
+"
 
 
 
@@ -128,7 +131,6 @@ set autochdir               " change current dir to file's dir
 set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
 " set showcmd                 " show last command (if you pressed 'j' then 'j' will be showed)
-" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 
 " for better search:
 set incsearch               " show search results immedeatly
@@ -151,6 +153,19 @@ set autoindent              " set tabs automatically, when starting new line
 set timeoutlen=1000
 set ttimeoutlen=0
 
+" SCROLLOFF: distance from window(viewport) top/bottom
+" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
+let g:scrolloff_fraction = 0.15
+
+function SetFractionalScrollOff(fraction)
+    let l:visible_lines_in_active_window = winheight(win_getid())
+    let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
+endfunction
+
+autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scrolloff_fraction)
+
+
+
 " Fix Vim/Neovim and Alacritty compatibility:
 " source: https://github.com/alacritty/alacritty/issues/919
 if &term == 'alacritty'
@@ -161,6 +176,7 @@ if &term == 'alacritty'
     " execute "set <xRight>=\e[1;*C"
     " execute "set <xLeft>=\e[1;*D"
 endif
+
 
 
 " VIM or NEOVIM specific configs

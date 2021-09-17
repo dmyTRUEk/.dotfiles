@@ -274,6 +274,9 @@ Plug 'jiangmiao/auto-pairs'
 " Comments manager: use 'gcc' (not C compiler) to comment/uncomment line:
 Plug 'tpope/vim-commentary'
 
+" Highlight words' unique symbols when pressing f F t T
+Plug 'unblevable/quick-scope'
+
 " Git wrapper so awesome, it should be illegal:
 " Plug 'tpope/vim-fugitive'
 
@@ -348,6 +351,10 @@ let g:AutoPairsMapCh=0
 
 " Surrounding settings:
 " TODO: change so that `ys(` dont add spaces inside
+
+
+" Quick-scope settings:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
 

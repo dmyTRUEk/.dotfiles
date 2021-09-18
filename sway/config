@@ -52,6 +52,10 @@
     set $workspace_9 9
     set $workspace_10 10
 
+    # Dolphin settings:
+    # operation (copy/move/already exists/etc) window size
+    set $dolphin_operation_window_width 800
+
 
 
 
@@ -115,8 +119,8 @@
     for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, border normal
 
     # Dolphin:
-    for_window [title="Copying — Dolphin"] floating enable, border normal
-    for_window [title="Progress Dialog — Dolphin"] floating enable, border normal, resize set width 500
+    for_window [title="Copying .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width
+    for_window [title="Progress Dialog — Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width
 
     # Image Viewers:
     #for_window [app_id="gwenview"] layout tabbed

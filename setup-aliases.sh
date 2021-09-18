@@ -26,6 +26,3 @@ alias_name="anst" && alias_path=$HOME/.local/bin/$alias_name && echo -e "#\!/bin
 
 alias_name="pych" && alias_path=$HOME/.local/bin/$alias_name && echo -e "#\!/bin/sh\n_JAVA_AWT_WM_NONREPARENTING=1 pycharm" > $alias_path && chmod +x $alias_path
 
-# TODO: set column number
-alias_name="nvimura" && alias_path=$HOME/.local/bin/$alias_name && echo -e "#!/bin/sh\nzathura -x \"nvr --remote \\\"+call cursor(%{line}, 0)\\\" %{input}\" \$1" > $alias_path && chmod +x $alias_path
-

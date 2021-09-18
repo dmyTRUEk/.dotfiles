@@ -142,15 +142,13 @@ alias ..5='cd ../../../../..'
 #alias la='ls -a'
 #alias ll='ls -l'
 
-## VIM related:
-alias v='nvim'
+## NEOVIM related:
 alias neovim='nvim'
-#alias vim='nvim'
-#alias vi='nvim'
+alias n='nvim'
+#alias v='nvim'
 
 ## GIT related:
 alias g='git'
-#alias gs='git status'
 alias gs='git status -u --find-renames=1'
 alias gss='git status'
 alias gd='git diff'
@@ -163,6 +161,4 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gpush='git push'
 alias gpull='git pull'
-
-
 

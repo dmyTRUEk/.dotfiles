@@ -146,6 +146,8 @@ alias ..5='cd ../../../../..'
 alias neovim='nvim'
 alias n='nvim'
 #alias v='nvim'
+alias nc='nvim ~/.config/nvim/init.vim'
+alias nu='nvim ~/.config/nvim/UltiSnips/'
 
 ## GIT related:
 alias g='git'

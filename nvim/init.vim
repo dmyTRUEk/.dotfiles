@@ -276,7 +276,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 
 " Auto Completion:
-" TODO: replace with LSP based solution
+" if VIM: i think easier to use this instead of LSP based solution
 " Plug 'valloric/youcompleteme'   
 ", {'for': ['cpp', 'python']}
 
@@ -315,6 +315,19 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+
+
+" LSP based competions:
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+" Plug 'folke/lsp-colors.nvim'
+
+" Extentions to built-in LSP, for example, providing type inlay hints
+Plug 'nvim-lua/lsp_extensions.nvim'
+
+" To enable more of the features of rust-analyzer, such as inlay hints and more!
+" Plug 'simrat39/rust-tools.nvim'
+
 call plug#end()
 
 
@@ -334,12 +347,13 @@ call plug#end()
 
 " Gruvbox:
 set background=dark
+set termguicolors       " fix wrong colors
 colorscheme gruvbox
 
 
 
 " YouCompleteMe settings:
-let g:ycm_min_num_of_chars_for_completion=1
+"let g:ycm_min_num_of_chars_for_completion=1
 
 
 
@@ -387,6 +401,111 @@ let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
 "let b:airline_whitespace_checks = ['indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts']
 
 let g:Powerline_symbols='unicode'
+
+
+
+
+
+" LSP config:
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+" set shortmess+=c
+
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_enable_snippet = 'UltiSnips'
+"g:completion_matching_ignore_case = 1
+let g:completion_matching_smart_case = 1
+let g:completion_trigger_keyword_length = 1
+let g:completion_trigger_on_delete = 1
+
+let g:completion_chain_complete_list = {
+\   'default': [
+\       {'complete_items': ['lsp', 'path']},
+\       {'mode': '<c-p>'},
+\       {'mode': '<c-n>'}
+\   ],
+\   'tex': [
+\       {'complete_items': ['lsp', 'path', 'snippet']}
+\   ]
+\}
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+highlight LspDiagnosticsDefaultError guibg=#FF3322 guifg=#FFFFFF
+" highlight LspDiagnosticsDefaultWarning guibg=#FF3322 guifg=#FFFFFF
+" highlight LspDiagnosticsDefaultInformation guibg=#FF3322 guifg=#FFFFFF
+highlight LspDiagnosticsDefaultHint guibg=#928374 guifg=#3c3836
+
+autocmd BufEnter * lua require'completion'.on_attach()
+
+augroup CompletionTriggerCharacter
+    autocmd!
+    autocmd BufEnter * let g:completion_trigger_character = ['.']
+
+    autocmd BufEnter *.tex let g:completion_trigger_character = ['\']
+
+    " TODO: test ', ' and '(' (maybe try '()')
+    autocmd BufEnter *.rs let g:completion_trigger_character = ['.', '::', '(', ', ']
+    autocmd BufEnter *.py let g:completion_trigger_character = ['.', '(', ', ']
+    autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '(', '::', ', ']
+augroup end
+
+
+
+lua << EOF
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+
+  -- TODO: configure references to choose once and close window
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  --buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  --buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+-- TODO: add latex, python?
+local servers = { 'rust_analyzer' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+EOF
 
 
 
@@ -517,19 +636,19 @@ nnoremap <Leader>A :wqa <CR>
 nnoremap <Leader>n :NERDTreeToggle <CR>
 
 " move between windows inside vim:
-nnoremap <Leader>h :wincmd h<CR>
-nnoremap <Leader>j :wincmd j<CR>
-nnoremap <Leader>k :wincmd k<CR>
-nnoremap <Leader>l :wincmd l<CR>
+nnoremap <Leader>h :wincmd h <CR>
+nnoremap <Leader>j :wincmd j <CR>
+nnoremap <Leader>k :wincmd k <CR>
+nnoremap <Leader>l :wincmd l <CR>
 
 " go to Definition:
-nnoremap <silent> <Leader>d mD :YcmCompleter GoTo<CR>
+" nnoremap <silent> <Leader>d mD :YcmCompleter GoTo<CR>
 " go to Back
-nnoremap <silent> <Leader>b `D :delmarks D<CR>
+" nnoremap <silent> <Leader>b `D :delmarks D<CR>
 
 " Telescope:
-nnoremap <Leader>f :Telescope find_files<CR>
-nnoremap <Leader>g :Telescope live_grep<CR>
+nnoremap <Leader>f :Telescope find_files <CR>
+nnoremap <Leader>g :Telescope live_grep <CR>
 
 " compile LaTeX:
 nnoremap <Leader>l :w <bar> CompileLaTeXtoPDF <CR>
@@ -538,7 +657,7 @@ nnoremap <Leader>l :w <bar> CompileLaTeXtoPDF <CR>
 nnoremap <Leader>p :wa <bar> :! python % <CR>
 
 " compile+run Rust code:
-nnoremap <Leader>r :wa <bar> :! cargo run <CR>
+nnoremap <Leader>r :wa <bar> :! cargo test && cargo run <CR>
 
 
 

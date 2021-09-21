@@ -758,7 +758,9 @@ key_bindings:
 
   - { key: V,              mods: Control|Shift,         action: Paste            }
   - { key: C,              mods: Control|Shift,         action: Copy             }
-  - { key: D,              mods: Control,               action: None             }
+
+  # TODO: make this for alacritty but not for neovim
+  #- { key: D,              mods: Control,               action: None             }
 
   # - { key: H,              mods: Control,               action: Left}
   # - { key: J,              mods: Control,               action: Down}

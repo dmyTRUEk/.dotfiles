@@ -8,8 +8,7 @@ where you can install all needed programs.
 
 ## Contents:
 ### Configs:
-- [Vim](https://github.com/dmyTRUEk/dotfiles/blob/main/.vimrc)
-  \+ [NeoVim](https://github.com/dmyTRUEk/dotfiles/blob/main/nvim/init.vim)
+- [NeoVim](https://github.com/dmyTRUEk/dotfiles/blob/main/nvim/init.vim)
 - [Zsh](https://github.com/dmyTRUEk/dotfiles/blob/main/.zshrc) + Oh My ZSH!
 - [Sway](https://github.com/dmyTRUEk/dotfiles/blob/main/sway/config)
   - [Alacritty](https://github.com/dmyTRUEk/dotfiles/blob/main/alacritty/alacritty.yml)

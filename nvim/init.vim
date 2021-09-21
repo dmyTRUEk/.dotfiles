@@ -115,6 +115,12 @@
 "     but this config file still almost fully compatible with vim,
 "     just attentively read lines that starts with `if VIM:`
 "
+" v5.1.0 - 2021.09.21:
+"   added: set leader+l/p/r only for latex/python/rust files,
+"     map in tex files j/k -> gj/gk, completion from buffer(file)
+"     (use all words from current file)
+"   edited: completions: much better functionality, ux and visuals
+"
 
 
 
@@ -317,13 +323,15 @@ Plug 'nvim-telescope/telescope.nvim'
 
 
 
-" LSP based competions:
+" LSP based completions:
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 " Plug 'folke/lsp-colors.nvim'
 
 " Extentions to built-in LSP, for example, providing type inlay hints
 Plug 'nvim-lua/lsp_extensions.nvim'
+
+Plug 'steelsojka/completion-buffers'
 
 " To enable more of the features of rust-analyzer, such as inlay hints and more!
 " Plug 'simrat39/rust-tools.nvim'
@@ -379,6 +387,7 @@ let g:AutoPairsMapCh=0
 " TODO: change so that `ys(` dont add spaces inside
 
 
+
 " Quick-scope settings:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -407,30 +416,38 @@ let g:Powerline_symbols='unicode'
 
 
 " LSP config:
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert
 
 " Avoid showing message extra message when using completion
 " set shortmess+=c
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_auto_change_source = 1
+
 let g:completion_enable_snippet = 'UltiSnips'
-"g:completion_matching_ignore_case = 1
+
+"let g:completion_matching_ignore_case = 1
 let g:completion_matching_smart_case = 1
+
 let g:completion_trigger_keyword_length = 1
 let g:completion_trigger_on_delete = 1
+
+" TODO: check what they do
+" let g:completion_abbr_length = 50
+" let g:completion_menu_length = 30
 
 let g:completion_chain_complete_list = {
 \   'default': [
 \       {'complete_items': ['lsp', 'path']},
-\       {'mode': '<c-p>'},
-\       {'mode': '<c-n>'}
+\       {'complete_items': ['buffers']}
 \   ],
 \   'tex': [
-\       {'complete_items': ['lsp', 'path', 'snippet']}
+\       {'complete_items': ['lsp', 'path', 'snippet']},
+\       {'complete_items': ['buffers']}
 \   ]
 \}
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
+" Use <Tab> and <Shift+Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -438,6 +455,7 @@ highlight LspDiagnosticsDefaultError guibg=#FF3322 guifg=#FFFFFF
 " highlight LspDiagnosticsDefaultWarning guibg=#FF3322 guifg=#FFFFFF
 " highlight LspDiagnosticsDefaultInformation guibg=#FF3322 guifg=#FFFFFF
 highlight LspDiagnosticsDefaultHint guibg=#928374 guifg=#3c3836
+" EWIH = Error, Warning, Information, Hint
 
 autocmd BufEnter * lua require'completion'.on_attach()
 
@@ -448,9 +466,9 @@ augroup CompletionTriggerCharacter
     autocmd BufEnter *.tex let g:completion_trigger_character = ['\']
 
     " TODO: test ', ' and '(' (maybe try '()')
-    autocmd BufEnter *.rs let g:completion_trigger_character = ['.', '::', '(', ', ']
-    autocmd BufEnter *.py let g:completion_trigger_character = ['.', '(', ', ']
-    autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '(', '::', ', ']
+    autocmd BufEnter *.rs let g:completion_trigger_character = ['.', '::']
+    autocmd BufEnter *.py let g:completion_trigger_character = ['.']
+    autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '::']
 augroup end
 
 
@@ -461,49 +479,81 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-
-  -- TODO: configure references to choose once and close window
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  --buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  --buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
+  
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  
+    -- TODO: configure references to choose once and close window
+    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    --buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    --buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
+
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = {
+            prefix = "»",   -- EWIH prefix
+            spacing = 3,    -- EWIH spaces before prefix
+        },
+        signs = false,      -- show EWIH on left from line numbers
+        underline = true,   -- underline part of line, that have EWIH
+        update_in_insert = true,    -- update EWIH in insert mode
+    }
+)
+
+function PrintDiagnosticsInStatisLine(opts, bufnr, line_nr, client_id)
+  opts = opts or {}
+
+  bufnr = bufnr or 0
+  line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+
+  local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
+  if vim.tbl_isempty(line_diagnostics) then return end
+
+  local diagnostic_message = ""
+  for i, diagnostic in ipairs(line_diagnostics) do
+    diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+    print(diagnostic_message)
+    if i ~= #line_diagnostics then
+      diagnostic_message = diagnostic_message .. "\n"
+    end
+  end
+  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
+end
+
+--vim.cmd [[ set updatetime=1000 ]]
+--vim.cmd [[ autocmd CursorHold * lua PrintDiagnosticsInStatisLine() ]]
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 -- TODO: add latex, python?
 local servers = { 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        }
     }
-  }
 end
 EOF
 
@@ -573,6 +623,9 @@ function CompileLaTeXtoPDFasync()
 endfunction
 
 function SetupEverythingForLaTeX()
+    nnoremap j gj
+    nnoremap k gk
+
     let g:tex_flavor='latex'
 
     " look at: https://habr.com/ru/post/445066/
@@ -650,14 +703,23 @@ nnoremap <Leader>l :wincmd l <CR>
 nnoremap <Leader>f :Telescope find_files <CR>
 nnoremap <Leader>g :Telescope live_grep <CR>
 
-" compile LaTeX:
-nnoremap <Leader>l :w <bar> CompileLaTeXtoPDF <CR>
+" LaTeX:
+function SetupLeaderMapForLaTeX()
+    nnoremap <Leader>l :w <bar> CompileLaTeXtoPDF <CR>
+endfunction
+autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
 
-" run Python code:
-nnoremap <Leader>p :wa <bar> :! python % <CR>
+" Python:
+function SetupLeaderMapForPython()
+    nnoremap <Leader>p :wa <bar> :! python % <CR>
+endfunction
+autocmd BufReadPost *.py call SetupLeaderMapForPython()
 
-" compile+run Rust code:
-nnoremap <Leader>r :wa <bar> :! cargo test && cargo run <CR>
+" Rust:
+function SetupLeaderMapForRust()
+    nnoremap <Leader>r :wa <bar> :! cargo test && cargo run <CR>
+endfunction
+autocmd BufReadPost *.rs call SetupLeaderMapForRust()
 
 
 

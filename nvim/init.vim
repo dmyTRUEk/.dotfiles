@@ -283,7 +283,7 @@ Plug 'tpope/vim-surround'
 
 " Auto Completion:
 " if VIM: i think easier to use this instead of LSP based solution
-" Plug 'valloric/youcompleteme'   
+"Plug 'valloric/youcompleteme'   
 ", {'for': ['cpp', 'python']}
 
 " Close Brackets automatically:
@@ -296,13 +296,13 @@ Plug 'tpope/vim-commentary'
 Plug 'unblevable/quick-scope'
 
 " Git wrapper so awesome, it should be illegal:
-" Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 " ? Syntax Highlight:
-" Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 
 " Rust Syntax:
-" Plug 'rust-lang/rust.vim'
+"Plug 'rust-lang/rust.vim'
 
 " for LaTeX:
 Plug 'lervag/vimtex'        ,{'for': ['tex']}
@@ -311,7 +311,7 @@ Plug 'lervag/vimtex'        ,{'for': ['tex']}
 Plug 'sirver/ultisnips'     ,{'for': ['tex']}
 
 " Async Run:
-Plug 'skywind3000/asyncrun.vim'
+"Plug 'skywind3000/asyncrun.vim'
 
 " Kotlin Syntax:
 Plug 'udalov/kotlin-vim'
@@ -326,15 +326,16 @@ Plug 'nvim-telescope/telescope.nvim'
 " LSP based completions:
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-" Plug 'folke/lsp-colors.nvim'
+"Plug 'folke/lsp-colors.nvim'
 
-" Extentions to built-in LSP, for example, providing type inlay hints
-Plug 'nvim-lua/lsp_extensions.nvim'
+" Extentions to built-in LSP, for example, providing type inlay hints:
+"Plug 'nvim-lua/lsp_extensions.nvim'
 
+" for completion from current file:
 Plug 'steelsojka/completion-buffers'
 
 " To enable more of the features of rust-analyzer, such as inlay hints and more!
-" Plug 'simrat39/rust-tools.nvim'
+"Plug 'simrat39/rust-tools.nvim'
 
 call plug#end()
 

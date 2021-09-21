@@ -126,6 +126,8 @@ eval $(thefuck --alias)
 
 ## Useful programs:
 alias ls='lsd'
+alias la='lsd -a'
+alias ll='lsd -al'
 alias cat='bat'
 #alias find='fd'
 #alias du='dua'
@@ -139,8 +141,7 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
-#alias la='ls -a'
-#alias ll='ls -l'
+alias whereami='pwd'
 
 ## NEOVIM related:
 alias neovim='nvim'

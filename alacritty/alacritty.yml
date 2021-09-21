@@ -756,9 +756,9 @@ key_bindings:
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
-  # Windows, Linux, and BSD only (in fact, all except MacOS)
   - { key: V,              mods: Control|Shift,         action: Paste            }
   - { key: C,              mods: Control|Shift,         action: Copy             }
+  - { key: D,              mods: Control,               action: None             }
 
   # - { key: H,              mods: Control,               action: Left}
   # - { key: J,              mods: Control,               action: Down}

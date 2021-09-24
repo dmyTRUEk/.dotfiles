@@ -416,14 +416,16 @@ let g:Powerline_symbols='unicode'
 
 
 
-" LSP config:
+" LSP + Completion + CompletionBuffers config:
 set completeopt=menuone,noinsert
+set pumheight=15
 
-" Avoid showing message extra message when using completion
+" Avoid showing extra message when using completion
 " set shortmess+=c
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_auto_change_source = 1
+let g:completion_sorting = 'length'
 
 let g:completion_enable_snippet = 'UltiSnips'
 
@@ -433,9 +435,11 @@ let g:completion_matching_smart_case = 1
 let g:completion_trigger_keyword_length = 1
 let g:completion_trigger_on_delete = 1
 
-" TODO: check what they do
-" let g:completion_abbr_length = 50
-" let g:completion_menu_length = 30
+" ^ means not, so [^...] means every character that is not ...
+" default: [^a-zA-Z0-9\-_]
+" let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ'.]"
+autocmd BufEnter *     let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ]"
+autocmd BufEnter *.tex let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ'.]"
 
 let g:completion_chain_complete_list = {
 \   'default': [

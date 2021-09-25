@@ -640,19 +640,19 @@ endfunction
 
 " you may want disable it, if you dont want to compile latex
 function CompileLaTeXtoPDFDisable()
-    let g:compile_latex_to_pdf_must_work = 0
+    let g:is_compile_latex_to_pdf_must_work = 0
 endfunction
 function CompileLaTeXtoPDFEnable()
-    let g:compile_latex_to_pdf_must_work = 1
+    let g:is_compile_latex_to_pdf_must_work = 1
 endfunction
 
 " you may want to disable all LaTeX connected autos
 function LaTeXautosDisable()
-    let g:compile_latex_to_pdf_must_work = 0
+    let g:is_compile_latex_to_pdf_must_work = 0
     let g:is_synctex_from_vim_to_zathura_must_work = 0
 endfunction
 function LaTeXautosEnable()
-    let g:compile_latex_to_pdf_must_work = 1
+    let g:is_compile_latex_to_pdf_must_work = 1
     let g:is_synctex_from_vim_to_zathura_must_work = 1
 endfunction
 
@@ -688,7 +688,7 @@ function CompileLaTeXtoPDFasyncOnExit(j, c, e)
 endfunction
 
 function CompileLaTeXtoPDFasync()
-    if g:compile_latex_to_pdf_must_work && g:compile_latex_to_pdf_is_now_compiling == 0
+    if g:is_compile_latex_to_pdf_must_work && g:compile_latex_to_pdf_is_now_compiling == 0
         " lock another possible instances of this function:
         let g:compile_latex_to_pdf_is_now_compiling = 1
 
@@ -718,6 +718,7 @@ function SetupEverythingForLaTeX()
 
     " things for reactivity/dynamics:
     let g:is_synctex_from_vim_to_zathura_must_work = 1
+    let g:is_compile_latex_to_pdf_must_work = 1
 
     autocmd CursorMoved *.tex call SynctexFromVimToZathuraSafe()
     " autocmd CursorMovedI *.tex call SynctexFromVimToZathuraSafe()

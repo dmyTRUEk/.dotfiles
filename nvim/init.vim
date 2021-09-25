@@ -271,7 +271,8 @@ endif
 
 
 " remaps in NORMAL mode:
-nnoremap <F2> <C-w>
+" TODO: <F1> -> nvim help for current word
+" nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
 nnoremap <F3> ^
 nnoremap <F4> $
 
@@ -549,16 +550,19 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+
+    buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    --buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   
     -- TODO: configure references to choose once and close window
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    --buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -748,55 +752,56 @@ autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
 let mapleader=" "
 
 " Save (Write) file:
-nnoremap <Leader>w :w <CR>
+nnoremap <leader>w :w <CR>
 
 " Quit:
-nnoremap <Leader>q :q <CR>
+nnoremap <leader>q :q <CR>
 
 " Save (Write) All files:
-nnoremap <Leader>W :wa <CR>
+nnoremap <leader>W :wa <CR>
 
 " Quit All without saving:
-nnoremap <Leader>Q :qa! <CR>
+nnoremap <leader>Q :qa! <CR>
 
 " Save All and Quit All:
-nnoremap <Leader>A :wqa <CR>
+nnoremap <leader>A :wqa <CR>
 
 
 
 " NERDTreeToggle:
-nnoremap <Leader>n :NERDTreeToggle <CR>
+nnoremap <leader>n :NERDTreeToggle <CR>
 
 " move between windows inside vim:
-nnoremap <Leader>h :wincmd h <CR>
-nnoremap <Leader>j :wincmd j <CR>
-nnoremap <Leader>k :wincmd k <CR>
-nnoremap <Leader>l :wincmd l <CR>
+nnoremap <leader>h :wincmd h <CR>
+nnoremap <leader>j :wincmd j <CR>
+nnoremap <leader>k :wincmd k <CR>
+nnoremap <leader>l :wincmd l <CR>
 
 " go to Definition:
-" nnoremap <silent> <Leader>d mD :YcmCompleter GoTo<CR>
+" nnoremap <silent> <leader>d mD :YcmCompleter GoTo<CR>
 " go to Back
-" nnoremap <silent> <Leader>b `D :delmarks D<CR>
+" nnoremap <silent> <leader>b `D :delmarks D<CR>
 
 " Telescope:
-nnoremap <Leader>f :Telescope find_files <CR>
-nnoremap <Leader>g :Telescope live_grep <CR>
+nnoremap <leader>f :Telescope find_files <CR>
+nnoremap <leader>g :Telescope live_grep <CR>
 
+" here `<leader>c` stands for `compile/run` whatever it be
 " LaTeX:
 function SetupLeaderMapForLaTeX()
-    nnoremap <Leader>l :w <bar> CompileLaTeXtoPDF <CR>
+    nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
 endfunction
 autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
 
 " Python:
 function SetupLeaderMapForPython()
-    nnoremap <Leader>p :wa <bar> :! python % <CR>
+    nnoremap <leader>c :wa <bar> :! python % <CR>
 endfunction
 autocmd BufReadPost *.py call SetupLeaderMapForPython()
 
 " Rust:
 function SetupLeaderMapForRust()
-    nnoremap <Leader>r :wa <bar> :! cargo test && cargo run <CR>
+    nnoremap <leader>c :wa <bar> :! cargo test && cargo run <CR>
 endfunction
 autocmd BufReadPost *.rs call SetupLeaderMapForRust()
 

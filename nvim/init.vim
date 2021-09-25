@@ -121,6 +121,18 @@
 "     (use all words from current file)
 "   edited: completions: much better functionality, ux and visuals
 "
+" v5.1.1 - 2021.09.21:
+"   removed: unused plugins
+"
+" v5.1.2 - 2021.09.24:
+"   added: ukrainian language for completion
+"
+" v5.1.3 - 2021.09.25:
+"   added: enable/disable all latex autos
+"
+" v5.2.0 - 2021.09.25:
+"   added: map `cc<MOVE>` to Change Current word with MOVE word
+"
 
 
 
@@ -179,6 +191,48 @@ function SetFractionalScrollOff(fraction)
 endfunction
 
 autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scrolloff_fraction)
+
+
+
+" my Change Current word with another:
+function Nothing()
+    " nothing ;)
+    " `echom` used instead of `echo`, because it seems faster
+    echom ""
+endfunction
+
+" `cc` is duplication of `S`
+" so we can use it for our purposes
+" so firstly we clearing it:
+nnoremap cc :call Nothing() <CR>
+
+" map `cc<MOVE>` to Change Current word with MOVE word
+" this solution is better than `df<space>f<space>p` because it might not work
+" if there is no space after second word (for example `,` or `)` or `\n` or other)
+
+" TODO: figure out better way to do this, so it works at least for `f<SYMBOL>`
+" or even any move
+
+" here `|` means cursor position
+" aa|a bbb -> bbb| aaa
+nnoremap ccw viwywviwp2bviwp
+" aaa bb|b -> bbb aaa|
+nnoremap ccb viwybviwpwviwp
+
+" aaa.aa|a bbb.bbb -> bbb.bbb| aaa.aaa
+nnoremap ccW viWyWviWp2BviWp
+" aaa.aaa bbb.bbb| -> bbb.bbb aaa.aaa|
+nnoremap ccB viWyBviWpWviWp
+
+nnoremap cc2w viwy2wviwp3bviwp
+nnoremap cc2b viwy2bviwp2wviwp
+nnoremap cc2W viWy2WviWp3BviWp
+nnoremap cc2B viWy2BviWp2WviWp
+
+nnoremap cc3w viwy3wviwp4bviwp
+nnoremap cc3b viwy3bviwp3wviwp
+nnoremap cc3W viWy3WviWp4BviWp
+nnoremap cc3B viWy3BviWp3WviWp
 
 
 
@@ -373,7 +427,7 @@ autocmd VimEnter * set mouse=a      " enable changing panes size by mouse
 " autocmd VimEnter * wincmd w       " auto move to main panel
 
 let NERDTreeSortOrder = ['[[extension]]']       " sort by type
-let NERDTreeNaturalSort=1           " Sort files in natural order (f1, f5, f10, f100)
+let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, f100)
 
 " let NERDTreeIgnore = ['\.pyc$']   "ignore files with this extension
 

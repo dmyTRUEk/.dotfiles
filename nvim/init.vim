@@ -126,14 +126,13 @@
 
 
 
-" detect filetype (ft) on vim init
-filetype indent on
-
-" VIM settings:
-set nocompatible            " dont use 'vi' (before vim) compability
-set encoding=utf-8          " use utf-8 encoding
 filetype plugin indent on   " turns on 'detection', 'plugin' and 'indent' at once
 syntax enable               " highlight syntax
+
+" if VIM: use this if you dont want vi compatibility
+"set nocompatible            " dont use 'vi' (before vim) compability
+
+set encoding=utf-8          " use utf-8 encoding
 
 set number relativenumber   " set line numbers relative to caret
 set cursorline              " highlight cursor line
@@ -143,7 +142,7 @@ set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
 " set showcmd                 " show last command (if you pressed 'j' then 'j' will be showed)
 
-" for better search:
+" better search:
 set incsearch               " show search results immedeatly
 set hlsearch                " highlight found
 set ignorecase              " /word will find 'word' or 'Word' or 'WORD'
@@ -168,6 +167,8 @@ set ttimeoutlen=0
 " if VIM: remove this
 set clipboard+=unnamedplus
 
+
+
 " SCROLLOFF: distance from window(viewport) top/bottom
 " set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 let g:scrolloff_fraction = 0.15
@@ -183,15 +184,15 @@ autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scro
 
 " Fix Vim/Neovim and Alacritty compatibility:
 " source: https://github.com/alacritty/alacritty/issues/919
-if &term == 'alacritty'
-    " if some strange BUG will occur => remove next line:
-    " TODO: turn on/off?
-    " set term=xterm-256color
-    " execute "set <xUp>=\e[1;*A"
-    " execute "set <xDown>=\e[1;*B"
-    " execute "set <xRight>=\e[1;*C"
-    " execute "set <xLeft>=\e[1;*D"
-endif
+" TODO: turn on/off?
+" if some strange BUG will occur => remove next line:
+"if &term == 'alacritty'
+"    set term=xterm-256color
+"    execute "set <xUp>=\e[1;*A"
+"    execute "set <xDown>=\e[1;*B"
+"    execute "set <xRight>=\e[1;*C"
+"    execute "set <xLeft>=\e[1;*D"
+"endif
 
 
 
@@ -199,17 +200,17 @@ endif
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
 if has('nvim')
-    " echom "NEOVIM"
+    " echom 'NEOVIM'
 
-    let g:airline_section_x="NEOVIM"
+    let g:airline_section_x='NEOVIM'
 
 else
-    " echom "VIM"
+    " echom 'VIM'
 
     " Scroll content instead of cursor line
     " set ttymouse=sgr
 
-    let g:airline_section_x="VIM"
+    let g:airline_section_x='VIM'
 
 endif
 
@@ -491,8 +492,8 @@ local on_attach = function(client, bufnr)
     local opts = { noremap=true, silent=true }
   
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   
     -- TODO: configure references to choose once and close window
@@ -583,6 +584,24 @@ function SynctexFromVimToZathuraEnable()
     let g:is_synctex_from_vim_to_zathura_must_work = 1
 endfunction
 
+" you may want disable it, if you dont want to compile latex
+function CompileLaTeXtoPDFDisable()
+    let g:compile_latex_to_pdf_must_work = 0
+endfunction
+function CompileLaTeXtoPDFEnable()
+    let g:compile_latex_to_pdf_must_work = 1
+endfunction
+
+" you may want to disable all LaTeX connected autos
+function LaTeXautosDisable()
+    let g:compile_latex_to_pdf_must_work = 0
+    let g:is_synctex_from_vim_to_zathura_must_work = 0
+endfunction
+function LaTeXautosEnable()
+    let g:compile_latex_to_pdf_must_work = 1
+    let g:is_synctex_from_vim_to_zathura_must_work = 1
+endfunction
+
 function SynctexFromVimToZathura()
     " remove 'silent' for debugging
     " execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
@@ -615,7 +634,7 @@ function CompileLaTeXtoPDFasyncOnExit(j, c, e)
 endfunction
 
 function CompileLaTeXtoPDFasync()
-    if g:compile_latex_to_pdf_is_now_compiling == 0
+    if g:compile_latex_to_pdf_must_work && g:compile_latex_to_pdf_is_now_compiling == 0
         " lock another possible instances of this function:
         let g:compile_latex_to_pdf_is_now_compiling = 1
 

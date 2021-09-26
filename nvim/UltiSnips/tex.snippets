@@ -32,19 +32,19 @@ $0
 endsnippet
 
 snippet bbc "big brackets { }" i
-\left{ $1 \right} $0
+\left{$1\right}$0
 endsnippet
 
 snippet "bbr?" "big brackets ( )" ir
-\left( $1 \right) $0
+\left($1\right)$0
 endsnippet
 
 snippet bbs "big brackets [ ]" i
-\left[ $1 \right] $0
+\left[$1\right]$0
 endsnippet
 
 snippet be "below = underset{...}{...}"
-\underset{$1}{$2} $0
+\underset{$1}{$2}$0
 endsnippet
 
 
@@ -69,15 +69,15 @@ endsnippet
 
 # also named `vp`
 snippet cp "cross product = [A x B]" i
-\left[ $1 \times $2 \right] $0
+\left[$1\times$2\right] $0
 endsnippet
 
 
 
 # DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
-snippet d "differential = dx" i
-\dd{$1}$0
-endsnippet
+#snippet d "differential = dx" i
+#\dd{$1}$0
+#endsnippet
 
 snippet deg "degree symbol = ^o" i
 \text{°}$0
@@ -110,11 +110,11 @@ snippet ec "equation+cases = begin{equation+cases} ... end{}" b
 $0
 endsnippet
 
-snippet eq "equivalent = ≡" i
+snippet eq "equivalent = ≡"
 \equiv
 endsnippet
 
-snippet eqbydef "equal by def = =_{def}" i
+snippet eqbydef "equal by def = =_{def}"
 \underset{def}{=}
 endsnippet
 
@@ -144,11 +144,11 @@ snippet f "image = begin{figure} ... end{}" b
 $0
 endsnippet
 
-snippet fol "follows = =>" i
+snippet fol "follows = =>"
 \quad\Rightarrow\quad
 endsnippet
 
-snippet foll "long follows = ==>" i
+snippet foll "long follows = ==>"
 \qquad\Rightarrow\qquad
 endsnippet
 
@@ -413,19 +413,19 @@ snippet inf "infinity" i
 \infty
 endsnippet
 
-snippet ins "insertion" i
+snippet ins "insertion"
 \Bigg| \ $1 \ \Bigg| $0
 endsnippet
 
-snippet int "integral" i
+snippet int "integral"
 \int\limits_{$1}^{$2} \dd{$3} $0
 endsnippet
 
-snippet intii "integral" i
+snippet intii "integral"
 \int\limits_{-\infty}^{+\infty} \dd{$1} $0
 endsnippet
 
-snippet intzi "integral" i
+snippet intzi "integral"
 \int\limits_{0}^{+\infty} \dd{$1} $0
 endsnippet
 
@@ -465,14 +465,14 @@ snippet le "left equation = begin{fleqn+eqn}" b
 $0
 endsnippet
 
-snippet lim "limits when = ---...--->" i
+snippet lim "limits when = ---...--->"
 \underset{$1}{\rightarrow} $0
 endsnippet
 
 
 
 # MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-snippet m "matrix" i
+snippet m "matrix"
 \begin{pmatrix}
     $1
 \end{pmatrix} $0
@@ -493,7 +493,7 @@ snippet np "newpage" b
 endsnippet
 
 snippet num "42.0 * 10^{76}" i
-$1 \cdot 10^{$2} $0
+$1\cdot 10^{$2}$0
 endsnippet
 
 
@@ -595,7 +595,7 @@ endsnippet
 
 # also named `cp`
 snippet vp "vector product = [A x B]" i
-\left[ $1 \times $2 \right] $0
+\left[$1\times$2\right] $0
 endsnippet
 
 snippet vs "vspace" i

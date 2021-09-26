@@ -481,7 +481,7 @@ set pumheight=15
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_auto_change_source = 1
-let g:completion_sorting = 'length'
+"let g:completion_sorting = 'length'
 
 let g:completion_enable_snippet = 'UltiSnips'
 

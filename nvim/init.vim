@@ -494,8 +494,8 @@ let g:completion_trigger_on_delete = 1
 " ^ means not, so [^...] means every character that is not ...
 " default: [^a-zA-Z0-9\-_]
 " let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ'.]"
-autocmd BufEnter *     let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ]"
-autocmd BufEnter *.tex let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ'.]"
+autocmd BufEnter *     let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґА-Ґ]"
+autocmd BufEnter *.tex let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґА-Ґ'.]"
 
 let g:completion_chain_complete_list = {
 \   'default': [

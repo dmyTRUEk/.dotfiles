@@ -71,6 +71,7 @@ Solution:
   Solution:
   1. Launch OBS
   2. Translate your screen to virtual camera
+    if it is not available, install `v4l2loopback-dkms`
   3. Use it in discord/telegram
 
 ### Screencasting (screenrecording)

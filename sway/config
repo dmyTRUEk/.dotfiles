@@ -54,8 +54,10 @@
 
     # Dolphin settings:
     # operation (copy/move/already exists/etc) window size
-    set $dolphin_operation_window_width 800
-
+    set $dolphin_operation_window_width_big 800
+    set $dolphin_operation_window_width_small 1000
+    set $dolphin_operation_window_height_big 500
+    set $dolphin_operation_window_height_small 300
 
 
 
@@ -119,8 +121,10 @@
     for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, border normal
 
     # Dolphin:
-    for_window [title="Copying .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width
-    for_window [title="Progress Dialog — Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width
+    for_window [title="File Already Exists .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_big, resize set height $dolphin_operation_window_height_big
+    for_window [title="Copying .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
+    for_window [title="Progress Dialog — Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
+    for_window [title="Extracting Files .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
 
     # Image Viewers:
     #for_window [app_id="gwenview"] layout tabbed

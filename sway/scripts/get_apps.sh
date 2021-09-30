@@ -2,6 +2,7 @@
 
 apps="""
 anst
+ds
 ff
 fm
 imagej

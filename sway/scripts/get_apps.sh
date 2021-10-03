@@ -8,6 +8,7 @@ fm
 imagej
 net.sourceforge.scidavis
 obs
+ocenaudio
 pm
 pych
 sm

@@ -6,6 +6,7 @@ ds
 ff
 fm
 imagej
+libreoffice
 net.sourceforge.scidavis
 obs
 ocenaudio

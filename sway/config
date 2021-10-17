@@ -53,6 +53,11 @@
     set $workspace_9 9
     set $workspace_10 10
 
+    # audio source id
+    # if sound doesnt work at all, try changing this number ;)
+    # set $audio_src_id 2
+    set $audio_src_id @DEFAULT_SINK@
+
     # Dolphin settings:
     # operation (copy/move/already exists/etc) window size
     set $dolphin_operation_window_width_big 800
@@ -348,9 +353,6 @@
 
 
 ## Multimedia keys
-    # if sound doesnt work at all, try changing this number ;)
-    set $audio_src_id 1
-
     # Pulse Audio controls
     # --locked - makes it work even on locked screen
     # increase sound volume

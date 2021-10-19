@@ -3,6 +3,7 @@
 apps="""
 anst
 ds
+elisa
 ff
 fm
 imagej

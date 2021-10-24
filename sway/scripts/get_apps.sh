@@ -8,6 +8,7 @@ ff
 fm
 imagej
 libreoffice
+lmms
 net.sourceforge.scidavis
 obs
 ocenaudio

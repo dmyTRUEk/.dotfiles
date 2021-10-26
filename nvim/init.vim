@@ -542,10 +542,10 @@ local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  
+
     -- Mappings.
     local opts = { noremap=true, silent=true }
-  
+
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -553,10 +553,10 @@ local on_attach = function(client, bufnr)
 
     buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     --buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  
+
     -- TODO: configure references to choose once and close window
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  
+
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -578,7 +578,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
             prefix = "»",   -- EWIH prefix
             spacing = 3,    -- EWIH spaces before prefix
         },
-        signs = false,      -- show EWIH on left from line numbers
+        signs = true,       -- show EWIH on left from line numbers
         underline = true,   -- underline part of line, that have EWIH
         update_in_insert = true,    -- update EWIH in insert mode
     }

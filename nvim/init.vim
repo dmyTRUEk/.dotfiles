@@ -133,6 +133,9 @@
 " v5.2.0 - 2021.09.25:
 "   added: map `cc<MOVE>` to Change Current word with MOVE word
 "
+" v5.3.0 - 2021.10.31:
+"   added: vim-exchange (cxx)
+"
 
 
 
@@ -202,16 +205,13 @@ function Nothing()
 endfunction
 
 " `cc` is duplication of `S`
-" so we can use it for our purposes
-" so firstly we clearing it:
+" so i can use it for my purposes
+" so firstly i clearing it:
 nnoremap cc :call Nothing() <CR>
 
 " map `cc<MOVE>` to Change Current word with MOVE word
 " this solution is better than `df<space>f<space>p` because it might not work
 " if there is no space after second word (for example `,` or `)` or `\n` or other)
-
-" TODO: figure out better way to do this, so it works at least for `f<SYMBOL>`
-" or even any move
 
 " here `|` means cursor position
 " aa|a bbb -> bbb| aaa
@@ -350,6 +350,9 @@ Plug 'tpope/vim-commentary'
 
 " Highlight words' unique symbols when pressing f F t T
 Plug 'unblevable/quick-scope'
+
+" Exchange two selections: swap two words: goto word1 -> `cxiw` -> goto word2 -> `cx.`
+Plug 'tommcdo/vim-exchange'
 
 " Git wrapper so awesome, it should be illegal:
 "Plug 'tpope/vim-fugitive'

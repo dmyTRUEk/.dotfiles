@@ -127,6 +127,7 @@
     for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, border normal
 
     # Dolphin:
+    for_window [title="Properties for .*— Dolphin"] floating enable, border normal, resize set width 500, resize set height 500
     for_window [title="File Already Exists .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_big, resize set height $dolphin_operation_window_height_big
     for_window [title="Copying .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
     for_window [title="Progress Dialog — Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small

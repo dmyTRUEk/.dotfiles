@@ -136,6 +136,9 @@
 " v5.3.0 - 2021.10.31:
 "   added: vim-exchange (cxx)
 "
+" v6.0.0 - 2021.11.13:
+"   changed: moved from `completion-nvim` to `nvim-cmp`
+"
 
 
 
@@ -256,7 +259,7 @@ nnoremap cc3B viWy3BviWp3WviWp
 if has('nvim')
     " echom 'NEOVIM'
 
-    let g:airline_section_x='NEOVIM'
+    let g:airline_section_x = 'NEOVIM'
 
 else
     " echom 'VIM'
@@ -264,7 +267,7 @@ else
     " Scroll content instead of cursor line
     " set ttymouse=sgr
 
-    let g:airline_section_x='VIM'
+    let g:airline_section_x = 'VIM'
 
 endif
 
@@ -293,6 +296,7 @@ map Y y$
 
 
 " use ukr in normal mode:
+" TODO: update
 set langmap=фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz,ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 
@@ -335,6 +339,7 @@ Plug 'scrooloose/nerdtree'
 
 " Vim Surround:
 " cs'<t> inside '' => 'Hello world' -> <t>Hello world</t>
+" TODO?: ys( == ys)   https://github.com/tpope/vim-surround/issues/314
 Plug 'tpope/vim-surround'
 
 " Auto Completion:
@@ -345,7 +350,7 @@ Plug 'tpope/vim-surround'
 " Close Brackets automatically:
 Plug 'jiangmiao/auto-pairs'
 
-" Comments manager: use 'gcc' (not C compiler) to comment/uncomment line:
+" Comments manager: 'gcc' (not C compiler) to comment/uncomment line:
 Plug 'tpope/vim-commentary'
 
 " Highlight words' unique symbols when pressing f F t T
@@ -360,20 +365,14 @@ Plug 'tommcdo/vim-exchange'
 " ? Syntax Highlight:
 "Plug 'scrooloose/syntastic'
 
-" Rust Syntax:
-"Plug 'rust-lang/rust.vim'
-
 " for LaTeX:
 Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
 " Snippets (i use it for LaTeX):
-Plug 'sirver/ultisnips'     ,{'for': ['tex']}
-
-" Async Run:
-"Plug 'skywind3000/asyncrun.vim'
+Plug 'sirver/ultisnips'     ",{'for': ['tex']}
 
 " Kotlin Syntax:
-Plug 'udalov/kotlin-vim'
+Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " Telescope:
 Plug 'nvim-lua/popup.nvim'
@@ -384,17 +383,21 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " LSP based completions:
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+"Plug 'honza/vim-snippets'
 "Plug 'folke/lsp-colors.nvim'
 
 " Extentions to built-in LSP, for example, providing type inlay hints:
 "Plug 'nvim-lua/lsp_extensions.nvim'
 
-" for completion from current file:
-Plug 'steelsojka/completion-buffers'
-
 " To enable more of the features of rust-analyzer, such as inlay hints and more!
 "Plug 'simrat39/rust-tools.nvim'
+"Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -409,14 +412,14 @@ call plug#end()
 "colorscheme sublimemonokai
 
 " Quantum:
-"set termguicolors   " enable true colors support
 "set background=light   " light theme
 "colorscheme quantum
 
 " Gruvbox:
+set termguicolors       " enable true colors support
 set background=dark
-set termguicolors       " fix wrong colors
 colorscheme gruvbox
+
 
 
 
@@ -438,8 +441,11 @@ let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, 
 
 
 " AutoPairs settings:
-" TODO: what does this do?
-let g:AutoPairsMapCh=0
+" TODO:
+"let g:AutoPairs['<']='>'
+" removes in insert mode <C-H> => backspace
+let g:AutoPairsMapCh = 0
+let g:AutoPairsMultilineClose = 0
 
 
 
@@ -454,174 +460,115 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
 " AIRLINE settings:
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 "let g:airline_detect_spelllang=1
 "let g:airline_section_a=""
 "let g:airline_section_b=""
 "let g:airline_section_c=""
 "let g:airline_section_gutter=""
 " let g:airline_section_x=""
-let g:airline_section_y=""
-let g:airline_section_z="Line: %l/%L, Col: %c"
+let g:airline_section_y = ""
+let g:airline_section_z = "Line: %l/%L, Col: %c"
 "let g:airline_section_error=""
 "let g:airline_section_warning=""
 
 let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
 "let b:airline_whitespace_checks = ['indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts']
 
-let g:Powerline_symbols='unicode'
+let g:Powerline_symbols = 'unicode'
 
 
 
 
 
-" LSP + Completion + CompletionBuffers config:
-set completeopt=menuone,noinsert
-set pumheight=15
+" LSP config:
+set completeopt=menu,menuone
 
-" Avoid showing extra message when using completion
-" set shortmess+=c
-
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_auto_change_source = 1
-"let g:completion_sorting = 'length'
-
-let g:completion_enable_snippet = 'UltiSnips'
-
-"let g:completion_matching_ignore_case = 1
-let g:completion_matching_smart_case = 1
-
-let g:completion_trigger_keyword_length = 1
-let g:completion_trigger_on_delete = 1
-
-" ^ means not, so [^...] means every character that is not ...
-" default: [^a-zA-Z0-9\-_]
-" let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґ'.]"
-autocmd BufEnter *     let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґА-Ґ]"
-autocmd BufEnter *.tex let g:completion_word_separator = "[^a-zA-Z0-9\-_а-ґА-Ґ'.]"
-
-let g:completion_chain_complete_list = {
-\   'default': [
-\       {'complete_items': ['lsp', 'path']},
-\       {'complete_items': ['buffers']}
-\   ],
-\   'tex': [
-\       {'complete_items': ['lsp', 'path', 'snippet']},
-\       {'complete_items': ['buffers']}
-\   ]
-\}
-
-" Use <Tab> and <Shift+Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-highlight LspDiagnosticsDefaultError guibg=#FF3322 guifg=#FFFFFF
-" highlight LspDiagnosticsDefaultWarning guibg=#FF3322 guifg=#FFFFFF
-" highlight LspDiagnosticsDefaultInformation guibg=#FF3322 guifg=#FFFFFF
-highlight LspDiagnosticsDefaultHint guibg=#928374 guifg=#3c3836
-" EWIH = Error, Warning, Information, Hint
-
-autocmd BufEnter * lua require'completion'.on_attach()
-
-augroup CompletionTriggerCharacter
-    autocmd!
-    autocmd BufEnter * let g:completion_trigger_character = ['.']
-
-    autocmd BufEnter *.tex let g:completion_trigger_character = ['\']
-
-    " TODO: test ', ' and '(' (maybe try '()')
-    autocmd BufEnter *.rs let g:completion_trigger_character = ['.', '::']
-    autocmd BufEnter *.py let g:completion_trigger_character = ['.']
-    autocmd BufEnter *.c,*.cpp let g:completion_trigger_character = ['.', '::']
-augroup end
-
-
+" Code navigation shortcuts
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+"nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+"nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+"nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 lua << EOF
-local nvim_lsp = require('lspconfig')
+    -- Setup nvim-cmp.
+    local cmp = require('cmp')
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    cmp.setup({
+        mapping = {
+            ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
-    -- Mappings.
-    local opts = { noremap=true, silent=true }
+            ['<Tab>'] = function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end,
 
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+            ['<S-Tab>'] = function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    fallback()
+                end
+            end,
 
-    buf_set_keymap('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    --buf_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-
-    -- TODO: configure references to choose once and close window
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    --buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    --buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    --buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    --buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    --buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    --buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    --buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-end
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = {
-            prefix = "»",   -- EWIH prefix
-            spacing = 3,    -- EWIH spaces before prefix
+            ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+            --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+            --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+            --['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+            --['<C-e>'] = cmp.mapping({
+            --  i = cmp.mapping.abort(),
+            --  c = cmp.mapping.close(),
+            --}),
         },
-        signs = true,       -- show EWIH on left from line numbers
-        underline = true,   -- underline part of line, that have EWIH
-        update_in_insert = true,    -- update EWIH in insert mode
+        sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            --{ name = 'vsnip' }, -- For vsnip users.
+            --{ name = 'luasnip' }, -- For luasnip users.
+            { name = 'ultisnips' }, -- For ultisnips users.
+            --{ name = 'snippy' }, -- For snippy users.
+        }, {
+            { name = 'buffer' },
+        }),
+        snippet = {
+            -- REQUIRED - you MUST specify a snippet engine
+            expand = function(args)
+              --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+              --require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+              vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+              --require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+            end,
+        },
+    })
+
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    --cmp.setup.cmdline('/', {
+    --  sources = {
+    --    { name = 'buffer' }
+    --  }
+    --})
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    --cmp.setup.cmdline(':', {
+    --  sources = cmp.config.sources({
+    --    { name = 'path' }
+    --  }, {
+    --    { name = 'cmdline' }
+    --  })
+    --})
+
+    -- Setup lspconfig.
+    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+    require('lspconfig')['rust_analyzer'].setup {
+        capabilities = capabilities
     }
-)
-
-function PrintDiagnosticsInStatisLine(opts, bufnr, line_nr, client_id)
-  opts = opts or {}
-
-  bufnr = bufnr or 0
-  line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
-
-  local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
-  if vim.tbl_isempty(line_diagnostics) then return end
-
-  local diagnostic_message = ""
-  for i, diagnostic in ipairs(line_diagnostics) do
-    diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
-    print(diagnostic_message)
-    if i ~= #line_diagnostics then
-      diagnostic_message = diagnostic_message .. "\n"
-    end
-  end
-  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
-end
-
---vim.cmd [[ set updatetime=1000 ]]
---vim.cmd [[ autocmd CursorHold * lua PrintDiagnosticsInStatisLine() ]]
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
--- TODO: add latex, python?
-local servers = { 'rust_analyzer' }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150,
-        }
-    }
-end
 EOF
 
 
@@ -711,17 +658,17 @@ function SetupEverythingForLaTeX()
     nnoremap j gj
     nnoremap k gk
 
-    let g:tex_flavor='latex'
+    let g:tex_flavor = 'latex'
 
     " look at: https://habr.com/ru/post/445066/
     " let g:vimtex_view_general_viewer='okular'
     " let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
     " let g:vimtex_view_general_options_latexmk='--unique'
-    let g:vimtex_quickfix_mode=0
+    let g:vimtex_quickfix_mode = 0
     " set conceallevel=1
     " let g:tex_conceal='abdmg'
 
-    let g:vimtex_view_method='zathura'
+    let g:vimtex_view_method = 'zathura'
 
     " things for reactivity/dynamics:
     let g:is_synctex_from_vim_to_zathura_must_work = 1
@@ -752,7 +699,7 @@ autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
 " LEADER MAPS:
 
 " Set leader key:
-let mapleader=" "
+let mapleader = " "
 
 " Save (Write) file:
 nnoremap <leader>w :w <CR>

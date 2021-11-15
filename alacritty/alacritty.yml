@@ -747,6 +747,7 @@ hints:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
+
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -756,16 +757,17 @@ key_bindings:
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
-  - { key: V,              mods: Control|Shift,         action: Paste            }
-  - { key: C,              mods: Control|Shift,         action: Copy             }
+  - { key: V,              mods: Control|Shift,         action: Paste   }
+  - { key: C,              mods: Control|Shift,         action: Copy    }
+
+  - { key: H,              mods: Control,               chars: "\x1b[D" } # Left
+  - { key: J,              mods: Control,               chars: "\x1b[B" } # Down
+  - { key: K,              mods: Control,               chars: "\x1b[A" } # Up
+  - { key: L,              mods: Control,               chars: "\x1b[C" } # Right
 
   # TODO: make this for alacritty but not for neovim
-  #- { key: D,              mods: Control,               action: None             }
-
-  # - { key: H,              mods: Control,               action: Left}
-  # - { key: J,              mods: Control,               action: Down}
-  # - { key: K,              mods: Control,               action: Up}
-  # - { key: L,              mods: Control,               action: Right}
+  #- { key: D,              mods: Control,               action: ReceiveChar      }
+  #- { key: D,              mods: Control,               chars: "\x1b[5~"         }
 
   #- { key: F,              mods: Control|Shift, mode: ~Search,    action: SearchForward    }
   #- { key: B,              mods: Control|Shift, mode: ~Search,    action: SearchBackward   }

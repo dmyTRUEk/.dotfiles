@@ -19,7 +19,7 @@
 "
 " v1.4 - 2019.12.18:
 "   added: incsearch, papercolor, autochdir
-" 
+"
 " v1.5 - 2020.01.06:
 "   added: auto-pairs
 "
@@ -48,7 +48,7 @@
 "
 " v2.1 - 2020.05.18:
 "   added: vimtex, command :PdfLaTeX for compiling Latex to pdf
-" 
+"
 " v2.2 - 2020.06.08:
 "   added: gruvbox theme
 "
@@ -59,14 +59,14 @@
 "   edited: changed blinking cursor to static
 "
 " v3.0 - 2020.09.21:
-"   added: mapping for ukr language 
+"   added: mapping for ukr language
 "   edited: moved all leader remaps into one section
 "
 " v3.1 - 2020.09.25:
 "   added: run python, c++ code by leader key
 "   edited: run pdflatex by <Leader>p -> <Leader>l,
 "     deleted almost invisible <space> from <f2>-><C-w> binding
-" 
+"
 " v3.2 - 2020.10.02:
 "   added: ultisnips, my own snips for latex
 "
@@ -172,7 +172,7 @@ set shiftwidth=4            " On pressing tab, insert 4 spaces
 set expandtab               " use spaces instead of tabs
 set autoindent              " set tabs automatically, when starting new line
 
-" Dont wrap lines: 
+" Dont wrap lines:
 " set nowrap
 
 " remove ESC delay:
@@ -344,7 +344,7 @@ Plug 'tpope/vim-surround'
 
 " Auto Completion:
 " if VIM: i think easier to use this instead of LSP based solution
-"Plug 'valloric/youcompleteme'   
+"Plug 'valloric/youcompleteme'
 ", {'for': ['cpp', 'python']}
 
 " Close Brackets automatically:
@@ -419,7 +419,6 @@ call plug#end()
 set termguicolors       " enable true colors support
 set background=dark
 colorscheme gruvbox
-
 
 
 
@@ -628,7 +627,7 @@ function CompileLaTeXtoPDFasyncOnExit(j, c, e)
     let g:compile_latex_to_pdf_prev_exit_code = g:compile_latex_to_pdf_last_exit_code
     let g:compile_latex_to_pdf_last_exit_code = a:c
     echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_last_exit_code
-    
+
     " synchronize latex (vim) and pdf (zathura) using new synctex file:
     " this `if` needed for case when prev compile wasnt successful, and
     " therefore simply calling `SynctexFromVimToZathuraSafe()` will
@@ -636,7 +635,7 @@ function CompileLaTeXtoPDFasyncOnExit(j, c, e)
     if g:compile_latex_to_pdf_prev_exit_code == 0
         call SynctexFromVimToZathuraSafe()
     endif
-    
+
     " unlock another possible instances of this function:
     let g:compile_latex_to_pdf_is_now_compiling = 0
 endfunction

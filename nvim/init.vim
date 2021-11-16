@@ -158,7 +158,7 @@ set showmatch               " shows matching brackets
 set autochdir               " change current dir to file's dir
 set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
-" set showcmd                 " show last command (if you pressed 'j' then 'j' will be showed)
+"set showcmd                 " ? show last command (if you pressed 'j' then 'j' will be showed)
 
 " better search:
 set incsearch               " show search results immedeatly
@@ -184,6 +184,30 @@ set ttimeoutlen=0
 " for Clipboard in Wayland+NVIM to work:
 " if VIM: remove this
 set clipboard+=unnamedplus
+
+" Set leader key:
+let mapleader = " "
+
+" Save (Write) file:
+nnoremap <leader>w :w <CR>
+
+" Quit:
+nnoremap <leader>q :q <CR>
+
+" Save (Write) All files:
+nnoremap <leader>W :wa <CR>
+
+" Quit All without saving:
+nnoremap <leader>Q :qa! <CR>
+
+" Save All and Quit All:
+nnoremap <leader>A :wqa <CR>
+
+" move between windows inside vim:
+nnoremap <leader>h :wincmd h <CR>
+nnoremap <leader>j :wincmd j <CR>
+nnoremap <leader>k :wincmd k <CR>
+nnoremap <leader>l :wincmd l <CR>
 
 
 
@@ -437,6 +461,9 @@ let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, 
 
 " let NERDTreeIgnore = ['\.pyc$']   "ignore files with this extension
 
+nnoremap <leader>n :NERDTreeToggle <CR>
+
+
 
 
 " AutoPairs settings:
@@ -478,16 +505,23 @@ let g:Powerline_symbols = 'unicode'
 
 
 
+" Telescope:
+nnoremap <leader>f :Telescope find_files <CR>
+nnoremap <leader>g :Telescope live_grep <CR>
+
+
+
 
 
 " LSP config:
 set completeopt=menu,menuone
 
 " Code navigation shortcuts
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD        <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 "nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 "nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 "nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
@@ -693,47 +727,7 @@ autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
 
 
 
-
-
-" LEADER MAPS:
-
-" Set leader key:
-let mapleader = " "
-
-" Save (Write) file:
-nnoremap <leader>w :w <CR>
-
-" Quit:
-nnoremap <leader>q :q <CR>
-
-" Save (Write) All files:
-nnoremap <leader>W :wa <CR>
-
-" Quit All without saving:
-nnoremap <leader>Q :qa! <CR>
-
-" Save All and Quit All:
-nnoremap <leader>A :wqa <CR>
-
-
-
-" NERDTreeToggle:
-nnoremap <leader>n :NERDTreeToggle <CR>
-
-" move between windows inside vim:
-nnoremap <leader>h :wincmd h <CR>
-nnoremap <leader>j :wincmd j <CR>
-nnoremap <leader>k :wincmd k <CR>
-nnoremap <leader>l :wincmd l <CR>
-
-" go to Definition:
-" nnoremap <silent> <leader>d mD :YcmCompleter GoTo<CR>
-" go to Back
-" nnoremap <silent> <leader>b `D :delmarks D<CR>
-
-" Telescope:
-nnoremap <leader>f :Telescope find_files <CR>
-nnoremap <leader>g :Telescope live_grep <CR>
+" COMPILES:
 
 " here `<leader>c` stands for `compile/run` whatever it be
 " LaTeX:

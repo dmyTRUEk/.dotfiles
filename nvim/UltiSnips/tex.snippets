@@ -26,7 +26,7 @@ endsnippet
 # BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 snippet be "begin{...} ... end{}" b
 \begin{$1}
-	$2
+    $2
 \end{$1}
 $0
 endsnippet
@@ -52,14 +52,14 @@ endsnippet
 # CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 snippet c "center = begin{center} ... end{}" b
 \begin{center}
-	$1
+    $1
 \end{center}
 $0
 endsnippet
 
 snippet ca "cases = begin{cases} ... end{}" b
 \begin{cases}
-	$1
+    $1
 \end{cases}
 endsnippet
 
@@ -96,7 +96,7 @@ endsnippet
 # EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 snippet e "equation = begin{equation} ... end{}" b
 \begin{equation}
-	$1
+    $1
 \end{equation}
 $0
 endsnippet
@@ -104,7 +104,7 @@ endsnippet
 snippet ec "equation+cases = begin{equation+cases} ... end{}" b
 \begin{equation}
 \begin{cases}
-	$1
+    $1
 \end{cases}
 \end{equation}
 $0
@@ -121,7 +121,7 @@ endsnippet
 snippet es "equation+split = begin{equation+split} ... end{}" b
 \begin{equation}
 \begin{split}
-	$1
+    $1
 \end{split}
 \end{equation}
 $0
@@ -139,7 +139,7 @@ snippet f "image = begin{figure} ... end{}" b
     \centering
     \includegraphics[scale=0.9]{$1}
     \caption{$2}
-	\label{$3}
+    \label{$3}
 \end{figure}
 $0
 endsnippet
@@ -291,13 +291,13 @@ snippet gP "Psi" i
 \Psi
 endsnippet
 
-snippet gpi "pi" i
-\pi
-endsnippet
+# snippet gpi "pi" i
+# \pi
+# endsnippet
 
-snippet gPi "Pi" i
-\Pi
-endsnippet
+# snippet gPi "Pi" i
+# \Pi
+# endsnippet
 
 #snippet gq "alpha" i
 #\alpha
@@ -351,13 +351,13 @@ snippet gU "Upsilon" i
 \Upsilon
 endsnippet
 
-snippet gv "nu" i
-\nu
-endsnippet
+# snippet gv "nu" i
+# \nu
+# endsnippet
 
-snippet gV "Nu" i
-\Nu
-endsnippet
+# snippet gV "Nu" i
+# \Nu
+# endsnippet
 
 snippet gw "omega" i
 \omega
@@ -439,7 +439,7 @@ endsnippet
 
 snippet it "itemize = begin{itemize} ... end{}" b
 \begin{itemize}
-	$1
+    $1
 \end{itemize}
 $0
 endsnippet
@@ -463,7 +463,7 @@ endsnippet
 snippet le "left equation = begin{fleqn+eqn}" b
 \begin{fleqn} [\parindent]
 \begin{equation}
-	$1
+    $1
 \end{equation}
 \end{fleqn}
 $0
@@ -487,7 +487,7 @@ endsnippet
 # NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 snippet n "enumerate = begin{enumerate} ... end{}" b
 \begin{enumerate}
-	$1
+    $1
 \end{enumerate}
 $0
 endsnippet
@@ -512,6 +512,9 @@ snippet pi "pi" i
 \pi
 endsnippet
 
+snippet Pi "Pi" i
+\Pi
+endsnippet
 
 
 # QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
@@ -533,8 +536,12 @@ endsnippet
 
 snippet sp "split = begin{split} ... end{}" b
 \begin{split}
-	$1
+    $1
 \end{split}
+endsnippet
+
+snippet "sqr?t?" "sqrt" ir
+\sqrt{$1}$0
 endsnippet
 
 snippet ss "subsection{...}" b

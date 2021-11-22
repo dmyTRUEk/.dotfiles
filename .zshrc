@@ -137,6 +137,7 @@ alias yay='paru'
 
 # Useful aliases:
 alias cl='clear'
+alias cdd='cd ~/.dotfiles'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'

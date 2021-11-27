@@ -233,13 +233,13 @@
     # Screenshots
     # screenshot (of current monitor?)
     bindsym Print exec \
-        filename=$HOME/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+        filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
         && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
         && wl-copy "file://$filename" -t text/uri-list
 
     # screenshot of rectangular selection
     bindsym Control+Print exec \
-        filename=$HOME/Pictures/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+        filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
         && grim -g "$(slurp)" "$filename" \
         && wl-copy "file://$filename" -t text/uri-list
 

@@ -563,14 +563,16 @@ lua << EOF
             --  c = cmp.mapping.close(),
             --}),
         },
-        sources = cmp.config.sources({
+        sources = {
             { name = 'nvim_lsp' },
+            --{ name = 'path' },
             --{ name = 'vsnip' },   -- For vsnip users.
             --{ name = 'luasnip' }, -- For luasnip users.
             { name = 'ultisnips' }, -- For ultisnips users.
             --{ name = 'snippy' },  -- For snippy users.
-            { name = 'buffer' },
-        }),
+            --TODO: patter -> pattern
+            { name = 'buffer', option = { keyword_patter = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%([\-.]\w*\)*\|[a-zA-Zа-яА-Я]*\)]] } },
+        },
         snippet = {
             -- REQUIRED - you MUST specify a snippet engine
             expand = function(args)

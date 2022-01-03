@@ -23,7 +23,7 @@
     # Your preferred terminal emulator
     set $term alacritty
 
-    # Your preferred application launcher
+    # Application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened
     # on the original workspace that the command was run on.
     set $menu_all dmenu_path | dmenu | xargs swaymsg exec --
@@ -39,6 +39,9 @@
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/cyberpunk_2077_bg_2.jpg
     # set $lockscreen_wallpaper $wallpaper
     set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
+
+    # System monitor:
+    set $systemmonitor_command alacritty -e btop
 
     # Workspaces names
     set $workspace_1 1 Firefox
@@ -307,7 +310,7 @@
     bindsym $mod+F1  workspace $workspace_1,  exec firefox
     bindsym $mod+F2  workspace $workspace_2,  exec telegram-desktop
     bindsym $mod+F3  workspace $workspace_3,  exec dolphin
-    bindsym $mod+F10 workspace $workspace_10, exec plasma-systemmonitor
+    bindsym $mod+F10 workspace $workspace_10, exec $systemmonitor_command
 
 
 ## Layout stuff
@@ -438,7 +441,7 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 # exec systemctl enable sddm.service
 
 # sway-rkbd-rs - Remembers keyboard layout for each window
-exec $HOME/.local/bin/sway-rkbd-rs-v020
+exec $HOME/.local/bin/sway-rkbd-rs
 
 # Mako - notification manager
 # config file in: ~/.config/mako/config

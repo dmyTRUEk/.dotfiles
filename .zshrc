@@ -144,6 +144,7 @@ alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias ..5='cd ../../../../..'
 alias whereami='pwd'
+alias findtextinfiles='grep -rn'
 
 ## NEOVIM related:
 alias neovim='nvim'

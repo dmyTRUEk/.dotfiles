@@ -60,9 +60,7 @@ Solution: install `ttf-font-awesome` package
 ### Mouse Cursor in some app is wrong
 Solution:
 
-1. Set `XCURSOR_THEME=your_cursor_theme` in it's alias
-  (located in `~/.dotfiles/setup-aliases.sh`)
-2. Run it (`sh -c ~/.dotfiles/setup-aliases.sh`)
+1. Set `XCURSOR_THEME=your_cursor_theme` before launching app
 
 ### Screenshare dont work
 - in Firefox:  
@@ -90,6 +88,9 @@ Solution:
   ```
 2. Give executable permission to this file: `chmod +x /usr/local/bin/sway`
 3. In your `sway.desktop` file (located in `/usr/share/wayland-sessions`) edit `Exec=sway` to `Exec=/usr/local/bin/sway`
+
+### Run JetBrains (or other Java based apps)
+Solution: `_JAVA_AWT_WM_NONREPARENTING=1\n<your_app_name>`
 
 
 

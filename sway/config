@@ -26,8 +26,10 @@
     # Application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened
     # on the original workspace that the command was run on.
-    set $menu_all dmenu_path | dmenu | xargs swaymsg exec --
-    set $menu_my ~/.config/sway/scripts/get_apps.sh | dmenu | xargs swaymsg exec --
+    # set $menu_all dmenu_path | dmenu | xargs swaymsg exec --
+    # set $menu_my ~/.config/sway/scripts/get_apps.sh | dmenu | xargs swaymsg exec --
+    set $menu_all yofi binapps
+    set $menu_my yofi apps
 
     # Wallpaper
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg

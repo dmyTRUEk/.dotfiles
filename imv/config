@@ -2,13 +2,12 @@
 
 [options]
 
-# Suppress built-in key bindings, and specify them explicitly in this
-# config file.
+# Suppress built-in key bindings, and specify them explicitly in this config file.
 suppress_default_binds = true
+fullscreen = true
 
 [aliases]
-# Define aliases here. Any arguments passed to an alias are appended to the
-# command.
+# Define aliases here. Any arguments passed to an alias are appended to the command.
 # alias = command to run
 
 [binds]

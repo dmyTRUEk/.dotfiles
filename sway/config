@@ -438,8 +438,8 @@ bar {
 # ?
 include @sysconfdir@/sway/config.d/*
 
-# Polkit KDE Authentication - for apps that requests password
-exec /usr/lib/polkit-kde-authentication-agent-1
+# Polkit Authentication - for apps that requests password
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Sddm - for lock screen
 # exec systemctl enable sddm.service

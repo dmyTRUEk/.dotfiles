@@ -1,6 +1,6 @@
 # [dmyTRUEk](https://github.com/dmyTRUEk)'s dotfiles for [Sway](https://swaywm.org/)
 
-I believe it works in [Arch](https://archlinux.org/), [Manjaro](https://manjaro.org/),
+It works on [Arch](https://archlinux.org/), [Manjaro](https://manjaro.org/),
 and any other [GNU/Linux](https://www.getgnulinux.org/) distro,
 where you can install all needed programs.
 
@@ -22,8 +22,6 @@ where you can install all needed programs.
 - [Dotfiles](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
   \- creates symbolic links in desired locations to real dotfiles
   (real dotfiles located in `~/.dotfiles/`)
-- [Aliases](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-aliases.sh)
-  \- useful for dmenu, creates "aliases" (shell scripts) in `~/.local/bin/`
 
 
 
@@ -35,7 +33,8 @@ where you can install all needed programs.
 
 
 
-## Useful Add Ons for Sway [here](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
+## Useful Links:
+- [Useful add ons for sway](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
 
 
 
@@ -61,7 +60,7 @@ Solution:
 
 1. Set `XCURSOR_THEME=your_cursor_theme` before launching app
 
-### Screenshare dont work
+### Screenshare doesn't work
 - in Firefox:  
   Solution: google webrtc?
 - in Discord, Telegram:  

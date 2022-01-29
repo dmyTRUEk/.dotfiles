@@ -1,16 +1,21 @@
 # dmyTRUEk's Mako config file
 #
 # for testing:
+#
 # reload mako config:
 #   makoctl reload
+#
 # send test notification:
 #   notify-send 'test'
+#
+# for example:
+#   makoctl reload && notify-send 'Header' 'Lorem ipsum quam assumenda et blanditiis beatae pariatur voluptatem. Adipisci deleniti et optio tempora aut consequatur. Corporis aut voluptatem quasi sequi.'
 
 sort=+time
 
-# font=Noto Sans 9
+font=JetBrains Mono 10
 # border-size=3
-background-color=#333333
+background-color=#222222
 text-color=#ffffff
 # margin=10
 # padding=15
@@ -18,7 +23,7 @@ width=300
 height=100
 
 border-color=#000000
-# border-radius=0
+border-radius=10
 
 # Timeout:
 # ignore-timeout=0

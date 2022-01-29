@@ -69,7 +69,7 @@ ZSH_CUSTOM=/usr/share/zsh
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
+# Example format: plugins=(git textmate lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     history-substring-search
@@ -94,8 +94,8 @@ source $ZSH/oh-my-zsh.sh
 #### User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:$HOME/Development/flutter/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+path+=('/home/myshko/Development/flutter/bin')
+export PATH
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

@@ -4,7 +4,7 @@
 
 
 
-lockscreen_wallpaper=$HOME/Dropbox/Pictures/Wallpapers/sonny_boy_bg.png
+lockscreen_wallpaper=$HOME/Dropbox/Pictures/Wallpapers/sonny_boy_bg_v2.png
 delay_turn_off_screen=10
 tmp_file=/tmp/for_sway_scripts__lock_screen_manually__swayidle_pid.txt
 

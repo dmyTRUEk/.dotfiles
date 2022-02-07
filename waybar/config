@@ -36,16 +36,20 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{name}",
-        /* "format": "{name}: {icon}", */
-        /* "format-icons": { */
-        /*     "1": "", */
-        /*     "2": "", */
-        /*     "3": "", */
-        /*     "urgent" : "", */
-        /*     "focused": "", */
-        /*     "default": "", */
-        /* }, */
+        /* "format": "{name}", */
+        "format": "{name}{icon}",
+        "format-icons": {
+            "一": "   ",
+            "二": "   ",
+            "三": "   ",
+            "四": "   ",
+            "urgent" : "   ",
+            "focused": "",
+            "default": "",
+            /* "urgent" : "", */
+            /* "focused": "", */
+            /* "default": "", */
+        },
     },
 
     /// MODULES:

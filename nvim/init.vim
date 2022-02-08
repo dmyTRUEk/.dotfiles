@@ -583,28 +583,28 @@ lua << EOF
         snippet = {
             -- REQUIRED!!! - you MUST specify a snippet engine
             expand = function(args)
-              vim.fn["UltiSnips#Anon"](args.body)           -- For `ultisnips` users.
-              --vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
-              --require'snippy'.expand_snippet(args.body)   -- For `snippy` users.
-              --require'luasnip'.lsp_expand(args.body)      -- For `luasnip` users.
+                vim.fn["UltiSnips#Anon"](args.body)           -- For `ultisnips` users.
+                --vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
+                --require'snippy'.expand_snippet(args.body)   -- For `snippy` users.
+                --require'luasnip'.lsp_expand(args.body)      -- For `luasnip` users.
             end,
         },
     })
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     --cmp.setup.cmdline('/', {
-    --  sources = {
-    --    { name = 'buffer' }
-    --  }
+    --    sources = {
+    --        { name = 'buffer' }
+    --    }
     --})
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     --cmp.setup.cmdline(':', {
-    --  sources = cmp.config.sources({
-    --    { name = 'path' }
-    --  }, {
-    --    { name = 'cmdline' }
-    --  })
+    --    sources = cmp.config.sources({
+    --        { name = 'path' }
+    --    }, {
+    --        { name = 'cmdline' }
+    --    })
     --})
 
     -- Setup lspconfig.

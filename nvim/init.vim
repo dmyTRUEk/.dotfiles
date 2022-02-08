@@ -515,7 +515,6 @@ nnoremap <leader>g :Telescope live_grep <CR>
 
 " LSP config:
 set completeopt=menu,menuone
-" set keyword_pattern="[[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]]"
 
 " Code navigation shortcuts
 nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition()<CR>
@@ -566,23 +565,28 @@ lua << EOF
         },
         sources = {
             { name = 'nvim_lsp', group_index = 1 },
+
             --{ name = 'path' },
-            --{ name = 'vsnip' },   -- For vsnip users.
-            --{ name = 'luasnip' }, -- For luasnip users.
+
             { name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
+            --{ name = 'vsnip' },   -- For vsnip users.
             --{ name = 'snippy' },  -- For snippy users.
-            { name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\|[а-яА-Я]\)]] } },
+            --{ name = 'luasnip' }, -- For luasnip users.
+
+            { name = 'buffer', group_index = 3, option = { keyword_pattern = [[\Z\k\+]] } },
+            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%C\k\+]] } },
+            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\|[а-яА-Я]\)]] } },
             --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%([\-.]\w*\)*\|[а-яА-Я]\)]] } },
-            --{ name = 'buffer', keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%([\-.]\w*\)*\|[a-zA-Zа-яА-Я]*\)]] },
+            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\%(\h\w*\|[А-Яа-я]*\)\%([\-.]\w*\)*\)]] } },
             --{ name = 'buffer', group_index = 3, option = { get_bufnrs = get_all_buffers, keyword_pattern = anyWord } },
         },
         snippet = {
             -- REQUIRED!!! - you MUST specify a snippet engine
             expand = function(args)
-              --vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
-              --require('luasnip').lsp_expand(args.body)    -- For `luasnip` users.
               vim.fn["UltiSnips#Anon"](args.body)           -- For `ultisnips` users.
+              --vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
               --require'snippy'.expand_snippet(args.body)   -- For `snippy` users.
+              --require'luasnip'.lsp_expand(args.body)      -- For `luasnip` users.
             end,
         },
     })

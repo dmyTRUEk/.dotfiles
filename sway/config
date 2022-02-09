@@ -232,12 +232,24 @@
     $btrbindsym $mod+Escape $lock_command
 
     # Exit Sway
-    $btrbindsym $mod+Shift+e exec swaynag -t warning -m \
-        'You pressed the exit shortcut. What do you want?' \
-        -b 'Shutdown' 'systemctl poweroff' \
-        -b 'Reboot' 'systemctl reboot' \
-        -b 'Sleep' 'systemctl suspend' \
-        -b 'Logout' 'swaymsg exit'
+    $btrbindsym $mod+Shift+e exec swaynag \
+        -t warning \
+        --font='JetBrains Mono 10' \
+        --text=f9f5d7 \
+        --button-text=f9f5d7 \
+        --background=282828 \
+        --button-background=303030 \
+        --border=242424 \
+        --border-bottom=242424 \
+        --button-gap=20 \
+        --button-dismiss-gap=20 \
+        --button-margin-right=10 \
+        -m '  You pressed the exit shortcut. What do you want?' \
+        -s '  Cancel  ' \
+        -b '  Shutdown  ' 'systemctl poweroff' \
+        -b '  Reboot  ' 'systemctl reboot' \
+        -b '  Sleep  ' 'systemctl suspend' \
+        -b '  Logout  ' 'swaymsg exit'
 
     # Screenshots
     # screenshot (of current monitor?)

@@ -1,1 +1,38 @@
+# dmyTRUEk's Zathura config file
+
 set selection-clipboard clipboard
+
+set font "JetBrains Mono"
+
+set guioptions "s"
+
+# maps:
+set zoom-step 30
+map i zoom in
+map o zoom out
+
+# colors:
+set recolor true
+set recolor-keephue true
+set recolor-darkcolor "#f9f5d7"
+set recolor-lightcolor "#282828"
+
+set highlight-transparency 0.1
+set highlight-color "#b57614"
+set highlight-active-color "#b8bb26"
+# set highlight-fg "#ff00ff"
+
+set default-bg "#242424"
+# set default-fg "#ff0000"
+
+set statusbar-bg "#282828"
+set statusbar-fg "#f9f5d7"
+
+set inputbar-bg "#282828"
+set inputbar-fg "#f9f5d7"
+
+set notification-bg "#282828"
+set notification-fg "#f9f5d7"
+set notification-error-bg "#9d0006"
+set notification-warning-bg "#b57614"
+

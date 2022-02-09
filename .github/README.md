@@ -29,10 +29,7 @@ where you can install all needed programs.
 
 
 ## Screenshots:
-![Screenshot 0](screenshots/screenshot_neofetch.png)
-![Screenshot 1](screenshots/screenshot_nvim_1.png)
-![Screenshot 2](screenshots/screenshot_nvim_2.png)
-![Screenshot 3](screenshots/screenshot_file_manager.png)
+![Screenshot](screenshots/screenshot.png)
 
 
 

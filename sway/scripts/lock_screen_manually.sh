@@ -2,14 +2,14 @@
 
 # dmyTRUEk's script for manually lock screen
 
-
-
-lockscreen_wallpaper=$HOME/Dropbox/Pictures/Wallpapers/sonny_boy_bg_v2.png
 delay_turn_off_screen=10
+
 tmp_file=/tmp/for_sway_scripts__lock_screen_manually__swayidle_pid.txt
 
 {
-    swaylock -i $lockscreen_wallpaper -s fill
+    swaylock
+    # while `swaylock` is on the command is not finished,
+    # so kill will be executed only when the screen is unlocked
     this_swayidle_pid="$(cat $tmp_file)"
     kill -9 $this_swayidle_pid
 } & \
@@ -20,6 +20,4 @@ tmp_file=/tmp/for_sway_scripts__lock_screen_manually__swayidle_pid.txt
     & \
     this_swayidle_pid=$! && echo $this_swayidle_pid > $tmp_file
 }
-
-
 

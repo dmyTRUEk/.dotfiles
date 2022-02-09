@@ -9,17 +9,20 @@ where you can install all needed programs.
 ## Contents:
 ### Configs:
 - [NeoVim](https://github.com/dmyTRUEk/dotfiles/blob/main/nvim/init.vim)
-- [Zsh](https://github.com/dmyTRUEk/dotfiles/blob/main/.zshrc) + Oh My ZSH!
-- [Sway](https://github.com/dmyTRUEk/dotfiles/blob/main/sway/config)
-  - [Alacritty](https://github.com/dmyTRUEk/dotfiles/blob/main/alacritty/alacritty.yml)
+- [Alacritty](https://github.com/dmyTRUEk/dotfiles/blob/main/alacritty/alacritty.yml)
+- [Sway](https://github.com/dmyTRUEk/dotfiles/tree/main/sway/config)
   - [Waybar](https://github.com/dmyTRUEk/dotfiles/tree/main/waybar)
-  - [Mako](https://github.com/dmyTRUEk/dotfiles/tree/main/mako)
-- Git
+  - [Mako](https://github.com/dmyTRUEk/dotfiles/blob/main/mako/config)
+  - [Swaylock](https://github.com/dmyTRUEk/dotfiles/blob/main/swaylock/config)
+  - [Yofi](https://github.com/dmyTRUEk/dotfiles/blob/main/yofi/yofi.config)
+- [Zsh](https://github.com/dmyTRUEk/dotfiles/blob/main/.zshrc) + Oh My ZSH!
+- [Ranger](https://github.com/dmyTRUEk/dotfiles/tree/main/ranger)
+- [Zathura](https://github.com/dmyTRUEk/dotfiles/blob/main/zathura/zathurarc)
 - [Paru](https://github.com/dmyTRUEk/dotfiles/blob/main/paru/paru.conf)
-  \- [yay](https://github.com/Jguer/yay) alanog written in [Rust](https://www.rust-lang.org/)
+  \- yay alanog written in Rust
 
 ### Setup Scripts:
-- [Dotfiles](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
+- [setup-file-links](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
   \- creates symbolic links in desired locations to real dotfiles
   (real dotfiles located in `~/.dotfiles/`)
 

@@ -47,6 +47,7 @@ where you can install all needed programs.
 - [MuratovAS](https://github.com/MuratovAS/dotfiles)
 - [1edenec](https://github.com/1edenec/ledosway)
 - [ivanmilov (alacritty)](https://github.com/ivanmilov/dots_work_ttt/blob/master/home_dir/.config/alacritty/alacritty.yml)
+- [kraftwerk28](https://github.com/kraftwerk28/dotfiles)
 
 
 

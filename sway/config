@@ -24,12 +24,9 @@
     set $term alacritty
 
     # Application launcher
-    # Note: pass the final command to swaymsg so that the resulting window can be opened
-    # on the original workspace that the command was run on.
-    # set $menu_all dmenu_path | dmenu | xargs swaymsg exec --
-    # set $menu_my ~/.config/sway/scripts/get_apps.sh | dmenu | xargs swaymsg exec --
+    # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
     set $menu_all yofi binapps
-    set $menu_my yofi apps
+    set $menu_my python $HOME/.config/yofi/yofi_with_allowlist.py
 
     # Wallpaper
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
@@ -462,10 +459,6 @@ exec $HOME/.local/bin/sway-relative-keyboard-rs
 # Mako - notification manager
 # config file in: ~/.config/mako/config
 exec mako
-
-# Pamac - Manjaro package manager
-exec pamac-tray-plasma
-# exec /usr/bin/pamac-daemon
 
 # Dropbox
 exec dropbox

@@ -566,7 +566,7 @@ lua << EOF
         sources = {
             { name = 'nvim_lsp', group_index = 1 },
 
-            --{ name = 'path' },
+            { name = 'path' },
 
             { name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
             --{ name = 'vsnip' },   -- For vsnip users.

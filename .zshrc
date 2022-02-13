@@ -94,7 +94,8 @@ source $ZSH/oh-my-zsh.sh
 #### User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-path+=('/home/myshko/Development/flutter/bin')
+# path+=('/home/myshko/Development/flutter/bin')
+path+=('/home/myshko/Android/Sdk/platform-tools')
 export PATH
 
 # You may need to manually set your language environment

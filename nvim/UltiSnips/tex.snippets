@@ -15,7 +15,12 @@ snippet ab "above = overset{...}{...}"
 endsnippet
 
 priority 3
-snippet abs2 "|...|^2"
+snippet abs "|...|" i
+\abs{$1}$0
+endsnippet
+
+priority 4
+snippet abs2 "|...|^2" i
 \abs{$1}^2$0
 endsnippet
 
@@ -47,7 +52,7 @@ endsnippet
 
 priority 3
 snippet bbc "big brackets { }" i
-\left{ $1 \right}$0
+\left\{ $1 \right\}$0
 endsnippet
 
 priority 3

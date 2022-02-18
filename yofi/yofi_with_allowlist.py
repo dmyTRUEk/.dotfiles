@@ -7,6 +7,7 @@ apps = {
     'Alacritty': 'alacritty',
     'Android Studio': '_JAVA_AWT_WM_NONREPARENTING=1 android-studio',
     'Discord': 'discord',
+    'Discord Canary': 'discord-canary',
     'Firefox': 'firefox',
     'Image Viewer': 'imv',
     'Inkscape': 'inkscape',

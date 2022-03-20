@@ -393,7 +393,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
 " Snippets (i use it for LaTeX):
-Plug 'sirver/ultisnips'     ",{'for': ['tex']}
+Plug 'sirver/ultisnips'    ",{'for': ['tex']}
 
 " Kotlin Syntax:
 Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
@@ -626,10 +626,14 @@ EOF
 command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
 " snippets for LaTeX:
-let g:UltiSnipsExpandTrigger='<F8>'
-let g:UltiSnipsJumpForwardTrigger='<F8>'
-let g:UltiSnipsJumpBackwardTrigger='<F9>'
+let g:UltiSnipsExpandTrigger='<NOP>'
+let g:UltiSnipsJumpForwardTrigger='<NOP>'
+let g:UltiSnipsJumpBackwardTrigger='<NOP>'
 let g:UltiSnipsEditSplit="horizontal"
+
+inoremap <F8> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
+inoremap <F9> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
+inoremap <F10> <C-R>=UltiSnips#JumpBackwards() <CR>
 
 " you may want disable it, if you want to see only .tex, without .pdf
 function SynctexFromVimToZathuraDisable()

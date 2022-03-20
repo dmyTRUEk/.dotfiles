@@ -185,29 +185,42 @@ set ttimeoutlen=0
 " if VIM: remove this
 set clipboard+=unnamedplus
 
+
+
 " Set leader key:
 let mapleader = " "
 
+" Unmap Ex Mode (vi visual):
+map Q <NOP>
+map Й <NOP>
+
 " Save (Write) file:
 nnoremap <leader>w :w <CR>
+nnoremap <leader>W :wa <CR>
+nnoremap <leader>ц :w <CR>
+nnoremap <leader>Ц :wa <CR>
 
 " Quit:
 nnoremap <leader>q :q <CR>
+nnoremap <leader>Q :qa <CR>
+nnoremap <leader>й :q <CR>
+nnoremap <leader>Й :qa <CR>
 
-" Save (Write) All files:
-nnoremap <leader>W :wa <CR>
-
-" Quit All without saving:
-nnoremap <leader>Q :qa! <CR>
-
-" Save All and Quit All:
+" Save (Write) file and Quit:
+nnoremap <leader>a :wq <CR>
 nnoremap <leader>A :wqa <CR>
+nnoremap <leader>ф :wq <CR>
+nnoremap <leader>Ф :wqa <CR>
 
 " move between windows inside vim:
 nnoremap <leader>h :wincmd h <CR>
 nnoremap <leader>j :wincmd j <CR>
 nnoremap <leader>k :wincmd k <CR>
 nnoremap <leader>l :wincmd l <CR>
+nnoremap <leader>р :wincmd h <CR>
+nnoremap <leader>о :wincmd j <CR>
+nnoremap <leader>л :wincmd k <CR>
+nnoremap <leader>д :wincmd l <CR>
 
 
 
@@ -320,8 +333,9 @@ nnoremap Y y$
 
 
 " use ukr in normal mode:
-" TODO: update
-set langmap=фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz,ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ
+set langmap=аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
+" TODO:
+nnoremap псс gcc
 
 
 
@@ -462,6 +476,7 @@ let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, 
 " let NERDTreeIgnore = ['\.pyc$']   "ignore files with this extension
 
 nnoremap <leader>n :NERDTreeToggle <CR>
+nnoremap <leader>т :NERDTreeToggle <CR>
 
 
 

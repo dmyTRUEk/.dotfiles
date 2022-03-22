@@ -271,9 +271,9 @@ Plug 'sirver/ultisnips'    ",{'for': ['tex']}
 Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " Telescope:
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 
 
@@ -340,7 +340,7 @@ nnoremap <leader>т :NERDTreeToggle <CR>
 
 
 " AutoPairs settings:
-" TODO:
+" TODO: autopair for '<' -> '<>'
 "let g:AutoPairs['<']='>'
 " removes in insert mode <C-H> => backspace
 let g:AutoPairsMapCh = 0
@@ -355,6 +355,7 @@ let g:AutoPairsMultilineClose = 0
 
 " Quick-scope settings:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" TODO: better highlight colors
 
 
 
@@ -379,8 +380,8 @@ let g:Powerline_symbols = 'unicode'
 
 
 " Telescope:
-nnoremap <leader>f :Telescope find_files <CR>
-nnoremap <leader>g :Telescope live_grep <CR>
+" nnoremap <leader>f :Telescope find_files <CR>
+" nnoremap <leader>g :Telescope live_grep <CR>
 
 
 

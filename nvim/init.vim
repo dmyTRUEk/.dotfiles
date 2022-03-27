@@ -51,6 +51,9 @@ set redrawtime=10000
 " Set leader key:
 let mapleader = " "
 
+" Better bind for undo:
+nnoremap U <C-r>
+
 " Unmap Ex Mode (vi visual):
 map Q <NOP>
 map Й <NOP>

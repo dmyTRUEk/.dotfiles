@@ -1,0 +1,27 @@
+" Source your .vimrc
+source ~/.config/nvim/init.vim
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+set scrolloff=5
+
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+" aka compile
+map <leader>c <Action>(RunAnything)
+
+map <leader>r <Action>(RenameElement)
+map g[ <Action>(GotoPreviousError)
+map g] <Action>(GotoNextError)
+map gd <Action>(GotoDeclaration)
+" <leader>i -> inline
+"map gi <Action>(GotoImplementation)
+"map <leader>u <Action>(FindUsages)
+
+map <leader>f <Action>(GotoFile)
+map <leader>g <Action>(FindInPath)
+map <leader>b <Action>(Switcher)
+
+map <leader>z <Action>(ToggleDistractionFreeMode)
+

@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-ZSH_CUSTOM=/usr/share/zsh
+# ZSH_CUSTOM=/usr/share/zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -76,7 +76,7 @@ plugins=(
     colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
-    #git
+    git
     rust
     pip
     #antigen
@@ -96,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # path+=('/home/myshko/Development/flutter/bin')
 path+=('/home/myshko/Android/Sdk/platform-tools')
+# path+=('/snap/bin/rust-analyzer')
 export PATH
 
 # You may need to manually set your language environment
@@ -120,7 +121,7 @@ export PATH
 # alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="vim ~/.oh-my-zsh"
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 
 
@@ -154,6 +155,7 @@ alias n='nvim'
 alias nc='nvim ~/.config/nvim/init.vim'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'
+alias nz='nvim ~/.zshrc'
 
 ## GIT related:
 alias g='git'
@@ -171,4 +173,9 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gpush='git push'
 alias gpull='git pull'
+alias gch='git checkout'
+alias gchb='git checkout -b'
+alias gb='git branch'
+alias gm='git merge'
+alias gmt='git mergetool'
 

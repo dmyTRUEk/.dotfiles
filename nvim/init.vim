@@ -1,4 +1,4 @@
-" ----------------- This is dmyTRUEk's NVIM config file -----------------
+" ----------------- dmyTRUEk's NVIM config -----------------
 
 
 
@@ -46,17 +46,49 @@ set clipboard+=unnamedplus
 " for giant files:
 set redrawtime=10000
 
+" Change panes size by mouse
+autocmd VimEnter * set mouse=a
+
 
 
 " Set leader key:
 let mapleader = " "
 
-" Better bind for undo:
-nnoremap U <C-r>
+" make Y copy till end of line
+nnoremap Y y$
 
-" Unmap Ex Mode (vi visual):
+" Unmap Ex Mode (vi/visual):
 map Q <NOP>
 map Й <NOP>
+
+" swap 0 and ^
+noremap 0 ^
+noremap ^ 0
+
+" Better bind for redo:
+nnoremap U <C-r>
+
+" move in insert:
+inoremap <C-H> <Left>
+inoremap <C-J> <Down>
+inoremap <C-K> <Up>
+inoremap <C-L> <Right>
+
+" Exit from insert mode:
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+
+
+" TODO: <F1> -> nvim help for current word
+" nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
+nnoremap <F3> ^
+nnoremap <F4> $
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+
 
 " Save (Write) file:
 nnoremap <leader>w :w <CR>
@@ -88,16 +120,32 @@ nnoremap <leader>д :wincmd l <CR>
 
 
 
-" SCROLLOFF: distance from window(viewport) top/bottom
-" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
-let g:scrolloff_fraction = 0.15
+" COMPILES:
+" here `<leader>c` stands for `compile/run` whatever it be
 
-function SetFractionalScrollOff(fraction)
-    let l:visible_lines_in_active_window = winheight(win_getid())
-    let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
+" LaTeX:
+function SetupLeaderMapForLaTeX()
+    nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
 endfunction
+autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
 
-autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scrolloff_fraction)
+" Python:
+function SetupLeaderMapForPython()
+    nnoremap <leader>c :wa <bar> :! python % <CR>
+endfunction
+autocmd BufReadPost *.py call SetupLeaderMapForPython()
+
+" Rust:
+function SetupLeaderMapForRust()
+    nnoremap <leader>c :wa <bar> :! cargo test && cargo run <CR>
+endfunction
+autocmd BufReadPost *.rs call SetupLeaderMapForRust()
+
+" C++:
+function SetupLeaderMapForCPP()
+    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r && ./%:t:r <CR>
+endfunction
+autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
 
 
 
@@ -115,7 +163,7 @@ nnoremap cc :call Nothing() <CR>
 
 " map `cc<MOVE>` to Change Current word with MOVE word
 " this solution is better than `df<space>f<space>p` because it might not work
-" if there is no space after second word (for example `,` or `)` or `\n` or other)
+" if there is no space after second word (for example `,` or `)` or `\n` or other
 
 " here `|` means cursor position
 " aa|a bbb -> bbb| aaa
@@ -137,6 +185,19 @@ nnoremap cc3w viwy3wviwp4bviwp
 nnoremap cc3b viwy3bviwp3wviwp
 nnoremap cc3W viWy3WviWp4BviWp
 nnoremap cc3B viWy3BviWp3WviWp
+
+
+
+" SCROLLOFF: distance from window(viewport) top/bottom
+" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
+let g:scrolloff_fraction = 0.15
+
+function SetFractionalScrollOff(fraction)
+    let l:visible_lines_in_active_window = winheight(win_getid())
+    let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
+endfunction
+
+autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scrolloff_fraction)
 
 
 
@@ -166,7 +227,7 @@ else
     " echom 'VIM'
 
     " Scroll content instead of cursor line
-    " set ttymouse=sgr
+    set ttymouse=sgr
 
     let g:airline_section_x = 'VIM'
 
@@ -174,38 +235,16 @@ endif
 
 
 
-" remaps in NORMAL mode:
-" TODO: <F1> -> nvim help for current word
-" nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
-nnoremap <F3> ^
-nnoremap <F4> $
-
-" remaps in INSRET mode:
-" move in insert:
-inoremap <C-H> <Left>
-inoremap <C-J> <Down>
-inoremap <C-K> <Up>
-inoremap <C-L> <Right>
-
-" remaps in VISUAL mode:
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" make Y copy till end of line
-nnoremap Y y$
-
-
-
 " use ukr in normal mode:
 set langmap=аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
-" TODO:
+" TODO: make gcc (comment) work on ukr layout
 nnoremap псс gcc
 
 
 
 " CURSOR settings in different modes:
 let &t_EI.="\e[2 q"         "EI = normal mode
-let &t_SR.="\e[3 q"         "SR = replace mode
+let &t_SR.="\e[4 q"         "SR = replace mode
 let &t_SI.="\e[6 q"         "SI = insert mode
 " 1 - █ rectangle blinking
 " 2 - █ rectangle
@@ -313,8 +352,8 @@ call plug#end()
 " Sublimemonokai:
 "colorscheme sublimemonokai
 
-" Quantum:
-"set background=light   " light theme
+" Quantum: good light theme
+"set background=light
 "colorscheme quantum
 
 " Gruvbox:
@@ -324,13 +363,7 @@ colorscheme gruvbox
 
 
 
-" YouCompleteMe settings:
-"let g:ycm_min_num_of_chars_for_completion=1
-
-
-
 " NERDTree settings:
-autocmd VimEnter * set mouse=a      " enable changing panes size by mouse
 " autocmd VimEnter * NERDTree       " launch on startup
 " autocmd VimEnter * wincmd w       " auto move to main panel
 
@@ -622,35 +655,6 @@ function SetupEverythingForLaTeX()
 endfunction
 
 autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
-
-
-
-" COMPILES:
-
-" here `<leader>c` stands for `compile/run` whatever it be
-" LaTeX:
-function SetupLeaderMapForLaTeX()
-    nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
-endfunction
-autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
-
-" Python:
-function SetupLeaderMapForPython()
-    nnoremap <leader>c :wa <bar> :! python % <CR>
-endfunction
-autocmd BufReadPost *.py call SetupLeaderMapForPython()
-
-" Rust:
-function SetupLeaderMapForRust()
-    nnoremap <leader>c :wa <bar> :! cargo test && cargo run <CR>
-endfunction
-autocmd BufReadPost *.rs call SetupLeaderMapForRust()
-
-" C++:
-function SetupLeaderMapForCPP()
-    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r && ./%:t:r <CR>
-endfunction
-autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
 
 
 

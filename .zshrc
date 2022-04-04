@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # path+=('/home/myshko/Development/flutter/bin')
 path+=('/home/myshko/Android/Sdk/platform-tools')
 # path+=('/snap/bin/rust-analyzer')
+path+=('/opt/android-studio/jre/bin')
 export PATH
 
 # You may need to manually set your language environment
@@ -122,6 +123,10 @@ export PATH
 # alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # eval $(thefuck --alias)
+
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+export NDK_HOME="$HOME/Android/Sdk/ndk/21.4.7075529"
+export JAVA_HOME="/etc/java-11-openjdk"
 
 
 

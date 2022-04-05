@@ -316,9 +316,11 @@ Plug 'sirver/ultisnips'    ",{'for': ['tex']}
 Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " Telescope:
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 
 
@@ -375,6 +377,12 @@ let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, 
 nnoremap <leader>n :NERDTreeToggle <CR>
 nnoremap <leader>т :NERDTreeToggle <CR>
 
+"augroup cdpwd
+"    autocmd!
+"    autocmd VimEnter * cd $PWD
+"augroup END
+
+
 
 
 
@@ -419,8 +427,21 @@ let g:Powerline_symbols = 'unicode'
 
 
 " Telescope:
-" nnoremap <leader>f :Telescope find_files <CR>
-" nnoremap <leader>g :Telescope live_grep <CR>
+nnoremap <leader>f :Telescope find_files <CR>
+nnoremap <leader>g :Telescope live_grep <CR>
+
+lua << EOF
+    local actions = require("telescope.actions")
+    require("telescope").setup{
+      defaults = {
+        mappings = {
+          i = {
+            ["<esc>"] = actions.close
+          },
+        },
+      }
+}
+EOF
 
 
 

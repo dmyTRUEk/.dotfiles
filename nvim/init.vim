@@ -65,6 +65,10 @@ map Й <NOP>
 noremap 0 ^
 noremap ^ 0
 
+" maps for go back and forward
+nnoremap <leader>o <C-o>
+nnoremap <leader>i <C-i>
+
 " Better bind for redo:
 nnoremap U <C-r>
 

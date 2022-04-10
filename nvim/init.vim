@@ -88,6 +88,9 @@ inoremap kj <Esc>
 " nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
 nnoremap <F3> ^
 nnoremap <F4> $
+" TODO:
+" inoremap <F3> ^
+" inoremap <F4> $
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -194,7 +197,7 @@ nnoremap cc3B viWy3BviWp3WviWp
 
 " SCROLLOFF: distance from window(viewport) top/bottom
 " set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
-let g:scrolloff_fraction = 0.15
+let g:scrolloff_fraction = 0.20
 
 function SetFractionalScrollOff(fraction)
     let l:visible_lines_in_active_window = winheight(win_getid())

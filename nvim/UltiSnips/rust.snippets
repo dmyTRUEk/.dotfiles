@@ -34,3 +34,14 @@ impl Extension$1 for $5 {
 }$0
 endsnippet
 
+
+
+priority 2
+snippet at "auto tests" b
+let test_cases: Vec<_> = vec![
+    ($1, $2),
+];
+for (ans, input) in test_cases {
+    assert_eq!(ans, $3(input));
+}
+endsnippet

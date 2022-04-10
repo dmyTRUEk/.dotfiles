@@ -23,7 +23,7 @@ map <leader>d <Action>(ShowErrorDescription)
 
 map <leader>f <Action>(GotoFile)
 map <leader>g <Action>(FindInPath)
-map <leader>s <Action>(Switcher)
+map <leader>n <Action>(Switcher)
 
 map <leader>z <Action>(ToggleDistractionFreeMode)
 

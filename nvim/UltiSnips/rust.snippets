@@ -1,0 +1,36 @@
+# dmyTRUEk's snippets for LaTeX
+#
+# snippet modificators:
+#   b -> will work only at begin of line
+#   i -> inword, so that `text/` + <F8> -> `text\frac{...}{...}`
+#   r -> regex name
+#     abc?d? = [ab, abc, abcd]
+
+
+
+priority 1
+snippet t "#[cfg(test)] mod tests { … }" b
+#[cfg(test)]
+mod tests {
+    
+    #[test]
+    fn $1() {
+        $2
+    }$0
+}
+endsnippet
+
+
+
+priority 1
+snippet e "trait Extension…" b
+pub trait Extension$1 {
+    fn $2($3) -> $4;
+}
+impl Extension$1 for $5 {
+    fn $2($3) -> $4 {
+        $6
+    }
+}$0
+endsnippet
+

@@ -86,11 +86,10 @@ inoremap kj <Esc>
 
 " TODO: <F1> -> nvim help for current word
 " nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
-nnoremap <F3> ^
-nnoremap <F4> $
-" TODO:
-" inoremap <F3> ^
-" inoremap <F4> $
+noremap <F3> ^
+noremap <F4> $
+inoremap <F3> <C-O>^
+inoremap <F4> <C-O>$
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv

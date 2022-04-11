@@ -12,7 +12,6 @@ priority 1
 snippet t "#[cfg(test)] mod tests { … }" b
 #[cfg(test)]
 mod tests {
-    
     #[test]
     fn $1() {
         $2
@@ -25,10 +24,10 @@ endsnippet
 priority 1
 snippet e "trait Extension…" b
 pub trait Extension$1 {
-    fn $2($3) -> $4;
+    fn $2(&self, $3) -> $4;
 }
 impl Extension$1 for $5 {
-    fn $2($3) -> $4 {
+    fn $2(&self, $3) -> $4 {
         $6
     }
 }$0
@@ -45,3 +44,4 @@ for (ans, input) in test_cases {
     assert_eq!(ans, $3(input));
 }
 endsnippet
+

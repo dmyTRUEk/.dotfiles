@@ -185,3 +185,8 @@ alias gb='git branch'
 alias gm='git merge'
 alias gmt='git mergetool'
 
+
+
+# custom scripts:
+alias countlinesofcode='res=0; for f in $(tree -fiF --noreport | grep -v /$ | tail -n +2); do res=$(($res+$(cat $f | sed "/^\s*$/d" | wc -l))); done; echo $res'
+

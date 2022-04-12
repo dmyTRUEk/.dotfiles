@@ -55,15 +55,13 @@ where you can install all needed programs.
 
 
 
-## FAQ - Frequently Asked Questions:
+## Sway FAQ - Frequently Asked Questions:
 
-### Some symbols doesnt show correctly
+### Some symbols isn't displayed correctly
 Solution: install `ttf-font-awesome` package
 
 ### Mouse Cursor in some app is wrong
-Solution:
-
-1. Set `XCURSOR_THEME=your_cursor_theme` before launching app
+Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app
 
 ### Screenshare doesn't work
 - in Firefox:  
@@ -73,10 +71,10 @@ Solution:
   1. Launch OBS
   2. Translate your screen to virtual camera
     if it is not available, install `v4l2loopback-dkms`
-  3. Use it in discord/telegram
+  3. Enable (virtual) camera in discord/telegram
 
-### Screencasting (screenrecording)
-Solution: use [wf-recorder](https://github.com/ammen99/wf-recorder)
+### Screenrecording
+Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder)
 
 ### Enviroment variables of two (or more) DE/WM conflicts
 Solution:
@@ -92,8 +90,8 @@ Solution:
 2. Give executable permission to this file: `chmod +x /usr/local/bin/sway`
 3. In your `sway.desktop` file (located in `/usr/share/wayland-sessions`) edit `Exec=sway` to `Exec=/usr/local/bin/sway`
 
-### Run JetBrains (or other Java based apps)
-Solution: `_JAVA_AWT_WM_NONREPARENTING=1\n<your_app_name>`
+### Run JetBrains (or maybe other Java based apps)
+Solution: `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`
 
 
 

@@ -285,7 +285,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
 " kotlin syntax highlight:
-Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
+"Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " rust-analyzer additional features (inlay hints, etc)
 "Plug 'simrat39/rust-tools.nvim'

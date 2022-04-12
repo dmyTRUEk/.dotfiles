@@ -1,4 +1,4 @@
-# [dmyTRUEk](https://github.com/dmyTRUEk)'s dotfiles for [Sway](https://swaywm.org/)
+# [dmyTRUEk](https://github.com/dmyTRUEk)'s dotfiles
 
 It works on [Arch](https://archlinux.org/), [Manjaro](https://manjaro.org/),
 and any other [GNU/Linux](https://www.getgnulinux.org/) distro,
@@ -8,21 +8,25 @@ where you can install all needed programs.
 
 ## Contents:
 ### Configs:
-- [NeoVim](https://github.com/dmyTRUEk/dotfiles/blob/main/nvim/init.vim)
-- [Alacritty](https://github.com/dmyTRUEk/dotfiles/blob/main/alacritty/alacritty.yml)
-- [Sway](https://github.com/dmyTRUEk/dotfiles/tree/main/sway/config)
-  - [Waybar](https://github.com/dmyTRUEk/dotfiles/tree/main/waybar)
-  - [Mako](https://github.com/dmyTRUEk/dotfiles/blob/main/mako/config)
-  - [Swaylock](https://github.com/dmyTRUEk/dotfiles/blob/main/swaylock/config)
-  - [Yofi](https://github.com/dmyTRUEk/dotfiles/blob/main/yofi/yofi.config)
-- [Zsh](https://github.com/dmyTRUEk/dotfiles/blob/main/.zshrc) + Oh My ZSH!
-- [Ranger](https://github.com/dmyTRUEk/dotfiles/tree/main/ranger)
-- [Zathura](https://github.com/dmyTRUEk/dotfiles/blob/main/zathura/zathurarc)
-- [Paru](https://github.com/dmyTRUEk/dotfiles/blob/main/paru/paru.conf)
-  \- yay alanog written in Rust
+- NeoVim: [init.vim](https://github.com/dmyTRUEk/dotfiles/blob/main/nvim/init.vim)
+- Zsh + Oh My ZSH!: [.zshrc](https://github.com/dmyTRUEk/dotfiles/blob/main/.zshrc)
+  + [.zprofile](https://github.com/dmyTRUEk/dotfiles/blob/main/.zprofile)
+- Ranger: [rc.conf](https://github.com/dmyTRUEk/dotfiles/blob/main/ranger/rc.conf)
+  + [ala_gruvbox.py](https://github.com/dmyTRUEk/dotfiles/blob/main/ranger/colorschemes/ala_gruvbox.py)
+- Zathura: [zathurarc](https://github.com/dmyTRUEk/dotfiles/blob/main/zathura/zathurarc)
+- Paru: [paru.conf](https://github.com/dmyTRUEk/dotfiles/blob/main/paru/paru.conf)
+- Alacritty: [alacritty.yml](https://github.com/dmyTRUEk/dotfiles/blob/main/alacritty/alacritty.yml)
+- Sway: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/sway/config)
+  - Waybar: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/waybar/config)
+    + [style.css](https://github.com/dmyTRUEk/dotfiles/blob/main/waybar/style.css)
+    + [modules/kblayout](https://github.com/dmyTRUEk/dotfiles/blob/main/waybar/modules/kblayout)
+  - Mako: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/mako/config)
+  - Swaylock: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/swaylock/config)
+  - Yofi: [yofi.config](https://github.com/dmyTRUEk/dotfiles/blob/main/yofi/yofi.config)
+    + [yofi_with_allowlist.py](https://github.com/dmyTRUEk/dotfiles/blob/main/yofi/yofi_with_allowlist.py)
 
 ### Setup Scripts:
-- [setup-file-links](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
+- [setup-file-links.sh](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
   \- creates symbolic links in desired locations to real dotfiles
   (real dotfiles located in `~/.dotfiles/`)
 

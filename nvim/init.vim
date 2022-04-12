@@ -1,7 +1,5 @@
 " ----------------- dmyTRUEk's NVIM config -----------------
 
-
-
 filetype plugin indent on   " turns on 'detection', 'plugin' and 'indent' at once
 syntax enable               " highlight syntax
 
@@ -47,7 +45,7 @@ set clipboard+=unnamedplus
 set redrawtime=10000
 
 " change panes size by mouse
-autocmd VimEnter * set mouse=a
+set mouse=a
 
 
 
@@ -127,8 +125,6 @@ nnoremap <leader>д :wincmd l <CR>
 
 
 """ Compiles:
-" here `<leader>c` stands for `compile/run` whatever it be
-
 " latex:
 function SetupLeaderMapForLaTeX()
     nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
@@ -152,8 +148,6 @@ function SetupLeaderMapForCPP()
     nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r <CR>
 endfunction
 autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
-
-
 
 
 
@@ -205,7 +199,7 @@ nnoremap псс gcc
 
 
 
-" CURSOR settings in different modes:
+" cursor settings in different modes:
 let &t_EI.="\e[2 q"         "EI = normal mode
 let &t_SR.="\e[4 q"         "SR = replace mode
 let &t_SI.="\e[6 q"         "SI = insert mode

@@ -272,56 +272,46 @@ endif
 " PLUGINS:
 call plug#begin()
 
-" Color Themes:
+""" Color Themes:
 "Plug 'nlknguyen/papercolor-theme'
 "Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'kjssad/quantum.vim'
 Plug 'morhetz/gruvbox'
 
-" Status Bar (bottom):
-Plug 'vim-airline/vim-airline'
 
-" File Manager inside vim (default on left side):
-Plug 'scrooloose/nerdtree'
-
-" Vim Surround:
-" cs'<t> inside '' => 'Hello world' -> <t>Hello world</t>
-" TODO?: ys( == ys)   https://github.com/tpope/vim-surround/issues/314
-Plug 'tpope/vim-surround'
-
-" Auto Completion:
-" if VIM: i think easier to use this instead of LSP based solution
-"Plug 'valloric/youcompleteme'
-", {'for': ['cpp', 'python']}
-
-" Close Brackets automatically:
+""" Core Plugins:
+" close brackets automatically:
 Plug 'jiangmiao/auto-pairs'
 
-" Comments manager: 'gcc' (not C compiler) to comment/uncomment line:
+" comments manager:
 Plug 'tpope/vim-commentary'
 
-" Highlight words' unique symbols when pressing f F t T
-Plug 'unblevable/quick-scope'
+" surround manager:
+Plug 'tpope/vim-surround'
 
-" Exchange two selections: swap two words: goto word1 -> `cxiw` -> goto word2 -> `cx.`
+" exchange selections:
 Plug 'tommcdo/vim-exchange'
 
-" Git wrapper so awesome, it should be illegal:
+" better find in line:
+Plug 'unblevable/quick-scope'
+
+
+""" General Plugins:
+" snippets:
+Plug 'sirver/ultisnips'
+
+" git wrapper:
 "Plug 'tpope/vim-fugitive'
 
-" ? Syntax Highlight:
-"Plug 'scrooloose/syntastic'
 
-" for LaTeX:
-Plug 'lervag/vimtex'        ,{'for': ['tex']}
+""" UI Plugins:
+" better status bar:
+Plug 'vim-airline/vim-airline'
 
-" Snippets (i use it for LaTeX):
-Plug 'sirver/ultisnips'    ",{'for': ['tex']}
+" file manager:
+Plug 'scrooloose/nerdtree'
 
-" Kotlin Syntax:
-Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
-
-" Telescope:
+" find files and text in them:
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -329,8 +319,8 @@ Plug 'nvim-telescope/telescope.nvim'
 "Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 
-
-" LSP based completions:
+""" Programming Languages:
+" lsp related:
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -338,17 +328,21 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-"Plug 'honza/vim-snippets'
 "Plug 'folke/lsp-colors.nvim'
 
-" Extentions to built-in LSP, for example, providing type inlay hints:
-"Plug 'nvim-lua/lsp_extensions.nvim'
+" for latex:
+Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
-" To enable more of the features of rust-analyzer, such as inlay hints and more!
+" kotlin syntax highlight:
+Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
+
+" rust-analyzer additional features (inlay hints, etc)
 "Plug 'simrat39/rust-tools.nvim'
 "Plug 'rust-lang/rust.vim'
 
 call plug#end()
+
+
 
 
 
@@ -371,71 +365,64 @@ colorscheme gruvbox
 
 
 
-" NERDTree settings:
-" autocmd VimEnter * NERDTree       " launch on startup
-" autocmd VimEnter * wincmd w       " auto move to main panel
-
-let NERDTreeSortOrder = ['[[extension]]']       " sort by type
-let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, f100)
-
-" let NERDTreeIgnore = ['\.pyc$']   "ignore files with this extension
-
-nnoremap <leader>n :NERDTreeToggle <CR>
-nnoremap <leader>т :NERDTreeToggle <CR>
-
-"augroup cdpwd
-"    autocmd!
-"    autocmd VimEnter * cd $PWD
-"augroup END
 
 
-
-
-
-" AutoPairs settings:
-" TODO: autopair for '<' -> '<>'
-"let g:AutoPairs['<']='>'
-" removes in insert mode <C-H> => backspace
+" auto-pairs:
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMultilineClose = 0
+" TODO: autopair for '<' -> '<>'
+"let g:AutoPairs['<']='>'
+" TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait)
 
 
-
-" Surrounding settings:
+" vim-surround:
 " TODO: change so that `ys(` dont add spaces inside
+" https://github.com/tpope/vim-surround/issues/314
 
 
-
-" Quick-scope settings:
+" quick-scope:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " TODO: better highlight colors
 
 
 
-" AIRLINE settings:
+
+
+" ultisnips:
+let g:UltiSnipsExpandTrigger='<NOP>'
+let g:UltiSnipsJumpForwardTrigger='<NOP>'
+let g:UltiSnipsJumpBackwardTrigger='<NOP>'
+let g:UltiSnipsEditSplit="horizontal"
+inoremap <F8> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
+inoremap <F9> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
+" TODO?: maybe remap f10 also to expand?
+inoremap <F10> <C-R>=UltiSnips#JumpBackwards() <CR>
+
+
+
+
+
+" airline:
 let g:airline_powerline_fonts = 1
-"let g:airline_detect_spelllang=1
-"let g:airline_section_a=""
-"let g:airline_section_b=""
-"let g:airline_section_c=""
-"let g:airline_section_gutter=""
-" let g:airline_section_x=""
 let g:airline_section_y = ""
 let g:airline_section_z = "Line: %l/%L, Col: %c"
-"let g:airline_section_error=""
-"let g:airline_section_warning=""
-
 let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
 "let b:airline_whitespace_checks = ['indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts']
 
-let g:Powerline_symbols = 'unicode'
+
+" nerdtree:
+let NERDTreeSortOrder = ['[[extension]]']       " sort by type
+let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, f100)
+nnoremap <leader>n :NERDTreeToggle <CR>
+nnoremap <leader>т :NERDTreeToggle <CR>
+" autocmd VimEnter * NERDTree       " launch on startup
+" autocmd VimEnter * wincmd w       " auto move to main panel
+" let NERDTreeIgnore = ['\.pyc$']   "ignore files with this extension
 
 
-
-" Telescope:
+" telescope:
 nnoremap <leader>f :Telescope find_files <CR>
 nnoremap <leader>g :Telescope live_grep <CR>
-
 lua << EOF
     local actions = require("telescope.actions")
     require("telescope").setup{
@@ -446,17 +433,16 @@ lua << EOF
           },
         },
       }
-}
+    }
 EOF
 
 
 
 
 
-" LSP config:
+" lsp:
 set completeopt=menu,menuone
 
-" Code navigation shortcuts
 nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gi        <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references()<CR>
@@ -473,13 +459,11 @@ nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<CR>
 "nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 lua << EOF
-    -- Setup nvim-cmp.
+    -- setup nvim-cmp
     local cmp = require('cmp')
-
     cmp.setup({
         mapping = {
             ['<CR>'] = cmp.mapping.confirm({ select = true }),
-
             ['<Tab>'] = function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -487,7 +471,6 @@ lua << EOF
                     fallback()
                 end
             end,
-
             ['<S-Tab>'] = function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
@@ -495,7 +478,6 @@ lua << EOF
                     fallback()
                 end
             end,
-
             ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
             --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
             --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -507,23 +489,15 @@ lua << EOF
         },
         sources = {
             { name = 'nvim_lsp', group_index = 1 },
-
             { name = 'path' },
-
             { name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
-            --{ name = 'vsnip' },   -- For vsnip users.
-            --{ name = 'snippy' },  -- For snippy users.
-            --{ name = 'luasnip' }, -- For luasnip users.
-
+            --{ name = 'vsnip' },                    -- For vsnip users.
+            --{ name = 'snippy' },                   -- For snippy users.
+            --{ name = 'luasnip' },                  -- For luasnip users.
             { name = 'buffer', group_index = 3, option = { keyword_pattern = [[\Z\k\+]] } },
-            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%C\k\+]] } },
-            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\|[а-яА-Я]\)]] } },
-            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%([\-.]\w*\)*\|[а-яА-Я]\)]] } },
-            --{ name = 'buffer', group_index = 3, option = { keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\%(\h\w*\|[А-Яа-я]*\)\%([\-.]\w*\)*\)]] } },
-            --{ name = 'buffer', group_index = 3, option = { get_bufnrs = get_all_buffers, keyword_pattern = anyWord } },
         },
         snippet = {
-            -- REQUIRED!!! - you MUST specify a snippet engine
+            -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine
             expand = function(args)
                 vim.fn["UltiSnips#Anon"](args.body)           -- For `ultisnips` users.
                 --vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
@@ -532,15 +506,13 @@ lua << EOF
             end,
         },
     })
-
-    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    -- use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     --cmp.setup.cmdline('/', {
     --    sources = {
     --        { name = 'buffer' }
     --    }
     --})
-
-    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    -- use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     --cmp.setup.cmdline(':', {
     --    sources = cmp.config.sources({
     --        { name = 'path' }
@@ -548,8 +520,7 @@ lua << EOF
     --        { name = 'cmdline' }
     --    })
     --})
-
-    -- Setup lspconfig.
+    -- setup:
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     local servers = { 'rust_analyzer', 'pyright' }
     for _, lsp in pairs(servers) do
@@ -563,20 +534,12 @@ EOF
 
 
 
-" for LaTeX:
+" for latex:
 command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
-" snippets for LaTeX:
-let g:UltiSnipsExpandTrigger='<NOP>'
-let g:UltiSnipsJumpForwardTrigger='<NOP>'
-let g:UltiSnipsJumpBackwardTrigger='<NOP>'
-let g:UltiSnipsEditSplit="horizontal"
+" TODO: rename functions, make some private
 
-inoremap <F8> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
-inoremap <F9> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
-inoremap <F10> <C-R>=UltiSnips#JumpBackwards() <CR>
-
-" you may want disable it, if you want to see only .tex, without .pdf
+" enable/disable vim to zathura sync
 function SynctexFromVimToZathuraDisable()
     let g:is_synctex_from_vim_to_zathura_must_work = 0
 endfunction
@@ -584,7 +547,7 @@ function SynctexFromVimToZathuraEnable()
     let g:is_synctex_from_vim_to_zathura_must_work = 1
 endfunction
 
-" you may want disable it, if you dont want to compile latex
+" enable/disable autocompile
 function CompileLaTeXtoPDFDisable()
     let g:is_compile_latex_to_pdf_must_work = 0
 endfunction
@@ -592,14 +555,14 @@ function CompileLaTeXtoPDFEnable()
     let g:is_compile_latex_to_pdf_must_work = 1
 endfunction
 
-" you may want to disable all LaTeX connected autos
+" enable/disable autocompile and sync
 function LaTeXautosDisable()
-    let g:is_compile_latex_to_pdf_must_work = 0
-    let g:is_synctex_from_vim_to_zathura_must_work = 0
+    call CompileLaTeXtoPDFDisable()
+    call SynctexFromVimToZathuraDisable()
 endfunction
 function LaTeXautosEnable()
-    let g:is_compile_latex_to_pdf_must_work = 1
-    let g:is_synctex_from_vim_to_zathura_must_work = 1
+    call CompileLaTeXtoPDFEnable()
+    call SynctexFromVimToZathuraEnable()
 endfunction
 
 function SynctexFromVimToZathura()
@@ -653,21 +616,15 @@ function SetupEverythingForLaTeX()
     let g:tex_flavor = 'latex'
 
     " look at: https://habr.com/ru/post/445066/
-    " let g:vimtex_view_general_viewer='okular'
-    " let g:vimtex_view_general_options='--unique file:@pdf\#src:@line@tex'
-    " let g:vimtex_view_general_options_latexmk='--unique'
     let g:vimtex_quickfix_mode = 0
-    " set conceallevel=1
-    " let g:tex_conceal='abdmg'
-
     let g:vimtex_view_method = 'zathura'
 
-    " things for reactivity/dynamics:
+    " for autocompile and sync:
     let g:is_synctex_from_vim_to_zathura_must_work = 1
     let g:is_compile_latex_to_pdf_must_work = 1
 
     autocmd CursorMoved *.tex call SynctexFromVimToZathuraSafe()
-    " autocmd CursorMovedI *.tex call SynctexFromVimToZathuraSafe()
+    "autocmd CursorMovedI *.tex call SynctexFromVimToZathuraSafe()
 
     let g:compile_latex_to_pdf_is_now_compiling = 0
     let g:compile_latex_to_pdf_last_exit_code = 1
@@ -688,4 +645,4 @@ autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
 
 
 
-" the end ;)
+" the end :D

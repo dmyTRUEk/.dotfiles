@@ -22,42 +22,42 @@ set laststatus=2            " it controls, when/how to display the status-bar: 0
 set incsearch               " show search results immedeatly
 set hlsearch                " highlight found
 set ignorecase              " /word will find 'word' or 'Word' or 'WORD'
-set smartcase               " When 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not. For example, '/The' would find only 'The', while '/the' would find 'the' or 'The'
+set smartcase               " when 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not; for example, '/The' would find only 'The', while '/the' would find both 'the' and 'The'
 
 " 'smart' tabs:
 set tabstop=4               " when indenting with '>', use 4 spaces width
-set shiftwidth=4            " On pressing tab, insert 4 spaces
+set shiftwidth=4            " on pressing tab, insert 4 spaces
 set expandtab               " use spaces instead of tabs
 set autoindent              " set tabs automatically, when starting new line
 
-" Dont wrap lines:
-" set nowrap
+" dont wrap lines:
+"set nowrap
 
 " remove ESC delay:
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-" set esckeys                "However, this will break any sequences using Escape in insert mode
+"set esckeys                "however, this will break any sequences using <ESC> in insert mode
 set timeoutlen=1000
 set ttimeoutlen=0
 
-" for Clipboard in Wayland+NVIM to work:
 " if VIM: remove this
+" for clipboard in wayland+nvim to work:
 set clipboard+=unnamedplus
 
 " for giant files:
 set redrawtime=10000
 
-" Change panes size by mouse
+" change panes size by mouse
 autocmd VimEnter * set mouse=a
 
 
 
-" Set leader key:
+" set leader key:
 let mapleader = " "
 
 " make Y copy till end of line
 nnoremap Y y$
 
-" Unmap Ex Mode (vi/visual):
+" unmap ex mode:
 map Q <NOP>
 map Й <NOP>
 
@@ -69,7 +69,7 @@ noremap ^ 0
 nnoremap <leader>o <C-o>
 nnoremap <leader>i <C-i>
 
-" Better bind for redo:
+" better bind for redo:
 nnoremap U <C-r>
 
 " move in insert:
@@ -78,7 +78,7 @@ inoremap <C-J> <Down>
 inoremap <C-K> <Up>
 inoremap <C-L> <Right>
 
-" Exit from insert mode:
+" exit from insert mode:
 inoremap jk <Esc>
 inoremap kj <Esc>
 
@@ -96,19 +96,19 @@ vnoremap K :m '<-2<CR>gv=gv
 
 
 
-" Save (Write) file:
+" save:
 nnoremap <leader>w :w <CR>
 nnoremap <leader>W :wa <CR>
 nnoremap <leader>ц :w <CR>
 nnoremap <leader>Ц :wa <CR>
 
-" Quit:
+" quit:
 nnoremap <leader>q :q <CR>
 nnoremap <leader>Q :qa <CR>
 nnoremap <leader>й :q <CR>
 nnoremap <leader>Й :qa <CR>
 
-" Save (Write) file and Quit:
+" save and quit:
 nnoremap <leader>a :wq <CR>
 nnoremap <leader>A :wqa <CR>
 nnoremap <leader>ф :wq <CR>
@@ -126,28 +126,28 @@ nnoremap <leader>д :wincmd l <CR>
 
 
 
-" COMPILES:
+""" Compiles:
 " here `<leader>c` stands for `compile/run` whatever it be
 
-" LaTeX:
+" latex:
 function SetupLeaderMapForLaTeX()
     nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
 endfunction
 autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
 
-" Python:
+" python:
 function SetupLeaderMapForPython()
     nnoremap <leader>c :wa <bar> :! python % <CR>
 endfunction
 autocmd BufReadPost *.py call SetupLeaderMapForPython()
 
-" Rust:
+" rust:
 function SetupLeaderMapForRust()
     nnoremap <leader>c :wa <bar> :! cargo test && cargo run <CR>
 endfunction
 autocmd BufReadPost *.rs call SetupLeaderMapForRust()
 
-" C++:
+" c++:
 function SetupLeaderMapForCPP()
     nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r <CR>
 endfunction
@@ -155,46 +155,9 @@ autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
 
 
 
-" my Change Current word with another:
-function Nothing()
-    " nothing ;)
-    " `echom` used instead of `echo`, because it seems faster
-    echom ""
-endfunction
-
-" `cc` is duplication of `S`
-" so i can use it for my purposes
-" so firstly i clearing it:
-nnoremap cc :call Nothing() <CR>
-
-" map `cc<MOVE>` to Change Current word with MOVE word
-" this solution is better than `df<space>f<space>p` because it might not work
-" if there is no space after second word (for example `,` or `)` or `\n` or other
-
-" here `|` means cursor position
-" aa|a bbb -> bbb| aaa
-nnoremap ccw viwywviwp2bviwp
-" aaa bb|b -> bbb aaa|
-nnoremap ccb viwybviwpwviwp
-
-" aaa.aa|a bbb.bbb -> bbb.bbb| aaa.aaa
-nnoremap ccW viWyWviWp2BviWp
-" aaa.aaa bbb.bbb| -> bbb.bbb aaa.aaa|
-nnoremap ccB viWyBviWpWviWp
-
-nnoremap cc2w viwy2wviwp3bviwp
-nnoremap cc2b viwy2bviwp2wviwp
-nnoremap cc2W viWy2WviWp3BviWp
-nnoremap cc2B viWy2BviWp2WviWp
-
-nnoremap cc3w viwy3wviwp4bviwp
-nnoremap cc3b viwy3bviwp3wviwp
-nnoremap cc3W viWy3WviWp4BviWp
-nnoremap cc3B viWy3BviWp3WviWp
 
 
-
-" SCROLLOFF: distance from window(viewport) top/bottom
+" scrolloff: distance from window(viewport) top/bottom
 " set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 let g:scrolloff_fraction = 0.20
 
@@ -207,10 +170,9 @@ autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scro
 
 
 
-" Fix Vim/Neovim and Alacritty compatibility:
+" fix vim/neovim and alacritty compatibility:
 " source: https://github.com/alacritty/alacritty/issues/919
-" TODO: turn on/off?
-" if some strange BUG will occur => remove next line:
+" TODO: turn on/off? if some strange bug will occur => remove next line:
 "if &term == 'alacritty'
 "    set term=xterm-256color
 "    execute "set <xUp>=\e[1;*A"
@@ -226,17 +188,12 @@ autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scro
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
 if has('nvim')
     " echom 'NEOVIM'
-
     let g:airline_section_x = 'NEOVIM'
-
 else
     " echom 'VIM'
-
-    " Scroll content instead of cursor line
+    " scroll content instead of cursor line
     set ttymouse=sgr
-
     let g:airline_section_x = 'VIM'
-
 endif
 
 
@@ -272,7 +229,7 @@ endif
 " PLUGINS:
 call plug#begin()
 
-""" Color Themes:
+""" Colorschemes:
 "Plug 'nlknguyen/papercolor-theme'
 "Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'kjssad/quantum.vim'
@@ -346,19 +303,19 @@ call plug#end()
 
 
 
-" COLORSCHEME settings:
-" Papercolor:
+""" Colorschemes Settings:
+" papercolor:
 "set background=light
 "colorscheme PaperColor
 
-" Sublimemonokai:
+" sublimemonokai:
 "colorscheme sublimemonokai
 
-" Quantum: good light theme
+" quantum: good light theme
 "set background=light
 "colorscheme quantum
 
-" Gruvbox:
+" gruvbox:
 set termguicolors       " enable true colors support
 set background=dark
 colorscheme gruvbox
@@ -367,6 +324,7 @@ colorscheme gruvbox
 
 
 
+""" Core Plugins Settings:
 " auto-pairs:
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMultilineClose = 0
@@ -388,6 +346,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
 
+""" General Plugins Settings:
 " ultisnips:
 let g:UltiSnipsExpandTrigger='<NOP>'
 let g:UltiSnipsJumpForwardTrigger='<NOP>'
@@ -402,6 +361,7 @@ inoremap <F10> <C-R>=UltiSnips#JumpBackwards() <CR>
 
 
 
+""" UI Plugins Settings:
 " airline:
 let g:airline_powerline_fonts = 1
 let g:airline_section_y = ""
@@ -412,7 +372,7 @@ let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
 
 " nerdtree:
 let NERDTreeSortOrder = ['[[extension]]']       " sort by type
-let NERDTreeNaturalSort = 1         " Sort files in natural order (f1, f5, f10, f100)
+let NERDTreeNaturalSort = 1         " sort files in natural order (f1, f5, f10, f100)
 nnoremap <leader>n :NERDTreeToggle <CR>
 nnoremap <leader>т :NERDTreeToggle <CR>
 " autocmd VimEnter * NERDTree       " launch on startup
@@ -440,6 +400,7 @@ EOF
 
 
 
+""" Programming Languages Settings:
 " lsp:
 set completeopt=menu,menuone
 
@@ -481,7 +442,7 @@ lua << EOF
             ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
             --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
             --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-            --['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+            --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
             --['<C-e>'] = cmp.mapping({
             --  i = cmp.mapping.abort(),
             --  c = cmp.mapping.close(),
@@ -490,19 +451,19 @@ lua << EOF
         sources = {
             { name = 'nvim_lsp', group_index = 1 },
             { name = 'path' },
-            { name = 'ultisnips', group_index = 2 }, -- For ultisnips users.
-            --{ name = 'vsnip' },                    -- For vsnip users.
-            --{ name = 'snippy' },                   -- For snippy users.
-            --{ name = 'luasnip' },                  -- For luasnip users.
+            { name = 'ultisnips', group_index = 2 }, -- for ultisnips users.
+            --{ name = 'vsnip' },                    -- for vsnip users.
+            --{ name = 'snippy' },                   -- for snippy users.
+            --{ name = 'luasnip' },                  -- for luasnip users.
             { name = 'buffer', group_index = 3, option = { keyword_pattern = [[\Z\k\+]] } },
         },
         snippet = {
             -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine
             expand = function(args)
-                vim.fn["UltiSnips#Anon"](args.body)           -- For `ultisnips` users.
-                --vim.fn["vsnip#anonymous"](args.body)        -- For `vsnip` users.
-                --require'snippy'.expand_snippet(args.body)   -- For `snippy` users.
-                --require'luasnip'.lsp_expand(args.body)      -- For `luasnip` users.
+                vim.fn["UltiSnips#Anon"](args.body)           -- for `ultisnips` users.
+                --vim.fn["vsnip#anonymous"](args.body)        -- for `vsnip` users.
+                --require'snippy'.expand_snippet(args.body)   -- for `snippy` users.
+                --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users.
             end,
         },
     })
@@ -534,7 +495,7 @@ EOF
 
 
 
-" for latex:
+""" Latex Setup:
 command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
 " TODO: rename functions, make some private

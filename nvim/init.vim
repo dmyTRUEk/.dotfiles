@@ -284,6 +284,9 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 " for latex:
 Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
+" markdown preview in browser:
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " kotlin syntax highlight:
 "Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
@@ -395,6 +398,14 @@ EOF
 
 
 """ Programming Languages Settings:
+" markdown-preview:
+let g:mkdp_browser = 'firefox'
+let g:mkdp_page_title = '${name}.md'
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_preview_options = { 'sync_scroll_type': 'relative' }
+nnoremap <leader>m <cmd>MarkdownPreview<CR>
+
+
 " lsp:
 set completeopt=menu,menuone
 

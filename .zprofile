@@ -6,7 +6,7 @@
 # export XDG_CURRENT_DESKTOP=sway
 
 # Default apps
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=firefox
 
 # Qt

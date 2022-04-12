@@ -97,3 +97,11 @@ Solution: `_JAVA_AWT_WM_NONREPARENTING=1\n<your_app_name>`
 
 
 
+
+
+# TODO:
+- ranger open files using nvim
+- ranger open specific file formats using specific programs
+
+
+

@@ -89,6 +89,13 @@ noremap <F4> $
 inoremap <F3> <C-O>^
 inoremap <F4> <C-O>$
 
+" append ; to the end of line
+nnoremap <leader>; m`A;<ESC>``
+
+" erase last symbol in line
+nnoremap <leader>e m`$x``
+
+" move selected text up/down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 

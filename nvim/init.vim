@@ -384,9 +384,9 @@ let NERDTreeSortOrder = ['[[extension]]']       " sort by type
 let NERDTreeNaturalSort = 1         " sort files in natural order (f1, f5, f10, f100)
 nnoremap <leader>n :NERDTreeToggle <CR>
 nnoremap <leader>т :NERDTreeToggle <CR>
-" autocmd VimEnter * NERDTree       " launch on startup
-" autocmd VimEnter * wincmd w       " auto move to main panel
-" let NERDTreeIgnore = ['\.pyc$']   "ignore files with this extension
+"autocmd VimEnter * NERDTree       " launch on startup
+"autocmd VimEnter * wincmd w       " auto move to main panel
+"let NERDTreeIgnore = ['\.pyc$']   " ignore files with this extension
 
 
 " telescope:

@@ -342,6 +342,11 @@ let g:AutoPairsMultilineClose = 0
 " https://github.com/tpope/vim-surround/issues/314
 
 
+" vim-exchange:
+" better map in visual(block) mode:
+vmap x X
+
+
 " quick-scope:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " TODO: better highlight colors

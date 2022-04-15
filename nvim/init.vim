@@ -152,7 +152,7 @@ autocmd BufReadPost *.rs call SetupLeaderMapForRust()
 
 " c++:
 function SetupLeaderMapForCPP()
-    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r <CR>
+    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <CR>
 endfunction
 autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
 

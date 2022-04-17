@@ -295,7 +295,7 @@ Plug 'lervag/vimtex'        ,{'for': ['tex']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " kotlin syntax highlight:
-"Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
+Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " rust-analyzer additional features (inlay hints, etc)
 "Plug 'simrat39/rust-tools.nvim'

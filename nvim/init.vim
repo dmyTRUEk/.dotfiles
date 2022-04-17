@@ -71,10 +71,10 @@ nnoremap <leader>i <C-i>
 nnoremap U <C-r>
 
 " move in insert:
-inoremap <C-H> <Left>
-inoremap <C-J> <Down>
-inoremap <C-K> <Up>
-inoremap <C-L> <Right>
+inoremap <A-h> <left>
+inoremap <A-j> <down>
+inoremap <A-k> <up>
+inoremap <A-l> <right>
 
 " exit from insert mode:
 "inoremap jk <Esc>

@@ -70,6 +70,9 @@ nnoremap <leader>i <C-i>
 " better bind for redo:
 nnoremap U <C-r>
 
+" better bind for visual-block:
+nnoremap <A-v> <C-v>
+
 " move in insert:
 inoremap <A-h> <left>
 inoremap <A-j> <down>

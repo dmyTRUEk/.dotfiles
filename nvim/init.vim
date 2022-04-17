@@ -77,8 +77,8 @@ inoremap <C-K> <Up>
 inoremap <C-L> <Right>
 
 " exit from insert mode:
-inoremap jk <Esc>
-inoremap kj <Esc>
+"inoremap jk <Esc>
+"inoremap kj <Esc>
 
 
 

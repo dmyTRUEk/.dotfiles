@@ -140,7 +140,7 @@ autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
 
 " python:
 function SetupLeaderMapForPython()
-    nnoremap <leader>c :wa <bar> :! python % <CR>
+    nnoremap <leader>c :wa <bar> :! python3 % <CR>
 endfunction
 autocmd BufReadPost *.py call SetupLeaderMapForPython()
 

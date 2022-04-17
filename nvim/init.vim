@@ -31,9 +31,9 @@ set autoindent              " set tabs automatically, when starting new line
 " dont wrap lines:
 "set nowrap
 
-" remove ESC delay:
+" remove Esc delay:
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-"set esckeys                "however, this will break any sequences using <ESC> in insert mode
+"set esckeys                "however, this will break any sequences using <Esc> in insert mode
 set timeoutlen=1000
 set ttimeoutlen=0
 
@@ -93,7 +93,7 @@ inoremap <F3> <Home>
 inoremap <F4> <End>
 
 " append ; to the end of line
-nnoremap <leader>; m`A;<ESC>``
+nnoremap <leader>; m`A;<Esc>``
 
 " erase last symbol in line
 nnoremap <leader>e m`$x``
@@ -360,14 +360,14 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """ General Plugins Settings:
 " ultisnips:
-let g:UltiSnipsExpandTrigger='<NOP>'
-let g:UltiSnipsJumpForwardTrigger='<NOP>'
-let g:UltiSnipsJumpBackwardTrigger='<NOP>'
+let g:UltiSnipsExpandTrigger='<Nop>'
+let g:UltiSnipsJumpForwardTrigger='<Nop>'
+let g:UltiSnipsJumpBackwardTrigger='<Nop>'
 let g:UltiSnipsEditSplit="horizontal"
-inoremap <F8> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
-inoremap <F9> <C-R>=UltiSnips#ExpandSnippetOrJump() <CR>
+inoremap <F8> <C-r>=UltiSnips#ExpandSnippetOrJump() <CR>
+inoremap <F9> <C-r>=UltiSnips#ExpandSnippetOrJump() <CR>
 " TODO?: maybe remap f10 also to expand?
-inoremap <F10> <C-R>=UltiSnips#JumpBackwards() <CR>
+inoremap <F10> <C-r>=UltiSnips#JumpBackwards() <CR>
 
 
 

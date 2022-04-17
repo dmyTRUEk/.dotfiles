@@ -89,8 +89,8 @@ inoremap <A-l> <right>
 " nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
 noremap <F3> ^
 noremap <F4> $
-inoremap <F3> <C-O>^
-inoremap <F4> <C-O>$
+inoremap <F3> <Home>
+inoremap <F4> <End>
 
 " append ; to the end of line
 nnoremap <leader>; m`A;<ESC>``

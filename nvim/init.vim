@@ -204,8 +204,9 @@ endif
 
 " use ukr in normal mode:
 set langmap=аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
-" TODO: make gcc (comment) work on ukr layout
-nnoremap псс gcc
+
+nmap псс <Plug>CommentaryLine
+map пс <Plug>Commentary
 
 
 

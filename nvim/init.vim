@@ -63,6 +63,10 @@ map Й <NOP>
 noremap 0 ^
 noremap ^ 0
 
+" swap ` and '
+noremap ` '
+noremap ' `
+
 " maps for go back and forward
 nnoremap <leader>o <C-o>
 nnoremap <leader>i <C-i>

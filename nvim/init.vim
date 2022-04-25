@@ -596,6 +596,8 @@ function CompileLaTeXtoPDFasync()
 endfunction
 
 function SetupEverythingForLaTeX()
+    setlocal spell spelllang=uk
+
     nnoremap j gj
     nnoremap k gk
 

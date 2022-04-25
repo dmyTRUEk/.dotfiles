@@ -63,6 +63,9 @@ nnoremap Y y$
 noremap 0 ^
 noremap ^ 0
 
+" better move to end of line:
+noremap - $
+
 " swap ` and '
 noremap ` '
 noremap ' `
@@ -600,6 +603,9 @@ function SetupEverythingForLaTeX()
 
     nnoremap j gj
     nnoremap k gk
+
+    nnoremap 0 g^
+    nnoremap - g$
 
     let g:tex_flavor = 'latex'
 

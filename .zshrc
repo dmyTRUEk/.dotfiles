@@ -140,6 +140,7 @@ alias ll='lsd -al'
 #alias cat='bat'
 #alias find='fd'
 #alias du='dua'
+alias duai='dua i'
 #alias fzf='sk'
 alias yay='paru'
 

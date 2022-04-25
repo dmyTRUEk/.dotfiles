@@ -52,12 +52,12 @@ set mouse=a
 " set leader key:
 let mapleader = " "
 
-" make Y copy till end of line
-nnoremap Y y$
-
 " unmap ex mode:
 map Q <NOP>
 map Й <NOP>
+
+" better copy till end of line
+nnoremap Y y$
 
 " swap 0 and ^
 noremap 0 ^

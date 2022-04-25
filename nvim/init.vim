@@ -635,11 +635,12 @@ function SetupEverythingForLaTeX()
     let g:compile_latex_to_pdf_prev_exit_code = 1
 
     " set hold delay
-    set updatetime=1500
-    autocmd CursorHold *.tex call CompileLaTeXtoPDFasync()
-    " autocmd CursorHoldI *.tex call CompileLaTeXtoPDFasync()
-    " autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
-    " autocmd CursorMovedI *.tex call CompileLaTeXtoPDFasync()
+    "set updatetime=1500
+    autocmd TextChanged *.tex call CompileLaTeXtoPDFasync()
+    autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
+    "autocmd CursorHoldI *.tex call CompileLaTeXtoPDFasync()
+    "autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
+    "autocmd CursorMovedI *.tex call CompileLaTeXtoPDFasync()
 
 endfunction
 

@@ -85,6 +85,10 @@ inoremap <A-h> <left>
 inoremap <A-j> <down>
 inoremap <A-k> <up>
 inoremap <A-l> <right>
+inoremap <A-р> <left>
+inoremap <A-о> <down>
+inoremap <A-л> <up>
+inoremap <A-д> <right>
 
 " exit from insert mode:
 "inoremap jk <Esc>
@@ -603,6 +607,12 @@ function SetupEverythingForLaTeX()
 
     nnoremap j gj
     nnoremap k gk
+    nnoremap о gj
+    nnoremap л gk
+    inoremap <A-j> <C-O>gj
+    inoremap <A-k> <C-O>gk
+    inoremap <A-о> <C-O>gj
+    inoremap <A-л> <C-O>gk
 
     nnoremap 0 g^
     nnoremap - g$

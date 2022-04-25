@@ -73,19 +73,19 @@ endsnippet
 
 
 # CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-priority 1
-snippet c "center = begin{center} ... end{}" b
-\begin{center}
-    $1
-\end{center}
-$0
-endsnippet
-
 priority 2
 snippet ca "cases = begin{cases} ... end{}"
 \begin{cases}
     $1
 \end{cases}
+endsnippet
+
+priority 2
+snippet ce "center = begin{center} ... end{}" b
+\begin{center}
+    $1
+\end{center}
+$0
 endsnippet
 
 priority 4
@@ -124,14 +124,6 @@ endsnippet
 
 
 # EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-priority 1
-snippet e "equation = begin{equation} ... end{}" b
-\begin{equation}
-    $1
-\end{equation}
-$0
-endsnippet
-
 priority 2
 snippet ec "equation+cases = begin{equation+cases} ... end{}" b
 \begin{equation}
@@ -143,7 +135,15 @@ $0
 endsnippet
 
 priority 2
-snippet eq "equivalent = ≡"
+snippet eq "equation = begin{equation} ... end{}" b
+\begin{equation}
+    $1
+\end{equation}
+$0
+endsnippet
+
+priority 3
+snippet equ "equivalent = ≡"
 \equiv
 endsnippet
 
@@ -170,8 +170,8 @@ endsnippet
 
 
 # FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-priority 1
-snippet f "image = begin{figure} ... end{}" b
+priority 3
+snippet fig "image = begin{figure} ... end{}" b
 \begin{figure} [H]
     \centering
     \includegraphics[scale=0.9]{$1}
@@ -194,306 +194,16 @@ endsnippet
 
 
 # GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
-priority 2
-snippet ga "alpha" i
-\alpha
-endsnippet
-
-priority 2
-snippet gA "Alpha" i
-\Alpha
-endsnippet
-
-priority 2
-snippet gb "beta" i
-\beta
-endsnippet
-
-priority 2
-snippet gB "Beta" i
-\Beta
-endsnippet
-
-priority 2
-snippet gc "gamma" i
-\gamma
-endsnippet
-
-priority 2
-snippet gC "Gamma" i
-\Gamma
-endsnippet
-
-priority 2
-snippet gd "delta" i
-\delta
-endsnippet
-
-priority 2
-snippet gD "Delta" i
-\Delta
-endsnippet
-
-priority 2
-snippet ge "epsilon" i
-\varepsilon
-endsnippet
-
-priority 2
-snippet gE "Epsilon" i
-\Epsilon
-endsnippet
-
-priority 3
-snippet "geta?" "eta" ir
-\eta
-endsnippet
-
-priority 3
-snippet "gEta?" "eta" ir
-\Eta
-endsnippet
-
-priority 2
-snippet gf "phi" i
-\varphi
-endsnippet
-
-priority 2
-snippet gF "Phi" i
-\Phi
-endsnippet
-
-priority 2
-snippet gg "gamma" i
-\gamma
-endsnippet
-
-priority 2
-snippet gG "Gamma" i
-\Gamma
-endsnippet
-
-priority 2
-snippet gh "chi" i
-\chi
-endsnippet
-
-priority 2
-snippet gH "Chi" i
-\Chi
-endsnippet
-
-priority 2
-snippet gi "iota" i
-\iota
-endsnippet
-
-priority 2
-snippet gI "Iota" i
-\Iota
-endsnippet
-
-#priority 2
-#snippet gj "alpha" i
-#\alpha
-#endsnippet
-
-#priority 2
-#snippet gJ "Alpha" i
-#\Alpha
-#endsnippet
-
-priority 2
-snippet gk "kappa" i
-\varkappa
-endsnippet
-
-priority 2
-snippet gK "Kappa" i
-\Kappa
-endsnippet
-
-priority 2
-snippet gl "lambda" i
-\lambda
-endsnippet
-
-priority 2
-snippet gL "Lambda" i
-\Lambda
-endsnippet
-
-priority 2
-snippet gm "mu" i
-\mu
-endsnippet
-
-priority 2
-snippet gM "Mu" i
-\Mu
-endsnippet
-
-priority 2
-snippet gn "nu" i
-\nu
-endsnippet
-
-priority 2
-snippet gN "Nu" i
-\Nu
-endsnippet
-
-priority 2
-snippet go "omega" i
-\omega
-endsnippet
-
-priority 2
-snippet gO "Omega" i
-\Omega
-endsnippet
-
-priority 2
-snippet gp "psi" i
-\psi
-endsnippet
-
-priority 2
-snippet gP "Psi" i
-\Psi
-endsnippet
-
-#priority 2
-#snippet gpi "pi" i
-#\pi
-#endsnippet
-
-#priority 2
-#snippet gPi "Pi" i
-#\Pi
-#endsnippet
-
-# priority 2
-#snippet gq "alpha" i
-#\alpha
-#endsnippet
-
-#priority 2
-#snippet gQ "Alpha" i
-#\Alpha
-#endsnippet
-
-priority 2
-snippet gr "rho" i
-\rho
-endsnippet
-
-priority 2
-snippet gR "Rho" i
-\Rho
-endsnippet
-
 priority 3
 snippet "grad?" "gradient = nabla vector" i
 \overrightarrow{\nabla}$0
 endsnippet
 
-priority 2
-snippet gs "sigma" i
-\sigma
-endsnippet
-
-priority 2
-snippet gS "Sigma" i
-\Sigma
-endsnippet
-
-priority 2
-snippet gt "theta" i
-\theta
-endsnippet
-
-priority 2
-snippet gT "Theta" i
-\Theta
-endsnippet
-
-priority 3
-snippet "gtau?" "tau" ir
-\tau
-endsnippet
-
-priority 3
-snippet "gTau?" "Tau" ir
-\Tau
-endsnippet
-
-priority 2
-snippet gu "upsilon" i
-\upsilon
-endsnippet
-
-priority 2
-snippet gU "Upsilon" i
-\Upsilon
-endsnippet
-
-#priority 2
-#snippet gv "nu" i
-#\nu
-#endsnippet
-
-#priority 2
-#snippet gV "Nu" i
-#\Nu
-#endsnippet
-
-priority 2
-snippet gw "omega" i
-\omega
-endsnippet
-
-priority 2
-snippet gW "Omega" i
-\Omega
-endsnippet
-
-priority 2
-snippet gx "xi" i
-\xi
-endsnippet
-
-priority 2
-snippet gX "Xi" i
-\Xi
-endsnippet
-
-#priority 2
-#snippet gy "alpha" i
-#\alpha
-#endsnippet
-
-#priority 2
-#snippet gY "Alpha" i
-#\Alpha
-#endsnippet
-
-priority 2
-snippet gz "zeta" i
-\zeta
-endsnippet
-
-priority 2
-snippet gZ "Zeta" i
-\Zeta
-endsnippet
-
 
 
 # HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-priority 1
-snippet h "hat (operator) = A^" i
+priority 2
+snippet ha "hat (operator) = A^" i
 \hat{$1}$0
 endsnippet
 
@@ -503,7 +213,7 @@ snippet hb "hbar = ℏ" i
 endsnippet
 
 priority 4
-snippet half "... / 2" i
+snippet "half?" "... / 2" i
 \frac{$1}{2}$0
 endsnippet
 
@@ -587,8 +297,8 @@ endsnippet
 
 
 # MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-priority 1
-snippet m "matrix"
+priority 2
+snippet "mat?r?i?x?" "matrix"
 \begin{pmatrix}
     $1
 \end{pmatrix} $0
@@ -597,8 +307,8 @@ endsnippet
 
 
 # NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-priority 1
-snippet n "enumerate = begin{enumerate} ... end{}" b
+priority 2
+snippet en "enumerate = begin{enumerate} ... end{}" b
 \begin{enumerate}
     $1
 \end{enumerate}
@@ -622,16 +332,7 @@ endsnippet
 
 
 # PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
-# also named `gp`
-priority 2
-snippet pi "pi" i
-\pi
-endsnippet
 
-priority 2
-snippet Pi "Pi" i
-\Pi
-endsnippet
 
 
 # QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
@@ -647,8 +348,8 @@ endsnippet
 
 
 # SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-priority 1
-snippet s "section{...}" b
+priority 2
+snippet se "section{...}" b
 \section{$1}
 $0
 endsnippet
@@ -697,8 +398,8 @@ endsnippet
 
 
 # TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-priority 1
-snippet t "table = begin{center+tabular} ... end{}" b
+priority 2
+snippet ta "table = begin{center+tabular} ... end{}" b
 \begin{table} [H]
 \begin{center}
 \begin{tabular} {|c|c|}
@@ -772,5 +473,299 @@ endsnippet
 priority 1
 snippet * "\cdot" i
 \cdot$0
+endsnippet
+
+
+
+# GREEK LETTERS: GREEK LETTERS: GREEK LETTERS: GREEK LETTERS: GREEK LETTERS: GREEK LETTERS:
+priority 1
+snippet a "alpha" i
+\alpha
+endsnippet
+
+priority 1
+snippet A "Alpha" i
+\Alpha
+endsnippet
+
+priority 1
+snippet b "beta" i
+\beta
+endsnippet
+
+priority 1
+snippet B "Beta" i
+\Beta
+endsnippet
+
+# TODO: remove it?
+priority 1
+snippet c "gamma" i
+\gamma
+endsnippet
+
+priority 1
+snippet C "Gamma" i
+\Gamma
+endsnippet
+
+priority 1
+snippet d "delta" i
+\delta
+endsnippet
+
+priority 1
+snippet D "Delta" i
+\Delta
+endsnippet
+
+priority 1
+snippet e "epsilon" i
+\varepsilon
+endsnippet
+
+priority 1
+snippet E "Epsilon" i
+\Epsilon
+endsnippet
+
+priority 2
+snippet "eta?" "eta" ir
+\eta
+endsnippet
+
+priority 2
+snippet "Eta?" "eta" ir
+\Eta
+endsnippet
+
+priority 1
+snippet f "phi" i
+\varphi
+endsnippet
+
+priority 1
+snippet F "Phi" i
+\Phi
+endsnippet
+
+priority 1
+snippet g "gamma" i
+\gamma
+endsnippet
+
+priority 1
+snippet G "Gamma" i
+\Gamma
+endsnippet
+
+priority 1
+snippet h "chi" i
+\chi
+endsnippet
+
+priority 1
+snippet H "Chi" i
+\Chi
+endsnippet
+
+# priority 1
+# snippet i "iota" i
+# \iota
+# endsnippet
+
+# priority 1
+# snippet I "Iota" i
+# \Iota
+# endsnippet
+
+#priority 1
+#snippet j "alpha" i
+#\alpha
+#endsnippet
+
+#priority 1
+#snippet J "Alpha" i
+#\Alpha
+#endsnippet
+
+priority 1
+snippet k "kappa" i
+\varkappa
+endsnippet
+
+priority 1
+snippet K "Kappa" i
+\Kappa
+endsnippet
+
+priority 1
+snippet l "lambda" i
+\lambda
+endsnippet
+
+priority 1
+snippet L "Lambda" i
+\Lambda
+endsnippet
+
+priority 1
+snippet m "mu" i
+\mu
+endsnippet
+
+priority 1
+snippet M "Mu" i
+\Mu
+endsnippet
+
+priority 1
+snippet n "nu" i
+\nu
+endsnippet
+
+priority 1
+snippet N "Nu" i
+\Nu
+endsnippet
+
+priority 1
+snippet o "omega" i
+\omega
+endsnippet
+
+priority 1
+snippet O "Omega" i
+\Omega
+endsnippet
+
+priority 1
+snippet p "psi" i
+\psi
+endsnippet
+
+priority 1
+snippet P "Psi" i
+\Psi
+endsnippet
+
+priority 2
+snippet pi "pi" i
+\pi
+endsnippet
+
+priority 2
+snippet Pi "Pi" i
+\Pi
+endsnippet
+
+# priority 1
+#snippet q "alpha" i
+#\alpha
+#endsnippet
+
+#priority 1
+#snippet Q "Alpha" i
+#\Alpha
+#endsnippet
+
+priority 1
+snippet r "rho" i
+\rho
+endsnippet
+
+priority 1
+snippet R "Rho" i
+\Rho
+endsnippet
+
+priority 1
+snippet s "sigma" i
+\sigma
+endsnippet
+
+priority 1
+snippet S "Sigma" i
+\Sigma
+endsnippet
+
+priority 1
+snippet t "theta" i
+\theta
+endsnippet
+
+priority 1
+snippet T "Theta" i
+\Theta
+endsnippet
+
+priority 3
+snippet tau "tau" ir
+\tau
+endsnippet
+
+priority 3
+snippet Tau "Tau" ir
+\Tau
+endsnippet
+
+priority 1
+snippet u "upsilon" i
+\upsilon
+endsnippet
+
+priority 1
+snippet U "Upsilon" i
+\Upsilon
+endsnippet
+
+#priority 1
+#snippet v "nu" i
+#\nu
+#endsnippet
+
+#priority 1
+#snippet V "Nu" i
+#\Nu
+#endsnippet
+
+priority 1
+snippet w "omega" i
+\omega
+endsnippet
+
+priority 1
+snippet W "Omega" i
+\Omega
+endsnippet
+
+priority 1
+snippet x "xi" i
+\xi
+endsnippet
+
+priority 1
+snippet X "Xi" i
+\Xi
+endsnippet
+
+#priority 1
+#snippet y "alpha" i
+#\alpha
+#endsnippet
+
+#priority 1
+#snippet Y "Alpha" i
+#\Alpha
+#endsnippet
+
+priority 1
+snippet z "zeta" i
+\zeta
+endsnippet
+
+priority 1
+snippet Z "Zeta" i
+\Zeta
 endsnippet
 

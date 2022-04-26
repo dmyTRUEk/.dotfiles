@@ -109,6 +109,11 @@ snippet deg "degree symbol = ^o" i
 \text{°}$0
 endsnippet
 
+priority 3
+snippet det "matrix determinant" i
+\mdet{$1}$0
+endsnippet
+
 #priority 3
 #snippet div "divergence" i
 #div
@@ -290,10 +295,13 @@ endsnippet
 
 # MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 priority 2
-snippet "mat?r?i?x?" "matrix" ir
-\begin{pmatrix}
-    $1
-\end{pmatrix}$0
+snippet ma "matrix" i
+\mqty($1)$0
+endsnippet
+
+priority 3
+snippet mas "matrix" i
+\mqty[$1]$0
 endsnippet
 
 

@@ -387,7 +387,7 @@ inoremap <F10> <C-r>=UltiSnips#JumpBackwards() <CR>
 
 """ UI Plugins Settings:
 " airline:
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_section_y = ""
 let g:airline_section_z = "Line: %l/%L, Col: %c"
 let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']

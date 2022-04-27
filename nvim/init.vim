@@ -196,20 +196,25 @@ autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scro
 "    execute "set <xLeft>=\e[1;*D"
 "endif
 
+" if VIM:
+" scroll content instead of cursor line
+"set ttymouse=sgr
+
 
 
 " VIM or NEOVIM specific configs
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
-if has('nvim')
-    " echom 'NEOVIM'
-    let g:airline_section_x = 'NEOVIM'
-else
-    " echom 'VIM'
-    " scroll content instead of cursor line
-    set ttymouse=sgr
-    let g:airline_section_x = 'VIM'
-endif
+function SetTextVimOrNvim()
+    if has('nvim')
+        " echom 'NEOVIM'
+        let g:airline_section_x = 'neovim'
+    else
+        " echom 'VIM'
+        let g:airline_section_x = 'vim'
+    endif
+endfunction
+call SetTextVimOrNvim()
 
 
 
@@ -616,6 +621,9 @@ function SetupEverythingForLaTeX()
 
     nnoremap 0 g^
     nnoremap - g$
+
+    " TODO?: make it work
+    "call SetTextVimOrNvim()
 
     let g:tex_flavor = 'latex'
 

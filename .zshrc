@@ -76,15 +76,8 @@ plugins=(
     colored-man-pages
     zsh-autosuggestions
     zsh-syntax-highlighting
-    git
     rust
     pip
-    #antigen
-    #archlinux
-    #tmux
-    #python
-    #pylint
-    #pep8
 )
 
 source $ZSH/oh-my-zsh.sh

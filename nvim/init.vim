@@ -365,6 +365,7 @@ let g:AutoPairsMultilineClose = 0
 " vim-exchange:
 " better map in visual(block) mode:
 vmap x X
+vmap ч X
 
 
 " quick-scope:

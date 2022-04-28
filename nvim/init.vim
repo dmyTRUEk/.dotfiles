@@ -193,28 +193,28 @@ nnoremap <leader>д :wincmd l <CR>
 
 """ Compiles:
 " latex:
-function SetupLeaderMapForLaTeX()
+func s:SetupLeaderMapForLaTeX()
     nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
-endfunction
-autocmd BufReadPost *.tex call SetupLeaderMapForLaTeX()
+endf
+autocmd BufReadPost *.tex call s:SetupLeaderMapForLaTeX()
 
 " python:
-function SetupLeaderMapForPython()
+func s:SetupLeaderMapForPython()
     nnoremap <leader>c :wa <bar> :! python3 % <CR>
-endfunction
-autocmd BufReadPost *.py call SetupLeaderMapForPython()
+endf
+autocmd BufReadPost *.py call s:SetupLeaderMapForPython()
 
 " rust:
-function SetupLeaderMapForRust()
+func s:SetupLeaderMapForRust()
     nnoremap <leader>c :wa <bar> :! cargo test && cargo run <CR>
-endfunction
-autocmd BufReadPost *.rs call SetupLeaderMapForRust()
+endf
+autocmd BufReadPost *.rs call s:SetupLeaderMapForRust()
 
 " c++:
-function SetupLeaderMapForCPP()
+func s:SetupLeaderMapForCPP()
     nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <CR>
-endfunction
-autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
+endf
+autocmd BufReadPost *.cpp call s:SetupLeaderMapForCPP()
 
 
 
@@ -222,10 +222,10 @@ autocmd BufReadPost *.cpp call SetupLeaderMapForCPP()
 " set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 let g:scrolloff_fraction = 0.20
 
-function SetFractionalScrollOff(fraction)
+func SetFractionalScrollOff(fraction)
     let l:visible_lines_in_active_window = winheight(win_getid())
     let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
-endfunction
+endf
 
 autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scrolloff_fraction)
 
@@ -251,7 +251,7 @@ autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scro
 " VIM or NEOVIM specific configs
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
-function SetTextVimOrNvim()
+func s:SetTextVimOrNvim()
     if has('nvim')
         " echom 'NEOVIM'
         let g:airline_section_x = 'neovim'
@@ -259,8 +259,8 @@ function SetTextVimOrNvim()
         " echom 'VIM'
         let g:airline_section_x = 'vim'
     endif
-endfunction
-call SetTextVimOrNvim()
+endf
+call s:SetTextVimOrNvim()
 
 
 
@@ -580,81 +580,79 @@ EOF
 
 
 """ Latex Setup:
+" TODO: rewrite it to function
 command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
-" TODO: rename functions, make some private
-
 " enable/disable vim to zathura sync
-function SynctexFromVimToZathuraDisable()
-    let g:is_synctex_from_vim_to_zathura_must_work = 0
-endfunction
-function SynctexFromVimToZathuraEnable()
-    let g:is_synctex_from_vim_to_zathura_must_work = 1
-endfunction
+func LatexAutoSyncDisable()
+    let g:is_latex_auto_sync_enabled = 0
+endf
+func LatexAutoSyncEnable()
+    let g:is_latex_auto_sync_enabled = 1
+endf
 
 " enable/disable autocompile
-function CompileLaTeXtoPDFDisable()
-    let g:is_compile_latex_to_pdf_must_work = 0
-endfunction
-function CompileLaTeXtoPDFEnable()
-    let g:is_compile_latex_to_pdf_must_work = 1
-endfunction
+func LatexAutoCompileDisable()
+    let g:is_latex_auto_compile_enabled = 0
+endf
+func LatexAutoCompileEnable()
+    let g:is_latex_auto_compile_enabled = 1
+endf
 
 " enable/disable autocompile and sync
-function LaTeXautosDisable()
-    call CompileLaTeXtoPDFDisable()
-    call SynctexFromVimToZathuraDisable()
-endfunction
-function LaTeXautosEnable()
-    call CompileLaTeXtoPDFEnable()
-    call SynctexFromVimToZathuraEnable()
-endfunction
+func LatexAutosDisable()
+    call LatexAutoCompileDisable()
+    call LatexAutoSyncDisable()
+endf
+func LatexAutosEnable()
+    call LatexAutoCompileEnable()
+    call LatexAutoSyncEnable()
+endf
 
-function SynctexFromVimToZathura()
+func s:LatexSyncFromVimToZathuraUnsafe()
     " remove 'silent' for debugging
-    " execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
-    if g:is_synctex_from_vim_to_zathura_must_work
+    if g:is_latex_auto_sync_enabled
         execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
     endif
-endfunction
+endf
 
-function SynctexFromVimToZathuraSafe()
-    if g:compile_latex_to_pdf_last_exit_code == 0
-        call SynctexFromVimToZathura()
+func s:LatexSyncFromVimToZathura()
+    if g:compile_latex_to_pdf_exit_code_last == 0
+        call s:LatexSyncFromVimToZathuraUnsafe()
     endif
-endfunction
+endf
 
-function CompileLaTeXtoPDFasyncOnExit(j, c, e)
-    let g:compile_latex_to_pdf_prev_exit_code = g:compile_latex_to_pdf_last_exit_code
-    let g:compile_latex_to_pdf_last_exit_code = a:c
-    echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_last_exit_code
+func PrivateCompileLatextoPDFasyncOnExit(j, c, e)
+    let g:compile_latex_to_pdf_exit_code_prev = g:compile_latex_to_pdf_exit_code_last
+    let g:compile_latex_to_pdf_exit_code_last = a:c
+    echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_exit_code_last
 
     " synchronize latex (vim) and pdf (zathura) using new synctex file:
     " this `if` needed for case when prev compile wasnt successful, and
-    " therefore simply calling `SynctexFromVimToZathuraSafe()` will
+    " therefore simply calling `s:LatexSyncFromVimToZathura()` will
     " open new window + reload old one.
-    if g:compile_latex_to_pdf_prev_exit_code == 0
-        call SynctexFromVimToZathuraSafe()
+    if g:compile_latex_to_pdf_exit_code_prev == 0
+        call s:LatexSyncFromVimToZathura()
     endif
 
     " unlock another possible instances of this function:
-    let g:compile_latex_to_pdf_is_now_compiling = 0
-endfunction
+    let g:is_latex_compiling_now = 0
+endf
 
-function CompileLaTeXtoPDFasync()
-    if g:is_compile_latex_to_pdf_must_work && g:compile_latex_to_pdf_is_now_compiling == 0
+func s:CompileLatexToPDFasync()
+    if g:is_latex_auto_compile_enabled && g:is_latex_compiling_now == 0
         " lock another possible instances of this function:
-        let g:compile_latex_to_pdf_is_now_compiling = 1
+        let g:is_latex_compiling_now = 1
 
         " save file before compiling:
         execute "w"
 
         " compile file:
-        call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "CompileLaTeXtoPDFasyncOnExit"})
+        call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "PrivateCompileLatextoPDFasyncOnExit"})
     endif
-endfunction
+endf
 
-function SetupEverythingForLaTeX()
+func s:SetupEverythingForLatex()
     setlocal spell spelllang=uk
 
     nnoremap j gj
@@ -679,27 +677,27 @@ function SetupEverythingForLaTeX()
     let g:vimtex_view_method = 'zathura'
 
     " for autocompile and sync:
-    let g:is_synctex_from_vim_to_zathura_must_work = 1
-    let g:is_compile_latex_to_pdf_must_work = 1
+    let g:is_latex_auto_sync_enabled = 1
+    let g:is_latex_auto_compile_enabled = 1
 
-    autocmd CursorMoved *.tex call SynctexFromVimToZathuraSafe()
-    "autocmd CursorMovedI *.tex call SynctexFromVimToZathuraSafe()
+    autocmd CursorMoved *.tex call s:LatexSyncFromVimToZathura()
+    "autocmd CursorMovedI *.tex call s:LatexSyncFromVimToZathura()
 
-    let g:compile_latex_to_pdf_is_now_compiling = 0
-    let g:compile_latex_to_pdf_last_exit_code = 1
-    let g:compile_latex_to_pdf_prev_exit_code = 1
+    let g:is_latex_compiling_now = 0
+    let g:compile_latex_to_pdf_exit_code_last = 1
+    let g:compile_latex_to_pdf_exit_code_prev = 1
 
     " set hold delay
     "set updatetime=1500
-    autocmd TextChanged *.tex call CompileLaTeXtoPDFasync()
-    autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
-    "autocmd CursorHoldI *.tex call CompileLaTeXtoPDFasync()
-    "autocmd InsertLeave *.tex call CompileLaTeXtoPDFasync()
-    "autocmd CursorMovedI *.tex call CompileLaTeXtoPDFasync()
+    autocmd TextChanged *.tex call s:CompileLatexToPDFasync()
+    autocmd InsertLeave *.tex call s:CompileLatexToPDFasync()
+    "autocmd CursorHoldI *.tex call s:CompileLatexToPDFasync()
+    "autocmd InsertLeave *.tex call s:CompileLatexToPDFasync()
+    "autocmd CursorMovedI *.tex call s:CompileLatexToPDFasync()
 
-endfunction
+endf
 
-autocmd BufReadPost *.tex call SetupEverythingForLaTeX()
+autocmd BufReadPost *.tex call s:SetupEverythingForLatex()
 
 
 

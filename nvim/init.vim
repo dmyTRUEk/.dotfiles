@@ -103,7 +103,9 @@ func AskAndReplaceAll()
     call inputsave()
     let l:replace_by = input('Replace by: ')
     call inputrestore()
-    execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
+    if l:replace_by != ""
+        execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
+    endif
     " restore cursor position
     call winrestview(l:saved_winview)
 endf

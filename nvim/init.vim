@@ -96,8 +96,16 @@ inoremap <A-д> <right>
 
 
 
+func AskAndReplaceAll()
+    let l:current_word = expand("<cword>")
+    call inputsave()
+    let l:replace_by = input('Replace by: ')
+    call inputrestore()
+    execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
+endf
+
 " TODO: <F1> -> nvim help for current word
-" nnoremap <F2> <C-w>   " deprecated: for change window use `<leader>hjkl` instead
+nmap <F2> :call AskAndReplaceAll()<CR>
 noremap <F3> ^
 noremap <F4> $
 inoremap <F3> <Home>

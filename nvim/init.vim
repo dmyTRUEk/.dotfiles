@@ -110,9 +110,40 @@ func AskAndReplaceAll()
     call winrestview(l:saved_winview)
 endf
 
+func s:GetSelectedText()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endf
+
+func AskAndReplaceAllVisual()
+    let l:mode = visualmode()
+    if l:mode ==# "v"
+        " save current cursor position
+        let l:saved_winview = winsaveview()
+        let l:selected_text = s:GetSelectedText()
+        call inputsave()
+        let l:replace_by = input('Replace by: ')
+        call inputrestore()
+        if l:replace_by != ""
+            execute ':%s/\(' . l:selected_text . '\)/' . l:replace_by
+        endif
+        " restore cursor position
+        call winrestview(l:saved_winview)
+    else
+        " TODO: clear output
+    endif
+endf
+
 " TODO: <F1> -> nvim help for current word
 nnoremap <F2> :call AskAndReplaceAll()<CR>
-" xnoremap
+xnoremap <F2> :call AskAndReplaceAllVisual()<CR>
 noremap <F3> ^
 noremap <F4> $
 inoremap <F3> <Home>

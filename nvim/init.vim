@@ -101,7 +101,7 @@ func AskAndReplaceAll()
     let l:saved_winview = winsaveview()
     let l:current_word = expand("<cword>")
     call inputsave()
-    let l:replace_by = input('Replace by: ')
+    let l:replace_by = input('Replace by: ', l:current_word)
     call inputrestore()
     if l:replace_by != ""
         execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
@@ -129,7 +129,7 @@ func AskAndReplaceAllVisual()
         let l:saved_winview = winsaveview()
         let l:selected_text = s:GetSelectedText()
         call inputsave()
-        let l:replace_by = input('Replace by: ')
+        let l:replace_by = input('Replace by: ', l:selected_text)
         call inputrestore()
         if l:replace_by != ""
             execute ':%s/\(' . l:selected_text . '\)/' . l:replace_by

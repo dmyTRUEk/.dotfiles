@@ -355,7 +355,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 "Plug 'folke/lsp-colors.nvim'
 
 " for latex:
-Plug 'lervag/vimtex'        ,{'for': ['tex']}
+"Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
 " markdown preview in browser:
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

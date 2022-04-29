@@ -11,9 +11,9 @@ set encoding=utf-8          " use utf-8 encoding
 set number relativenumber   " set line numbers relative to caret
 set cursorline              " highlight cursor line
 set showmatch               " shows matching brackets
-set autochdir               " change current dir to file's dir
 set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
+"set autochdir               " change current dir to file's dir
 "set showcmd                 " ? show last command (if you pressed 'j' then 'j' will be showed)
 
 " better search:

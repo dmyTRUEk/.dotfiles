@@ -160,6 +160,7 @@ alias nz='nvim ~/.zshrc'
 
 ## GIT related:
 alias g='git'
+alias gcl='git clone'
 alias gs='git status -u --find-renames=1'
 alias gss='git status'
 alias gl='git log --oneline --decorate --graph'

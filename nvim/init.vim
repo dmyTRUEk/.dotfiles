@@ -152,6 +152,9 @@ inoremap <F4> <End>
 " append ; to the end of line
 nnoremap <leader>; m`A;<Esc>``
 
+" append , to the end of line
+nnoremap <leader>, m`A,<Esc>``
+
 " erase last symbol in line
 nnoremap <leader>e m`$x``
 

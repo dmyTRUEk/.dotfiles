@@ -81,10 +81,13 @@ nnoremap U <C-r>
 nnoremap <A-v> <C-v>
 
 " move in insert:
+inoremap <A-;> <NOP>
 inoremap <A-h> <left>
 inoremap <A-j> <down>
 inoremap <A-k> <up>
 inoremap <A-l> <right>
+
+inoremap <A-ж> <NOP>
 inoremap <A-р> <left>
 inoremap <A-о> <down>
 inoremap <A-л> <up>

@@ -12,7 +12,7 @@ set number relativenumber   " set line numbers relative to caret
 set cursorline              " highlight cursor line
 set showmatch               " shows matching brackets
 set completeopt-=preview    " dont show preview if using autocomplete
-set laststatus=2            " it controls, when/how to display the status-bar: 0=never, 1={if > than 2 windows}, 2=always
+set laststatus=2            " it controls, when/how to display status-bar: 0=never, 1={if > than 2 windows}, 2=always
 "set autochdir               " change current dir to file's dir
 "set showcmd                 " ? show last command (if you pressed 'j' then 'j' will be showed)
 
@@ -536,7 +536,7 @@ lua << EOF
             ['<A-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
             --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
             --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-            --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+            --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove default `<C-y>` mapping.
             --['<C-e>'] = cmp.mapping({
             --  i = cmp.mapping.abort(),
             --  c = cmp.mapping.close(),
@@ -713,4 +713,4 @@ autocmd BufReadPost *.tex call s:SetupEverythingForLatex()
 
 
 
-" the end :D
+" end :D

@@ -157,6 +157,7 @@ alias nc='nvim ~/.config/nvim/init.vim'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'
 alias nz='nvim ~/.zshrc'
+alias nzh='nvim ~/.zsh_history'
 
 ## GIT related:
 alias g='git'

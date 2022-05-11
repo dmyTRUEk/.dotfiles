@@ -460,8 +460,14 @@ let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files wit
 
 
 " telescope:
+nnoremap <leader>b :Telescope buffers <CR>
 nnoremap <leader>f :Telescope find_files <CR>
 nnoremap <leader>g :Telescope live_grep <CR>
+nnoremap <leader>s :Telescope spell_suggest <CR>
+nnoremap <leader>u :Telescope jumplist <CR>
+nnoremap gd        :Telescope lsp_definitions <CR>
+nnoremap gr        :Telescope lsp_references <CR>
+"nnoremap <leader>x :Telescope quickfix <CR>
 lua << EOF
     local actions = require("telescope.actions")
     require("telescope").setup{
@@ -471,7 +477,7 @@ lua << EOF
             ["<esc>"] = actions.close
           },
         },
-      }
+      },
     }
 EOF
 
@@ -491,20 +497,18 @@ nnoremap <leader>m <cmd>MarkdownPreview<CR>
 " lsp:
 set completeopt=menu,menuone
 
-nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gi        <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
 " TODO?: add <leader>i -> inline variable
-"nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-"nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-"nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+"nnoremap <silent> gi       <cmd>lua vim.lsp.buf.implementation()<CR>
+"nnoremap <silent> 1gD      <cmd>lua vim.lsp.buf.type_definition()<CR>
+"nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help()<CR>
+"nnoremap <silent> g0       <cmd>lua vim.lsp.buf.document_symbol()<CR>
+"nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 lua << EOF
     -- setup nvim-cmp

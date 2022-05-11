@@ -31,9 +31,9 @@ set autoindent              " set tabs automatically, when starting new line
 " dont wrap lines:
 "set nowrap
 
-" remove Esc delay:
+" remove esc delay:
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-"set esckeys                "however, this will break any sequences using <Esc> in insert mode
+"set esckeys                "however, this will break any sequences using <esc> in insert mode
 set timeoutlen=1000
 set ttimeoutlen=0
 
@@ -53,8 +53,8 @@ set mouse=a
 let mapleader = " "
 
 " unmap ex mode:
-map Q <NOP>
-map Й <NOP>
+map Q <nop>
+map Й <nop>
 
 " better copy till end of line
 nnoremap Y y$
@@ -81,21 +81,21 @@ nnoremap U <C-r>
 nnoremap <A-v> <C-v>
 
 " move in insert:
-inoremap <A-;> <NOP>
+inoremap <A-;> <nop>
 inoremap <A-h> <left>
 inoremap <A-j> <down>
 inoremap <A-k> <up>
 inoremap <A-l> <right>
 
-inoremap <A-ж> <NOP>
+inoremap <A-ж> <nop>
 inoremap <A-р> <left>
 inoremap <A-о> <down>
 inoremap <A-л> <up>
 inoremap <A-д> <right>
 
 " exit from insert mode:
-"inoremap jk <Esc>
-"inoremap kj <Esc>
+"inoremap jk <esc>
+"inoremap kj <esc>
 
 
 
@@ -144,80 +144,80 @@ func AskAndReplaceAllVisual()
     endif
 endf
 
-" TODO: <F1> -> nvim help for current word
-nnoremap <F2> :call AskAndReplaceAll()<CR>
-xnoremap <F2> :call AskAndReplaceAllVisual()<CR>
-noremap <F3> ^
-noremap <F4> $
-inoremap <F3> <Home>
-inoremap <F4> <End>
-
-" append symbols to end of line
-nnoremap <leader>; m`A;<Esc>``
-nnoremap <leader>, m`A,<Esc>``
-nnoremap <leader>: m`A:<Esc>``
+" TODO: <f1> -> nvim help for current word
+nnoremap <f2> :call AskAndReplaceAll()<cr>
+xnoremap <f2> :call AskAndReplaceAllVisual()<cr>
+noremap <f3> ^
+noremap <f4> $
+inoremap <f3> <home>
+inoremap <f4> <end>
 
 " erase last symbol in line
 nnoremap <leader>e m`$x``
 
+" append symbols to end of line
+nnoremap <leader>; m`A;<esc>``
+nnoremap <leader>, m`A,<esc>``
+nnoremap <leader>: m`A:<esc>``
+
 " move selected text up/down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 
 
 " save:
-nnoremap <leader>w :w <CR>
-nnoremap <leader>W :wa <CR>
-nnoremap <leader>ц :w <CR>
-nnoremap <leader>Ц :wa <CR>
+nnoremap <leader>w :w <cr>
+nnoremap <leader>W :wa <cr>
+nnoremap <leader>ц :w <cr>
+nnoremap <leader>Ц :wa <cr>
 
 " quit:
-nnoremap <leader>q :q <CR>
-nnoremap <leader>Q :qa <CR>
-nnoremap <leader>й :q <CR>
-nnoremap <leader>Й :qa <CR>
+nnoremap <leader>q :q <cr>
+nnoremap <leader>Q :qa <cr>
+nnoremap <leader>й :q <cr>
+nnoremap <leader>Й :qa <cr>
 
 " save and quit:
-nnoremap <leader>a :wq <CR>
-nnoremap <leader>A :wqa <CR>
-nnoremap <leader>ф :wq <CR>
-nnoremap <leader>Ф :wqa <CR>
+nnoremap <leader>a :wq <cr>
+nnoremap <leader>A :wqa <cr>
+nnoremap <leader>ф :wq <cr>
+nnoremap <leader>Ф :wqa <cr>
 
 " move between windows inside vim:
-nnoremap <leader>h :wincmd h <CR>
-nnoremap <leader>j :wincmd j <CR>
-nnoremap <leader>k :wincmd k <CR>
-nnoremap <leader>l :wincmd l <CR>
-nnoremap <leader>р :wincmd h <CR>
-nnoremap <leader>о :wincmd j <CR>
-nnoremap <leader>л :wincmd k <CR>
-nnoremap <leader>д :wincmd l <CR>
+nnoremap <leader>h :wincmd h <cr>
+nnoremap <leader>j :wincmd j <cr>
+nnoremap <leader>k :wincmd k <cr>
+nnoremap <leader>l :wincmd l <cr>
+nnoremap <leader>р :wincmd h <cr>
+nnoremap <leader>о :wincmd j <cr>
+nnoremap <leader>л :wincmd k <cr>
+nnoremap <leader>д :wincmd l <cr>
 
 
 
 """ Compiles:
 " latex:
 func s:SetupLeaderMapForLaTeX()
-    nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <CR>
+    nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <cr>
 endf
 autocmd BufReadPost *.tex call s:SetupLeaderMapForLaTeX()
 
 " python:
 func s:SetupLeaderMapForPython()
-    nnoremap <leader>c :wa <bar> :! python3 % <CR>
+    nnoremap <leader>c :wa <bar> :! python3 % <cr>
 endf
 autocmd BufReadPost *.py call s:SetupLeaderMapForPython()
 
 " rust:
 func s:SetupLeaderMapForRust()
-    nnoremap <leader>c :wa <bar> :! cargo test && cargo run <CR>
+    nnoremap <leader>c :wa <bar> :! cargo test && cargo run <cr>
 endf
 autocmd BufReadPost *.rs call s:SetupLeaderMapForRust()
 
 " c++:
 func s:SetupLeaderMapForCPP()
-    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <CR>
+    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <cr>
 endf
 autocmd BufReadPost *.cpp call s:SetupLeaderMapForCPP()
 
@@ -432,14 +432,14 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """ General Plugins Settings:
 " ultisnips:
-let g:UltiSnipsExpandTrigger='<Nop>'
-let g:UltiSnipsJumpForwardTrigger='<Nop>'
-let g:UltiSnipsJumpBackwardTrigger='<Nop>'
+let g:UltiSnipsExpandTrigger='<nop>'
+let g:UltiSnipsJumpForwardTrigger='<nop>'
+let g:UltiSnipsJumpBackwardTrigger='<nop>'
 let g:UltiSnipsEditSplit="horizontal"
-inoremap <F8> <C-r>=UltiSnips#ExpandSnippetOrJump() <CR>
-inoremap <F9> <C-r>=UltiSnips#ExpandSnippetOrJump() <CR>
+inoremap <f8> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
+inoremap <f9> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 " TODO?: maybe remap f10 also to expand?
-inoremap <F10> <C-r>=UltiSnips#JumpBackwards() <CR>
+inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
 
 
 
@@ -457,22 +457,22 @@ let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
 " nerdtree:
 let NERDTreeSortOrder = ['[[extension]]']   " sort by type
 let NERDTreeNaturalSort = 1         " sort files in natural order (f1, f5, f10, f100)
-nnoremap <leader>n :NERDTreeToggle <CR>
-nnoremap <leader>т :NERDTreeToggle <CR>
+nnoremap <leader>n :NERDTreeToggle <cr>
+nnoremap <leader>т :NERDTreeToggle <cr>
 "autocmd VimEnter * NERDTree        " launch on startup
 "autocmd VimEnter * wincmd w        " auto move to main panel
 let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files with this extension
 
 
 " telescope:
-nnoremap <leader>b :Telescope buffers <CR>
-nnoremap <leader>f :Telescope find_files <CR>
-nnoremap <leader>g :Telescope live_grep <CR>
-nnoremap <leader>s :Telescope spell_suggest <CR>
-nnoremap <leader>u :Telescope jumplist <CR>
-nnoremap gd        :Telescope lsp_definitions <CR>
-nnoremap gr        :Telescope lsp_references <CR>
-"nnoremap <leader>x :Telescope quickfix <CR>
+nnoremap <leader>b :Telescope buffers <cr>
+nnoremap <leader>f :Telescope find_files <cr>
+nnoremap <leader>g :Telescope live_grep <cr>
+nnoremap <leader>s :Telescope spell_suggest <cr>
+nnoremap <leader>u :Telescope jumplist <cr>
+nnoremap gd        :Telescope lsp_definitions <cr>
+nnoremap gr        :Telescope lsp_references <cr>
+"nnoremap <leader>x :Telescope quickfix <cr>
 lua << EOF
     local actions = require("telescope.actions")
     require("telescope").setup{
@@ -496,39 +496,39 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_page_title = '${name}.md'
 let g:mkdp_filetypes = ['markdown']
 let g:mkdp_preview_options = { 'sync_scroll_type': 'relative' }
-nnoremap <leader>m <cmd>MarkdownPreview<CR>
+nnoremap <leader>m <cmd>MarkdownPreview<cr>
 
 
 " lsp:
 set completeopt=menu,menuone
 
-nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<cr>
+nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
+nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<cr>
+nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<cr>
 " TODO?: add <leader>i -> inline variable
-"nnoremap <silent> gi       <cmd>lua vim.lsp.buf.implementation()<CR>
-"nnoremap <silent> 1gD      <cmd>lua vim.lsp.buf.type_definition()<CR>
-"nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help()<CR>
-"nnoremap <silent> g0       <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+"nnoremap <silent> gi       <cmd>lua vim.lsp.buf.implementation()<cr>
+"nnoremap <silent> 1gD      <cmd>lua vim.lsp.buf.type_definition()<cr>
+"nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help()<cr>
+"nnoremap <silent> g0       <cmd>lua vim.lsp.buf.document_symbol()<cr>
+"nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 lua << EOF
     -- setup nvim-cmp
     local cmp = require('cmp')
     cmp.setup({
         mapping = {
-            ['<CR>'] = cmp.mapping.confirm({ select = true }),
-            ['<Tab>'] = function(fallback)
+            ['<cr>'] = cmp.mapping.confirm({ select = true }),
+            ['<tab>'] = function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
                 else
                     fallback()
                 end
             end,
-            ['<S-Tab>'] = function(fallback)
+            ['<S-tab>'] = function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
                 else

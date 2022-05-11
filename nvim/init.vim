@@ -409,10 +409,13 @@ let g:AutoPairsMultilineClose = 0
 " vim-surround:
 " TODO: change so that `ys(` dont add spaces inside
 " https://github.com/tpope/vim-surround/issues/314
+" better map in visual mode:
+vmap s S
+vmap і S
 
 
 " vim-exchange:
-" better map in visual(block) mode:
+" better map in visual mode:
 vmap x X
 vmap ч X
 

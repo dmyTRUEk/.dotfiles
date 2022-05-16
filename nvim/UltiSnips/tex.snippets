@@ -421,6 +421,18 @@ snippet ti "tilde" i
 \tilde$0
 endsnippet
 
+priority 3
+snippet "tikz?" "TIKZ image" rb
+\begin{figure} [H]
+\begin{center}
+\begin{tikzpicture}
+    $1
+\end{tikzpicture}
+\caption{}
+\end{center}
+\end{figure}$0
+endsnippet
+
 priority 2
 snippet to "\to" i
 \to$0
@@ -496,6 +508,11 @@ endsnippet
 priority 1
 snippet * "\cdot" i
 \cdot$0
+endsnippet
+
+priority 3
+snippet ... "... -> …" i
+…$0
 endsnippet
 
 

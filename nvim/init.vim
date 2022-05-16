@@ -466,10 +466,15 @@ let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files wit
 
 " telescope:
 nnoremap <leader>b :Telescope buffers <cr>
+nnoremap <leader>и :Telescope buffers <cr>
 nnoremap <leader>f :Telescope find_files <cr>
+nnoremap <leader>а :Telescope find_files <cr>
 nnoremap <leader>g :Telescope live_grep <cr>
+nnoremap <leader>п :Telescope live_grep <cr>
 nnoremap <leader>s :Telescope spell_suggest <cr>
+nnoremap <leader>і :Telescope spell_suggest <cr>
 nnoremap <leader>u :Telescope jumplist <cr>
+nnoremap <leader>г :Telescope jumplist <cr>
 nnoremap gd        :Telescope lsp_definitions <cr>
 nnoremap gr        :Telescope lsp_references <cr>
 "nnoremap <leader>x :Telescope quickfix <cr>

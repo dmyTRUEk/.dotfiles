@@ -71,8 +71,8 @@ noremap ` '
 noremap ' `
 
 " maps for go back and forward
-nnoremap <leader>o <C-o>
-nnoremap <leader>i <C-i>
+nnoremap <A-o> <C-o>
+nnoremap <A-i> <C-i>
 
 " better bind for redo:
 nnoremap U <C-r>

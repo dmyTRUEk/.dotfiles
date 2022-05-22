@@ -59,10 +59,13 @@ where you can install all needed programs.
 ## Sway FAQ - Frequently Asked Questions:
 
 ### Some symbols isn't displayed correctly
-Solution: install `ttf-font-awesome` package
+Solution: install `ttf-font-awesome` package.
+
+### Wallpaper (Background) doesn't change
+Solution: install `swaybg` package.
 
 ### Mouse Cursor in some app is wrong
-Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app
+Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
 
 ### Screenshare doesn't work
 - in Firefox:  
@@ -72,7 +75,8 @@ Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app
   1. Launch OBS
   2. Translate your screen to virtual camera
     if it is not available, install `v4l2loopback-dkms`
-  3. Enable (virtual) camera in discord/telegram
+    (or follow [this tutorial](https://github.com/hw0lff/screen-share-sway#Install-the-v4l2loopback-kernel-module)).
+  3. Enable (virtual) camera in discord/telegram.
 
 ### Screenrecording
 Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder)

@@ -32,7 +32,8 @@
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/solis-2560x1440.jpg
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/marigold_myshko_dm_crop.jpg
-    set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/sonny_boy_bg_v2.png
+    set $wallpaper $HOME/Pictures/Wallpapers/sonny_boy_bg.png
+    # set $wallpaper $HOME/Pictures/Wallpapers/golden-marigold.jpg
 
     # Lockscreen
     # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/black.png

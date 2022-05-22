@@ -446,13 +446,13 @@ bar {
 ### AUTO START
 ## Daemons
 # ?
-include @sysconfdir@/sway/config.d/*
+#include @sysconfdir@/sway/config.d/*
 
 # Polkit Authentication - for apps that requests password
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Sddm - for lock screen
-# exec systemctl enable sddm.service
+#exec systemctl enable sddm.service
 
 # sway-relative-keyboard-rs - Remembers keyboard layout for each window
 exec $HOME/.local/bin/sway-relative-keyboard-rs
@@ -465,7 +465,7 @@ exec mako
 exec dropbox
 
 # KDE Connect
-# exec kdeconnect-indicator
+#exec kdeconnect-indicator
 exec /usr/lib/kdeconnectd
 
 # Clipman

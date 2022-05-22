@@ -20,6 +20,8 @@
         "tray",
         "custom/keyboard-layout",
         "pulseaudio",
+        "backlight",
+        "battery",
         "clock",
     ],
 
@@ -84,6 +86,27 @@
         },
         "scroll-step": 1,
         "on-click-right": "pavucontrol",
+    },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 25,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
     },
 
     // time and date

@@ -57,7 +57,8 @@ window#waybar.empty {
 #window,
 #custom-keyboard-layout,
 #clock,
-/* #battery, */
+#battery,
+#backlight,
 /* #idle_inhibitor, */
 /* #cpu, */
 /* #memory, */
@@ -66,8 +67,8 @@ window#waybar.empty {
 #pulseaudio,
 #mode,
 #tray {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left:  12px;
+    padding-right: 12px;
     /* margin: 0 0px; */
 }
 

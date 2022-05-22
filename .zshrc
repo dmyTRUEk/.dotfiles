@@ -1,7 +1,15 @@
 # dmyTRUEk's ZSH config file
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+path+=('/home/myshko/.local/bin')
+path+=('/home/myshko/.cargo/bin')
+path+=('/home/myshko/Android/Sdk/platform-tools')
+#path+=('/opt/android-studio/jre/bin')
+#path+=('/home/myshko/Development/flutter/bin')
+#path+=('/snap/bin/rust-analyzer')
+export PATH
+#export MANPATH="/usr/local/man:$MANPATH"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -85,14 +93,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 #### User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-# path+=('/home/myshko/Development/flutter/bin')
-path+=('/home/myshko/Android/Sdk/platform-tools')
-# path+=('/snap/bin/rust-analyzer')
-path+=('/opt/android-studio/jre/bin')
-path+=('/home/myshko/.local/bin')
-export PATH
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

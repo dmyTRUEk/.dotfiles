@@ -36,9 +36,6 @@
     # set $wallpaper $HOME/Pictures/Wallpapers/golden-marigold.jpg
 
     # Lockscreen
-    # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/black.png
-    # set $lockscreen_wallpaper ~/Dropbox/Pictures/Wallpapers/cyberpunk_2077_bg_2.jpg
-    # set $lockscreen_wallpaper $wallpaper
     set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
 
     # System monitor:
@@ -168,6 +165,9 @@
     #          timeout 300 'swaylock -f -c 000000' \
     #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     #          before-sleep 'swaylock -f -c 000000'
+
+    exec swayidle -w before-sleep '/home/myshko/.config/sway/scripts/lock_screen_manually.sh'
+    # and also look in `sway/scripts/lock_screen_manually.sh`
 
 
 

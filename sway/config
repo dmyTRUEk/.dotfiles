@@ -61,8 +61,8 @@
 
     # audio source id
     # if sound doesnt work at all, try changing this number ;)
-    # set $audio_src_id 2
     set $audio_src_id @DEFAULT_SINK@
+    # set $audio_src_id 2
 
     # Dolphin settings:
     # operation (copy/move/already exists/etc) window size

@@ -25,8 +25,8 @@
 
     # Application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
-    set $menu_all yofi binapps
-    set $menu_my python $HOME/.config/yofi/yofi_with_allowlist.py
+    set $menu_all $HOME/.cargo/bin/yofi binapps
+    set $menu_my /usr/bin/python $HOME/.config/yofi/yofi_with_allowlist.py
 
     # Wallpaper
     # set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
@@ -212,9 +212,9 @@
     # Kill focused window
     $btrbindsym $mod+Shift+q kill 9
 
-    # Start your launcher
-    $btrbindsym $mod+d exec $menu_my
+    # Start your launcher (yofi)
     $btrbindsym $mod+Shift+d exec $menu_all
+    $btrbindsym $mod+d exec $menu_my
     # TODO
     # $btrbindsym --release $mod exec $menu
 

@@ -14,10 +14,13 @@ apps = {
     "Krita": "krita",
     "Libre Office": "libreoffice",
     "OBS Studio": "obs",
+    "Ocenaudio": "ocenaudio",
     "SciDAVis": "scidavis",
-    "Telegram Desktop": "telegram-desktop",
+    "Skype": "skypeforlinux",
     "Steam": "steam",
+    "Telegram Desktop": "telegram-desktop",
     "Zathura": "zathura",
+    "Zoom": "zoom",
 }
 
 app_names_list = list(apps)

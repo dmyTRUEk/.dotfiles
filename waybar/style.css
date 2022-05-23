@@ -7,13 +7,14 @@
     min-height: 0;
     margin: 0;
     padding: 0;
+    font-family: JetBrains Mono, sans-serif;
+    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    font-size: 13px;
 }
 
 #waybar {
     background: rgb(40, 40, 40);
     color: rgb(255, 255, 255);
-    font-family: JetBrains Mono, Cantarell, Noto Sans, sans-serif;
-    font-size: 13px;
 }
 
 window#waybar.empty {

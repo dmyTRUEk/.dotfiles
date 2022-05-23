@@ -8,7 +8,7 @@ show-failed-attempts
 
 font=JetBrains Mono
 font-size=14
-image=~/Pictures/Wallpapers/sonny-boy-bg.png
+image=~/Dropbox/Pictures/Wallpapers/games/elden-ring.png
 scaling=fill
 
 indicator-radius=50
@@ -18,7 +18,7 @@ layout-text-color=ffffff
 layout-bg-color=00000088
 #layout-border-color=
 
-key-hl-color=0468cb88
+key-hl-color=ff990088
 bs-hl-color=00000044
 separator-color=00000088
 
@@ -48,6 +48,6 @@ text-ver-color=ffffff
 # when wrong
 inside-wrong-color=00000088
 line-wrong-color=00000088
-ring-wrong-color=9d0006
+ring-wrong-color=ff4400
 text-wrong-color=ffffff
 

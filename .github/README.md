@@ -103,7 +103,9 @@ Solution: `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`
 
 
 # TODO:
-nothing for now :D
+- fix all icons in waybar
+- make meta+shift+enter terminal be in scratchpad by default
+- internet sometimes don't work
 
 
 

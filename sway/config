@@ -75,23 +75,18 @@
 ### OUTPUT CONFIGURATION
     # Wallpaper (Background)
     # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-    # output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-    # output * bg ~/Dropbox/Pictures/Wallpapers/pinetree_pablo-garcia-saldana.jpg fill
+    #output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+    #output * bg ~/Dropbox/Pictures/Wallpapers/pinetree_pablo-garcia-saldana.jpg fill
     output * bg $wallpaper fill
 
     # Example configuration
-    #   output HDMI-A-1 resolution 1920x1080 position 1920,0
+    #output HDMI-A-1 resolution 1920x1080 position 1920,0
     # You can get the names of your outputs by running: swaymsg -t get_outputs
 
     # for screen sharing
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-    # Windows borders and gaps
-    default_border none
-    # gaps inner 10
-    # gaps outer -10
-
-## Custom window options
+## Custom window options / rules
     # for_window <criteria> <command>
     #
     # Some useful commands
@@ -102,20 +97,25 @@
     # if window have title bar (border), its text will be aligned to center
     title_align center
 
+    # Windows borders and gaps
+    default_border none
+    #gaps inner 10
+    #gaps outer -10
+
     # Programs default workspaces
     assign [app_id="firefox"]              workspace $workspace_1
     assign [app_id="telegram"]             workspace $workspace_2
     assign [app_id="dolphin"]              workspace $workspace_3
     assign [app_id="plasma-systemmonitor"] workspace $workspace_10
 
-    # Windows rules
-    for_window [window_role="pop-up"] floating enable
-    for_window [window_role="bubble"] floating enable
-    for_window [window_role="task_dialog"] floating enable
+    # floating windows
+    for_window [window_role="About"] floating enable
     for_window [window_role="Preferences"] floating enable
+    for_window [window_role="bubble"] floating enable
+    for_window [window_role="pop-up"] floating enable
+    for_window [window_role="task_dialog"] floating enable
     for_window [window_type="dialog"] floating enable
     for_window [window_type="menu"] floating enable
-    for_window [window_role="About"] floating enable
 
     # for_window [title="dialog"] floating enable
     # for_window [instance="gl"] floating enable
@@ -150,6 +150,9 @@
     # make Discord Picture-In-Picture floating and sticky
     # if this doesnt work, just increase sleep time in discord_pip.sh
     for_window [class="discord"] exec sh -c $HOME/.config/sway/scripts/discord_pip.sh
+
+    for_window [title="zoom"] floating enable
+    for_window [title="Skype"] floating enable
 
 
 

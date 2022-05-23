@@ -338,9 +338,10 @@
     $btrbindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    $btrbindsym $mod+s layout stacking
     $btrbindsym $mod+w layout tabbed
     $btrbindsym $mod+e layout toggle split
+    # i disabled stacking layout, because it is useless, lmao
+    #$btrbindsym $mod+s layout stacking
 
     # Make the current focus fullscreen
     $btrbindsym $mod+f fullscreen

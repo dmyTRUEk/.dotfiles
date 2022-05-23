@@ -465,7 +465,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec systemctl enable sddm.service
 
 # sway-relative-keyboard-rs - Remembers keyboard layout for each window
-exec $HOME/.local/bin/sway-relative-keyboard-rs
+exec /home/myshko/.local/bin/sway-relative-keyboard-rs
 
 # Mako - notification manager
 # config file in: ~/.config/mako/config

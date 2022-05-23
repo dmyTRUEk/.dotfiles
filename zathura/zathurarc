@@ -10,6 +10,10 @@ set guioptions "s"
 set zoom-step 30
 map i zoom in
 map o zoom out
+map u feedkeys <C-u>
+map d feedkeys <C-d>
+# TODO: map dual page to <C-d>
+#map <C-d> feedkeys d
 
 # colors:
 set recolor true

@@ -11,6 +11,7 @@ apps = {
     "Firefox": "firefox",
     "Image Viewer": "imv",
     "Inkscape": "inkscape",
+    "Kdenlive": "kdenlive",
     "Krita": "krita",
     "Libre Office": "libreoffice",
     "OBS Studio": "obs",
@@ -21,6 +22,7 @@ apps = {
     "Telegram Desktop": "telegram-desktop",
     "Zathura": "zathura",
     "Zoom": "zoom",
+    "qt5ct": "qt5ct",
 }
 
 app_names_list = list(apps)

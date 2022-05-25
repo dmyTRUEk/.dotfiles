@@ -28,7 +28,7 @@
 
 
     "sway/window": {
-        "max-length": 60,
+        "max-length": 100,
         /* "rewrite": { */
         /*     "(.*) - Mozilla Firefox": "🌎 $1", */
         /*     "(.*) - zsh": "> [$1]", */

@@ -12,6 +12,7 @@ apps = {
     "Image Viewer": "imv",
     "Inkscape": "inkscape",
     "Kdenlive": "kdenlive",
+    "Kitty": "kitty",
     "Krita": "krita",
     "Libre Office": "libreoffice",
     "OBS Studio": "obs",

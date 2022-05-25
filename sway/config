@@ -42,7 +42,7 @@
     set $system_monitor_command alacritty -e btop
 
     # File Manager:
-    set $file_manager_command alacritty -e ranger
+    set $file_manager_command kitty ranger
 
     # Workspaces names
     set $workspace_1 1

@@ -103,6 +103,7 @@ Solution: `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`
 
 
 # TODO:
+- make better lock screen bind: win+esc -> win+caps (but my esc & caps are swapped)
 - fix all icons in waybar
 - make meta+shift+enter terminal be in scratchpad by default
 - internet sometimes don't work

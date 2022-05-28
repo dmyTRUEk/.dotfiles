@@ -4,12 +4,16 @@ set selection-clipboard clipboard
 
 set font "JetBrains Mono"
 
-set guioptions "s"
+set guioptions "sv"
 
-# maps:
-set zoom-step 30
+set zoom-step 20
+set zoom-center true
 map i zoom in
 map o zoom out
+# TODO: make this work:
+map <S-i> zoom 50
+map <S-o> zoom -50
+
 map u feedkeys <C-u>
 map d feedkeys <C-d>
 # TODO: map dual page to <C-d>

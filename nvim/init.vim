@@ -436,10 +436,10 @@ let g:UltiSnipsExpandTrigger='<nop>'
 let g:UltiSnipsJumpForwardTrigger='<nop>'
 let g:UltiSnipsJumpBackwardTrigger='<nop>'
 let g:UltiSnipsEditSplit="horizontal"
-inoremap <f8> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
-inoremap <f9> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
-" TODO?: maybe remap f10 also to expand?
-inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
+inoremap <f8>  <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
+inoremap <f9>  <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
+inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
+" inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
 
 
 

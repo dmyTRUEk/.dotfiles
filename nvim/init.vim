@@ -80,6 +80,9 @@ nnoremap <A-v> <C-v>
 nnoremap <A-o> <C-o>
 nnoremap <A-i> <C-i>
 
+" maps for go half page down/up
+nnoremap <A-d> <C-d>
+nnoremap <A-u> <C-u>
 
 " move in insert:
 inoremap <A-;> <nop>

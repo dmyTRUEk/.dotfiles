@@ -25,8 +25,8 @@
 
     # Application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
-    set $menu_all $HOME/.cargo/bin/yofi binapps
-    set $menu_my /usr/bin/python $HOME/.config/yofi/yofi_with_allowlist.py
+    set $menu_all yofi binapps
+    set $menu_my yofi
 
     # Wallpaper
     #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg

@@ -29,11 +29,11 @@ apps = {
 app_names_list = list(apps)
 app_names_str = '\n'.join(app_names_list)
 
-command_yofi = f'/home/myshko/.cargo/bin/yofi dialog <<< "{app_names_str}"'
+command_yofi = f'yofi dialog <<< "{app_names_str}"'
 app_name_to_launch = subprocess.getoutput(command_yofi)
 app_bin_to_launch = apps[app_name_to_launch]
 
 # Pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
-command_exec = f"echo {app_bin_to_launch} | xargs swaymsg exec --"
+command_exec = f"swaymsg exec {app_bin_to_launch}"
 os.system(command_exec)
 

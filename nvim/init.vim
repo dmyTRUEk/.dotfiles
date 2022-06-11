@@ -16,22 +16,22 @@ set laststatus=2            " it controls, when/how to display status-bar: 0=nev
 "set autochdir               " change current dir to file's dir
 "set showcmd                 " ? show last command (if you pressed 'j' then 'j' will be showed)
 
-" better search:
+" better search
 set incsearch               " show search results immedeatly
 set hlsearch                " highlight found
 set ignorecase              " /word will find 'word' or 'Word' or 'WORD'
 set smartcase               " when 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not; for example, '/The' would find only 'The', while '/the' would find both 'the' and 'The'
 
-" 'smart' tabs:
+" 'smart' tabs
 set tabstop=4               " when indenting with '>', use 4 spaces width
 set shiftwidth=4            " on pressing tab, insert 4 spaces
 set expandtab               " use spaces instead of tabs
 set autoindent              " set tabs automatically, when starting new line
 
-" dont wrap lines:
+" dont wrap lines
 "set nowrap
 
-" remove esc delay:
+" remove esc delay
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 "set esckeys                "however, this will break any sequences using <esc> in insert mode
 set timeoutlen=1000
@@ -41,7 +41,7 @@ set ttimeoutlen=0
 " for clipboard in wayland+nvim to work:
 set clipboard+=unnamedplus
 
-" for giant files:
+" for giant files
 set redrawtime=10000
 
 " change panes size by mouse
@@ -49,10 +49,10 @@ set mouse=a
 
 
 
-" set leader key:
+" set leader key
 let mapleader = " "
 
-" unmap ex mode:
+" unmap ex mode
 map Q <nop>
 map Й <nop>
 
@@ -63,22 +63,23 @@ nnoremap Y y$
 noremap 0 ^
 noremap ^ 0
 
-" better move to end of line:
+" better move to end of line
 noremap - $
 
 " swap ` and '
 noremap ` '
 noremap ' `
 
+" better bind for redo
+nnoremap U <C-r>
+
+" better bind for visual-block
+nnoremap <A-v> <C-v>
+
 " maps for go back and forward
 nnoremap <A-o> <C-o>
 nnoremap <A-i> <C-i>
 
-" better bind for redo:
-nnoremap U <C-r>
-
-" better bind for visual-block:
-nnoremap <A-v> <C-v>
 
 " move in insert:
 inoremap <A-;> <nop>

@@ -344,6 +344,9 @@ Plug 'vim-airline/vim-airline'
 " file manager:
 Plug 'scrooloose/nerdtree'
 
+" scrollbar:
+Plug 'Xuyuanp/scrollbar.nvim'
+
 " find files and text in them:
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
@@ -466,6 +469,20 @@ nnoremap <leader>т :NERDTreeToggle <cr>
 "autocmd VimEnter * NERDTree        " launch on startup
 "autocmd VimEnter * wincmd w        " auto move to main panel
 let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files with this extension
+
+
+" scrollbar:
+augroup ScrollbarInit
+  autocmd!
+  autocmd WinScrolled,VimResized,QuitPre          * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained,VimEnter           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost * silent! lua require('scrollbar').clear()
+augroup end
+let g:scrollbar_min_size = 1
+let g:scrollbar_max_size = 10
+let g:scrollbar_right_offset = 0
+let g:scrollbar_winblend = 50
+let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 
 " telescope:

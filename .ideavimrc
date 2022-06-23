@@ -9,6 +9,8 @@ set scrolloff=5
 
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
+map <A-o> <Action>(Back)
+map <A-i> <Action>(Forward)
 
 map g[ <Action>(GotoPreviousError)
 map g] <Action>(GotoNextError)

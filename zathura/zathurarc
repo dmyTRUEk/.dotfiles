@@ -6,13 +6,16 @@ set font "JetBrains Mono"
 
 set guioptions "sv"
 
-set zoom-step 20
+set zoom-step 10
 set zoom-center true
 map i zoom in
 map o zoom out
 # TODO: make this work:
-map <S-i> zoom 50
-map <S-o> zoom -50
+map <S-i> zoom in 50
+map <S-o> zoom out 50
+
+map Q quit
+unmap q
 
 map u feedkeys <C-u>
 map d feedkeys <C-d>

@@ -478,7 +478,7 @@ exec dropbox
 
 # KDE Connect
 #exec kdeconnect-indicator
-exec /usr/lib/kdeconnectd
+#exec /usr/lib/kdeconnectd
 
 # Clipman
 #exec wl-paste -t text --watch clipman store

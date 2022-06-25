@@ -98,6 +98,8 @@ Solution:
 ### Run JetBrains (or maybe other Java based apps)
 Solution: `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`
 
+Or add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file
+
 
 
 

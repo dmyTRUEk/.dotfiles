@@ -18,7 +18,7 @@ layout-text-color=ffffff
 layout-bg-color=00000088
 #layout-border-color=
 
-key-hl-color=ff990088
+key-hl-color=0468cb88
 bs-hl-color=00000044
 separator-color=00000088
 
@@ -34,7 +34,7 @@ ring-clear-color=00000066
 text-clear-color=ffffff
 
 # when caps lock is on
-inside-caps-lock-color=ff8800
+inside-caps-lock-color=ff00ff
 line-caps-lock-color=00000088
 ring-caps-lock-color=00000066
 text-caps-lock-color=ffffff

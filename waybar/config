@@ -91,22 +91,24 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up":   "light -A 1",
+        "on-scroll-down": "light -U 1",
     },
 
     "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 25,
-            "critical": 10
-        },
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            // "good": 95,
+            "warning": 25,
+            "critical": 10
+        },
     },
 
     // time and date

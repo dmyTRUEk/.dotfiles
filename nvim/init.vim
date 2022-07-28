@@ -161,6 +161,8 @@ nnoremap <leader>о :wincmd j <cr>
 nnoremap <leader>л :wincmd k <cr>
 nnoremap <leader>д :wincmd l <cr>
 
+nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
+
 
 
 " TODO: rewrite in one line
@@ -235,6 +237,18 @@ endf
 call s:SetTextVimOrNvim()
 
 
+function! ToggleHorizontalVerticalSplit()
+    if !exists('t:splitType')
+        let t:splitType = 'vertical'
+    endif
+    if t:splitType == 'vertical'
+        windo wincmd K
+        let t:splitType = 'horizontal'
+    else
+        windo wincmd H
+        let t:splitType = 'vertical'
+    endif
+endfunction
 
 
 func AskAndReplaceAll()

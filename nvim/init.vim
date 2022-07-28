@@ -47,6 +47,22 @@ set redrawtime=10000
 " change panes size by mouse
 set mouse=a
 
+" use ukr in normal mode:
+set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
+
+
+
+" cursor settings in different modes:
+let &t_EI.="\e[2 q"         "EI = normal mode
+let &t_SR.="\e[4 q"         "SR = replace mode
+let &t_SI.="\e[6 q"         "SI = insert mode
+" 1 - █ rectangle blinking
+" 2 - █ rectangle
+" 3 - _ underline blinking
+" 4 - _ underline
+" 5 - | vertical line blinking
+" 6 - | vertical line
+
 
 
 " set leader key
@@ -97,56 +113,12 @@ inoremap <A-о> <down>
 inoremap <A-л> <up>
 inoremap <A-д> <right>
 
+
+
 " exit from insert mode:
 "inoremap jk <esc>
 "inoremap kj <esc>
 
-
-
-func AskAndReplaceAll()
-    " save current cursor position
-    let l:saved_winview = winsaveview()
-    let l:current_word = expand("<cword>")
-    call inputsave()
-    let l:replace_by = input('Replace by: ', l:current_word)
-    call inputrestore()
-    if l:replace_by != ""
-        execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
-    endif
-    " restore cursor position
-    call winrestview(l:saved_winview)
-endf
-
-func s:GetSelectedText()
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
-    if len(lines) == 0
-        return ''
-    endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
-endf
-
-func AskAndReplaceAllVisual()
-    let l:mode = visualmode()
-    if l:mode ==# "v"
-        " save current cursor position
-        let l:saved_winview = winsaveview()
-        let l:selected_text = s:GetSelectedText()
-        call inputsave()
-        let l:replace_by = input('Replace by: ', l:selected_text)
-        call inputrestore()
-        if l:replace_by != ""
-            execute ':%s/\(' . l:selected_text . '\)/' . l:replace_by
-        endif
-        " restore cursor position
-        call winrestview(l:saved_winview)
-    else
-        " TODO: clear output
-    endif
-endf
 
 " TODO: <f1> -> nvim help for current word
 nnoremap <f2> :call AskAndReplaceAll()<cr>
@@ -161,15 +133,14 @@ nnoremap <leader>e m`$x``
 
 " append symbols to end of line
 nnoremap <leader>; m`A;<esc>``
-nnoremap <leader>, m`A,<esc>``
 nnoremap <leader>: m`A:<esc>``
+nnoremap <leader>, m`A,<esc>``
 
 " move selected text up/down
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 
-
-
+" WINDOW operations
 " save:
 nnoremap <leader>w :w <cr>
 nnoremap <leader>W :wa <cr>
@@ -200,6 +171,7 @@ nnoremap <leader>д :wincmd l <cr>
 
 
 
+" TODO: rewrite in one line
 """ Compiles:
 " latex:
 func s:SetupLeaderMapForLaTeX()
@@ -273,24 +245,51 @@ call s:SetTextVimOrNvim()
 
 
 
-" use ukr in normal mode:
-set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
 
-nmap псс <Plug>CommentaryLine
-map пс <Plug>Commentary
+func AskAndReplaceAll()
+    " save current cursor position
+    let l:saved_winview = winsaveview()
+    let l:current_word = expand("<cword>")
+    call inputsave()
+    let l:replace_by = input('Replace by: ', l:current_word)
+    call inputrestore()
+    if l:replace_by != ""
+        execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
+    endif
+    " restore cursor position
+    call winrestview(l:saved_winview)
+endf
 
+func s:GetSelectedText()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endf
 
-
-" cursor settings in different modes:
-let &t_EI.="\e[2 q"         "EI = normal mode
-let &t_SR.="\e[4 q"         "SR = replace mode
-let &t_SI.="\e[6 q"         "SI = insert mode
-" 1 - █ rectangle blinking
-" 2 - █ rectangle
-" 3 - _ underline blinking
-" 4 - _ underline
-" 5 - | vertical line blinking
-" 6 - | vertical line
+func AskAndReplaceAllVisual()
+    let l:mode = visualmode()
+    if l:mode ==# "v"
+        " save current cursor position
+        let l:saved_winview = winsaveview()
+        let l:selected_text = s:GetSelectedText()
+        call inputsave()
+        let l:replace_by = input('Replace by: ', l:selected_text)
+        call inputrestore()
+        if l:replace_by != ""
+            execute ':%s/\(' . l:selected_text . '\)/' . l:replace_by
+        endif
+        " restore cursor position
+        call winrestview(l:saved_winview)
+    else
+        " TODO: clear output
+    endif
+endf
 
 
 
@@ -415,6 +414,11 @@ let g:AutoPairsMultilineClose = 0
 " TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait)
 
 
+" vim-commentary:
+nmap псс <Plug>CommentaryLine
+map пс <Plug>Commentary
+
+
 " vim-surround:
 " TODO: change so that `ys(` dont add spaces inside
 " https://github.com/tpope/vim-surround/issues/314
@@ -486,6 +490,8 @@ let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 
 " telescope:
+nnoremap gd        :Telescope lsp_definitions <cr>
+nnoremap gr        :Telescope lsp_references <cr>
 nnoremap <leader>b :Telescope buffers <cr>
 nnoremap <leader>и :Telescope buffers <cr>
 nnoremap <leader>f :Telescope find_files <cr>
@@ -496,8 +502,6 @@ nnoremap <leader>s :Telescope spell_suggest <cr>
 nnoremap <leader>і :Telescope spell_suggest <cr>
 nnoremap <leader>u :Telescope jumplist <cr>
 nnoremap <leader>г :Telescope jumplist <cr>
-nnoremap gd        :Telescope lsp_definitions <cr>
-nnoremap gr        :Telescope lsp_references <cr>
 "nnoremap <leader>x :Telescope quickfix <cr>
 lua << EOF
     local actions = require("telescope.actions")

@@ -31,6 +31,8 @@ set autoindent              " set tabs automatically, when starting new line
 " dont wrap lines
 "set nowrap
 
+" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
+
 " remove esc delay
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 "set esckeys                "however, this will break any sequences using <esc> in insert mode
@@ -54,6 +56,8 @@ set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,
 
 " set leader key
 let mapleader = " "
+
+
 
 " unmap ex mode
 map Q <nop>
@@ -94,12 +98,12 @@ inoremap <A-j> <down>
 inoremap <A-k> <up>
 inoremap <A-l> <right>
 
+" TODO: fix alt+ukr binds
 inoremap <A-ж> <nop>
 inoremap <A-р> <left>
 inoremap <A-о> <down>
 inoremap <A-л> <up>
 inoremap <A-д> <right>
-
 
 
 " exit from insert mode:
@@ -187,7 +191,6 @@ autocmd BufReadPost *.cpp call s:SetupLeaderMapForCPP()
 
 
 " scrolloff: distance from window(viewport) top/bottom
-" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 let g:scrolloff_fraction = 0.20
 
 func SetFractionalScrollOff(fraction)

@@ -52,19 +52,6 @@ set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,
 
 
 
-" cursor settings in different modes:
-let &t_EI.="\e[2 q"         "EI = normal mode
-let &t_SR.="\e[4 q"         "SR = replace mode
-let &t_SI.="\e[6 q"         "SI = insert mode
-" 1 - █ rectangle blinking
-" 2 - █ rectangle
-" 3 - _ underline blinking
-" 4 - _ underline
-" 5 - | vertical line blinking
-" 6 - | vertical line
-
-
-
 " set leader key
 let mapleader = " "
 

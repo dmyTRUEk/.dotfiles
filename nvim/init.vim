@@ -126,6 +126,7 @@ nnoremap <leader>e m`$x``
 nnoremap <leader>; m`A;<esc>``
 nnoremap <leader>: m`A:<esc>``
 nnoremap <leader>, m`A,<esc>``
+nnoremap <leader>. m`A.<esc>``
 
 " move selected text up/down
 vnoremap J :m '>+1<cr>gv=gv

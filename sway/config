@@ -348,7 +348,6 @@
     #$btrbindsym $mod+s layout stacking
 
     # Make the current focus fullscreen
-    $btrbindsym $mod+f fullscreen
     $btrbindsym F11 fullscreen
 
     # Move focus to the parent container

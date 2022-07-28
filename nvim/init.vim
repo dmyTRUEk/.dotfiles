@@ -430,6 +430,7 @@ map пс <Plug>Commentary
 " better map in visual mode:
 vmap s S
 vmap і S
+let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
 
 
 " vim-exchange:

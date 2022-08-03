@@ -194,7 +194,7 @@ autocmd BufReadPost *.cpp call s:SetupLeaderMapForCPP()
 
 
 " scrolloff: distance from window(viewport) top/bottom
-let g:scrolloff_fraction = 0.20
+let g:scrolloff_fraction = 0.30
 
 func SetFractionalScrollOff(fraction)
     let l:visible_lines_in_active_window = winheight(win_getid())
@@ -320,8 +320,8 @@ Plug 'morhetz/gruvbox'
 " close brackets automatically:
 Plug 'jiangmiao/auto-pairs'
 
-" comments manager:
-Plug 'tpope/vim-commentary'
+" enable repeat for plugins:
+Plug 'tpope/vim-repeat'
 
 " surround manager:
 Plug 'tpope/vim-surround'
@@ -334,11 +334,17 @@ Plug 'unblevable/quick-scope'
 
 
 """ General Plugins:
+" comments manager:
+Plug 'tpope/vim-commentary'
+
 " snippets:
 Plug 'sirver/ultisnips'
 
 " git wrapper:
 "Plug 'tpope/vim-fugitive'
+
+" arguments manager:
+Plug 'dmytruek/argument-text-object'
 
 
 """ UI Plugins:

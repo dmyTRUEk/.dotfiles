@@ -299,7 +299,8 @@
 ## Workspaces
     # Switch to next/prev workspace
     bindsym $mod+tab workspace next
-    bindsym $mod+Shift+tab workspace prev
+    bindsym $mod+Shift+Tab workspace prev
+    bindsym $mod+grave workspace prev
 
     # Switch to workspace
     bindsym $mod+1 workspace $workspace_1
@@ -336,16 +337,16 @@
 
 
 ## Layout stuff
-    # You can <split> the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits respectively.
-    $btrbindsym $mod+b splith
-    $btrbindsym $mod+v splitv
-
     # Switch the current container between different layout styles
     $btrbindsym $mod+w layout tabbed
     $btrbindsym $mod+e layout toggle split
     # i disabled stacking layout, because it is useless, lmao
     #$btrbindsym $mod+s layout stacking
+
+    # You can <split> the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits respectively.
+    $btrbindsym $mod+b splith
+    $btrbindsym $mod+v splitv
 
     # Make the current focus fullscreen
     $btrbindsym F11 fullscreen

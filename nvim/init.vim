@@ -98,7 +98,7 @@ inoremap <A-j> <down>
 inoremap <A-k> <up>
 inoremap <A-l> <right>
 
-" TODO: fix alt+ukr binds
+" alt+ukr binds dont work in some terminal emulators
 inoremap <A-ж> <nop>
 inoremap <A-р> <left>
 inoremap <A-о> <down>

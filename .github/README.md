@@ -29,7 +29,7 @@ where you can install all needed programs.
 ### Setup Scripts:
 - [setup-file-links.sh](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
   \- creates symbolic links in desired locations to real dotfiles
-  (real dotfiles located in `~/.dotfiles/`)
+  (real dotfiles located in `~/.dotfiles/`).
 
 
 
@@ -79,28 +79,15 @@ Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
   3. Enable (virtual) camera in discord/telegram.
 
 ### Screenrecording
-Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder)
+Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder).
 
 ### Enviroment variables of two (or more) DE/WM conflicts
-Solution:
-
-1. Create file `/usr/local/bin/sway` and write in it:
-
-  ```
-  XDG_CURRENT_DESKTOP=sway \
-      VAR1=... \
-      VAR2=... \
-      /usr/bin/sway
-  ```
-2. Give executable permission to this file: `chmod +x /usr/local/bin/sway`
-3. In your `sway.desktop` file (located in `/usr/share/wayland-sessions`) edit `Exec=sway` to `Exec=/usr/local/bin/sway`
+Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURRENT_DESKTOP=sway sway`.
 
 ### Run JetBrains (or maybe other Java based apps)
-Solution: `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`
+Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
 
-Or add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file
-
-
+Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 
 

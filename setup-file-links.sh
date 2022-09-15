@@ -21,6 +21,7 @@ ln -sfn ~/.dotfiles/paru ~/.config/
 ln -sfn ~/.dotfiles/ranger ~/.config/
 ln -sfn ~/.dotfiles/sway ~/.config/
 ln -sfn ~/.dotfiles/swaylock ~/.config/
+ln -sfn ~/.dotfiles/systemd ~/.config/
 ln -sfn ~/.dotfiles/waybar ~/.config/
 ln -sfn ~/.dotfiles/yofi ~/.config/
 ln -sfn ~/.dotfiles/zathura ~/.config/

@@ -1,0 +1,11 @@
+[Unit]
+Description=Relative keyboard for sway
+Documentation=https://github.com/dmyTRUEk/sway-relative-keyboard-rs
+BindsTo=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/myshko/.local/bin/sway-relative-keyboard-rs
+
+[Install]
+WantedBy=sway-session.target

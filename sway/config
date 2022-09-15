@@ -473,8 +473,8 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Sddm - for lock screen
 #exec systemctl enable sddm.service
 
-# sway-relative-keyboard-rs - Remembers keyboard layout for each window
-exec_always /home/myshko/.local/bin/sway-relative-keyboard-rs
+# User defined services (located in ~/.config/systemd/user/)
+exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
 
 # Mako - notification manager
 # config file in: ~/.config/mako/config

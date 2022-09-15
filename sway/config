@@ -300,7 +300,7 @@
     # Switch to next/prev workspace
     bindsym $mod+tab workspace next
     bindsym $mod+Shift+Tab workspace prev
-    bindsym $mod+grave workspace prev
+    $btrbindsym $mod+grave workspace prev
 
     # Switch to workspace
     bindsym $mod+1 workspace $workspace_1

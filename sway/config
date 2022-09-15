@@ -134,7 +134,7 @@
     for_window [app_id="pavucontrol"] floating enable, move position cursor, move up 22px
 
     # make Firefox Picture-In-Picture floating and sticky
-    for_window [title="Picture-in-Picture"] floating enable, sticky enable
+    for_window [title="Picture-in-Picture"] floating enable, sticky enable, border none
 
     # make Discord Picture-In-Picture floating and sticky
     # if this doesnt work, just increase sleep time in discord_pip.sh

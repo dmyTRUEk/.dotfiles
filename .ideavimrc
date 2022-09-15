@@ -18,7 +18,7 @@ map gd <Action>(GotoDeclaration)
 "map gi <Action>(GotoImplementation)
 map <leader>r <Action>(RenameElement)
 " TODO: better mapping (conflicts with go forward)
-map <leader>y <Action>(Inline)
+map <leader>i <Action>(Inline)
 
 map <leader>b <Action>(RebuildGradleProject)
 map <leader>c <Action>(Run)

@@ -251,6 +251,7 @@ function! ToggleHorizontalVerticalSplit()
 endfunction
 
 
+" TODO: (check) fix case when found multiple occurances in one line
 func AskAndReplaceAll()
     " save current cursor position
     let l:saved_winview = winsaveview()

@@ -165,6 +165,8 @@ nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
 
 
 
+autocmd FileType gitcommit setlocal spell
+
 " TODO: rewrite in one line
 """ Compiles:
 " latex:
@@ -465,6 +467,8 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 " inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
 
 
+" vim-fugitive:
+" TODO
 
 
 

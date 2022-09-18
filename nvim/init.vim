@@ -708,7 +708,8 @@ func s:CompileLatexToPDFasync()
 endf
 
 func s:SetupEverythingForLatex()
-    setlocal spell spelllang=uk,en_us
+    setlocal spell spelllang=uk,en
+    syntax spell toplevel
 
     nnoremap j gj
     nnoremap k gk

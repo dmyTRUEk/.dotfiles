@@ -421,9 +421,8 @@ colorscheme gruvbox
 " auto-pairs:
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMultilineClose = 0
-" TODO: autopair for '<' -> '<>'
-"let g:AutoPairs['<']='>'
-" TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait)
+autocmd BufReadPost * let g:AutoPairs['<'] = '>'
+" TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait/type)
 
 
 " vim-commentary:
@@ -731,6 +730,9 @@ func s:SetupEverythingForLatex()
     " look at: https://habr.com/ru/post/445066/
     let g:vimtex_quickfix_mode = 0
     let g:vimtex_view_method = 'zathura'
+
+    let g:AutoPairs["'"] = ""
+    let g:AutoPairs["`"] = ""
 
     " for autocompile and sync:
     let g:is_latex_auto_sync_enabled = 1

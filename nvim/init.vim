@@ -165,6 +165,39 @@ nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
 
 
 
+" my Change Current word with another:
+" `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it:
+nnoremap cc <nop>
+
+" map `cc<move>` to Change Current word with MOVE word
+" this solution is better than `df<space>f<space>p` because it might not work if
+" there is no space after second word (eg `,` `)` `\n` etc)
+
+" TODO: figure out better way to do this, so it works at least for `f<symbol>` or even any move
+
+" here `|` means cursor position
+" aa|a bbb -> bbb| aaa
+nnoremap ccw yiwwviwp2bviwp
+" aaa bb|b -> bbb aaa|
+nnoremap ccb yiwbviwpwviwp
+
+" aaa.aa|a bbb.bbb -> bbb.bbb| aaa.aaa
+nnoremap ccW yiWWviWp2BviWp
+" aaa.aaa bbb.bbb| -> bbb.bbb aaa.aaa|
+nnoremap ccB yiWBviWpWviWp
+
+nnoremap cc2w yiw2wviwp3bviwp
+nnoremap cc2b yiw2bviwp2wviwp
+nnoremap cc2W yiW2WviWp3BviWp
+nnoremap cc2B yiW2BviWp2WviWp
+
+nnoremap cc3w yiw3wviwp4bviwp
+nnoremap cc3b yiw3bviwp3wviwp
+nnoremap cc3W yiW3WviWp4BviWp
+nnoremap cc3B yiW3BviWp3WviWp
+
+
+
 autocmd FileType gitcommit setlocal spell
 
 " TODO: rewrite in one line

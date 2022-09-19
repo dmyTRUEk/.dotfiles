@@ -165,7 +165,7 @@ nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
 
 
 
-" my Change Current word with another:
+" my Change Current word with another (aka `viwy`):
 " `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it:
 nnoremap cc <nop>
 
@@ -200,31 +200,18 @@ nnoremap cc3B yiW3BviWp3WviWp
 
 autocmd FileType gitcommit setlocal spell
 
-" TODO: rewrite in one line
 """ Compiles:
 " latex:
-func s:SetupLeaderMapForLaTeX()
-    nnoremap <leader>c :w <bar> CompileLaTeXtoPDF <cr>
-endf
-autocmd BufReadPost *.tex call s:SetupLeaderMapForLaTeX()
+autocmd BufReadPost *.tex nnoremap <leader>c :w <bar> call s:CompileLatexToPDFasync() <cr>
 
 " python:
-func s:SetupLeaderMapForPython()
-    nnoremap <leader>c :wa <bar> :! python3 % <cr>
-endf
-autocmd BufReadPost *.py call s:SetupLeaderMapForPython()
+autocmd BufReadPost *.py nnoremap <leader>c :wa <bar> :! python3 % <cr>
 
 " rust:
-func s:SetupLeaderMapForRust()
-    nnoremap <leader>c :wa <bar> :! cargo test && cargo run <cr>
-endf
-autocmd BufReadPost *.rs call s:SetupLeaderMapForRust()
+autocmd BufReadPost *.rs nnoremap <leader>c :wa <bar> :! cargo test && cargo run <cr>
 
 " c++:
-func s:SetupLeaderMapForCPP()
-    nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <cr>
-endf
-autocmd BufReadPost *.cpp call s:SetupLeaderMapForCPP()
+autocmd BufReadPost *.cpp nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <cr>
 
 
 

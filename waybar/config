@@ -71,7 +71,6 @@
     // TODO: maybe replace with sway/language?, so that i can delete jq
     "custom/keyboard-layout": {
         "exec": "$HOME/.config/waybar/modules/kblayout",
-        "format": "{}",
         "format": " {}",
     },
 

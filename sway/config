@@ -26,7 +26,7 @@
     # Application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
     set $menu_all yofi binapps
-    set $menu_my yofi
+    set $menu_apps yofi
 
     # Wallpaper
     #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
@@ -37,6 +37,8 @@
 
     # Lockscreen
     set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
+
+    set $test_notification notify-send "Notification" "This is test notification"
 
     # Workspaces names
     set $workspace_1 1
@@ -201,7 +203,7 @@
     # Start a terminal
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+Return exec $term --class="$term_floating"
-    # TODO:
+    # TODO?:
     # bindsym $mod+Shift+plus exec $term --class="$term_floating_scratchpaded"
 
     # Terminate focused window
@@ -211,12 +213,10 @@
 
     # Start your launcher (yofi)
     $btrbindsym $mod+Shift+d exec $menu_all
-    $btrbindsym $mod+d exec $menu_my
-    # TODO:
-    #bindsym --release $mod exec $menu
+    bindsym --release Super_L exec $menu_apps
 
     # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
+    # Resize them with $mod + right mouse button.
     # Despite the name, also works for non-floating windows.
     floating_modifier $mod normal
 

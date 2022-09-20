@@ -85,7 +85,6 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     rust
-    pip
 )
 
 source $ZSH/oh-my-zsh.sh

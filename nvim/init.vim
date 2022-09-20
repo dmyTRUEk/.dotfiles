@@ -199,6 +199,7 @@ nnoremap cc3B yiW3BviWp3WviWp
 
 
 autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell
 
 """ Compiles:
 " latex:

@@ -375,7 +375,7 @@ Plug 'dmytruek/argument-text-object'
 Plug 'vim-airline/vim-airline'
 
 " file manager:
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " scrollbar:
 Plug 'Xuyuanp/scrollbar.nvim'

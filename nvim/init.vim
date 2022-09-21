@@ -573,6 +573,8 @@ nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<cr>
 nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
 nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <silent> [c        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <silent> ]c        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<cr>
 " TODO?: add <leader>i -> inline variable

@@ -218,14 +218,14 @@ autocmd BufReadPost *.cpp nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && 
 
 
 " scrolloff: distance from window(viewport) top/bottom
-let g:scrolloff_fraction = 0.30
+let g:relative_scrolloff_fraction = 0.30
 
-func SetFractionalScrollOff(fraction)
+func SetRelativeScrollOff(fraction)
     let l:visible_lines_in_active_window = winheight(win_getid())
     let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
 endf
 
-autocmd BufEnter,WinEnter,WinNew,VimResized * call SetFractionalScrollOff(g:scrolloff_fraction)
+autocmd BufEnter,BufWinEnter,WinEnter,WinNew,VimResized * call SetRelativeScrollOff(g:relative_scrolloff_fraction)
 
 
 

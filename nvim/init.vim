@@ -215,6 +215,10 @@ autocmd BufReadPost *.rs nnoremap <leader>c :wa <bar> :! cargo test && cargo run
 " c++:
 autocmd BufReadPost *.cpp nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <cr>
 
+" neovim config file:
+autocmd BufReadPost init.vim nnoremap <leader>c :wa <bar> :source % <cr>
+" vim config file:
+"autocmd BufReadPost  .vimrc nnoremap <leader>c :wa <bar> :source % <cr>
 
 
 " scrolloff: distance from window(viewport) top/bottom

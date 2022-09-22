@@ -203,7 +203,7 @@ autocmd FileType markdown setlocal spell
 
 """ Compiles:
 " latex:
-autocmd BufReadPost *.tex nnoremap <leader>c :w <bar> call s:CompileLatexToPDFasync() <cr>
+autocmd BufReadPost *.tex nnoremap <leader>c :wa <bar> call CompileLatexToPDFsimple() <cr>
 
 " python:
 autocmd BufReadPost *.py nnoremap <leader>c :wa <bar> :! python3 % <cr>
@@ -662,8 +662,6 @@ EOF
 
 
 """ Latex Setup:
-" TODO: rewrite it to function
-command CompileLaTeXtoPDF ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 
 " enable/disable vim to zathura sync
 func LatexAutoSyncDisable()
@@ -732,6 +730,10 @@ func s:CompileLatexToPDFasync()
         " compile file:
         call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "PrivateCompileLatextoPDFasyncOnExit"})
     endif
+endf
+
+func CompileLatexToPDFsimple()
+    ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 endf
 
 func s:SetupEverythingForLatex()

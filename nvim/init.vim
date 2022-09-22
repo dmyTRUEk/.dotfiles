@@ -162,6 +162,7 @@ nnoremap <leader>л :wincmd k <cr>
 nnoremap <leader>д :wincmd l <cr>
 
 nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
+nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit()<cr>
 
 
 

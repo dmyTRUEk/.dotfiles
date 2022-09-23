@@ -161,6 +161,16 @@ nnoremap <leader>о :wincmd j <cr>
 nnoremap <leader>л :wincmd k <cr>
 nnoremap <leader>д :wincmd l <cr>
 
+" move windows themselves inside vim:
+nnoremap <leader><leader>h :wincmd H <cr>
+nnoremap <leader><leader>j :wincmd J <cr>
+nnoremap <leader><leader>k :wincmd K <cr>
+nnoremap <leader><leader>l :wincmd L <cr>
+nnoremap <leader><leader>р :wincmd H <cr>
+nnoremap <leader><leader>о :wincmd J <cr>
+nnoremap <leader><leader>л :wincmd K <cr>
+nnoremap <leader><leader>д :wincmd L <cr>
+
 nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
 nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit()<cr>
 

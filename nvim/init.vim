@@ -112,8 +112,8 @@ inoremap <A-д> <right>
 
 
 " TODO: <f1> -> nvim help for current word
-nnoremap <f2> :call AskAndReplaceAll()<cr>
-xnoremap <f2> :call AskAndReplaceAllVisual()<cr>
+nnoremap <f2> :call AskAndReplaceAllNormal()<cr>
+xnoremap <f2> m` :call AskAndReplaceAllVisual()<cr> ``
 noremap <f3> ^
 noremap <f4> $
 inoremap <f3> <home>
@@ -289,8 +289,7 @@ func ToggleHorizontalVerticalSplit()
 endf
 
 
-" TODO: (check) fix case when found multiple occurances in one line
-func AskAndReplaceAll()
+func AskAndReplaceAllNormal()
     " save current cursor position
     let l:saved_winview = winsaveview()
     let l:current_word = expand("<cword>")
@@ -298,40 +297,68 @@ func AskAndReplaceAll()
     let l:replace_by = input('Replace by: ', l:current_word)
     call inputrestore()
     if l:replace_by != ""
-        execute ':%s/\<' . l:current_word . '\>/' . l:replace_by
+        execute ':%s/\<' . l:current_word . '\>/' . l:replace_by . '/g'
     endif
     " restore cursor position
     call winrestview(l:saved_winview)
 endf
 
-func s:GetSelectedText()
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
-    if len(lines) == 0
-        return ''
-    endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
-endf
+
+" DO YOU KNOW THIS MAN?
+" spamton spamton
+" spamton
+" spamton
+" spamton spamton spamton
 
 func AskAndReplaceAllVisual()
+    " TODO?: add check if its not visual mode, then exit with msg: "not a visual mode"
     let l:mode = visualmode()
     if l:mode ==# "v"
+        " Visual mode
         " save current cursor position
-        let l:saved_winview = winsaveview()
-        let l:selected_text = s:GetSelectedText()
+        let l:saved_curpos = getcurpos()
+        let [l:line_start, l:column_start] = getpos("'<")[1:2]
+        let [l:line_end  , l:column_end  ] = getpos("'>")[1:2]
+        " echom "start = " . string(getpos("'<")[1:2])
+        " echom "end   = " . string(getpos("'>")[1:2])
+        " echom ".     = " . string(getpos(".")[1:2])
+        " echom "v     = " . string(getpos("v")[1:2])
+        " echom "'`    = " . string(getpos("'`")[1:2])
+        if l:line_start != l:line_end
+            if getpos('.')[1] == l:line_start
+                echom "Many lines selected, exiting..."
+            endif
+            return
+        endif
+        let l:cursor_on_end = getpos("'`")[2] > getpos(".")[2]
+        let l:selected_text = getline(l:line_start)[l:column_start-(l:cursor_on_end ? 1 : 2) : l:column_end-(l:cursor_on_end ? 2 : 1)]
         call inputsave()
         let l:replace_by = input('Replace by: ', l:selected_text)
         call inputrestore()
         if l:replace_by != ""
-            execute ':%s/\(' . l:selected_text . '\)/' . l:replace_by
+            " round brackets here bcof possible spaces
+            " TODO: super rare bug: if trying to rename to smt that contains \)
+            "       maybe try to replace all \) -> \\) before replacing?
+            "       also maybe the same is for \( ?
+            execute ':%s/\(' . l:selected_text . '\)/' . l:replace_by . '/g'
+            " restore cursor position
+            call setpos(".", [l:saved_curpos[0], l:saved_curpos[1], l:saved_curpos[4], "none"])
+            echom "Successfully replaced"
         endif
-        " restore cursor position
-        call winrestview(l:saved_winview)
+
+    elseif l:mode ==# "V"
+        " Visual line mode
+        " TODO: or maybe better without `AskAndReplaceAllVisual`?
+        echom "AskAndReplaceAll not implemented for VISUAL LINE mode"
+
+    elseif l:mode ==# ""
+        " Visual block mode
+        " TODO: or maybe better without `AskAndReplaceAllVisual`?
+        echom "AskAndReplaceAll not implemented for VISUAL BLOCK mode"
+
     else
-        " TODO: clear output
+        " Unknown visual mode
+        echom "UNKNOWN VISUAL mode"
     endif
 endf
 

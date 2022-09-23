@@ -265,7 +265,7 @@ endf
 call s:SetTextVimOrNvim()
 
 
-function! ToggleHorizontalVerticalSplit()
+func ToggleHorizontalVerticalSplit()
     if !exists('t:splitType')
         let t:splitType = 'vertical'
     endif
@@ -276,7 +276,7 @@ function! ToggleHorizontalVerticalSplit()
         windo wincmd H
         let t:splitType = 'vertical'
     endif
-endfunction
+endf
 
 
 " TODO: (check) fix case when found multiple occurances in one line
@@ -494,7 +494,7 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 
 
 " vim-fugitive:
-" TODO
+" TODO?
 
 
 

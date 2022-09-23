@@ -449,7 +449,8 @@ colorscheme gruvbox
 " auto-pairs:
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMultilineClose = 0
-autocmd BufReadPost * let g:AutoPairs['<'] = '>'
+"autocmd BufReadPost * let g:AutoPairs['<'] = '>'
+"autocmd BufReadPost *.cpp let g:AutoPairs['<'] = ''
 " TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait/type)
 
 

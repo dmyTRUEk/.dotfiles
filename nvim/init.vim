@@ -781,10 +781,10 @@ func s:SetupEverythingForLatex()
     nnoremap k gk
     nnoremap о gj
     nnoremap л gk
-    inoremap <A-j> <C-O>gj
-    inoremap <A-k> <C-O>gk
-    inoremap <A-о> <C-O>gj
-    inoremap <A-л> <C-O>gk
+    inoremap <A-j> <C-o>gj
+    inoremap <A-k> <C-o>gk
+    inoremap <A-о> <C-o>gj
+    inoremap <A-л> <C-o>gk
 
     nnoremap 0 g^
     nnoremap - g$

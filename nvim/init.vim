@@ -528,7 +528,7 @@ let g:UltiSnipsEditSplit="horizontal"
 inoremap <f8>  <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 inoremap <f9>  <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
-" inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
+"inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
 
 
 " vim-fugitive:

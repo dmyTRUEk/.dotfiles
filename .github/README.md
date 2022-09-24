@@ -92,10 +92,11 @@ Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 
 # TODO:
-- make better lock screen bind: win+esc -> win+caps (but my esc & caps are swapped)
-- fix all icons in waybar
-- make meta+shift+enter terminal be in scratchpad by default
+- meta: remove images from `.git/`, so they don't take up space
+- fix lock screen bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed
 - internet sometimes don't work
+- even though `sway-relative-keyboard-rs` is systemd service, it sometimes stops, why?
+- ? make meta+shift+enter terminal be in scratchpad by default
 
 
 

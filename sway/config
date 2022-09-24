@@ -213,7 +213,8 @@
 
     # Start your launcher (yofi)
     $btrbindsym $mod+Shift+d exec $menu_all
-    bindsym --release Super_L exec $menu_apps
+    $btrbindsym $mod+d exec $menu_apps
+    #bindsym --release Super_L exec $menu_apps
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with $mod + right mouse button.

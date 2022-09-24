@@ -390,18 +390,7 @@ call plug#end()
 
 
 
-""" Colorschemes Settings:
-" papercolor:
-"set background=light
-"colorscheme PaperColor
-
-" sublimemonokai:
-"colorscheme sublimemonokai
-
-" quantum: good light theme
-"set background=light
-"colorscheme quantum
-
+""" Colorscheme Settings:
 " gruvbox:
 set termguicolors       " enable true colors support
 set background=dark

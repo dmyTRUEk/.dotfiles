@@ -564,6 +564,8 @@ nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<cr>
 "nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 lua << EOF
+    -- enable this to print debug info to ~/.cache/nvim/lsp.log
+    --vim.lsp.set_log_level('debug')
     -- setup nvim-cmp
     local cmp = require('cmp')
     cmp.setup({

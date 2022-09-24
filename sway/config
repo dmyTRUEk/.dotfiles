@@ -355,7 +355,7 @@
     bindsym $mod+Shift+space floating toggle
 
     # Toggle Sticky (make window appear on all workspaces)
-    $btrbindsym $mod+Shift+s sticky toggle
+    $btrbindsym $mod+s sticky toggle
 
     # Move to Center
     $btrbindsym $mod+c move position center

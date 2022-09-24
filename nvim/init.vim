@@ -597,6 +597,7 @@ lua << EOF
         },
         sources = {
             { name = 'nvim_lsp', group_index = 1 },
+            --{ name = "nvim_lsp_signature_help" },  -- TODO: try it (from https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples)
             { name = 'path' },
             { name = 'ultisnips', group_index = 2 }, -- for ultisnips users.
             --{ name = 'vsnip' },                    -- for vsnip users.

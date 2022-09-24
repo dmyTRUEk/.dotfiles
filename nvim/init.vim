@@ -535,6 +535,13 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 " TODO?
 
 
+" argument-text-object:
+"let g:argtextobj_disable_remaps = 1
+"let g:argtextobj_search_limit = 100
+
+
+
+
 
 """ UI Plugins Settings:
 " airline:

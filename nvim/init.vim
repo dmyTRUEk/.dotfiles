@@ -93,7 +93,9 @@ nnoremap <A-i> <C-i>
 " maps for go half page down/up
 nnoremap <A-d> <C-d>
 nnoremap <A-u> <C-u>
-" TODO: better binds (maybe <A-j>,<A-k>)
+" better binds
+nnoremap <A-j> <C-d>
+nnoremap <A-k> <C-u>
 
 " move in insert:
 inoremap <A-;> <nop>

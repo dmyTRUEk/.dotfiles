@@ -111,7 +111,7 @@ inoremap <A-д> <right>
 "inoremap kj <esc>
 
 
-" TODO: <f1> -> nvim help for current word
+" TODO: <f1> -> open nvim help for current word
 nnoremap <f2> :call AskAndReplaceAllNormal()<cr>
 xnoremap <f2> m` :call AskAndReplaceAllVisual()<cr> ``
 noremap <f3> ^
@@ -245,7 +245,7 @@ autocmd BufEnter,BufWinEnter,WinEnter,WinNew,VimResized * call SetRelativeScroll
 
 " fix vim/neovim and alacritty compatibility:
 " source: https://github.com/alacritty/alacritty/issues/919
-" TODO: turn on/off? if some strange bug will occur => remove next line:
+" TODO?: turn on/off? if some strange bug will occur => remove next line:
 "if &term == 'alacritty'
 "    set term=xterm-256color
 "    execute "set <xUp>=\e[1;*A"
@@ -334,6 +334,7 @@ Plug 'sirver/ultisnips'
 
 " git wrapper:
 "Plug 'tpope/vim-fugitive'
+" TODO?: enable and come up with some good binds
 
 " find and replace:
 Plug 'dmytruek/find-and-replace'
@@ -345,6 +346,7 @@ Plug 'dmytruek/argument-text-object'
 """ UI Plugins:
 " better status bar:
 Plug 'vim-airline/vim-airline'
+" TODO?: use lualine
 
 " file manager:
 Plug 'preservim/nerdtree'
@@ -391,7 +393,7 @@ call plug#end()
 
 
 """ Colorscheme Settings:
-" gruvbox:
+" gruvbox (best colorscheme):
 set termguicolors       " enable true colors support
 set background=dark
 colorscheme gruvbox
@@ -401,7 +403,7 @@ colorscheme gruvbox
 
 
 """ Core Plugins Settings:
-" auto-pairs:
+" auto-pairs (automatically pair brackets and quotes):
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMultilineClose = 0
 "autocmd BufReadPost * let g:AutoPairs['<'] = '>'
@@ -409,36 +411,37 @@ let g:AutoPairsMultilineClose = 0
 " TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait/type)
 
 
-" vim-commentary:
+" vim-commentary (comment or uncomment lines):
+" ukr binds:
 nmap псс <Plug>CommentaryLine
 map пс <Plug>Commentary
 
 
-" vim-surround:
-" TODO: change so that `ys(` dont add spaces inside
-" https://github.com/tpope/vim-surround/issues/314
+" vim-surround (yield(add,create), change, delete surround, like brackets, quotes):
 " better map in visual mode:
 vmap s S
 vmap і S
 let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
+" TODO: add option for `ys(` to not add spaces inside
+" https://github.com/tpope/vim-surround/issues/314
 
 
-" vim-exchange:
+" vim-exchange (swap two text selections):
 " better map in visual mode:
 vmap x X
 vmap ч X
 
 
-" quick-scope:
+" quick-scope (highlight when pressing `f`):
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" TODO: better highlight colors
+" TODO?: better highlight colors
 
 
 
 
 
 """ General Plugins Settings:
-" ultisnips:
+" ultisnips (snippets engine and manager):
 let g:UltiSnipsExpandTrigger='<nop>'
 let g:UltiSnipsJumpForwardTrigger='<nop>'
 let g:UltiSnipsJumpBackwardTrigger='<nop>'
@@ -449,19 +452,19 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 "inoremap <f10> <C-r>=UltiSnips#JumpBackwards() <cr>
 
 
-" vim-fugitive:
-" TODO?
+" vim-fugitive (git wrapper):
+" TODO?: if use it: come up with some good binds
 
 
-" argument-text-object:
+" argument-text-object (select(visually), delete, change, yield(copy) arguments):
 "let g:argtextobj_disable_remaps = 1
 "let g:argtextobj_search_limit = 100
 
 
-" find-and-replace:
+" find-and-replace (bind for easy find and replace):
 "let g:findandreplace_disable_remaps = 1
 
-" DO YOU KNOW3 THIS MAN?
+" DO YOU KNOW THIS MAN?
 " thisisspamtonyes
 " spamton spamton
 " spamton
@@ -473,7 +476,7 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 
 
 """ UI Plugins Settings:
-" airline:
+" airline (better status bar):
 let g:airline_powerline_fonts = 0
 let g:airline_section_y = ""
 let g:airline_section_z = "Line: %l/%L, Col: %c"
@@ -481,7 +484,7 @@ let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
 "let b:airline_whitespace_checks = ['indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts']
 
 
-" nerdtree:
+" nerdtree (in-nvim file manager):
 let NERDTreeSortOrder = ['[[extension]]']   " sort by type
 let NERDTreeNaturalSort = 1         " sort files in natural order (f1, f5, f10, f100)
 nnoremap <leader>n :NERDTreeToggle <cr>
@@ -491,7 +494,7 @@ nnoremap <leader>т :NERDTreeToggle <cr>
 let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files with this extension
 
 
-" scrollbar:
+" scrollbar (show scroll progess as bar on the right):
 augroup ScrollbarInit
   autocmd!
   autocmd WinScrolled,VimResized,QuitPre          * silent! lua require('scrollbar').show()
@@ -505,7 +508,7 @@ let g:scrollbar_winblend = 50
 let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 
-" telescope:
+" telescope (different pickers, sorters and previewers):
 nnoremap gd        :Telescope lsp_definitions <cr>
 nnoremap gr        :Telescope lsp_references <cr>
 nnoremap <leader>b :Telescope buffers <cr>
@@ -537,7 +540,7 @@ EOF
 
 
 """ Programming Languages Settings:
-" markdown-preview:
+" markdown-preview (github's markdown preview):
 let g:mkdp_browser = 'firefox'
 let g:mkdp_page_title = '${name}.md'
 let g:mkdp_filetypes = ['markdown']
@@ -545,7 +548,7 @@ let g:mkdp_preview_options = { 'sync_scroll_type': 'relative' }
 nnoremap <leader>m <cmd>MarkdownPreview<cr>
 
 
-" lsp:
+" lsp (language server protocol):
 set completeopt=menu,menuone
 
 nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<cr>
@@ -556,7 +559,8 @@ nnoremap <silent> [c        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> ]c        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<cr>
-" TODO?: add <leader>i -> inline variable
+" TODO?: <leader>i -> inline variable
+"        impossible bc LSP itself dont have such option? :'(
 "nnoremap <silent> gi       <cmd>lua vim.lsp.buf.implementation()<cr>
 "nnoremap <silent> 1gD      <cmd>lua vim.lsp.buf.type_definition()<cr>
 "nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help()<cr>
@@ -645,6 +649,12 @@ EOF
 
 """ Latex Setup:
 
+autocmd BufReadPost *.tex call s:SetupEverythingForLatex()
+
+func CompileLatexToPDFsimple()
+    ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
+endf
+
 " enable/disable vim to zathura sync
 func LatexAutoSyncDisable()
     let g:is_latex_auto_sync_enabled = 0
@@ -669,47 +679,6 @@ endf
 func LatexAutosEnable()
     call LatexAutoCompileEnable()
     call LatexAutoSyncEnable()
-endf
-
-func s:LatexSyncFromVimToZathura()
-    if g:compile_latex_to_pdf_exit_code_last == 0 && g:is_latex_auto_sync_enabled
-        " remove `silent` for debugging
-        execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
-    endif
-endf
-
-func PrivateCompileLatextoPDFasyncOnExit(j, c, e)
-    let g:compile_latex_to_pdf_exit_code_prev = g:compile_latex_to_pdf_exit_code_last
-    let g:compile_latex_to_pdf_exit_code_last = a:c
-    echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_exit_code_last
-
-    " synchronize latex (vim) and pdf (zathura) using new synctex file:
-    " this `if` needed for case when prev compile wasnt successful, and
-    " therefore simply calling `s:LatexSyncFromVimToZathura()` will
-    " open new window + reload old one.
-    if g:compile_latex_to_pdf_exit_code_prev == 0
-        call s:LatexSyncFromVimToZathura()
-    endif
-
-    " unlock another possible instances of this function:
-    let g:is_latex_compiling_now = 0
-endf
-
-func s:CompileLatexToPDFasync()
-    if g:is_latex_auto_compile_enabled && g:is_latex_compiling_now == 0
-        " lock another possible instances of this function:
-        let g:is_latex_compiling_now = 1
-
-        " save file before compiling:
-        execute "w"
-
-        " compile file:
-        call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "PrivateCompileLatextoPDFasyncOnExit"})
-    endif
-endf
-
-func CompileLatexToPDFsimple()
-    ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 endf
 
 func s:SetupEverythingForLatex()
@@ -758,10 +727,47 @@ func s:SetupEverythingForLatex()
     "autocmd CursorHoldI *.tex call s:CompileLatexToPDFasync()
     "autocmd InsertLeave *.tex call s:CompileLatexToPDFasync()
     "autocmd CursorMovedI *.tex call s:CompileLatexToPDFasync()
-
 endf
 
-autocmd BufReadPost *.tex call s:SetupEverythingForLatex()
+
+
+func s:LatexSyncFromVimToZathura()
+    if g:compile_latex_to_pdf_exit_code_last == 0 && g:is_latex_auto_sync_enabled
+        " remove `silent` for debugging
+        execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
+    endif
+endf
+
+" it's private, but not with `s:` prefix, bc `on_exit` can call only public functions
+func PrivateCompileLatextoPDFasyncOnExit(j, c, e)
+    let g:compile_latex_to_pdf_exit_code_prev = g:compile_latex_to_pdf_exit_code_last
+    let g:compile_latex_to_pdf_exit_code_last = a:c
+    echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_exit_code_last
+
+    " synchronize latex (vim) and pdf (zathura) using new synctex file:
+    " this `if` needed for case when prev compile wasnt successful, and
+    " therefore simply calling `s:LatexSyncFromVimToZathura()` will
+    " open new window + reload old one.
+    if g:compile_latex_to_pdf_exit_code_prev == 0
+        call s:LatexSyncFromVimToZathura()
+    endif
+
+    " unlock another possible instances of this function:
+    let g:is_latex_compiling_now = 0
+endf
+
+func s:CompileLatexToPDFasync()
+    if g:is_latex_auto_compile_enabled && g:is_latex_compiling_now == 0
+        " lock another possible instances of this function:
+        let g:is_latex_compiling_now = 1
+
+        " save file before compiling:
+        execute "w"
+
+        " compile file:
+        call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "PrivateCompileLatextoPDFasyncOnExit"})
+    endif
+endf
 
 
 

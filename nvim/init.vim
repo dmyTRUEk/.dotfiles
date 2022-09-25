@@ -40,7 +40,7 @@ set timeoutlen=1000
 set ttimeoutlen=0
 
 " if VIM: remove this
-" for clipboard in wayland+nvim to work:
+" for clipboard in wayland+nvim to work
 set clipboard+=unnamedplus
 
 " for giant files
@@ -49,7 +49,7 @@ set redrawtime=10000
 " change panes size by mouse
 set mouse=a
 
-" use ukr in normal mode:
+" use ukr in normal mode
 set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
 
 
@@ -66,19 +66,19 @@ map Й <nop>
 " better copy till end of line
 nnoremap Y y$
 
+" better bind for redo
+nnoremap U <C-r>
+
 " swap 0 and ^
 noremap 0 ^
 noremap ^ 0
-
-" better move to end of line
-noremap - $
 
 " swap ` and '
 noremap ` '
 noremap ' `
 
-" better bind for redo
-nnoremap U <C-r>
+" better move to end of line
+noremap - $
 
 " find from end of line
 nnoremap gf $F
@@ -86,13 +86,14 @@ nnoremap gf $F
 " better bind for visual-block
 nnoremap <A-v> <C-v>
 
-" maps for go back and forward
+" maps for go back and forward in jumplist (jump history)
 nnoremap <A-o> <C-o>
 nnoremap <A-i> <C-i>
 
 " maps for go half page down/up
 nnoremap <A-d> <C-d>
 nnoremap <A-u> <C-u>
+" TODO: better binds (maybe <A-j>,<A-k>)
 
 " move in insert:
 inoremap <A-;> <nop>
@@ -109,7 +110,7 @@ inoremap <A-л> <up>
 inoremap <A-д> <right>
 
 
-" exit from insert mode:
+" exit from insert mode
 "inoremap jk <esc>
 "inoremap kj <esc>
 
@@ -179,8 +180,9 @@ nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit()<cr>
 
 
 
-" my Change Current word with another (aka `viwy`):
-" `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it:
+" my Change Current word with another (aka `viwy`)
+
+" `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it
 nnoremap cc <nop>
 
 " map `cc<move>` to Change Current word with MOVE word
@@ -213,29 +215,29 @@ nnoremap cc3B yiW3BviWp3WviWp
 
 
 " spelling config:
-" bind to toggle spelling for this file:
+" bind to toggle spelling for this file
 nnoremap <leader>S :setlocal spell! <cr>
-" enable spelling for this file types:
+" enable spelling for this file types
 autocmd FileType gitcommit,markdown setlocal spell
 
 
 
 """ Compiles:
-" latex:
+" latex
 autocmd BufReadPost *.tex nnoremap <leader>c :wa <bar> call CompileLatexToPDFsimple() <cr>
 
-" python:
+" python
 autocmd BufReadPost *.py nnoremap <leader>c :wa <bar> :! python3 % <cr>
 
-" rust:
+" rust
 autocmd BufReadPost *.rs nnoremap <leader>c :wa <bar> :! cargo test && cargo run <cr>
 
-" c++:
+" c++
 autocmd BufReadPost *.cpp nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && ./%:t:r.bin <cr>
 
-" neovim config file:
+" neovim config file
 autocmd BufReadPost init.vim nnoremap <leader>c :wa <bar> :source % <cr>
-" vim config file:
+" vim config file
 "autocmd BufReadPost  .vimrc nnoremap <leader>c :wa <bar> :source % <cr>
 
 
@@ -298,7 +300,7 @@ endf
 
 
 
-" if vim-plug not installed then install:
+" if vim-plug not installed then install it
 " if VIM: change it to '~/.vim/autoload/plug.vim' in next and nextnext lines
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -317,52 +319,52 @@ Plug 'morhetz/gruvbox'
 
 
 """ Core Plugins:
-" close brackets automatically:
+" close brackets automatically
 Plug 'jiangmiao/auto-pairs'
 
-" enable repeat for plugins:
+" enable repeat for plugins
 Plug 'tpope/vim-repeat'
 
-" surround manager:
+" surround manager
 Plug 'tpope/vim-surround'
 
-" exchange selections:
+" exchange selections
 Plug 'tommcdo/vim-exchange'
 
-" better find in line:
+" better find in line
 Plug 'unblevable/quick-scope'
 
 
 """ General Plugins:
-" comments manager:
+" comments manager
 Plug 'tpope/vim-commentary'
 
-" snippets:
+" snippets
 Plug 'sirver/ultisnips'
 
-" git wrapper:
+" git wrapper
 "Plug 'tpope/vim-fugitive'
 " TODO?: enable and come up with some good binds
 
-" find and replace:
+" find and replace
 Plug 'dmytruek/find-and-replace'
 
-" arguments manager:
+" arguments manager
 Plug 'dmytruek/argument-text-object'
 
 
 """ UI Plugins:
-" better status bar:
+" better status bar
 Plug 'vim-airline/vim-airline'
 " TODO?: use lualine
 
-" file manager:
+" file manager
 Plug 'preservim/nerdtree'
 
-" scrollbar:
+" scrollbar
 Plug 'Xuyuanp/scrollbar.nvim'
 
-" find files and text in them:
+" find files and text in them
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -371,7 +373,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 
 """ Programming Languages:
-" lsp related:
+" lsp related
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -381,13 +383,13 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 "Plug 'folke/lsp-colors.nvim'
 
-" for latex:
+" for latex
 "Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
-" markdown preview in browser:
+" markdown preview in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-" kotlin syntax highlight:
+" kotlin syntax highlight
 Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " rust-analyzer additional features (inlay hints, etc)
@@ -401,7 +403,6 @@ call plug#end()
 
 
 """ Colorscheme Settings:
-" gruvbox (best colorscheme):
 set termguicolors       " enable true colors support
 set background=dark
 colorscheme gruvbox
@@ -578,7 +579,6 @@ nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<cr>
 lua << EOF
     -- enable this to print debug info to ~/.cache/nvim/lsp.log
     --vim.lsp.set_log_level('debug')
-    -- setup nvim-cmp
     local cmp = require('cmp')
     cmp.setup({
         mapping = {
@@ -601,7 +601,7 @@ lua << EOF
             ['<C-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
             --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
             --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-            --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove default `<C-y>` mapping.
+            --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove default `<C-y>` mapping
             --['<C-e>'] = cmp.mapping({
             --  i = cmp.mapping.abort(),
             --  c = cmp.mapping.close(),
@@ -611,29 +611,29 @@ lua << EOF
             { name = 'nvim_lsp', group_index = 1 },
             --{ name = "nvim_lsp_signature_help" },  -- TODO: try it (from https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples)
             { name = 'path' },
-            { name = 'ultisnips', group_index = 2 }, -- for ultisnips users.
-            --{ name = 'vsnip' },                    -- for vsnip users.
-            --{ name = 'snippy' },                   -- for snippy users.
-            --{ name = 'luasnip' },                  -- for luasnip users.
+            { name = 'ultisnips', group_index = 2 }, -- for ultisnips users
+            --{ name = 'vsnip' },                    -- for vsnip users
+            --{ name = 'snippy' },                   -- for snippy users
+            --{ name = 'luasnip' },                  -- for luasnip users
             { name = 'buffer', group_index = 3, option = { keyword_pattern = [[\Z\k\+]] } },
         },
         snippet = {
             -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine
             expand = function(args)
-                vim.fn["UltiSnips#Anon"](args.body)           -- for `ultisnips` users.
-                --vim.fn["vsnip#anonymous"](args.body)        -- for `vsnip` users.
-                --require'snippy'.expand_snippet(args.body)   -- for `snippy` users.
-                --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users.
+                vim.fn["UltiSnips#Anon"](args.body)           -- for `ultisnips` users
+                --vim.fn["vsnip#anonymous"](args.body)        -- for `vsnip` users
+                --require'snippy'.expand_snippet(args.body)   -- for `snippy` users
+                --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users
             end,
         },
     })
-    -- use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    -- use buffer source for `/` (if you enabled `native_menu`, this won't work anymore)
     --cmp.setup.cmdline('/', {
     --    sources = {
     --        { name = 'buffer' }
     --    }
     --})
-    -- use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    -- use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore)
     --cmp.setup.cmdline(':', {
     --    sources = cmp.config.sources({
     --        { name = 'path' }
@@ -641,7 +641,6 @@ lua << EOF
     --        { name = 'cmdline' }
     --    })
     --})
-    -- setup:
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     local servers = { 'rust_analyzer', 'pyright' }
     for _, lsp in pairs(servers) do
@@ -752,27 +751,27 @@ func PrivateCompileLatextoPDFasyncOnExit(j, c, e)
     let g:compile_latex_to_pdf_exit_code_last = a:c
     echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_exit_code_last
 
-    " synchronize latex (vim) and pdf (zathura) using new synctex file:
     " this `if` needed for case when prev compile wasnt successful, and
     " therefore simply calling `s:LatexSyncFromVimToZathura()` will
-    " open new window + reload old one.
+    " open new window + reload old one
     if g:compile_latex_to_pdf_exit_code_prev == 0
+        " synchronize latex (vim) and pdf (zathura) using new synctex file
         call s:LatexSyncFromVimToZathura()
     endif
 
-    " unlock another possible instances of this function:
+    " unlock another possible instances of this function
     let g:is_latex_compiling_now = 0
 endf
 
 func s:CompileLatexToPDFasync()
     if g:is_latex_auto_compile_enabled && g:is_latex_compiling_now == 0
-        " lock another possible instances of this function:
+        " lock another possible instances of this function
         let g:is_latex_compiling_now = 1
 
-        " save file before compiling:
+        " save file before compiling
         execute "w"
 
-        " compile file:
+        " compile file
         call jobstart("pdflatex -halt-on-error -synctex=1 " . bufname("%"), {"on_exit": "PrivateCompileLatextoPDFasyncOnExit"})
     endif
 endf

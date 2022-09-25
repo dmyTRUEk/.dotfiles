@@ -80,6 +80,9 @@ noremap ' `
 " better bind for redo
 nnoremap U <C-r>
 
+" find from end of line
+nnoremap gf $F
+
 " better bind for visual-block
 nnoremap <A-v> <C-v>
 

@@ -92,7 +92,8 @@ Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 
 # TODO:
-- meta: remove images from `.git/`, so they don't take up space
+- make binds in ranger for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
+- ! meta: remove images from `.git/`, so they don't take up space
 - fix lock screen bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed
 - internet sometimes don't work
 - even though `sway-relative-keyboard-rs` is systemd service, it sometimes stops, why?

@@ -209,8 +209,13 @@ nnoremap cc3B yiW3BviWp3WviWp
 
 
 
-autocmd FileType gitcommit setlocal spell
-autocmd FileType markdown setlocal spell
+" spelling config:
+" bind to toggle spelling for this file:
+nnoremap <leader>S :setlocal spell! <cr>
+" enable spelling for this file types:
+autocmd FileType gitcommit,markdown setlocal spell
+
+
 
 """ Compiles:
 " latex:

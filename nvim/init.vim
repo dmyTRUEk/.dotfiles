@@ -118,12 +118,12 @@ inoremap <A-д> <right>
 
 
 " TODO: <f1> -> open nvim help for current word
-nnoremap <f2> :call AskAndReplaceAllNormal()<cr>
-xnoremap <f2> m` :call AskAndReplaceAllVisual()<cr> ``
+" <f2> mapped in 'dmytruek/find-and-replace' plugin
 noremap <f3> ^
 noremap <f4> $
 inoremap <f3> <home>
 inoremap <f4> <end>
+
 
 " erase last symbol in line
 nnoremap <leader>e m`$x``

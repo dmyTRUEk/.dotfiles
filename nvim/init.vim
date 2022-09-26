@@ -83,36 +83,27 @@ noremap - $
 " find from end of line
 nnoremap gf $F
 
-" better bind for visual-block
-nnoremap <A-v> <C-v>
+" better binds for go half page down/up:
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
+nnoremap <C-о> <C-d>
+nnoremap <C-л> <C-u>
 
-" maps for go back and forward in jumplist (jump history)
-nnoremap <A-o> <C-o>
-nnoremap <A-i> <C-i>
+" move in insert mode:
+inoremap <C-;> <nop>
+inoremap <C-h> <left>
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-l> <right>
 
-" maps for go half page down/up
-nnoremap <A-d> <C-d>
-nnoremap <A-u> <C-u>
-" better binds
-nnoremap <A-j> <C-d>
-nnoremap <A-k> <C-u>
+" ukr binds may not work in some terminal emulators :(
+inoremap <C-ж> <nop>
+inoremap <C-р> <left>
+inoremap <C-о> <down>
+inoremap <C-л> <up>
+inoremap <C-д> <right>
 
-" move in insert:
-inoremap <A-;> <nop>
-inoremap <A-h> <left>
-inoremap <A-j> <down>
-inoremap <A-k> <up>
-inoremap <A-l> <right>
-
-" alt+ukr binds dont work in some terminal emulators
-inoremap <A-ж> <nop>
-inoremap <A-р> <left>
-inoremap <A-о> <down>
-inoremap <A-л> <up>
-inoremap <A-д> <right>
-
-
-" exit from insert mode
+" exit from insert mode:
 "inoremap jk <esc>
 "inoremap kj <esc>
 
@@ -698,10 +689,10 @@ func! s:SetupEverythingForLatex()
     nnoremap k gk
     nnoremap о gj
     nnoremap л gk
-    inoremap <A-j> <C-o>gj
-    inoremap <A-k> <C-o>gk
-    inoremap <A-о> <C-o>gj
-    inoremap <A-л> <C-o>gk
+    inoremap <C-j> <C-o>gj
+    inoremap <C-k> <C-o>gk
+    inoremap <C-о> <C-o>gj
+    inoremap <C-л> <C-o>gk
 
     nnoremap 0 g^
     nnoremap - g$

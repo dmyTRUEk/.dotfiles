@@ -93,7 +93,10 @@ Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 # TODO:
 - `! meta`: remove images from `.git/`, so they don't take up space
-- `ranger`: make binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
+- `ranger`:
+  - full rebind
+  - binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
+- `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA`
 - `alacritty`: fix alt+ukr (for neovim binds for move cursor in insert mode with ukr layout)
 - `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 - `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed

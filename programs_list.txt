@@ -1,0 +1,106 @@
+? alphaplot
+? bluez-utils
+? glu
+? glxinfo
+? gnome-bluetooth
+? hollywood
+? linux-headers
+? man-db
+? mangohud
+? mesa
+? mesa-utils
+? playerctl
+? polkit-qt5
+? rust-analyzer
+? wlrobs
+[optioanl] clinfo
+[optional] arrayfire
+[optional] opencl
+[optional] opencl-amd
+[via cargo] lolcat
+[via github] sway-relative-keyboard-rs
+alacritty
+android-studio
+blueberry
+bluez
+btop
+discord
+dropbox
+dua-cli
+expac
+fd
+find
+firefox
+flatpak
+gcc
+grim
+helvum
+imv
+jq
+kdeconnect
+kdenlive
+kitty
+krita
+libreoffice
+light
+lsd
+mako
+neofetch
+nvim
+obs-studio
+ocenaudio
+p7zip
+pacman-contrib
+paru
+pipewire
+pipewire-pulse
+polkit
+polkit-gnome
+pyright
+python3
+qt5-graphicaleffects
+qt5-quickcontrols2
+qt5-svg
+qt5-wayland
+qt5ct
+qt6-wayland
+ranger
+ripgrep
+rustup
+scidavis
+skim
+skypeforlinux
+slurp
+steam
+strip
+sway
+swaybg
+swaylock
+telegram-desktop
+texlive
+texlive-bibtexextra
+texlive-bin
+texlive-core
+texlive-fontsextra
+texlive-formatsextra
+texlive-langcyrillic
+texlive-latexextra
+texlive-pictures
+texlive-science
+tree
+ttf-ms-fonts
+unzip
+upx
+v4l2loopback
+vlc
+waybar
+wev
+wl-clipboard
+xdg-desktop-portal-wlr
+xwayland
+yofi
+zathura
+zip
+zoom
+zsh
+zsh-syntax-highlight

@@ -246,7 +246,7 @@ autocmd BufReadPost init.vim nnoremap <leader>c :wa <bar> :source % <cr>
 " scrolloff: distance from window(viewport) top/bottom
 let g:relative_scrolloff_fraction = 0.30
 
-func SetRelativeScrollOff(fraction)
+func! SetRelativeScrollOff(fraction)
     let l:visible_lines_in_active_window = winheight(win_getid())
     let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
 endf
@@ -275,7 +275,7 @@ autocmd BufEnter,BufWinEnter,WinEnter,WinNew,VimResized * call SetRelativeScroll
 " VIM or NEOVIM specific configs
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
-func s:SetTextVimOrNvim()
+func! s:SetTextVimOrNvim()
     if has('nvim')
         " echom 'NEOVIM'
         let g:airline_section_x = 'neovim'
@@ -287,7 +287,7 @@ endf
 call s:SetTextVimOrNvim()
 
 
-func ToggleHorizontalVerticalSplit()
+func! ToggleHorizontalVerticalSplit()
     if !exists('t:splitType')
         let t:splitType = 'vertical'
     endif
@@ -660,37 +660,37 @@ EOF
 
 autocmd BufReadPost *.tex call s:SetupEverythingForLatex()
 
-func CompileLatexToPDFsimple()
+func! CompileLatexToPDFsimple()
     ! echo '\n\n\n\n\n' && pdflatex -halt-on-error -synctex=1 %:t
 endf
 
 " enable/disable vim to zathura sync
-func LatexAutoSyncDisable()
+func! LatexAutoSyncDisable()
     let g:is_latex_auto_sync_enabled = 0
 endf
-func LatexAutoSyncEnable()
+func! LatexAutoSyncEnable()
     let g:is_latex_auto_sync_enabled = 1
 endf
 
 " enable/disable autocompile
-func LatexAutoCompileDisable()
+func! LatexAutoCompileDisable()
     let g:is_latex_auto_compile_enabled = 0
 endf
-func LatexAutoCompileEnable()
+func! LatexAutoCompileEnable()
     let g:is_latex_auto_compile_enabled = 1
 endf
 
 " enable/disable autocompile and sync
-func LatexAutosDisable()
+func! LatexAutosDisable()
     call LatexAutoCompileDisable()
     call LatexAutoSyncDisable()
 endf
-func LatexAutosEnable()
+func! LatexAutosEnable()
     call LatexAutoCompileEnable()
     call LatexAutoSyncEnable()
 endf
 
-func s:SetupEverythingForLatex()
+func! s:SetupEverythingForLatex()
     setlocal spell spelllang=uk,en
     syntax spell toplevel
 
@@ -740,7 +740,7 @@ endf
 
 
 
-func s:LatexSyncFromVimToZathura()
+func! s:LatexSyncFromVimToZathura()
     if g:compile_latex_to_pdf_exit_code_last == 0 && g:is_latex_auto_sync_enabled
         " remove `silent` for debugging
         execute "silent !zathura --synctex-forward " . line('.').":".col('.').":".bufname('%') . " " . expand('%:t:r').".pdf"
@@ -748,7 +748,7 @@ func s:LatexSyncFromVimToZathura()
 endf
 
 " it's private, but not with `s:` prefix, bc `on_exit` can call only public functions
-func PrivateCompileLatextoPDFasyncOnExit(j, c, e)
+func! PrivateCompileLatextoPDFasyncOnExit(j, c, e)
     let g:compile_latex_to_pdf_exit_code_prev = g:compile_latex_to_pdf_exit_code_last
     let g:compile_latex_to_pdf_exit_code_last = a:c
     echom 'pdflatex finished. exit code: ' . g:compile_latex_to_pdf_exit_code_last
@@ -765,7 +765,7 @@ func PrivateCompileLatextoPDFasyncOnExit(j, c, e)
     let g:is_latex_compiling_now = 0
 endf
 
-func s:CompileLatexToPDFasync()
+func! s:CompileLatexToPDFasync()
     if g:is_latex_auto_compile_enabled && g:is_latex_compiling_now == 0
         " lock another possible instances of this function
         let g:is_latex_compiling_now = 1

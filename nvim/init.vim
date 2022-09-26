@@ -177,8 +177,8 @@ nnoremap <leader><leader>о :wincmd J <cr>
 nnoremap <leader><leader>л :wincmd K <cr>
 nnoremap <leader><leader>д :wincmd L <cr>
 
-nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit()<cr>
-nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit()<cr>
+nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit() <cr>
+nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit() <cr>
 
 
 
@@ -556,27 +556,27 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_page_title = '${name}.md'
 let g:mkdp_filetypes = ['markdown']
 let g:mkdp_preview_options = { 'sync_scroll_type': 'relative' }
-nnoremap <leader>m <cmd>MarkdownPreview<cr>
+nnoremap <leader>m <cmd>MarkdownPreview <cr>
 
 
 " lsp (language server protocol):
 set completeopt=menu,menuone
 
-nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename()<cr>
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>
-nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
-nnoremap <silent> [c        <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <silent> ]c        <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
-nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action()<cr>
-nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename() <cr>
+nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics() <cr>
+nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev() <cr>
+nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next() <cr>
+nnoremap <silent> [c        <cmd>lua vim.lsp.diagnostic.goto_prev() <cr>
+nnoremap <silent> ]c        <cmd>lua vim.lsp.diagnostic.goto_next() <cr>
+nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action() <cr>
+nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
 " TODO?: <leader>i -> inline variable
 "        impossible bc LSP itself dont have such option? :'(
-"nnoremap <silent> gi       <cmd>lua vim.lsp.buf.implementation()<cr>
-"nnoremap <silent> 1gD      <cmd>lua vim.lsp.buf.type_definition()<cr>
-"nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help()<cr>
-"nnoremap <silent> g0       <cmd>lua vim.lsp.buf.document_symbol()<cr>
-"nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
+"nnoremap <silent> gi       <cmd>lua vim.lsp.buf.implementation() <cr>
+"nnoremap <silent> 1gD      <cmd>lua vim.lsp.buf.type_definition() <cr>
+"nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help() <cr>
+"nnoremap <silent> g0       <cmd>lua vim.lsp.buf.document_symbol() <cr>
+"nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol() <cr>
 
 lua << EOF
     -- enable this to print debug info to ~/.cache/nvim/lsp.log

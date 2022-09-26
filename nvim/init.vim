@@ -428,7 +428,7 @@ nmap псс <Plug>CommentaryLine
 map пс <Plug>Commentary
 
 
-" vim-surround (yield(add,create), change, delete surround, like brackets, quotes):
+" vim-surround (yank(add,create), change, delete surround, like brackets, quotes):
 " better map in visual mode:
 vmap s S
 vmap і S
@@ -467,7 +467,7 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 " TODO?: if use it: come up with some good binds
 
 
-" argument-text-object (select(visually), delete, change, yield(copy) arguments):
+" argument-text-object (select(visually), delete, change, yank(copy) arguments):
 "let g:argtextobj_disable_remaps = 1
 "let g:argtextobj_search_limit = 100
 

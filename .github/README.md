@@ -93,6 +93,7 @@ Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 # TODO:
 - `! meta`: remove images from `.git/`, so they don't take up space
+- `meta`: make full list of needed programs for everything to work
 - `ranger`:
   - full rebind
   - binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)

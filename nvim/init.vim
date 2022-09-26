@@ -119,7 +119,7 @@ inoremap <f4> <end>
 " erase last symbol in line
 nnoremap <leader>e m`$x``
 
-" append symbols to end of line
+" append symbols to end of line:
 nnoremap <leader>; m`A;<esc>``
 nnoremap <leader>: m`A:<esc>``
 nnoremap <leader>, m`A,<esc>``
@@ -129,43 +129,43 @@ nnoremap <leader>. m`A.<esc>``
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 
-" WINDOW operations
+" WINDOW operations:
 " save:
 nnoremap <leader>w :w <cr>
-nnoremap <leader>W :wa <cr>
 nnoremap <leader>ц :w <cr>
+nnoremap <leader>W :wa <cr>
 nnoremap <leader>Ц :wa <cr>
 
 " quit:
 nnoremap <leader>q :q <cr>
-nnoremap <leader>Q :qa <cr>
 nnoremap <leader>й :q <cr>
+nnoremap <leader>Q :qa <cr>
 nnoremap <leader>Й :qa <cr>
 
 " save and quit:
 nnoremap <leader>a :wq <cr>
-nnoremap <leader>A :wqa <cr>
 nnoremap <leader>ф :wq <cr>
+nnoremap <leader>A :wqa <cr>
 nnoremap <leader>Ф :wqa <cr>
 
 " move between windows inside vim:
 nnoremap <leader>h :wincmd h <cr>
-nnoremap <leader>j :wincmd j <cr>
-nnoremap <leader>k :wincmd k <cr>
-nnoremap <leader>l :wincmd l <cr>
 nnoremap <leader>р :wincmd h <cr>
+nnoremap <leader>j :wincmd j <cr>
 nnoremap <leader>о :wincmd j <cr>
+nnoremap <leader>k :wincmd k <cr>
 nnoremap <leader>л :wincmd k <cr>
+nnoremap <leader>l :wincmd l <cr>
 nnoremap <leader>д :wincmd l <cr>
 
 " move windows themselves inside vim:
 nnoremap <leader><leader>h :wincmd H <cr>
-nnoremap <leader><leader>j :wincmd J <cr>
-nnoremap <leader><leader>k :wincmd K <cr>
-nnoremap <leader><leader>l :wincmd L <cr>
 nnoremap <leader><leader>р :wincmd H <cr>
+nnoremap <leader><leader>j :wincmd J <cr>
 nnoremap <leader><leader>о :wincmd J <cr>
+nnoremap <leader><leader>k :wincmd K <cr>
 nnoremap <leader><leader>л :wincmd K <cr>
+nnoremap <leader><leader>l :wincmd L <cr>
 nnoremap <leader><leader>д :wincmd L <cr>
 
 nnoremap <silent> <leader>v :call ToggleHorizontalVerticalSplit() <cr>
@@ -173,7 +173,7 @@ nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit() <cr>
 
 
 
-" my Change Current word with another (aka `viwy`)
+" my Change Current word with another (aka `viwy`):
 
 " `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it
 nnoremap cc <nop>
@@ -185,19 +185,19 @@ nnoremap cc <nop>
 " TODO: figure out better way to do this, so it works at least for `f<symbol>` or even any move
 
 " here `|` means cursor position
-" aa|a bbb -> bbb| aaa
+" a|aa bbb -> bbb| aaa
 nnoremap ccw yiwwviwp2bviwp
-" aaa bb|b -> bbb aaa|
-nnoremap ccb yiwbviwpwviwp
-
-" aaa.aa|a bbb.bbb -> bbb.bbb| aaa.aaa
+" aaa.a|aa bbb.bbb -> bbb.bbb| aaa.aaa
 nnoremap ccW yiWWviWp2BviWp
-" aaa.aaa bbb.bbb| -> bbb.bbb aaa.aaa|
+
+" aaa b|bb -> bbb aaa|
+nnoremap ccb yiwbviwpwviwp
+" aaa.aaa bbb.b|bb -> bbb.bbb aaa.aaa|
 nnoremap ccB yiWBviWpWviWp
 
 nnoremap cc2w yiw2wviwp3bviwp
-nnoremap cc2b yiw2bviwp2wviwp
 nnoremap cc2W yiW2WviWp3BviWp
+nnoremap cc2b yiw2bviwp2wviwp
 nnoremap cc2B yiW2BviWp2WviWp
 
 nnoremap cc3w yiw3wviwp4bviwp
@@ -690,8 +690,8 @@ func! s:SetupEverythingForLatex()
     nnoremap о gj
     nnoremap л gk
     inoremap <C-j> <C-o>gj
-    inoremap <C-k> <C-o>gk
     inoremap <C-о> <C-o>gj
+    inoremap <C-k> <C-o>gk
     inoremap <C-л> <C-o>gk
 
     nnoremap 0 g^

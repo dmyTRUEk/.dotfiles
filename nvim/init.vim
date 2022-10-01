@@ -65,9 +65,11 @@ map Й <nop>
 
 " better copy till end of line
 nnoremap Y y$
+nnoremap Н y$
 
 " better bind for redo
 nnoremap U <C-r>
+nnoremap Г <C-r>
 
 " swap 0 and ^
 noremap 0 ^
@@ -82,6 +84,14 @@ noremap - $
 
 " find from end of line
 nnoremap gf $F
+nnoremap па $F
+
+" move selected text up/down
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap О :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+vnoremap Л :m '<-2<cr>gv=gv
+
 
 " better binds for go half page down/up:
 nnoremap <C-j> <C-d>
@@ -117,16 +127,17 @@ inoremap <f4> <end>
 
 " erase last symbol in line
 nnoremap <leader>e m`$x``
+nnoremap <leader>у m`$x``
 
 " append symbols to end of line:
 nnoremap <leader>; m`A;<esc>``
+nnoremap <leader>ж m`A;<esc>``
 nnoremap <leader>: m`A:<esc>``
+nnoremap <leader>Ж m`A:<esc>``
 nnoremap <leader>, m`A,<esc>``
+nnoremap <leader>б m`A,<esc>``
 nnoremap <leader>. m`A.<esc>``
-
-" move selected text up/down
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
+nnoremap <leader>ю m`A.<esc>``
 
 " WINDOW operations:
 " save:
@@ -176,6 +187,7 @@ nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit() <cr>
 
 " `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it
 nnoremap cc <nop>
+nnoremap сс <nop>
 
 " map `cc<move>` to Change Current word with MOVE word
 " this solution is better than `df<space>f<space>p` because it might not work if
@@ -229,6 +241,7 @@ autocmd BufReadPost *.cpp nnoremap <leader>c :wa <bar> :! g++ % -o %:t:r.bin && 
 
 " neovim config file
 autocmd BufReadPost init.vim nnoremap <leader>c :wa <bar> :source % <cr>
+autocmd BufReadPost init.vim nnoremap <leader>с :wa <bar> :source % <cr>
 " vim config file
 "autocmd BufReadPost  .vimrc nnoremap <leader>c :wa <bar> :source % <cr>
 

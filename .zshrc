@@ -150,13 +150,17 @@ alias grep='grep -i --color'
 alias whereami='pwd'
 alias findtextinfiles='grep -rn'
 
+alias v='vim'
+
 ## NEOVIM related:
 alias neovim='nvim'
 alias n='nvim'
-#alias v='nvim'
 alias n.='nvim .'
 alias nc='nvim ~/.config/nvim/init.vim'
+alias na='nvim ~/.config/alacritty/alacritty.yml'
 alias nk='nvim ~/.config/kitty/kitty.conf'
+# TODO: some way to check if it is Rust or Python
+alias nm='nvim src/main.rs'
 alias nr='nvim ~/.config/ranger/rc.conf'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'

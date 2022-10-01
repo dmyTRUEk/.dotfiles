@@ -533,6 +533,8 @@ nnoremap <leader>g :Telescope live_grep <cr>
 nnoremap <leader>п :Telescope live_grep <cr>
 nnoremap <leader>s :Telescope spell_suggest <cr>
 nnoremap <leader>і :Telescope spell_suggest <cr>
+nnoremap <leader>p :Telescope colorscheme <cr>
+nnoremap <leader>з :Telescope colorscheme <cr>
 nnoremap <leader>u :Telescope jumplist <cr>
 nnoremap <leader>г :Telescope jumplist <cr>
 "nnoremap <leader>x :Telescope quickfix <cr>

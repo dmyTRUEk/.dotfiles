@@ -129,6 +129,10 @@ inoremap <f3> <home>
 inoremap <f4> <end>
 
 
+" clear highlight after search
+nnoremap <leader>o :nohlsearch<cr>
+nnoremap <leader>щ :nohlsearch<cr>
+
 " erase last symbol in line
 nnoremap <leader>e m`$x``
 nnoremap <leader>у m`$x``

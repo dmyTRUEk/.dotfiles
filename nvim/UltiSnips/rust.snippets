@@ -21,6 +21,18 @@ endsnippet
 
 
 
+priority 3
+snippet bfn "#[bench] fn bench_(b: &mut Bencher)" b
+#[bench]
+fn bench_$1(b: &mut Bencher) {
+    b.iter(|| {
+        $2
+    });
+}$0
+endsnippet
+
+
+
 priority 1
 snippet e "trait Extension…" b
 pub trait Extension$1 {

@@ -86,6 +86,12 @@ noremap - $
 nnoremap gf $F
 nnoremap па $F
 
+" work with function names:
+xnoremap  n  t(
+nnoremap cn ct(
+nnoremap dn dt(
+nnoremap yn yt(
+
 " move selected text up/down
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap О :m '>+1<cr>gv=gv

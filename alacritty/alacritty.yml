@@ -763,12 +763,8 @@ key_bindings:
   - { key: V,              mods: Control|Shift,         action: Paste   }
   - { key: C,              mods: Control|Shift,         action: Copy    }
 
-  - { key: H,              mods: Control,               chars: "\x1b[D" } # Left
-  - { key: J,              mods: Control,               chars: "\x1b[B" } # Down
-  - { key: K,              mods: Control,               chars: "\x1b[A" } # Up
-  - { key: L,              mods: Control,               chars: "\x1b[C" } # Right
 
-  # TODO: make this for alacritty but not for neovim
+  # TODO: make this for alacritty but not for neovim -> solution: this is zsh problem, not alacritty
   #- { key: D,              mods: Control,               action: ReceiveChar      }
   #- { key: D,              mods: Control,               chars: "\x1b[5~"         }
 

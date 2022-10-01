@@ -123,6 +123,26 @@ export JAVA_HOME="/etc/java-11-openjdk"
 
 
 
+# this can be used to enter BINDS FREE shell:
+#bindkey -N mykeymap .safe
+#bindkey -A mykeymap main
+
+# unbind keybinds:
+# to input '^L' as single character, press Ctrl+V -> Ctrl+L
+bindkey -r '^H'
+bindkey -r '^J'
+bindkey -r '^K'
+bindkey -r '^L'
+#bindkey -r '^D' # HOW TO UNBIND IT?
+
+# bind keybinds:
+bindkey -M main '^H' backward-char
+bindkey -M main '^J' history-substring-search-down
+bindkey -M main '^K' history-substring-search-up
+bindkey -M main '^L' forward-char
+
+
+
 ### My Custom Aliases for Terminal:
 
 ## Useful programs:

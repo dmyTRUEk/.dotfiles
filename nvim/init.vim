@@ -85,22 +85,21 @@ nnoremap gf $F
 
 " better binds for go half page down/up:
 nnoremap <C-j> <C-d>
-nnoremap <C-k> <C-u>
 nnoremap <C-о> <C-d>
+nnoremap <C-k> <C-u>
 nnoremap <C-л> <C-u>
 
 " move in insert mode:
+" TODO: <C-;>
 inoremap <C-;> <nop>
-inoremap <C-h> <left>
-inoremap <C-j> <down>
-inoremap <C-k> <up>
-inoremap <C-l> <right>
-
-" ukr binds may not work in some terminal emulators :(
 inoremap <C-ж> <nop>
+inoremap <C-h> <left>
 inoremap <C-р> <left>
+inoremap <C-j> <down>
 inoremap <C-о> <down>
+inoremap <C-k> <up>
 inoremap <C-л> <up>
+inoremap <C-l> <right>
 inoremap <C-д> <right>
 
 " exit from insert mode:

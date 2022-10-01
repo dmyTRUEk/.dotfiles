@@ -28,10 +28,9 @@ set shiftwidth=4            " on pressing tab, insert 4 spaces
 set expandtab               " use spaces instead of tabs
 set autoindent              " set tabs automatically, when starting new line
 
-" dont wrap lines
-"set nowrap
+"set nowrap                  " dont wrap lines
 
-" set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
+"set scrolloff=16            " minimal number of lines to keep between cursor and top/bottom of viewport (screen)
 
 " remove esc delay
 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
@@ -51,11 +50,6 @@ set mouse=a
 
 " use ukr in normal mode
 set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
-
-
-
-" set leader key
-let mapleader = " "
 
 
 
@@ -98,6 +92,10 @@ vnoremap О :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 vnoremap Л :m '<-2<cr>gv=gv
 
+" exit from insert mode:
+"inoremap jk <esc>
+"inoremap kj <esc>
+
 
 " better binds for go half page down/up:
 nnoremap <C-j> <C-d>
@@ -118,22 +116,21 @@ inoremap <C-л> <up>
 inoremap <C-l> <right>
 inoremap <C-д> <right>
 
-" exit from insert mode:
-"inoremap jk <esc>
-"inoremap kj <esc>
-
 " paste at end of line
 nnoremap <C-p> $p
 nnoremap <C-з> $p
 
 
 " TODO: <f1> -> open nvim help for current word
-" <f2> mapped in 'dmytruek/find-and-replace' plugin
+" noremap <f2> mapped in 'dmytruek/find-and-replace' plugin
 noremap <f3> ^
 noremap <f4> $
 inoremap <f3> <home>
 inoremap <f4> <end>
 
+
+" set leader key
+let mapleader = " "
 
 " clear highlight after search
 nnoremap <leader>o :nohlsearch<cr>
@@ -197,6 +194,7 @@ nnoremap <silent> <leader>м :call ToggleHorizontalVerticalSplit() <cr>
 
 
 
+" TODO: make one more plugin?)
 " my Change Current word with another (aka `viwy`):
 
 " `cc` is duplication of `S`, so we can use it for our purposes, so firstly we clearing it

@@ -116,6 +116,10 @@ inoremap <C-д> <right>
 "inoremap jk <esc>
 "inoremap kj <esc>
 
+" paste at end of line
+nnoremap <C-p> $p
+nnoremap <C-з> $p
+
 
 " TODO: <f1> -> open nvim help for current word
 " <f2> mapped in 'dmytruek/find-and-replace' plugin

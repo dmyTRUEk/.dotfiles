@@ -267,6 +267,7 @@ func! SetRelativeScrollOff(fraction)
 endf
 
 autocmd BufEnter,BufWinEnter,WinEnter,WinNew,VimResized * call SetRelativeScrollOff(g:relative_scrolloff_fraction)
+nnoremap <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction) <cr>
 
 
 

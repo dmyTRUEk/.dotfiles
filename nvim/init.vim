@@ -623,14 +623,14 @@ lua << EOF
             --}),
         },
         sources = {
-            { name = 'nvim_lsp', group_index = 1 },
+            { name = 'nvim_lsp' }, --, group_index = 1
             --{ name = "nvim_lsp_signature_help" },  -- TODO: try it (from https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples)
+            { name = 'buffer', option = { keyword_pattern = [[\Z\k\+]] } }, --, group_index = 3
             { name = 'path' },
-            { name = 'ultisnips', group_index = 2 }, -- for ultisnips users
+            { name = 'ultisnips' }, -- for ultisnips users (, group_index = 2)
             --{ name = 'vsnip' },                    -- for vsnip users
             --{ name = 'snippy' },                   -- for snippy users
             --{ name = 'luasnip' },                  -- for luasnip users
-            { name = 'buffer', group_index = 3, option = { keyword_pattern = [[\Z\k\+]] } },
         },
         snippet = {
             -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine

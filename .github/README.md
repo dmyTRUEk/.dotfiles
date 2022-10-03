@@ -58,14 +58,19 @@ where you can install all needed programs.
 
 ## Sway FAQ - Frequently Asked Questions:
 
-### Some symbols isn't displayed correctly
-Solution: install `ttf-font-awesome` package.
-
 ### Wallpaper (Background) doesn't change
 Solution: install `swaybg` package.
 
-### Mouse Cursor in some app is wrong
-Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
+### Run JetBrains (or maybe other Java based apps)
+Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
+
+Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
+
+### Skype remember login:
+Install `gnome-keyring`.
+
+### Some symbols isn't displayed correctly
+Solution: install `ttf-font-awesome` package.
 
 ### Screenshare doesn't work
 - in Firefox:  
@@ -81,13 +86,11 @@ Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
 ### Screenrecording
 Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder).
 
+### Mouse Cursor in some app is wrong
+Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
+
 ### Enviroment variables of two (or more) DE/WM conflicts
 Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURRENT_DESKTOP=sway sway`.
-
-### Run JetBrains (or maybe other Java based apps)
-Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
-
-Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 
 

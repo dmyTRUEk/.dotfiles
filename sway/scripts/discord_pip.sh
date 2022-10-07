@@ -8,10 +8,8 @@ if [ $(swaymsg -t get_tree | grep 'discord updater' -i | wc -l) -gt 0 ]; then
 elif [ $(swaymsg -t get_tree | grep 'discord' -i | wc -l) -lt 6 ]; then
     swaymsg "[class=\"discord\"]" floating disable, sticky disable;
 elif [ $(swaymsg -t get_tree | grep 'discord' -i | wc -l) -ge 6 ]; then
-    sleep 0.4;
+    sleep 1.0;
     swaymsg "[class=\"discord\"]" floating enable, sticky enable;
     swaymsg "[class=\"discord\" title=\"Discord\"]" floating disable, sticky disable;
 fi #> ~/test/ok.txt 2> ~/test/error.txt
-
-
 

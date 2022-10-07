@@ -118,8 +118,8 @@ source $ZSH/oh-my-zsh.sh
 # eval $(thefuck --alias)
 
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export NDK_HOME="$HOME/Android/Sdk/ndk/21.4.7075529"
-export JAVA_HOME="/etc/java-11-openjdk"
+#export NDK_HOME="$HOME/Android/Sdk/ndk/21.4.7075529"
+#export JAVA_HOME="/etc/java-11-openjdk"
 
 
 

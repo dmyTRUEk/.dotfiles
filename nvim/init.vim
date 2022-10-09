@@ -133,8 +133,8 @@ inoremap <f4> <end>
 let mapleader = " "
 
 " clear highlight after search
-nnoremap <leader>o :nohlsearch<cr>
-nnoremap <leader>щ :nohlsearch<cr>
+nnoremap <leader>o :nohlsearch <cr>
+nnoremap <leader>щ :nohlsearch <cr>
 
 " erase last symbol in line
 nnoremap <leader>e m`$x``

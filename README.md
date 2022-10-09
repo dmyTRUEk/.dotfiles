@@ -40,6 +40,7 @@ where you can install all needed programs.
 
 ## Useful Links:
 - [Useful add ons for sway](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
+- [Rust Utilities](https://rustutils.com)
 
 
 

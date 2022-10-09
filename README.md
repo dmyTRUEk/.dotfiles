@@ -34,7 +34,7 @@ where you can install all needed programs.
 
 
 ## Screenshots:
-![Screenshot](https://github.com/dmyTRUEk/images/blob/4819213f17725e363e88c1b2e4111f07589d4909/screenshot_sway_1.png)
+![Screenshot](https://raw.githubusercontent.com/dmyTRUEk/images/4819213f17725e363e88c1b2e4111f07589d4909/screenshot_sway_1.png)
 
 
 

@@ -536,7 +536,7 @@ let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 
 " telescope (different pickers, sorters and previewers):
-nnoremap gd        :Telescope lsp_definitions <cr>
+"nnoremap gd        :Telescope lsp_definitions <cr>
 nnoremap gr        :Telescope lsp_references <cr>
 nnoremap <leader>b :Telescope buffers <cr>
 nnoremap <leader>и :Telescope buffers <cr>
@@ -580,12 +580,14 @@ nnoremap <leader>m <cmd>MarkdownPreview <cr>
 " lsp (language server protocol):
 set completeopt=menu,menuone
 
+nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition() <cr>
+"nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references() <cr>
 nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename() <cr>
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.diagnostic.show_line_diagnostics() <cr>
-nnoremap <silent> g[        <cmd>lua vim.lsp.diagnostic.goto_prev() <cr>
-nnoremap <silent> g]        <cmd>lua vim.lsp.diagnostic.goto_next() <cr>
-nnoremap <silent> [c        <cmd>lua vim.lsp.diagnostic.goto_prev() <cr>
-nnoremap <silent> ]c        <cmd>lua vim.lsp.diagnostic.goto_next() <cr>
+nnoremap <silent> <leader>d <cmd>lua vim.diagnostic.open_float() <cr>
+nnoremap <silent> g[        <cmd>lua vim.diagnostic.goto_prev() <cr>
+nnoremap <silent> g]        <cmd>lua vim.diagnostic.goto_next() <cr>
+nnoremap <silent> [c        <cmd>lua vim.diagnostic.goto_prev() <cr>
+nnoremap <silent> ]c        <cmd>lua vim.diagnostic.goto_next() <cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action() <cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
 " TODO?: <leader>i -> inline variable

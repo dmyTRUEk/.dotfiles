@@ -98,7 +98,6 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 # TODO:
 - `! meta`: remove images from `.git/`, so they don't take up space
 - `ranger`:
-  - full rebind
   - binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
 - `zoom`: fix crashes (try flatpak version)
 - `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA`
@@ -107,5 +106,5 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 - `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed
 - `systemd`?: internet sometimes don't work
 - `sway-relative-keyboard-rs`, `systemd`: even though it is systemd service, it sometimes stops, why?
-- `? sway`: make meta+shift+enter terminal be in scratchpad by default
+- `sway`?: make meta+shift+enter terminal be in scratchpad by default
 

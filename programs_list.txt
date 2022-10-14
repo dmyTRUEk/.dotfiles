@@ -15,6 +15,7 @@
 ? polkit-qt5
 ? rust-analyzer
 ? wlrobs
+? xargs
 [optioanl] clinfo
 [optional] arrayfire
 [optional] opencl

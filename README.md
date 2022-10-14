@@ -100,7 +100,7 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 - `ranger`:
   - binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
 - `zoom`: fix crashes (try flatpak version)
-- `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA`
+- `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
 - `alacritty`: fix alt+ukr (for neovim binds for move cursor in insert mode with ukr layout)
 - `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 - `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed

@@ -178,13 +178,15 @@ alias v='vim'
 alias neovim='nvim'
 alias n='nvim'
 alias n.='nvim .'
+alias nd='nvim -d'
+alias nre='nvim README.md'
+# TODO: some way to check if it is Rust or Python
+alias nm='nvim src/main.rs'
+# config files:
 alias nc='nvim ~/.config/nvim/init.vim'
 alias na='nvim ~/.config/alacritty/alacritty.yml'
 alias nk='nvim ~/.config/kitty/kitty.conf'
-# TODO: some way to check if it is Rust or Python
-alias nm='nvim src/main.rs'
 alias nr='nvim ~/.config/ranger/rc.conf'
-alias nre='nvim README.md'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'
 alias nw='nvim ~/.config/waybar/config'

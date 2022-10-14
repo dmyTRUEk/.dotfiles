@@ -97,8 +97,8 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 
 # TODO:
 - `! meta`: remove images from `.git/`, so they don't take up space
-- `ranger`:
-  - binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
+- `ranger`: binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
+- `alacritty`: remake config file
 - `zoom`: fix crashes (try flatpak version)
 - `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
 - `alacritty`: fix alt+ukr (for neovim binds for move cursor in insert mode with ukr layout)

@@ -60,11 +60,12 @@ window#waybar.empty {
 #clock,
 #battery,
 #backlight,
-/* #idle_inhibitor, */
 /* #cpu, */
+/* #idle_inhibitor, */
+/* #language, */
 /* #memory, */
-/* #temperature, */
 /* #network, */
+/* #temperature, */
 #pulseaudio,
 #mode,
 #tray {

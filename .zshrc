@@ -171,6 +171,10 @@ alias ..5='cd ../../../../..'
 alias grep='grep -i --color'
 alias whereami='pwd'
 alias findtextinfiles='grep -rn'
+mcd() {
+    mkdir "$1"
+    cd "$1"
+}
 
 alias v='vim'
 

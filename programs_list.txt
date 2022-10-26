@@ -1,4 +1,5 @@
 ? alphaplot
+? baobab
 ? bluez-utils
 ? djvulibre
 ? ffmpeg

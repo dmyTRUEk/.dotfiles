@@ -227,4 +227,6 @@ alias gss='git status'
 
 # custom scripts:
 alias countlinesofcode='res=0; for f in $(tree -fiF --noreport | grep -v /$ | tail -n +2); do res=$(($res+$(cat $f | sed "/^\s*$/d" | wc -l))); done; echo $res'
+alias whatismyip='curl -s https://icanhazip.com'
+alias whatismylocalip='ip addr | rg -o "192\.168\.\d{1,3}\.\d{1,3}" | head -n 1'
 

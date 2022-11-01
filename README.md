@@ -70,8 +70,8 @@ Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 ### Skype remember login:
 Install `gnome-keyring`.
 
-### Some symbols isn't displayed correctly
-Solution: install `ttf-font-awesome` package.
+### Some symbols isn't displayed correctly (eg in waybar)
+Solution: install ~~`ttf-font-awesome`~~ or `ttf-nerd-fonts-symbols-2048-em-mono` package.
 
 ### Screenshare doesn't work
 - in Firefox:  

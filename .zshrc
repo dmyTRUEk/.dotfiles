@@ -194,7 +194,7 @@ alias nr='nvim ~/.config/ranger/rc.conf'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'
 alias nw='nvim ~/.config/waybar/config'
-alias ny='nvim ~/.config/yofi/yofi_with_allowlist.py'
+alias ny='nvim ~/.config/yofi/yofi.config'
 alias nz='nvim ~/.zshrc'
 alias nzh='nvim ~/.zsh_history'
 

@@ -536,7 +536,7 @@ let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 
 " telescope (different pickers, sorters and previewers):
-"nnoremap gd        :Telescope lsp_definitions <cr>
+nnoremap gd        :Telescope lsp_definitions <cr>
 nnoremap gr        :Telescope lsp_references <cr>
 nnoremap gi        :Telescope lsp_implementations <cr>
 nnoremap <leader>b :Telescope buffers <cr>
@@ -581,7 +581,7 @@ nnoremap <leader>m <cmd>MarkdownPreview <cr>
 " lsp (language server protocol):
 set completeopt=menu,menuone
 
-nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition() <cr>
+"nnoremap <silent> gd        <cmd>lua vim.lsp.buf.definition() <cr>
 "nnoremap <silent> gr        <cmd>lua vim.lsp.buf.references() <cr>
 nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename() <cr>
 nnoremap <silent> <leader>d <cmd>lua vim.diagnostic.open_float() <cr>

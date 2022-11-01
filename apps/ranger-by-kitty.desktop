@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Ranger (by Kitty)
+Comment=Terminal file manager opened by Kitty terminal emulator
+Icon=user-desktop
+Exec=kitty env RANGER_LOAD_DEFAULT_RC=false ranger %U
+Type=Application
+Terminal=false
+Categories=System;FileTools;FileManager;Utility;Core;
+MimeType=inode/directory;

@@ -73,6 +73,15 @@ Install `gnome-keyring`.
 ### Some symbols isn't displayed correctly (eg in waybar)
 Solution: install ~~`ttf-font-awesome`~~ or `ttf-nerd-fonts-symbols-2048-em-mono` package.
 
+### Setup default file opener
+Solution: run `xdg-mime default <program>.desktop <filetype>`. You can find your program's desktop file at `/usr/share/applications/` or `~/.local/share/applications/`.
+
+For example:
+- `xdg-mime default org.pwmt.zathura.desktop application/pdf`
+- `xdg-mime default ranger-by-kitty.desktop inode/directory`
+
+[source](https://unix.stackexchange.com/questions/36380/how-to-properly-and-easily-configure-xdg-open-without-any-environment)
+
 ### Screenshare doesn't work
 - in Firefox:  
   Solution: google webrtc?

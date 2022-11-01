@@ -67,7 +67,7 @@ Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
 
 Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
-### Skype remember login:
+### Skype remember login
 Install `gnome-keyring`.
 
 ### Some symbols isn't displayed correctly (eg in waybar)
@@ -99,8 +99,8 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 - `! meta`: remove images from `.git/`, so they don't take up space
 - `ranger`: binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
 - `alacritty`: remake config file
-- `zoom`: fix crashes (try flatpak version)
-- `kdeconnect`: fix mouse movement
+- `zoom`: fix crashes when join by link (try flatpak version)
+- `kdeconnect`: fix mouse movement (impossible?)
 - `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
 - `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 - `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed

@@ -1,10 +1,11 @@
 # dmyTRUEk's Zathura config file
 
 set selection-clipboard clipboard
-
 set font "JetBrains Mono"
-
 set guioptions "sv"
+
+map Q quit
+unmap q
 
 set zoom-step 10
 set zoom-center true
@@ -14,13 +15,12 @@ map o zoom out
 map <S-i> zoom in 50
 map <S-o> zoom out 50
 
-map Q quit
-unmap q
-
 map u feedkeys <C-u>
 map d feedkeys <C-d>
 # TODO: map dual page to <C-d>
 #map <C-d> feedkeys d
+
+map <C-i> recolor
 
 # colors:
 set recolor true

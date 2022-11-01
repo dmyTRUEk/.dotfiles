@@ -8,18 +8,12 @@
     margin: 0;
     padding: 0;
     font-family: JetBrains Mono, sans-serif;
-    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
     font-size: 13px;
 }
 
 #waybar {
     background: rgb(40, 40, 40);
-    color: rgb(255, 255, 255);
-}
-
-window#waybar.empty {
-    background-color: transparent;
-    /* opacity: 0.5; */
+    /* color: rgb(255, 255, 255); */
 }
 
 #workspaces button {
@@ -31,81 +25,113 @@ window#waybar.empty {
     box-shadow: inset 0 0px rgb(0, 0, 0);
     transition-duration: 0s;
 }
-
 #workspaces button.focused {
     background: rgba(16, 16, 16, 0.4);
 }
 #workspaces button.focused:hover {
     background: rgba(16, 16, 16, 0.4);
 }
-
 #workspaces button:hover {
     background: rgba(16, 16, 16, 0.2);
     text-shadow: inherit;
     /* box-shadow: inherit; */
 }
-
 /* #workspaces button.urgent { */
 /*     /1* border-color: #c9545d; *1/ */
 /*     color: #c9545d; */
 /* } */
+
+/* #cpu, */
+/* #idle_inhibitor, */
+/* #language, */
+/* #memory, */
+/* #temperature, */
+#network,
+#backlight,
+#battery,
+#clock,
+#custom-keyboard-layout,
+#custom-media,
+#disk,
+#idle_inhibitor,
+#mode,
+#network,
+#pulseaudio,
+#scratchpad,
+#tray,
+#window
+{
+    color: rgb(255, 255, 255);
+    padding-left:  12px;
+    padding-right: 12px;
+    /* margin: 0 0px; */
+    /* fix: remove animations */
+    transition-duration: 0s;
+    background: transparent;
+    box-shadow: inset 0 0px rgb(0, 0, 0);
+}
+
+
+
+
 
 #mode {
     background-color: rgb(255, 127, 0);
     color: rgb(0, 0, 0);
 }
 
-#window,
-#custom-keyboard-layout,
-#clock,
-#battery,
-#backlight,
-/* #cpu, */
-/* #idle_inhibitor, */
-/* #language, */
-/* #memory, */
-/* #network, */
-/* #temperature, */
-#pulseaudio,
-#mode,
-#tray {
-    padding-left:  12px;
-    padding-right: 12px;
-    /* margin: 0 0px; */
+/* TODO: fix it, when #1419 got merged */
+window#waybar.empty,
+window#waybar.floating
+{
+    background-color: transparent;
+    /* opacity: 0.5; */
 }
 
 
 
+/* #tray { */
+/*     margin: 5px; */
+/* } */
+
 /* #custom-keyboard-layout { */
+/*     /1* border-bottom: 3px solid #3daee9; *1/ */
+/*     color: rgb(255, 255, 255) */
+/* } */
+
+/* #pulseaudio { */
+/*     /1* border-bottom: 3px solid #3daee9; *1/ */
+/*     color: rgb(255, 255, 255) */
+/* } */
+/* #pulseaudio.muted { */
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
 
-
-
-/* #clock { */
-/*     border-bottom: 3px solid #3daee9; */
+/* #backlight { */
+/*     color: rgb(255, 255, 255) */
 /* } */
-
-
 
 /* #battery { */
-/*     background-color: #ffffff; */
-/*     color: #000000; */
+/*     /1* background-color: #ffffff; *1/ */
+/*     color: rgb(255, 255, 255) */
 /* } */
+#battery.charging {
+    /* background-color: #26A65B; */
+    color: rgb(205, 255, 205)
+}
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
-/* #battery.charging { */
-/*     color: #ffffff; */
-/*     background-color: #26A65B; */
-/* } */
-
-/* #battery.critical:not(.charging) { */
-/*     background-color: #f53c3c; */
-/*     color: #ffffff; */
-/*     animation-name: blink; */
-/*     animation-duration: 0.5s; */
-/*     animation-timing-function: linear; */
-/*     animation-iteration-count: infinite; */
-/*     animation-direction: alternate; */
+/* #clock { */
+/*     /1* border-bottom: 3px solid #3daee9; *1/ */
+/*     color: rgb(255, 255, 255) */
 /* } */
 
 
@@ -113,8 +139,6 @@ window#waybar.empty {
 /* label:focus { */
 /*     background-color: #000000; */
 /* } */
-
-
 
 /* #cpu { */
 /*     border-bottom: 3px solid #3daee9; */
@@ -124,8 +148,6 @@ window#waybar.empty {
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
 
-
-
 /* #network { */
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
@@ -134,18 +156,6 @@ window#waybar.empty {
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
 
-
-
-/* #pulseaudio { */
-/*     border-bottom: 3px solid #3daee9; */
-/* } */
-
-/* #pulseaudio.muted { */
-/*     border-bottom: 3px solid #3daee9; */
-/* } */
-
-
-
 /* #temperature { */
 /*     border-bottom: 3px solid #3daee9; */
 /* } */
@@ -153,14 +163,6 @@ window#waybar.empty {
 /* #temperature.critical { */
 /*     background-color: #eb4d4b; */
 /* } */
-
-
-
-/* #tray { */
-/*     margin: 5px; */
-/* } */
-
-
 
 /* #idle_inhibitor { */
 /*     background-color: #2d3436; */

@@ -97,6 +97,7 @@ texlive-pictures
 texlive-science
 tree
 ttf-ms-fonts
+ttf-nerd-fonts-symbols-2048-em-mono
 unzip
 upx
 v4l2loopback

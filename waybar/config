@@ -31,7 +31,7 @@
         /* "rewrite": { */
         /*     "(.*) - Mozilla Firefox": "🌎 $1", */
         /*     "(.*) - zsh": "> [$1]", */
-        /* } */
+        /* }, */
     },
 
 
@@ -77,14 +77,17 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {signalStrength}%",
+        "format-wifi": " {signalStrength}%", // 直 睊  
         // TODO: ethernet symbol:
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-ethernet": "{ipaddr}/{cidr} ", //     
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": " {essid} ({signalStrength}%)",
-        "on-click-right": "alacritty -e iwctl"
+        "format-disconnected": "睊  Disconnected", // ⚠ 
+        //"format-alt": " {essid} ({signalStrength}%)",
+        //"tooltip-format": "{ifname}",
+        "tooltip-format-wifi": " {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "睊  Disconnected",
+        "on-click-right": "alacritty -e iwctl",
     },
 
     // TODO: add bluetooth status and on click launch menu somewhere, and hide button when bluetooth is turned off
@@ -104,7 +107,7 @@
         },
         "scroll-step": 1,
         // TODO: change tooltip: add info about right click and middle
-        // "tooltip": "{desc} !!!",
+        "tooltip-format": "Device: {desc}\nRight click -> Sound control\nMiddle click -> Bluetooth menu",
         "on-click-right": "pavucontrol",
         "on-click-middle": "blueberry",
     },
@@ -121,14 +124,20 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format-time": "{H}h {M}m",
+        //"format-alt": "{icon} {time}",
+        "tooltip-format": "{capacity}% (≈ {time})",
+        "tooltip-format-full": "Full",
         // "format-good": "",
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
+        // "format-icons": ["", "", "", "", ""],
+        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", ""],
+        //                          
+        //           
         "states": {
             "good": 75,
             "warning": 25,
-            "critical": 10
+            "critical": 10,
         },
     },
 

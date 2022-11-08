@@ -78,9 +78,8 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": " {signalStrength}%", // 直 睊  
-        // TODO: ethernet symbol:
-        "format-ethernet": "{ipaddr}/{cidr} ", //     
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "", //      
+        "format-linked": " {ifname} (No IP)",
         "format-disconnected": "睊  Disconnected", // ⚠ 
         //"format-alt": " {essid} ({signalStrength}%)",
         //"tooltip-format": "{ifname}",

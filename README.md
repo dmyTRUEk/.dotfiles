@@ -68,10 +68,13 @@ Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
 Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 ### Skype remember login
-Install `gnome-keyring`.
+Install `gnome-keyring` package.
 
 ### Some symbols isn't displayed correctly (eg in waybar)
-Solution: install ~~`ttf-font-awesome`~~ or `ttf-nerd-fonts-symbols-2048-em-mono` package.
+Solution: install corresponding package:  
+- Japanese -> `adobe-source-han-sans-jp-fonts`.
+- App icons (eg Wifi, Sound, Brightness, Keyboard layout, Firefox, Telegram, Discord, etc) ->
+  `ttf-nerd-fonts-symbols-2048-em-mono` (or try `ttf-font-awesome`?).
 
 ### Setup default file opener
 Solution: run `xdg-mime default <program>.desktop <filetype>`. You can find your program's desktop file at `/usr/share/applications/` or `~/.local/share/applications/`.

@@ -768,6 +768,9 @@ key_bindings:
 
   - { key: Escape,                      mode: Vi|~Search, action: ToggleViMode }
 
+  - { key: J,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown }
+  - { key: K,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp }
+
   # TODO:
   # - { key: Equals, mods: Control|Shift,                   action: IncreaseWindowOpacity }
   # - { key: Minus,  mods: Control|Shift,                   action: DecreaseWindowOpacity }

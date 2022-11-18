@@ -105,6 +105,9 @@ Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
 ### Enviroment variables of two (or more) DE/WM conflicts
 Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURRENT_DESKTOP=sway sway`.
 
+### Kdenlive error:
+- `mlt_repository_init: failed to dlopen`: install `libsdl` (on arch: `sdl_image`)
+
 
 
 # TODO:

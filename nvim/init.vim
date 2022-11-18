@@ -537,6 +537,7 @@ let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 " telescope (different pickers, sorters and previewers):
 nnoremap gd        :Telescope lsp_definitions <cr>
+nnoremap gD        :Telescope lsp_type_definitions <cr>
 nnoremap gr        :Telescope lsp_references <cr>
 nnoremap gi        :Telescope lsp_implementations <cr>
 nnoremap <leader>b :Telescope buffers <cr>
@@ -591,7 +592,7 @@ nnoremap <silent> [c        <cmd>lua vim.diagnostic.goto_prev() <cr>
 nnoremap <silent> ]c        <cmd>lua vim.diagnostic.goto_next() <cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action() <cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
-nnoremap <silent> gD        <cmd>lua vim.lsp.buf.type_definition() <cr>
+"nnoremap <silent> gD        <cmd>lua vim.lsp.buf.type_definition() <cr>
 " TODO?: <leader>i -> inline variable
 "        impossible bc LSP itself dont have such option? :'(
 "nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help() <cr>

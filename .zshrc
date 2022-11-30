@@ -131,17 +131,25 @@ export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
 # unbind keybinds:
 # to input '^L' as single character, press Ctrl+V -> Ctrl+L
+#bindkey -r '^D' # TODO: HOW TO UNBIND IT?
 bindkey -r '^H'
 bindkey -r '^J'
 bindkey -r '^K'
 bindkey -r '^L'
-#bindkey -r '^D' # HOW TO UNBIND IT?
+# TODO: unbind: <C-2> - <C-8>
+#bindkey -r '^@'
+#bindkey -r '^['
+#bindkey -r '^\'
+#bindkey -r '^]'
+#bindkey -r '^^'
+#bindkey -r '^_'
 
 # bind keybinds:
 bindkey -M main '^H' backward-char
 bindkey -M main '^J' history-substring-search-down
 bindkey -M main '^K' history-substring-search-up
 bindkey -M main '^L' forward-char
+# TODO: bind: <C-backspace> - backspace word
 
 
 

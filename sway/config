@@ -175,6 +175,9 @@
         # possible options: `man xkeyboard-config`
         xkb_options "grp:shifts_toggle,grp:menu_toggle,caps:swapescape,ctrl:swap_lalt_lctl"
         # TODO: make `grp:lctrl_toggle` or `grp:lalt_toggle` work
+
+        repeat_delay 200
+        repeat_rate 30
     }
 
     # mouse

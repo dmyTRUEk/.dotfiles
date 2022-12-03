@@ -155,6 +155,11 @@ bindkey -M main '^L' forward-char
 
 ### My Custom Aliases for Terminal:
 
+function warn_deprecated {
+    echo "\`$1\` is deprecated, use \`$2\` instead."
+    python -c 'input("Press enter to continue...")'
+}
+
 ## Useful programs:
 alias ls='lsd'
 alias la='lsd -a'
@@ -179,7 +184,7 @@ alias ..5='cd ../../../../..'
 alias grep='grep -i --color'
 alias whereami='pwd'
 alias findtextinfiles='grep -rn'
-mcd() {
+function mcd {
     mkdir "$1"
     cd "$1"
 }
@@ -192,12 +197,13 @@ alias n='nvim'
 alias n.='nvim .'
 alias nd='nvim -d'
 alias nre='nvim README.md'
-# TODO: some way to check if it is Rust or Python
+# TODO: check if it is Rust or Python
 alias nm='nvim src/main.rs'
 # config files:
-alias nc='nvim ~/.config/nvim/init.vim'
 alias na='nvim ~/.config/alacritty/alacritty.yml'
+alias nc='warn_deprecated nc nn && nvim ~/.config/nvim/init.vim'
 alias nk='nvim ~/.config/kitty/kitty.conf'
+alias nn='nvim ~/.config/nvim/init.vim'
 alias nr='nvim ~/.config/ranger/rc.conf'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'

@@ -241,6 +241,7 @@ autocmd FileType gitcommit,markdown setlocal spell
 """ Compiles:
 " latex
 autocmd BufReadPost *.tex nnoremap <leader>c :wa <bar> call CompileLatexToPDFsimple() <cr>
+autocmd BufReadPost *.tex nnoremap <leader>с :wa <bar> call CompileLatexToPDFsimple() <cr>
 
 " python
 autocmd BufReadPost *.py nnoremap <leader>c :wa <bar> :! python3 % <cr>

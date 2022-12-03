@@ -762,6 +762,7 @@ endf
 
 
 
+" TODO: make async, so that vim dont slowdown when scrolling with sync enabled
 func! s:LatexSyncFromVimToZathura()
     if g:compile_latex_to_pdf_exit_code_last == 0 && g:is_latex_auto_sync_enabled
         " remove `silent` for debugging

@@ -268,10 +268,10 @@
 
 ## Moving Focus
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    $btrbindsym $mod+$left focus left
+    $btrbindsym $mod+$down focus down
+    $btrbindsym $mod+$up focus up
+    $btrbindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down

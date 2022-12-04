@@ -2,7 +2,7 @@
 
 It works on [Arch](https://archlinux.org/), [Manjaro](https://manjaro.org/),
 and any other [GNU/Linux](https://www.getgnulinux.org/) distro,
-where you can install all needed programs.
+where you can install all required programs.
 
 
 
@@ -91,10 +91,10 @@ For example:
 - in Discord, Telegram:  
   Solution:
   1. Launch OBS
-  2. Translate your screen to virtual camera
-    if it is not available, install `v4l2loopback-dkms`
+  2. Translate your screen to virtual camera.  
+    If it is not available, install `v4l2loopback-dkms`
     (or follow [this tutorial](https://github.com/hw0lff/screen-share-sway#Install-the-v4l2loopback-kernel-module)).
-  3. Enable (virtual) camera in discord/telegram.
+  3. Select virtual camera and then enable it in discord/telegram.
 
 ### Screenrecording
 Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder).
@@ -106,7 +106,7 @@ Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
 Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURRENT_DESKTOP=sway sway`.
 
 ### Kdenlive error:
-- `mlt_repository_init: failed to dlopen`: install `libsdl` (on arch: `sdl_image`)
+- `mlt_repository_init: failed to dlopen`: install `libsdl` (on arch: `sdl_image`).
 
 ### Ranger crashes whole Sway session:
 Explanation:
@@ -121,15 +121,15 @@ Workaround: uninstall `imagemagick`.
 
 
 # TODO:
-- `! meta`: remove images from `.git/`, so they don't take up space
+- `! meta`: remove screenshots from `.git/`, so they don't take up space
 - `ranger`: binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
 - `alacritty`: remake config file
-- `zoom`: fix crashes when join by link (try flatpak version)
-- `kdeconnect`: fix mouse movement (impossible?)
-- `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
-- `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 - `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed
+- `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
+- `zoom`: fix crashes when join by link (how?)
 - `systemd`?: internet sometimes don't work
 - `sway-relative-keyboard-rs`, `systemd`: even though it is systemd service, it sometimes stops, why?
 - `sway`?: make meta+shift+enter terminal be in scratchpad by default
+- `kdeconnect`: fix mouse movement (impossible?)
+- `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 

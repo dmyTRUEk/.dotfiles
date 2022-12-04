@@ -6,45 +6,59 @@ where you can install all required programs.
 
 
 
-## Contents:
-### Configs:
-- NeoVim: [init.vim](https://github.com/dmyTRUEk/dotfiles/blob/main/nvim/init.vim)
-- Zsh + Oh My ZSH!: [.zshrc](https://github.com/dmyTRUEk/dotfiles/blob/main/.zshrc)
-  \+ [.zprofile](https://github.com/dmyTRUEk/dotfiles/blob/main/.zprofile)
-- Ranger: [rc.conf](https://github.com/dmyTRUEk/dotfiles/blob/main/ranger/rc.conf)
-  \+ [rifle.conf](https://github.com/dmyTRUEk/dotfiles/blob/main/ranger/rifle.conf)
-  \+ [colorschemes/ala_gruvbox.py](https://github.com/dmyTRUEk/dotfiles/blob/main/ranger/colorschemes/ala_gruvbox.py)
-- Zathura: [zathurarc](https://github.com/dmyTRUEk/dotfiles/blob/main/zathura/zathurarc)
-- Paru: [paru.conf](https://github.com/dmyTRUEk/dotfiles/blob/main/paru/paru.conf)
-- Alacritty: [alacritty.yml](https://github.com/dmyTRUEk/dotfiles/blob/main/alacritty/alacritty.yml)
-- Sway: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/sway/config)
-  - Waybar: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/waybar/config)
-    \+ [style.css](https://github.com/dmyTRUEk/dotfiles/blob/main/waybar/style.css)
-    \+ [modules/kblayout](https://github.com/dmyTRUEk/dotfiles/blob/main/waybar/modules/kblayout)
-  - Mako: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/mako/config)
-  - Swaylock: [config](https://github.com/dmyTRUEk/dotfiles/blob/main/swaylock/config)
-  - Yofi: [yofi.config](https://github.com/dmyTRUEk/dotfiles/blob/main/yofi/yofi.config)
-    \+ [yofi_with_allowlist.py](https://github.com/dmyTRUEk/dotfiles/blob/main/yofi/yofi_with_allowlist.py)
+# Table of Contents:
+## Configs:
 
-### Setup Scripts:
-- [setup-file-links.sh](https://github.com/dmyTRUEk/dotfiles/blob/main/setup-file-links.sh)
+### Text editors:
+- NeoVim: [init.vim](nvim/init.vim)
+
+### Sway related:
+Sway: [config](sway/config) + [scripts](sway/scripts/)
+- Waybar: [config](waybar/config) + [style.css](waybar/style.css) + [modules/kblayout](waybar/modules/kblayout)
+- Yofi: [yofi.config](yofi/yofi.config)
+- Swaylock: [config](swaylock/config)
+- Mako: [config](mako/config)
+
+### File managers and viewers:
+- Ranger: [rc.conf](ranger/rc.conf)
+  \+ [rifle.conf](ranger/rifle.conf)
+  \+ [colorschemes/ala_gruvbox.py](ranger/colorschemes/ala_gruvbox.py)
+- Zathura: [zathurarc](zathura/zathurarc)
+- Imv: [config](imv/config)
+
+### Terminal Emulators:
+- Alacritty: [alacritty.yml](alacritty/alacritty.yml)
+- Kitty: [kitty.conf](kitty/kitty.conf)
+
+### Other:
+- Shell: Zsh + Oh My ZSH!: [.zshrc](.zshrc)
+  \+ [.zprofile](.zprofile)
+- Aur helper: Paru: [paru.conf](paru/paru.conf)
+- Custom "apps": [ranger-by-kitty.desktop](apps/ranger-by-kitty.desktop)
+- Sddm theme: [theme.conf](sddm-themes/sugar-candy/theme.conf)
+- Systemd services: [sway-relative-keyboard-rs.service](systemd/user/sway-relative-keyboard-rs.service)
+- Vimium: [vimium-options.json](vimium/vimium-options.json)
+
+
+## Setup Script:
+- [setup-file-links.sh](setup-file-links.sh)
   \- creates symbolic links in desired locations to real dotfiles
   (real dotfiles located in `~/.dotfiles/`).
 
 
 
-## Screenshots:
+# Screenshot:
 ![Screenshot](https://raw.githubusercontent.com/dmyTRUEk/images/4819213f17725e363e88c1b2e4111f07589d4909/screenshot_sway_1.png)
 
 
 
-## Useful Links:
+# Useful Links:
 - [Useful add ons for sway](https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway)
 - [Rust Utilities](https://rustutils.com)
 
 
 
-## Other Sway dotfiles:
+# Other Sway dotfiles:
 - [Sway Default](https://github.com/swaywm/sway/blob/master/config.in)
 - [Sunderland93 (yt: Aleksey Samoilov)](https://github.com/Sunderland93/dotfiles-sway)
 - [Mel34](https://gist.github.com/Mel34/ab9b6d562f9181ed8bbdc7c76022b85b)
@@ -57,26 +71,26 @@ where you can install all required programs.
 
 
 
-## Sway FAQ - Frequently Asked Questions:
+# Sway FAQ - Frequently Asked Questions:
 
-### Wallpaper (Background) doesn't change
+## Wallpaper (Background) doesn't change
 Solution: install `swaybg` package.
 
-### Run JetBrains (or maybe other Java based apps)
+## Run JetBrains (or maybe other Java based apps)
 Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
 
 Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
-### Skype remember login
+## Skype don't remember login
 Install `gnome-keyring` package.
 
-### Some symbols isn't displayed correctly (eg in waybar)
+## Some symbols isn't displayed correctly (eg in waybar)
 Solution: install corresponding package:  
-- Japanese -> `adobe-source-han-sans-jp-fonts`.
-- App icons (eg Wifi, Sound, Brightness, Keyboard layout, Firefox, Telegram, Discord, etc) ->
+- App icons in Sway (eg Wifi, Sound, Brightness, Keyboard layout, Firefox, Telegram, Discord, etc) ->
   `ttf-nerd-fonts-symbols-2048-em-mono` (or try `ttf-font-awesome`?).
+- Japanese -> `adobe-source-han-sans-jp-fonts`.
 
-### Setup default file opener
+## Setup default file opener
 Solution: run `xdg-mime default <program>.desktop <filetype>`. You can find your program's desktop file at `/usr/share/applications/` or `~/.local/share/applications/`.
 
 For example:
@@ -85,7 +99,7 @@ For example:
 
 [source](https://unix.stackexchange.com/questions/36380/how-to-properly-and-easily-configure-xdg-open-without-any-environment)
 
-### Screenshare doesn't work
+## Screenshare doesn't work
 - in Firefox:  
   Solution: google webrtc?
 - in Discord, Telegram:  
@@ -96,19 +110,19 @@ For example:
     (or follow [this tutorial](https://github.com/hw0lff/screen-share-sway#Install-the-v4l2loopback-kernel-module)).
   3. Select virtual camera and then enable it in discord/telegram.
 
-### Screenrecording
+## Screenrecording
 Solution: use OBS or [wf-recorder](https://github.com/ammen99/wf-recorder).
 
-### Mouse Cursor in some app is wrong
+## Mouse Cursor in some app is wrong
 Solution: set `XCURSOR_THEME=your_cursor_theme` before launching app.
 
-### Enviroment variables of two (or more) DE/WM conflicts
+## Enviroment variables of two (or more) DE/WM conflicts
 Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURRENT_DESKTOP=sway sway`.
 
-### Kdenlive error:
+## Kdenlive error:
 - `mlt_repository_init: failed to dlopen`: install `libsdl` (on arch: `sdl_image`).
 
-### Ranger crashes whole Sway session:
+## Ranger crashes whole Sway session:
 Explanation:
 Some process takes up all memory,
 in my case `identify` process had memory leak

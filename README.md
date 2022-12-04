@@ -71,7 +71,7 @@ Sway: [config](sway/config) + [scripts](sway/scripts/)
 
 
 
-# Sway FAQ - Frequently Asked Questions:
+# Problems and Troubleshooting:
 
 ## Wallpaper (Background) doesn't change
 Solution: install `swaybg` package.

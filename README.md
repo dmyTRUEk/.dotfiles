@@ -108,6 +108,16 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 ### Kdenlive error:
 - `mlt_repository_init: failed to dlopen`: install `libsdl` (on arch: `sdl_image`)
 
+### Ranger crashes whole Sway session:
+Explanation:
+Some process takes up all memory,
+in my case `identify` process had memory leak
+when trying to identify `.djvu` file,
+and `identify` binary belongs to `imagemagick`
+(which can be verified by `man identify`).
+
+Workaround: uninstall `imagemagick`.
+
 
 
 # TODO:

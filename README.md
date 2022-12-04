@@ -136,6 +136,7 @@ Workaround: uninstall `imagemagick`.
 
 # TODO:
 - `! meta`: remove screenshots from `.git/`, so they don't take up space
+- `sway`: in window resing mode add binds for move window till edge, especially discord pop-up, etc
 - `ranger`: binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
 - `alacritty`: remake config file
 - `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed

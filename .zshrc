@@ -174,6 +174,7 @@ alias yay='paru'
 # Useful aliases:
 alias cl='clear'
 alias cdd='cd ~/.dotfiles'
+alias cdc='cd ~/.config'
 alias mkdir='mkdir -p'
 alias please='sudo'
 alias ..='cd ..'

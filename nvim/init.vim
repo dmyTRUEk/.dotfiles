@@ -450,8 +450,17 @@ map пс <Plug>Commentary
 vmap s S
 vmap і S
 let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
-" TODO: add option for `ys(` to not add spaces inside
-" https://github.com/tpope/vim-surround/issues/314
+autocmd FileType * let b:surround_{char2nr("(")} = "(\r)"
+autocmd FileType * let b:surround_{char2nr(")")} = "( \r )"
+autocmd FileType * let b:surround_{char2nr("[")} = "[\r]"
+autocmd FileType * let b:surround_{char2nr("]")} = "[ \r ]"
+autocmd FileType * let b:surround_{char2nr("{")} = "{\r}"
+autocmd FileType * let b:surround_{char2nr("}")} = "{ \r }"
+autocmd FileType tex let b:surround_{char2nr("l")} = "\\\1Name: \1{\r}"
+autocmd FileType tex let b:surround_{char2nr("L")} = "\\begin{\1Environment: \1}\r\\end{\1\1}"
+autocmd FileType tex let b:surround_{char2nr("b")} = "\\textbf{\r}"
+autocmd FileType tex let b:surround_{char2nr("i")} = "\\textit{\r}"
+autocmd FileType tex let b:surround_{char2nr("u")} = "\\underline{\r}"
 
 
 " vim-exchange (swap two text selections):

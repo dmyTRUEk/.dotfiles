@@ -290,8 +290,8 @@ func! SetRelativeScrollOff(fraction)
     let &scrolloff = float2nr(l:visible_lines_in_active_window * a:fraction)
 endf
 
-autocmd BufEnter,BufWinEnter,WinEnter,WinNew,VimResized * call SetRelativeScrollOff(g:relative_scrolloff_fraction)
-nnoremap <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction) <cr>
+autocmd BufEnter,BufLeave,BufWinEnter,BufWinLeave,WinNew,WinEnter,WinLeave,VimResized * call SetRelativeScrollOff(g:relative_scrolloff_fraction)
+nnoremap <silent> <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction) <cr> zz
 
 
 

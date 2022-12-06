@@ -92,6 +92,24 @@ vnoremap О :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 vnoremap Л :m '<-2<cr>gv=gv
 
+" TODO:
+"xnoremap <leader>I :<C-U>call InsertAtBeginOfLine() <cr>
+"xnoremap <leader>A :<C-U>call AppendAtEndOfLine() <cr>
+" TODO: maybe one more plugin?)
+"func! InsertAtBeginOfLine()
+"    " TODO:
+"    let l:mode = visualmode()
+"    if l:mode ==# 'v'
+"        " character-wise visual
+"    elseif l:mode == 'V'
+"        " line-wise visual
+"    elseif l:mode == "\<C-V>"
+"        " block-wise visual
+"    else
+"        echom "UNKNOWN VISUAL mode"
+"    endif
+"endf
+
 " exit from insert mode:
 "inoremap jk <esc>
 "inoremap kj <esc>
@@ -131,6 +149,11 @@ inoremap <f4> <end>
 
 " set leader key
 let mapleader = " "
+
+" TODO:
+" sort selected lines
+"xnoremap <leader>s :call feedkeys(':') <cr>
+"xnoremap <leader>і :'<,'>sort <cr>
 
 " clear highlight after search
 nnoremap <leader>o :nohlsearch <cr>

@@ -559,9 +559,9 @@ let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files wit
 " scrollbar (show scroll progess as bar on the right):
 augroup ScrollbarInit
   autocmd!
-  autocmd WinScrolled,VimResized,QuitPre          * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained,VimEnter           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost * silent! lua require('scrollbar').clear()
+  " + QuitPre
+  autocmd FocusGained,VimEnter,VimResized,WinEnter,WinScrolled * silent! lua require('scrollbar').show()
+  autocmd BufLeave,BufWinLeave,FocusLost,WinLeave * silent! lua require('scrollbar').clear()
 augroup end
 let g:scrollbar_min_size = 1
 let g:scrollbar_max_size = 10

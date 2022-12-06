@@ -116,10 +116,10 @@ vnoremap Л :m '<-2<cr>gv=gv
 
 
 " better binds for go half page down/up:
-nnoremap <C-j> <C-d>zz
-nnoremap <C-о> <C-d>zz
-nnoremap <C-k> <C-u>zz
-nnoremap <C-л> <C-u>zz
+noremap <C-j> <C-d>zz
+noremap <C-о> <C-d>zz
+noremap <C-k> <C-u>zz
+noremap <C-л> <C-u>zz
 
 " move in insert mode:
 " TODO: <C-;>

@@ -479,11 +479,13 @@ autocmd FileType * let b:surround_{char2nr("[")} = "[\r]"
 autocmd FileType * let b:surround_{char2nr("]")} = "[ \r ]"
 autocmd FileType * let b:surround_{char2nr("{")} = "{\r}"
 autocmd FileType * let b:surround_{char2nr("}")} = "{ \r }"
+autocmd FileType rust let b:surround_{char2nr("c")} = "\1Name: \1<\r>"
 autocmd FileType tex let b:surround_{char2nr("l")} = "\\\1Name: \1{\r}"
 autocmd FileType tex let b:surround_{char2nr("L")} = "\\begin{\1Environment: \1}\r\\end{\1\1}"
 autocmd FileType tex let b:surround_{char2nr("b")} = "\\textbf{\r}"
 autocmd FileType tex let b:surround_{char2nr("i")} = "\\textit{\r}"
 autocmd FileType tex let b:surround_{char2nr("u")} = "\\underline{\r}"
+autocmd FileType tex let b:surround_{char2nr("t")} = "\\text{\r}"
 
 
 " vim-exchange (swap two text selections):

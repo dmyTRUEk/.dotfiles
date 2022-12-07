@@ -198,8 +198,17 @@ alias n='nvim'
 alias n.='nvim .'
 alias nd='nvim -d'
 alias nre='nvim README.md'
-# TODO: check if it is Rust or Python
-alias nm='nvim src/main.rs'
+function nm {
+    MAIN_FILE_PYTHON='main.py'
+    MAIN_FILE_RUST="src/main.rs"
+    if [[ -f "$MAIN_FILE_PYTHON" ]]; then
+        nvim "$MAIN_FILE_PYTHON"
+    elif [[ -f "$MAIN_FILE_RUST" ]]; then
+        nvim "$MAIN_FILE_RUST"
+    else
+        echo 'No main file found.'
+    fi
+}
 # config files:
 alias na='nvim ~/.config/alacritty/alacritty.yml'
 alias nc='warn_deprecated nc nn && nvim ~/.config/nvim/init.vim'

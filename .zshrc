@@ -189,6 +189,7 @@ function mcd {
     mkdir "$1"
     cd "$1"
 }
+compdef mcd=cd
 
 alias v='vim'
 

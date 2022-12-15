@@ -345,8 +345,8 @@
 
     # You can <split> the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits respectively.
-    #$btrbindsym $mod+b splith
-    #$btrbindsym $mod+v splitv
+    $btrbindsym $mod+b splith
+    $btrbindsym $mod+v splitv
 
     # Make the current focus fullscreen
     $btrbindsym F11 fullscreen

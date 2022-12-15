@@ -258,6 +258,11 @@
         filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
         && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
         && wl-copy "file://$filename" -t text/uri-list
+    # bind to make screenshot when alt is pressed (in tabletop simulator)
+    # bindsym Alt+Print exec \
+    #     filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+    #     && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
+    #     && wl-copy "file://$filename" -t text/uri-list
 
     # screenshot of rectangular selection
     bindsym Control+Print exec \

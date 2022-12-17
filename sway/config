@@ -134,6 +134,7 @@
 
     # make Pavucontrol floating in bottom right corner:
     for_window [app_id="pavucontrol"] floating enable, move position cursor, move up 22px
+    for_window [app_id="blueberry"] floating enable, move position cursor, move up 22px
 
     # make Firefox Picture-In-Picture floating and sticky
     for_window [title="Picture-in-Picture"] floating enable, sticky enable, border none

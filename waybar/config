@@ -94,6 +94,7 @@
         "format": "{icon} {volume}%",
         "format-bluetooth": "  {icon} {volume}%",
         "format-muted": "婢 0%",
+        "format-bluetooth-muted": "  婢 0%",
         "format-icons": {
             /* "headphone": "", */
             /* "hands-free": "", */

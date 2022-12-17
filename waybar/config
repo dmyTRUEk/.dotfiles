@@ -92,7 +92,7 @@
     // TODO: add bluetooth status and on click launch menu somewhere, and hide button when bluetooth is turned off
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth": "  {icon} {volume}%",
         "format-muted": "婢 0%",
         "format-icons": {
             /* "headphone": "", */

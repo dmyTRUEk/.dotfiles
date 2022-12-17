@@ -200,9 +200,12 @@ alias n.='nvim .'
 alias nd='nvim -d'
 alias nre='nvim README.md'
 function nm {
+    MAIN_FILE_LATEX="main.tex"
     MAIN_FILE_PYTHON='main.py'
     MAIN_FILE_RUST="src/main.rs"
-    if [[ -f "$MAIN_FILE_PYTHON" ]]; then
+    if [[ -f "$MAIN_FILE_LATEX" ]]; then
+        nvim "$MAIN_FILE_LATEX"
+    elif [[ -f "$MAIN_FILE_PYTHON" ]]; then
         nvim "$MAIN_FILE_PYTHON"
     elif [[ -f "$MAIN_FILE_RUST" ]]; then
         nvim "$MAIN_FILE_RUST"

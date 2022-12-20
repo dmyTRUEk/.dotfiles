@@ -472,13 +472,14 @@ map пс <Plug>Commentary
 " better map in visual mode:
 vmap s S
 vmap і S
-let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
+" TODO: surround by spaces without double press space
+autocmd FileType * let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
 autocmd FileType * let b:surround_{char2nr("(")} = "(\r)"
-autocmd FileType * let b:surround_{char2nr(")")} = "( \r )"
+autocmd FileType * let b:surround_{char2nr(")")} = "(\r)"
 autocmd FileType * let b:surround_{char2nr("[")} = "[\r]"
-autocmd FileType * let b:surround_{char2nr("]")} = "[ \r ]"
+autocmd FileType * let b:surround_{char2nr("]")} = "[\r]"
 autocmd FileType * let b:surround_{char2nr("{")} = "{\r}"
-autocmd FileType * let b:surround_{char2nr("}")} = "{ \r }"
+autocmd FileType * let b:surround_{char2nr("}")} = "{\r}"
 autocmd FileType rust let b:surround_{char2nr("c")} = "\1Container Type: \1<\r>"
 autocmd FileType rust let b:surround_{char2nr("t")} = "\1Container Type: \1<\r>"
 autocmd FileType tex let b:surround_{char2nr("l")} = "\\\1Name: \1{\r}"

@@ -460,6 +460,8 @@ let g:AutoPairsMultilineClose = 0
 "autocmd BufReadPost * let g:AutoPairs['<'] = '>'
 "autocmd BufReadPost *.cpp let g:AutoPairs['<'] = ''
 " TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait/type)
+autocmd BufReadPost *.tex let g:AutoPairs['$'] = '$'
+autocmd BufReadPost *.tex let g:AutoPairs['|'] = '|'
 
 
 " vim-commentary (comment or uncomment lines):

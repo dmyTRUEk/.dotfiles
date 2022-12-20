@@ -356,10 +356,12 @@ endif
 call plug#begin()
 
 """ Colorschemes:
-"Plug 'nlknguyen/papercolor-theme'
-"Plug 'ErichDonGubler/vim-sublime-monokai'
-"Plug 'kjssad/quantum.vim'
+Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'kjssad/quantum.vim'
 Plug 'morhetz/gruvbox'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'catppuccin/nvim'
 
 
 """ Core Plugins:

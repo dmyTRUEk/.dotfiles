@@ -8,6 +8,18 @@
 
 
 
+priority 3
+snippet 1/2 "1/2 -> \frac{1}{2}" i
+\frac{1}{2}
+endsnippet
+
+priority 3
+snippet "1/sq?r?t?2" "1/2 -> \frac{1}{2}" ir
+\frac{1}{\sqrt{2}}
+endsnippet
+
+
+
 # AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 priority 2
 snippet ab "above = overset{...}{...}"
@@ -26,7 +38,7 @@ endsnippet
 
 priority 3
 snippet "angs?" "Angstroms" ir
-\text{\normalfont\AA}
+\text{\r{A}}
 endsnippet
 
 priority 3
@@ -402,8 +414,8 @@ endsnippet
 
 
 # TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
-priority 2
-snippet ta "table = begin{center+tabular} ... end{}" b
+priority 5
+snippet "tabl?e?" "table = begin{center+tabular} ... end{}" br
 \begin{table} [H]
 \begin{center}
 \begin{tabular} {|c|c|}
@@ -739,13 +751,13 @@ snippet T "Theta" i
 \Theta
 endsnippet
 
-priority 3
-snippet tau "tau" i
+priority 2
+snippet "tau?" "tau" ir
 \tau
 endsnippet
 
-priority 3
-snippet Tau "Tau" i
+priority 2
+snippet "Tau?" "Tau" ir
 \Tau
 endsnippet
 

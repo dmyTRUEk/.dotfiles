@@ -182,7 +182,7 @@ alias yay='paru'
 #alias fzf='sk'
 
 # Useful aliases:
-alias cl='clear'
+#alias cl='clear' # real `cl` is further in this file
 alias cdd='cd ~/.dotfiles'
 alias cdc='cd ~/.config'
 alias mkdir='mkdir -p'
@@ -262,6 +262,14 @@ alias gs='git status -u --find-renames=1'
 alias gss='git status'
 alias clgs='cl && gs'
 alias gscl='cl && gs'
+
+# real `cl`
+function cl {
+    clear
+    if git rev-parse --git-dir > /dev/null 2>&1; then # is git repo
+        gs
+    fi
+}
 
 
 

@@ -208,6 +208,8 @@ alias neovim='nvim'
 alias n='nvim'
 alias n.='nvim .'
 alias nd='nvim -d'
+# some specific files:
+# TODO: open all this files from root of project (find by `.git/`)
 alias nre='nvim README.md'
 function nm {
     MAIN_FILE_LATEX="main.tex"
@@ -223,9 +225,9 @@ function nm {
         echo 'No main file found.'
     fi
 }
+alias nc='nvim Cargo.toml'
 # config files:
 alias na='nvim ~/.config/alacritty/alacritty.yml'
-alias nc='warn_deprecated nc nn && nvim ~/.config/nvim/init.vim'
 alias nk='nvim ~/.config/kitty/kitty.conf'
 alias nn='nvim ~/.config/nvim/init.vim'
 alias nr='nvim ~/.config/ranger/rc.conf'

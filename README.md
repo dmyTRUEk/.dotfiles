@@ -136,6 +136,9 @@ Workaround: uninstall `imagemagick`.
 
 # TODO:
 - `! meta`: remove screenshots from `.git/`, so they don't take up space
+- `sddm`: enable "tap to click"
+- `sway`: bind for cut text and paste it in upper/lower case
+- `ranger`: refactor maps (add two/three spaces after `map x`)
 - `sway`: do smt with sddm.service, so that it dont freeze shutdown and reboot for 10 seconds
 - `zathura`: make better color for `f`(follow link/ref)
 - `waybar`: dont show wifi widget, when wifi is turned off

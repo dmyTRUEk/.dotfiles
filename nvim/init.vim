@@ -228,7 +228,9 @@ nnoremap сс <nop>
 " this solution is better than `df<space>f<space>p` because it might not work if
 " there is no space after second word (eg `,` `)` `\n` etc)
 
-" TODO: figure out better way to do this, so it works at least for `f<symbol>` or even any move
+" TODO?: figure out better way to do this, so it works at least for `f<symbol>` or even any move
+
+" TODO: fix it for ukr
 
 " here `|` means cursor position
 " a|aa bbb -> bbb| aaa

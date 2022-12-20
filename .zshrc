@@ -251,8 +251,6 @@ alias grsp='git restore --staged --patch'
 alias gs='git status -u --find-renames=1'
 alias gss='git status'
 
-alias grenamelastcommit='git stash && git rebase -i HEAD~1 && gpush --force && git stash pop'
-
 
 
 # custom scripts:

@@ -260,6 +260,8 @@ alias grs='git restore --staged'
 alias grsp='git restore --staged --patch'
 alias gs='git status -u --find-renames=1'
 alias gss='git status'
+alias clgs='cl && gs'
+alias gscl='cl && gs'
 
 
 

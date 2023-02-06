@@ -586,11 +586,13 @@ nnoremap <leader>т :NERDTreeToggle <cr>
 let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files with this extension
 
 
-" scrollbar (show scroll progess as bar on the right):
+" scrollbar (show scroll progress as bar on the right):
 augroup ScrollbarInit
   autocmd!
-  " + QuitPre
-  autocmd FocusGained,VimEnter,VimResized,WinEnter,WinScrolled * silent! lua require('scrollbar').show()
+  " + QuitPre, but why?
+  autocmd FocusGained,VimEnter,VimResized,WinScrolled * silent! lua require('scrollbar').show()
+  " this line breaks nvim's diff mode:
+  " autocmd WinEnter * silent! lua require('scrollbar').show()
   autocmd BufLeave,BufWinLeave,FocusLost,WinLeave * silent! lua require('scrollbar').clear()
 augroup end
 let g:scrollbar_min_size = 1

@@ -435,7 +435,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 "Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
 " markdown preview in browser
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " kotlin syntax highlight
 Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}

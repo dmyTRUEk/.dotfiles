@@ -23,7 +23,7 @@ map d feedkeys <C-d>
 map <C-i> recolor
 
 # colors:
-set recolor true
+#set recolor true
 set recolor-keephue true
 set recolor-darkcolor "#f9f5d7"
 set recolor-lightcolor "#282828"

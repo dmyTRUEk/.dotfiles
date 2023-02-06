@@ -362,6 +362,8 @@ Plug 'kjssad/quantum.vim'
 Plug 'morhetz/gruvbox'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'catppuccin/nvim'
+Plug 'projekt0n/github-nvim-theme'
+Plug 'navarasu/onedark.nvim'
 
 
 """ Core Plugins:

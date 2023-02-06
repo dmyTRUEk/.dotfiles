@@ -85,6 +85,8 @@ xnoremap  n  t(
 nnoremap cn ct(
 nnoremap dn dt(
 nnoremap yn yt(
+nnoremap cu ct_
+nnoremap du df_
 
 " move selected text up/down
 vnoremap J :m '>+1<cr>gv=gv

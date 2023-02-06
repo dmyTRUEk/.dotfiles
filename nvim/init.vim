@@ -48,6 +48,9 @@ set redrawtime=10000
 " change panes size by mouse
 set mouse=a
 
+" hide command line if it is not used directly
+"set cmdheight=0
+
 " use ukr in normal mode
 set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
 
@@ -317,16 +320,17 @@ nnoremap <silent> <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction
 " VIM or NEOVIM specific configs
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
-func! s:SetTextVimOrNvim()
-    if has('nvim')
-        " echom 'NEOVIM'
-        let g:airline_section_x = 'neovim'
-    else
-        " echom 'VIM'
-        let g:airline_section_x = 'vim'
-    endif
-endf
-call s:SetTextVimOrNvim()
+"func! s:SetTextVimOrNvim()
+"    if has('nvim')
+"        " echom 'NEOVIM'
+"        let g:airline_section_x = 'neovim'
+"    else
+"        " echom 'VIM'
+"        let g:airline_section_x = 'vim'
+"    endif
+"endf
+"call s:SetTextVimOrNvim()
+
 
 
 func! ToggleHorizontalVerticalSplit()
@@ -403,8 +407,7 @@ Plug 'dmytruek/argument-text-object'
 
 """ UI Plugins:
 " better status bar
-Plug 'vim-airline/vim-airline'
-" TODO?: use lualine
+Plug 'nvim-lualine/lualine.nvim'
 
 " file manager
 Plug 'preservim/nerdtree'
@@ -585,12 +588,58 @@ inoremap <f10> <C-r>=UltiSnips#ExpandSnippetOrJump() <cr>
 
 
 """ UI Plugins Settings:
-" airline (better status bar):
-let g:airline_powerline_fonts = 0
-let g:airline_section_y = ""
-let g:airline_section_z = "Line: %l/%L, Col: %c"
-let b:airline_whitespace_checks = ['indent', 'mixed-indent-file', 'conflicts']
-"let b:airline_whitespace_checks = ['indent', 'trailing', 'long', 'mixed-indent-file', 'conflicts']
+" lualine (even better status line):
+lua << END
+require('lualine').setup {
+    options = {
+        theme = 'powerline_dark', -- gruvbox, kanagawa
+        component_separators = { left = '', right = ''},
+        section_separators   = { left = '', right = ''},
+        always_divide_middle = false,
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = { 'filename' },
+        lualine_c = {
+            --'branch',
+            {
+                'diff',
+            },
+        },
+        lualine_x = {
+            {
+                'encoding',
+                fmt = function(str) if str == "utf-8" then return "" else return str end end
+            },
+            {
+                'fileformat',
+                symbols = {
+                    unix = '',  -- e712 - 
+                    dos  = '', -- e70f
+                    mac  = '', -- e711
+                },
+            },
+            --'filetype',
+        },
+        lualine_y = {
+            'diagnostics',
+            'selectioncount',
+            {
+                'searchcount',
+                maxcount = 99999
+            },
+        },
+        lualine_z = {
+            function()
+                local line = vim.fn.line('.')
+                local lines_total = vim.fn.line('$')
+                local col = vim.fn.virtcol('.')
+                return string.format('Line: %d/%d, Col: %d', line, lines_total, col)
+            end
+        },
+    },
+}
+END
 
 
 " nerdtree (in-nvim file manager):

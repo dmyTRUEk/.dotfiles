@@ -195,6 +195,7 @@ alias ..5='cd ../../../../..'
 alias grep='grep -i --color'
 alias whereami='pwd'
 alias findtextinfiles='grep -rn'
+# TODO?: `cd path/to/non/existing/folder | m` to create that folder
 function mcd {
     mkdir "$1"
     cd "$1"
@@ -209,7 +210,7 @@ alias n='nvim'
 alias n.='nvim .'
 alias nd='nvim -d'
 # some specific files:
-# TODO: open all this files from root of project (find by `.git/`)
+# TODO: open all this files even when not in root of project (find root by `.git/`)
 alias nre='nvim README.md'
 function nm {
     MAIN_FILE_LATEX="main.tex"
@@ -242,8 +243,8 @@ alias nzh='nvim ~/.zsh_history'
 alias g='git'
 alias ga.='git add .'
 alias ga='git add'
-alias gap.='git add --patch .'
 alias gap='git add --patch'
+alias gap.='git add --patch .'
 alias gb='git branch'
 alias gc='git commit'
 alias gch='git checkout'
@@ -257,13 +258,12 @@ alias gm='git merge'
 alias gmt='git mergetool'
 alias gpull='git pull'
 alias gpush='git push'
-alias grs.='git restore --staged .'
 alias grs='git restore --staged'
+alias grs.='git restore --staged .'
 alias grsp='git restore --staged --patch'
+alias grsp.='git restore --staged --patch .'
 alias gs='git status -u --find-renames=1'
 alias gss='git status'
-alias clgs='cl && gs'
-alias gscl='cl && gs'
 
 # real `cl`
 function cl {

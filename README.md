@@ -123,9 +123,12 @@ Solution: in `/usr/share/wayland-sessions/sway.desktop` write `Exec=env XDG_CURR
 - `mlt_repository_init: failed to dlopen`: install `libsdl` (on arch: `sdl_image`).
 
 ## Ranger crashes whole Sway session:
+Steps to reproduce:
+scroll in folder with many files with preview.
+
 Explanation:
-Some process takes up all memory,
-in my case `identify` process had memory leak
+some process takes up all memory,
+in my case `identify` process (looks like) had memory leak
 when trying to identify `.djvu` file,
 and `identify` binary belongs to `imagemagick`
 (which can be verified by `man identify`).
@@ -136,22 +139,24 @@ Workaround: uninstall `imagemagick`.
 
 # TODO:
 - `! meta`: remove screenshots from `.git/`, so they don't take up space
+- `sway`: make skype not floating
+- `neovim`: find/make binds for `var_name` <-> `VarName` <-> `VAR_NAME`
+- `neovim`: change default rust snippets for macros (`println!()`, `todo!()`, `dbg!();`(also fix cursor position)) to have `;` at the end
 - `sddm`: enable "tap to click"
 - `sway`: bind for cut text and paste it in upper/lower case
 - `ranger`: refactor maps (add two/three spaces after `map x`)
-- `sway`: do smt with sddm.service, so that it dont freeze shutdown and reboot for 10 seconds
+- `sway`: do smt with `sddm.service`, so that it dont freeze shutdown and reboot for 10 seconds
 - `zathura`: make better color for `f`(follow link/ref)
-- `waybar`: dont show wifi widget, when wifi is turned off
-- `sway`: make rebind, so that workspaces binds are 123qweasd instead of 1234567890
+- `sway`: make rebind, so that workspaces binds are 123qweasdzxc instead of 1234567890
 - `sway`: in window resizing mode add binds for move window till edge, especially discord pop-up, etc
-- `ranger`: binds for compressing/extracting archives (zip, 7z, tar.gz, ?tar)
+- `ranger`: binds for compressing/extracting archives (`zip`, `7z`, `tar.gz`, `tar`?)
 - `alacritty`: remake config file
-- `lock screen`: fix bind: win+esc(physically esc, but caps in os) presses caps, so password then is capsed
+- `lock screen`: fix bind: Win+Esc(physically Esc, but caps in os) presses caps, so password then is capsed
+- `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 - `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
 - `zoom`: fix crashes when join by link (how?)
-- `systemd`?: internet sometimes don't work
 - `sway-relative-keyboard-rs`, `systemd`: even though it is systemd service, it sometimes stops, why?
-- `sway`?: make meta+shift+enter terminal be in scratchpad by default
+- `systemd`?: internet sometimes don't work
+- `sway`?: make Meta+Shift+Enter terminal be in scratchpad by default
 - `kdeconnect`: fix mouse movement (impossible?)
-- `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 

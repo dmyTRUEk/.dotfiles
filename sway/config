@@ -298,6 +298,11 @@
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+    # with gestures:
+    bindgesture swipe:4:up move up
+    bindgesture swipe:4:down move down
+    bindgesture swipe:4:left move left
+    bindgesture swipe:4:right move right
 
 
 ## Workspaces
@@ -305,6 +310,9 @@
     bindsym $mod+tab workspace next
     bindsym $mod+Shift+Tab workspace prev
     $btrbindsym $mod+grave workspace prev
+    # with gestures:
+    bindgesture swipe:3:right workspace prev
+    bindgesture swipe:3:left workspace next
 
     # Switch to workspace
     bindsym $mod+1 workspace $workspace_1

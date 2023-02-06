@@ -6,6 +6,10 @@
     "height": 20,
 
     "modules-left": [
+        "battery",
+        "network",
+        "backlight",
+        "pulseaudio",
         "sway/mode",
         "sway/window",
     ],
@@ -17,10 +21,6 @@
     "modules-right": [
         "tray",
         "custom/keyboard-layout",
-        "network",
-        "pulseaudio",
-        "backlight",
-        "battery",
         "clock",
     ],
 
@@ -28,10 +28,11 @@
 
     "sway/window": {
         "max-length": 100,
-        /* "rewrite": { */
-        /*     "(.*) - Mozilla Firefox": "🌎 $1", */
-        /*     "(.*) - zsh": "> [$1]", */
-        /* }, */
+        "rewrite": {
+            "(.*)": "",
+            /* "(.*) - Mozilla Firefox": "🌎 $1", */
+            /* "(.*) - zsh": "> [$1]", */
+        },
     },
 
 

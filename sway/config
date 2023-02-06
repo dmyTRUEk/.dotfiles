@@ -157,12 +157,12 @@
     # resumed. It will also lock your screen before your computer goes to sleep.
     # ?TODO?
     # exec swayidle -w \
-    #          timeout 300 'swaylock -f -c 000000' \
-    #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    #          before-sleep 'swaylock -f -c 000000'
+    #      timeout 10 'swaylock -f -c 000000' \
+    #      timeout 20 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    #      before-sleep 'swaylock -f -c 000000'
 
     exec swayidle -w before-sleep '/home/myshko/.config/sway/scripts/lock_screen_manually.sh'
-    # and also look in `sway/scripts/lock_screen_manually.sh`
+    # for details look in `sway/scripts/lock_screen_manually.sh`
 
 
 
@@ -191,13 +191,12 @@
         natural_scroll enabled
         dwt disable
         #drag_lock disable
+        scroll_factor 0.3
     }
 
     ## Mouse Cursor
-    seat seat0 xcursor_theme breeze_cursors 24
-
-    ## Mouse Scroll Factor (speed)
-    #input * scroll_factor 2.0
+    # TODO: fix and change
+    # seat seat0 xcursor_theme breeze_cursors 24
 
 
 
@@ -273,6 +272,11 @@
 
 
 ## Moving Focus
+    # focus_follows_mouse yes|no|always
+    #   yes: window under cursor will be focused if mouse moved (out and then) in window (again).
+    #   always: window under cursor will be focused if mouse moved.
+    focus_follows_mouse always
+
     # Move your focus around
     $btrbindsym $mod+$left focus left
     $btrbindsym $mod+$down focus down
@@ -284,21 +288,16 @@
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
+    # Move the focused window with the same, but add Shift:
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # Same, with arrow keys
+    # with arrow keys:
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-
-    # focus_follows_mouse yes|no|always
-    #   yes: window under cursor will be focused if mouse moved (out and then) in window (again).
-    #   always: window under cursor will be focused if mouse moved.
-    focus_follows_mouse always
 
 
 ## Workspaces
@@ -352,8 +351,8 @@
 
     # You can <split> the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits respectively.
-    $btrbindsym $mod+b splith
     $btrbindsym $mod+v splitv
+    $btrbindsym $mod+b splith
 
     # Make the current focus fullscreen
     $btrbindsym F11 fullscreen

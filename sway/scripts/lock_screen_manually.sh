@@ -5,10 +5,14 @@
 delay_turn_off_screen=10
 
 swayidle -w \
-    timeout $delay_turn_off_screen 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' &
+    timeout $delay_turn_off_screen 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' &
 
 swaylock
+
+# TODO: try this:
+# swaylock #&& systemctl suspend
+
 # While `swaylock` is on, the command is not finished,
 # so kill will be executed only when the screen is unlocked.
 pkill swayidle

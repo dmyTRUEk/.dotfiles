@@ -1,6 +1,5 @@
 /** dmyTRUEk's Waybar CSS file */
 
-/* Set for all */
 * {
     border: none;
     border-radius: 0;
@@ -12,7 +11,7 @@
 }
 
 #waybar {
-    background: rgb(40, 40, 40);
+    background: rgb(0, 0, 0); /* 40, 40, 40 */
     /* color: rgb(255, 255, 255); */
 }
 
@@ -26,14 +25,14 @@
     transition-duration: 0s;
 }
 #workspaces button.focused {
-    background: rgba(16, 16, 16, 0.4);
+    background: rgba(80, 80, 80, 0.4); /* 16, 16, 16, 0.4 */
 }
 #workspaces button.focused:hover {
-    background: rgba(16, 16, 16, 0.4);
+    background: rgba(80, 80, 80, 0.4); /* 16, 16, 16, 0.4 */
 }
 #workspaces button:hover {
-    background: rgba(16, 16, 16, 0.2);
-    text-shadow: inherit;
+    background: rgba(80, 80, 80, 0.2); /* 16, 16, 16, 0.2 */
+    /* text-shadow: inherit; */
     /* box-shadow: inherit; */
 }
 /* #workspaces button.urgent { */
@@ -42,24 +41,23 @@
 /* } */
 
 /* #cpu, */
+/* #custom-media, */
+/* #disk, */
+/* #idle_inhibitor, */
 /* #idle_inhibitor, */
 /* #language, */
 /* #memory, */
+/* #scratchpad, */
 /* #temperature, */
+#battery,
 #network,
 #backlight,
-#battery,
-#clock,
-#custom-keyboard-layout,
-#custom-media,
-#disk,
-#idle_inhibitor,
-#mode,
-#network,
 #pulseaudio,
-#scratchpad,
+#mode,
+#window,
 #tray,
-#window
+#custom-keyboard-layout,
+#clock
 {
     color: rgb(255, 255, 255);
     padding-left:  12px;
@@ -76,15 +74,16 @@
 
 
 #mode {
-    background-color: rgb(255, 127, 0);
+    background: rgb(255, 127, 0);
     color: rgb(0, 0, 0);
 }
 
 /* TODO: fix it, when #1419 got merged */
-window#waybar.empty,
-window#waybar.floating
+#waybar.empty
+/* #waybar.solo */
+/* #waybar.floating */
 {
-    background-color: transparent;
+    background: transparent;
     /* opacity: 0.5; */
 }
 

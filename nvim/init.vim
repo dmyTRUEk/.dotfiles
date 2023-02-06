@@ -645,8 +645,8 @@ nnoremap <silent> ]c        <cmd>lua vim.diagnostic.goto_next() <cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action() <cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
 "nnoremap <silent> gD        <cmd>lua vim.lsp.buf.type_definition() <cr>
-" TODO?: <leader>i -> inline variable
-"        impossible bc LSP itself dont have such option? :'(
+" TODO?: <leader>i -> inline variable -> possible, bc when press `ga` there it exists
+" TODO?: <leader>i -> autoimport this thing
 "nnoremap <silent> <c-k>    <cmd>lua vim.lsp.buf.signature_help() <cr>
 "nnoremap <silent> g0       <cmd>lua vim.lsp.buf.document_symbol() <cr>
 "nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol() <cr>

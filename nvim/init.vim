@@ -152,10 +152,8 @@ inoremap <f4> <end>
 " set leader key
 let mapleader = " "
 
-" TODO:
-" sort selected lines
-"xnoremap <leader>s :call feedkeys(':') <cr>
-"xnoremap <leader>і :'<,'>sort <cr>
+xnoremap S :sort <cr>
+xnoremap І :sort <cr>
 
 " clear highlight after search
 nnoremap <leader>o :nohlsearch <cr>
@@ -478,8 +476,17 @@ map пс <Plug>Commentary
 
 " vim-surround (yank(add,create), change, delete surround, like brackets, quotes):
 " better map in visual mode:
-vmap s S
-vmap і S
+let g:surround_no_mappings = 1 " bc of my 'xnoremap S'
+nmap ds  <Plug>Dsurround
+nmap cs  <Plug>Csurround
+nmap cS  <Plug>CSurround
+nmap ys  <Plug>Ysurround
+nmap yS  <Plug>YSurround
+nmap yss <Plug>Yssurround
+nmap ySs <Plug>YSsurround
+nmap ySS <Plug>YSsurround
+xmap s   <Plug>VSurround
+xmap і   <Plug>VSurround
 " TODO: surround by spaces without double press space
 autocmd FileType * let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
 autocmd FileType * let b:surround_{char2nr("(")} = "(\r)"

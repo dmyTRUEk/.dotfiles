@@ -31,10 +31,10 @@ set recolor-lightcolor "#282828"
 set highlight-transparency 0.1
 set highlight-color "#b57614"
 set highlight-active-color "#b8bb26"
-# set highlight-fg "#ff00ff"
+#set highlight-fg "#ff00ff"
 
 set default-bg "#242424"
-# set default-fg "#ff0000"
+#set default-fg "#ff0000"
 
 set statusbar-bg "#282828"
 set statusbar-fg "#f9f5d7"

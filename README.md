@@ -79,7 +79,7 @@ Solution: install `swaybg` package.
 ## Run JetBrains (or maybe other Java based apps)
 Solution: add `env _JAVA_AWT_WM_NONREPARENTING=1` to app's `.desktop` file.
 
-Or just `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
+Or just run `_JAVA_AWT_WM_NONREPARENTING=1 <your_app_name>`.
 
 ## Skype don't remember login
 Install `gnome-keyring` package.

@@ -359,7 +359,7 @@ call plug#begin()
 Plug 'ErichDonGubler/vim-sublime-monokai'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'kjssad/quantum.vim'
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'catppuccin/nvim'
 Plug 'projekt0n/github-nvim-theme'
@@ -453,6 +453,21 @@ call plug#end()
 """ Colorscheme Settings:
 set termguicolors       " enable true colors support
 set background=dark
+lua << EOF
+require("gruvbox").setup({
+    overrides = {
+        Operator = { link = "GruvboxOrange" }, -- undo italic
+        -- change diagnostic colors:
+        DiagnosticHint = { link = "GruvboxYellow" },
+        DiagnosticSignHint = { link = "GruvboxYellowSign" },
+        DiagnosticUnderlineHint = { link = "GruvboxYellowUnderline" },
+        DiagnosticFloatingHint = { link = "GruvboxYellow" },
+        DiagnosticVirtualTextHint = { link = "GruvboxYellow" },
+        -- rust btw
+        rustCommentLineDoc = { link = "Special" },
+    }
+})
+EOF
 colorscheme gruvbox
 
 

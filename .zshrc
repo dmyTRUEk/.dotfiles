@@ -1,11 +1,11 @@
 # dmyTRUEk's ZSH config file
 
 # If you come from bash you might have to change your $PATH.
-path+=('/home/myshko/.local/bin')
-path+=('/home/myshko/.cargo/bin')
-path+=('/home/myshko/Android/Sdk/platform-tools')
+path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
+path+=("$HOME/Android/Sdk/platform-tools")
 #path+=('/opt/android-studio/jre/bin')
-#path+=('/home/myshko/Development/flutter/bin')
+#path+=("$HOME/Development/flutter/bin")
 #path+=('/snap/bin/rust-analyzer')
 export PATH
 #export MANPATH="/usr/local/man:$MANPATH"

@@ -400,14 +400,17 @@ Plug 'sirver/ultisnips'
 
 " find and replace
 Plug 'dmytruek/find-and-replace'
+"Plug '~/Code/nvim-plugins/find-and-replace'
 
 " arguments manager
 Plug 'dmytruek/argument-text-object'
+"Plug '~/Code/nvim-plugins/argument-text-object'
 
 
 """ UI Plugins:
 " better status bar
 Plug 'nvim-lualine/lualine.nvim'
+"Plug '~/Code/nvim-plugins/lualine.nvim'
 
 " file manager
 Plug 'preservim/nerdtree'

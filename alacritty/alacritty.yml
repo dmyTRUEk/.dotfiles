@@ -110,11 +110,11 @@ scrolling:
   # How many lines of scrollback to keep,
   # '0' will disable scrolling.
   history: 10000
-    
+
   # Number of lines the viewport will move for every line
   # scrolled when scrollback is enabled (history > 0).
   multiplier: 3
-   
+
   # Faux Scrolling
   #
   # The `faux_multiplier` setting controls the number
@@ -124,13 +124,17 @@ scrolling:
   #
   # To disable this completely, set `faux_multiplier` to 0.
   faux_multiplier: 1
-   
+
   # Automatically scroll to the bottom when new text is written
   # to the terminal.
   auto_scroll: false
 
 # Font configuration
 font:
+  # Point size
+  size: 13.0
+  # size: 20.0 # for demonstrations
+
   # Normal (roman) font face
   normal:
     # Font family
@@ -176,9 +180,6 @@ font:
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
-
-  # Point size
-  size: 15.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -753,6 +754,23 @@ hints:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
+  - { key: V,      mods: Control|Shift,                   action: Paste   }
+  - { key: C,      mods: Control|Shift,                   action: Copy    }
+
+  - { key: Escape,                      mode: Vi|~Search, action: ToggleViMode }
+
+  - { key: J,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown }
+  - { key: K,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp }
+
+  # TODO: center after `n` -> `nz`
+  - { key: N,                           mode: Vi|~Search, action: SearchNext } # CenterAroundViCursor
+  # - { key: Comma,     mods: Command,      command:
+  #     {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]} }
+  # alacritty msg -s ? CenterAroundViCursor
+
+  # TODO: dynamic window transparency/opacity
+  # - { key: Equals, mods: Control|Shift,                   action: IncreaseWindowOpacity }
+  # - { key: Minus,  mods: Control|Shift,                   action: DecreaseWindowOpacity }
 
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
@@ -762,22 +780,6 @@ key_bindings:
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
-
-  - { key: V,      mods: Control|Shift,                   action: Paste   }
-  - { key: C,      mods: Control|Shift,                   action: Copy    }
-
-  - { key: Escape,                      mode: Vi|~Search, action: ToggleViMode }
-
-  - { key: J,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown }
-  - { key: K,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp }
-
-  # TODO:
-  # - { key: Equals, mods: Control|Shift,                   action: IncreaseWindowOpacity }
-  # - { key: Minus,  mods: Control|Shift,                   action: DecreaseWindowOpacity }
-
-  # TODO: make this for alacritty but not for neovim -> solution: this is zsh problem, not alacritty
-  #- { key: D,              mods: Control,               action: ReceiveChar      }
-  #- { key: D,              mods: Control,               chars: "\x1b[5~"         }
 
   #- { key: F,              mods: Control|Shift, mode: ~Search,    action: SearchForward    }
   #- { key: B,              mods: Control|Shift, mode: ~Search,    action: SearchBackward   }

@@ -160,6 +160,7 @@ bindkey -M main '^J' history-substring-search-down
 bindkey -M main '^K' history-substring-search-up
 bindkey -M main '^L' forward-char
 # TODO: bind: <C-backspace> - backspace word
+#bindkey -M main '^?' backward-kill-word
 
 
 

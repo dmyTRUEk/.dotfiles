@@ -23,17 +23,15 @@
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  # TERM: alacritty
+  #TERM: alacritty
 
 window:
-  # transparent
-  opacity: 1.0
-
   # Window dimensions (changes require restart)
   #
-  # Number of lines/columns (not pixels) in the terminal. The number of columns
-  # must be at least `2`, while using a value of `0` for columns and lines will
-  # fall back to the window manager's recommended size.
+  # Number of lines/columns (not pixels) in the terminal. Both lines and columns
+  # must be non-zero for this to take effect. The number of columns must be at
+  # least `2`, while using a value of `0` for columns and lines will fall back
+  # to the window manager's recommended size
   #dimensions:
   #  columns: 0
   #  lines: 0
@@ -68,6 +66,12 @@ window:
   #     - buttonless: Title bar, transparent background and no title bar buttons
   #decorations: full
 
+  # Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 1.0
+
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
@@ -92,27 +96,19 @@ window:
     # General application class
     #general: Alacritty
 
-  # GTK theme variant (Linux/BSD only)
+  # Decorations theme variant (Linux/BSD only)
   #
-  # Override the variant of the GTK theme. Commonly supported values are `dark`
-  # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
-
-#scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  #history: 10000
-
-  # Scrolling distance multiplier.
-  #multiplier: 3
+  # Override the variant of the GTK theme/Wayland client side decorations.
+  # Commonly supported values are `dark` and `light`. Set this to `None` to use
+  # the default theme variant.
+  #decorations_theme_variant: None
 
 scrolling:
-  # How many lines of scrollback to keep,
-  # '0' will disable scrolling.
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
   history: 10000
 
-  # Number of lines the viewport will move for every line
-  # scrolled when scrollback is enabled (history > 0).
+  # Scrolling distance multiplier.
   multiplier: 3
 
   # Faux Scrolling
@@ -195,21 +191,19 @@ font:
   #  x: 0
   #  y: 0
 
-  # Thin stroke font rendering (macOS only)
+  # Use built-in font for box drawing characters.
   #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`.
-  #use_thin_strokes: true
+  # If `true`, Alacritty will use a custom built-in font for box drawing
+  # characters (Unicode points 2500 - 259f).
+  #
+  builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
-# draw_bold_text_with_bright_colors: false
+#draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
 colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
   primary:
     background: '#282828'
     foreground: '#c5c8c6'
@@ -256,11 +250,7 @@ colors:
     #  foreground: '#ffffff'
     #  background: '#000000'
 
-    #bar:
-    #  background: '#c5c8c6'
-    #  foreground: '#1d1f21'
-
-  # Keyboard regex hints
+  # Keyboard hints
   #hints:
     # First character in the hint label
     #
@@ -287,6 +277,15 @@ colors:
   #line_indicator:
   #  foreground: None
   #  background: None
+
+  # Footer bar
+  #
+  # Color used for the footer bar on the bottom, used by search regex input,
+  # hyperlink URI preview, etc.
+  #
+  #footer_bar:
+  #  background: '#c5c8c6'
+  #  foreground: '#1d1f21'
 
   # Selection colors
   #
@@ -344,6 +343,13 @@ colors:
   #
   #indexed_colors: []
 
+  # Transparent cell backgrounds
+  #
+  # Whether or not `window.opacity` applies to all cell backgrounds or only to
+  # the default background. When set to `true` all cells will be transparent
+  # regardless of their background color.
+  #transparent_background_colors: false
+
 # Bell
 #
 # The bell is rung every time the BEL control character is received.
@@ -385,19 +391,12 @@ colors:
   #
   #command: None
 
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 0.9
-
 selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  # save_to_clipboard: true
   save_to_clipboard: false
 
 cursor:
@@ -409,7 +408,6 @@ cursor:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    #shape: Beam
     shape: Block
 
     # Cursor blinking state
@@ -432,6 +430,11 @@ cursor:
   # Cursor blinking interval in milliseconds.
   #blink_interval: 750
 
+  # Time after which cursor stops blinking, in seconds.
+  #
+  # Specifying '0' will disable timeout for blinking.
+  #blink_timeout: 5
+
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
   #unfocused_hollow: true
@@ -450,8 +453,7 @@ live_config_reload: true
 # shell.
 #
 # Default:
-#   - (macOS) /bin/bash --login
-#   - (Linux/BSD) user login shell
+#   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
 #shell:
 #  program: /bin/bash
@@ -467,6 +469,9 @@ live_config_reload: true
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
+# Offer IPC using `alacritty msg` (unix only)
+#ipc_socket: true
+
 #mouse:
   # Click settings
   #
@@ -479,18 +484,22 @@ live_config_reload: true
   # If this is `true`, the cursor is temporarily hidden when typing.
   #hide_when_typing: false
 
-# Regex hints
+# Hints
 #
-# Terminal hints can be used to find text in the visible part of the terminal
-# and pipe it to other applications.
+# Terminal hints can be used to find text or hyperlink in the visible part of
+# the terminal and pipe it to other applications.
 hints:
   # Keys used for the hint labels.
   #alphabet: "jfkdls;ahgurieowpq"
 
   # List with all available hints
   #
-  # Each hint must have a `regex` and either an `action` or a `command` field.
-  # The fields `mouse`, `binding` and `post_processing` are optional.
+  # Each hint must have any of `regex` or `hyperlinks` field and either an
+  # `action` or a `command` field. The fields `mouse`, `binding` and
+  # `post_processing` are optional.
+  #
+  # The `hyperlinks` option will cause OSC 8 escape sequence hyperlinks to be
+  # highlighted.
   #
   # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and
   # `mouse.mods` accept the same values as they do in the `key_bindings` section.
@@ -500,7 +509,8 @@ hints:
   #
   # If the `post_processing` field is set to `true`, heuristics will be used to
   # shorten the match if there are characters likely not to be part of the hint
-  # (e.g. a trailing `.`). This is most useful for URIs.
+  # (e.g. a trailing `.`). This is most useful for URIs and applies only to
+  # `regex` matches.
   #
   # Values for `action`:
   #   - Copy
@@ -514,6 +524,7 @@ hints:
   #enabled:
   # - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
   #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+  #   hyperlinks: true
   #   command: xdg-open
   #   post_processing: true
     mouse:
@@ -541,13 +552,20 @@ hints:
 #   - Right
 #   - Numeric identifier such as `5`
 #
-# - `action` (see key bindings)
+# - `action` (see key bindings for actions not exclusive to mouse mode)
+#
+# - Mouse exclusive actions:
+#
+#   - ExpandSelection
+#       Expand the selection to the current mouse cursor location.
 #
 # And optionally:
 #
 # - `mods` (see key bindings)
 #mouse_bindings:
-#  - { mouse: Middle, action: PasteSelection }
+#  - { mouse: Right,                 action: ExpandSelection }
+#  - { mouse: Right,  mods: Control, action: ExpandSelection }
+#  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
 
 # Key bindings
 #
@@ -616,6 +634,8 @@ hints:
 #   - ToggleFullscreen
 #   - SpawnNewInstance
 #       Spawn a new instance of Alacritty.
+#   - CreateNewWindow
+#       Create a new Alacritty window from the current process.
 #   - ClearLogNotice
 #       Clear Alacritty's UI warning and error notice.
 #   - ClearSelection
@@ -633,6 +653,8 @@ hints:
 #   - ToggleBlockSelection
 #   - ToggleSemanticSelection
 #       Toggle semantic selection based on `selection.semantic_escape_chars`.
+#   - CenterAroundViCursor
+#       Center view around vi mode cursor
 #
 # - Vi mode exclusive cursor motion actions:
 #
@@ -776,9 +798,9 @@ key_bindings:
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi|~Search, chars: "\x0c"          }
-  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp,  }
+  #- { key: PageUp,    mods: Shift,   mode: ~Alt,        action: ScrollPageUp   }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
-  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
+  #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop    }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   #- { key: F,              mods: Control|Shift, mode: ~Search,    action: SearchForward    }
@@ -815,6 +837,7 @@ key_bindings:
   #- { key: V,      mods: Control,       mode: Vi|~Search, action: ToggleBlockSelection    }
   #- { key: V,      mods: Alt,           mode: Vi|~Search, action: ToggleSemanticSelection }
   #- { key: Return,                      mode: Vi|~Search, action: Open                    }
+  #- { key: Z,                           mode: Vi|~Search, action: CenterAroundViCursor    }
   #- { key: K,                           mode: Vi|~Search, action: Up                      }
   #- { key: J,                           mode: Vi|~Search, action: Down                    }
   #- { key: H,                           mode: Vi|~Search, action: Left                    }

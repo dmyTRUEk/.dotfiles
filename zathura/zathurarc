@@ -4,6 +4,9 @@ set selection-clipboard clipboard
 set font "JetBrains Mono"
 set guioptions "sv"
 
+set window-title-basename true
+set statusbar-home-tilde true
+
 map Q quit
 unmap q
 

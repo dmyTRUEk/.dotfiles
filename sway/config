@@ -96,6 +96,9 @@
     # Programs default workspaces
     assign [app_id="firefox"]              workspace $workspace_1
     assign [app_id="telegram"]             workspace $workspace_2
+    assign [app_id="steam"]                workspace $workspace_7
+    assign [app_id="discord"]              workspace $workspace_8
+    assign [app_id="obs"]                  workspace $workspace_9
 
     # floating windows
     for_window [window_role="About"]        floating enable

@@ -139,6 +139,7 @@ Workaround: uninstall `imagemagick`.
 
 # TODO:
 - `! meta`: remove screenshots from `.git/`, so they don't take up space
+- `sway`: create binds and scripts for translating text from one keyboard layout to another.
 - `sway`: make skype not floating
 - `neovim`: find/make binds for `var_name` <-> `VarName` <-> `VAR_NAME`
 - `neovim`: change default rust snippets for macros (`println!()`, `todo!()`, `dbg!();`(also fix cursor position)) to have `;` at the end

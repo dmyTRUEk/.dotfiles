@@ -238,6 +238,7 @@ alias nu='nvim ~/.config/nvim/UltiSnips/'
 alias nw='nvim ~/.config/waybar/config'
 alias ny='nvim ~/.config/yofi/yofi.config'
 alias nz='nvim ~/.zshrc'
+alias nza='nvim ~/.config/zathura/zathurarc'
 alias nzh='nvim ~/.zsh_history'
 
 ## GIT related:

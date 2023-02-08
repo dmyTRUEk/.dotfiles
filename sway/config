@@ -93,6 +93,9 @@
     #gaps inner 10
     #gaps outer -10
 
+    # font in title bars
+    font JetBrains Mono 10
+
     # Programs default workspaces
     assign [app_id="firefox"]              workspace $workspace_1
     assign [app_id="telegram"]             workspace $workspace_2

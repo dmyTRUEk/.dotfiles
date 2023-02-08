@@ -17,6 +17,8 @@ priority 1
 snippet t "#[cfg(test)] mod tests { … }" b
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
     fn $1() {
         $2

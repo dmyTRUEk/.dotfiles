@@ -172,7 +172,7 @@ function warn_deprecated {
 }
 
 ## Useful programs:
-alias ls='lsd'
+alias l='lsd'
 alias la='lsd -a'
 alias ll='lsd -al'
 alias duai='dua i'
@@ -254,7 +254,9 @@ alias gchb='git checkout -b'
 alias gcl='git clone'
 alias gcm='git commit -m'
 alias gd='git diff'
+alias gd.='git diff .'
 alias gds='git diff --staged'
+alias gds.='git diff --staged .'
 alias gl='git log --oneline --decorate --graph'
 alias gm='git merge'
 alias gmt='git mergetool'

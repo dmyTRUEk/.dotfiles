@@ -544,8 +544,10 @@ autocmd FileType tex let b:surround_{char2nr("t")} = "\\text{\r}"
 
 " vim-exchange (swap two text selections):
 " better map in visual mode:
-vmap x X
-vmap ч X
+vnoremap x <Plug>(Exchange)
+vnoremap ч <Plug>(Exchange)
+nnoremap X <Plug>(Exchange)
+nnoremap Ч <Plug>(Exchange)
 
 
 " quick-scope (highlight when pressing `f`):

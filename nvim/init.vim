@@ -657,12 +657,12 @@ let NERDTreeIgnore = ['\.bin$', '\.png$', '\.jpg$', '\.jpeg'] " ignore files wit
 
 " scrollbar (show scroll progress as bar on the right):
 augroup ScrollbarInit
-  autocmd!
-  " + QuitPre, but why?
-  autocmd FocusGained,VimEnter,VimResized,WinScrolled * silent! lua require('scrollbar').show()
-  " this line breaks nvim's diff mode:
-  " autocmd WinEnter * silent! lua require('scrollbar').show()
-  autocmd BufLeave,BufWinLeave,FocusLost,WinLeave * silent! lua require('scrollbar').clear()
+    autocmd!
+    " + QuitPre, but why?
+    autocmd FocusGained,VimEnter,VimResized,WinScrolled * silent! lua require('scrollbar').show()
+    " this line breaks nvim's diff mode:
+    " autocmd WinEnter * silent! lua require('scrollbar').show()
+    autocmd BufLeave,BufWinLeave,FocusLost,WinLeave * silent! lua require('scrollbar').clear()
 augroup end
 let g:scrollbar_min_size = 1
 let g:scrollbar_max_size = 10
@@ -690,16 +690,16 @@ nnoremap <leader>u :Telescope jumplist <cr>
 nnoremap <leader>г :Telescope jumplist <cr>
 "nnoremap <leader>x :Telescope quickfix <cr>
 lua << EOF
-    local actions = require("telescope.actions")
-    require("telescope").setup{
-      defaults = {
+local actions = require("telescope.actions")
+require("telescope").setup{
+    defaults = {
         mappings = {
-          i = {
-            ["<esc>"] = actions.close
-          },
+            i = {
+                ["<esc>"] = actions.close
+            },
         },
-      },
-    }
+    },
+}
 EOF
 
 

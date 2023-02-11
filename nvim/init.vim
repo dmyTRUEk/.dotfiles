@@ -320,16 +320,6 @@ nnoremap <silent> <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction
 " VIM or NEOVIM specific configs
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
-"func! s:SetTextVimOrNvim()
-"    if has('nvim')
-"        " echom 'NEOVIM'
-"        let g:airline_section_x = 'neovim'
-"    else
-"        " echom 'VIM'
-"        let g:airline_section_x = 'vim'
-"    endif
-"endf
-"call s:SetTextVimOrNvim()
 
 
 
@@ -395,8 +385,8 @@ Plug 'tpope/vim-commentary'
 Plug 'sirver/ultisnips'
 
 " git wrapper
-"Plug 'tpope/vim-fugitive'
 " TODO?: enable and come up with some good binds
+"Plug 'tpope/vim-fugitive'
 
 " find and replace
 Plug 'dmytruek/find-and-replace'
@@ -952,9 +942,6 @@ func! s:SetupEverythingForLatex()
 
     nnoremap 0 g^
     nnoremap - g$
-
-    " TODO?: make it work
-    "call SetTextVimOrNvim()
 
     let g:tex_flavor = 'latex'
 

@@ -93,6 +93,9 @@
     #gaps inner 10
     #gaps outer -10
 
+    $btrbindsym $mod+b border pixel 100
+    client.focused #4c7899 #285577 #ffffff #2e9ef4 #282828
+
     # font in title bars
     font JetBrains Mono 10
 
@@ -360,13 +363,12 @@
     # Switch the current container between different layout styles
     $btrbindsym $mod+w layout tabbed
     $btrbindsym $mod+e layout toggle split
-    # i disabled stacking layout, because it is useless, lmao
+    # i disabled stacking layout, because it's useless, lmao
     #$btrbindsym $mod+s layout stacking
 
-    # You can <split> the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits respectively.
+    # Split current object of your focus vertically or horizontally.
     $btrbindsym $mod+v splitv
-    $btrbindsym $mod+b splith
+    $btrbindsym $mod+Shift+v splith
 
     # Make the current focus fullscreen
     $btrbindsym F11 fullscreen

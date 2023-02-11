@@ -403,7 +403,7 @@ Plug 'dmytruek/find-and-replace'
 "Plug '~/Code/nvim-plugins/find-and-replace'
 
 " arguments manager
-Plug 'dmytruek/argument-text-object'
+"Plug 'dmytruek/argument-text-object'
 "Plug '~/Code/nvim-plugins/argument-text-object'
 
 
@@ -420,6 +420,7 @@ Plug 'Xuyuanp/scrollbar.nvim'
 
 " find files and text in them
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -671,6 +672,93 @@ let g:scrollbar_winblend = 50
 let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 
 
+" treesitter:
+lua << EOF
+require('nvim-treesitter.configs').setup {
+    ensure_installed = {
+        "c", "lua", "vim", "help", -- these are reqired
+        --"cpp",
+        --"kotlin",
+        --"latex",
+        --"lua",
+        "python",
+        "rust",
+        --"yaml",
+    },
+    highlight = { enable = true },
+    -- indent = { enable = false, disable = { "python", "css" } },
+    -- indent = { enable = false },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = '<c-space>',
+            node_incremental = '<c-space>',
+            scope_incremental = '<c-s>',
+            node_decremental = '<c-backspace>',
+        },
+    },
+    textobjects = { -- `nvim-treesitter-textobjects` required for this.
+        select = {
+            enable = true,
+            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+            keymaps = {
+                -- You can use the capture groups defined in textobjects.scm
+                ['aa'] = '@parameter.outer',
+                ['ia'] = '@parameter.inner',
+                ['ab'] = '@block.outer',
+                ['ib'] = '@block.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.inner',
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+            },
+        },
+        move = {
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+                [']]'] = '@block.inner',
+                [']a'] = '@parameter.inner',
+                [']b'] = '@block.inner',
+                [']c'] = '@class.outer',
+                [']f'] = '@function.outer',
+            },
+            goto_previous_start = {
+                ['[['] = '@block.inner',
+                ['[a'] = '@parameter.inner',
+                ['[b'] = '@block.inner',
+                ['[c'] = '@class.outer',
+                ['[f'] = '@function.outer',
+            },
+            goto_next_end = {
+                [']['] = '@block.inner',
+                [']A'] = '@parameter.inner',
+                [']B'] = '@block.inner',
+                [']C'] = '@class.outer',
+                [']F'] = '@function.outer',
+            },
+            goto_previous_end = {
+                ['[]'] = '@block.inner',
+                ['[A'] = '@parameter.inner',
+                ['[B'] = '@block.inner',
+                ['[C'] = '@class.outer',
+                ['[F'] = '@function.outer',
+            },
+        },
+        swap = {
+            enable = true,
+            swap_next = {
+                ['>a'] = '@parameter.inner',
+            },
+            swap_previous = {
+                ['<a'] = '@parameter.inner',
+            },
+        },
+    },
+}
+EOF
+
+
 " telescope (different pickers, sorters and previewers):
 nnoremap gd        :Telescope lsp_definitions <cr>
 nnoremap gD        :Telescope lsp_type_definitions <cr>
@@ -724,8 +812,8 @@ nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename() <cr>
 nnoremap <silent> <leader>d <cmd>lua vim.diagnostic.open_float() <cr>
 nnoremap <silent> g[        <cmd>lua vim.diagnostic.goto_prev() <cr>
 nnoremap <silent> g]        <cmd>lua vim.diagnostic.goto_next() <cr>
-nnoremap <silent> [c        <cmd>lua vim.diagnostic.goto_prev() <cr>
-nnoremap <silent> ]c        <cmd>lua vim.diagnostic.goto_next() <cr>
+"nnoremap <silent> [c        <cmd>lua vim.diagnostic.goto_prev() <cr>
+"nnoremap <silent> ]c        <cmd>lua vim.diagnostic.goto_next() <cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action() <cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
 "nnoremap <silent> gD        <cmd>lua vim.lsp.buf.type_definition() <cr>

@@ -816,77 +816,78 @@ nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
 "nnoremap <silent> gW       <cmd>lua vim.lsp.buf.workspace_symbol() <cr>
 
 lua << EOF
-    -- enable this to print debug info to ~/.cache/nvim/lsp.log
-    --vim.lsp.set_log_level('debug')
-    local cmp = require('cmp')
-    cmp.setup({
-        mapping = {
-            ['<cr>'] = cmp.mapping.confirm({ select = true }),
-            ['<tab>'] = function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item()
-                else
-                    fallback()
-                end
-            end,
-            ['<S-tab>'] = function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item()
-                else
-                    fallback()
-                end
-            end,
-            ['<A-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-            ['<C-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-            --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-            --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-            --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove default `<C-y>` mapping
-            --['<C-e>'] = cmp.mapping({
-            --  i = cmp.mapping.abort(),
-            --  c = cmp.mapping.close(),
-            --}),
-        },
-        sources = {
-            { name = 'nvim_lsp' }, --, group_index = 1
-            --{ name = "nvim_lsp_signature_help" },  -- TODO: try it (from https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples)
-            { name = 'buffer', option = { keyword_pattern = [[\Z\k\+]] } }, --, group_index = 3
-            { name = 'path' },
-            { name = 'ultisnips' }, -- for ultisnips users (, group_index = 2)
-            --{ name = 'vsnip' },                    -- for vsnip users
-            --{ name = 'snippy' },                   -- for snippy users
-            --{ name = 'luasnip' },                  -- for luasnip users
-        },
-        snippet = {
-            -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine
-            expand = function(args)
-                vim.fn["UltiSnips#Anon"](args.body)           -- for `ultisnips` users
-                --vim.fn["vsnip#anonymous"](args.body)        -- for `vsnip` users
-                --require'snippy'.expand_snippet(args.body)   -- for `snippy` users
-                --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users
-            end,
-        },
-    })
-    -- use buffer source for `/` (if you enabled `native_menu`, this won't work anymore)
-    --cmp.setup.cmdline('/', {
-    --    sources = {
-    --        { name = 'buffer' }
-    --    }
-    --})
-    -- use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore)
-    --cmp.setup.cmdline(':', {
-    --    sources = cmp.config.sources({
-    --        { name = 'path' }
-    --    }, {
-    --        { name = 'cmdline' }
-    --    })
-    --})
-    local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-    local servers = { 'rust_analyzer', 'pyright' }
-    for _, lsp in pairs(servers) do
-        require('lspconfig')[lsp].setup {
-            capabilities = capabilities
-        }
-    end
+-- enable this to print debug info to ~/.cache/nvim/lsp.log
+--vim.lsp.set_log_level('debug')
+local cmp = require('cmp')
+cmp.setup({
+    mapping = {
+        ['<cr>'] = cmp.mapping.confirm({ select = true }),
+        ['<tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end,
+        ['<S-tab>'] = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end,
+        ['<A-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<C-space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        --['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        --['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        --['<C-y>'] = cmp.config.disable, -- specify `cmp.config.disable` if you want to remove default `<C-y>` mapping
+        --['<C-e>'] = cmp.mapping({
+        --    i = cmp.mapping.abort(),
+        --    c = cmp.mapping.close(),
+        --}),
+    },
+    sources = {
+        { name = 'nvim_lsp' }, --, group_index = 1
+        --{ name = "nvim_lsp_signature_help" },  -- TODO: try it (from https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples)
+        -- TODO: dont ignore \ and ' in latex
+        { name = 'buffer', option = { keyword_pattern = [[\Z\k\+]] } }, --, group_index = 3
+        { name = 'path' },
+        { name = 'ultisnips' }, -- for ultisnips users (, group_index = 2)
+        --{ name = 'vsnip' },                    -- for vsnip users
+        --{ name = 'snippy' },                   -- for snippy users
+        --{ name = 'luasnip' },                  -- for luasnip users
+    },
+    snippet = {
+        -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine
+        expand = function(args)
+            vim.fn["UltiSnips#Anon"](args.body)           -- for `ultisnips` users
+            --vim.fn["vsnip#anonymous"](args.body)        -- for `vsnip` users
+            --require'snippy'.expand_snippet(args.body)   -- for `snippy` users
+            --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users
+        end,
+    },
+})
+-- use buffer source for `/` (if you enabled `native_menu`, this won't work anymore)
+--cmp.setup.cmdline('/', {
+--    sources = {
+--        { name = 'buffer' }
+--    }
+--})
+-- use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore)
+--cmp.setup.cmdline(':', {
+--    sources = cmp.config.sources({
+--        { name = 'path' }
+--    }, {
+--        { name = 'cmdline' }
+--    })
+--})
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local servers = { 'rust_analyzer', 'pyright' }
+for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+        capabilities = capabilities
+    }
+end
 EOF
 
 

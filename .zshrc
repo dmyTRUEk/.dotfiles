@@ -214,17 +214,29 @@ alias nd='nvim -d'
 # TODO: open all this files even when not in root of project (find root by `.git/`)
 alias nre='nvim README.md'
 function nm {
+    MAIN_FILE_C="main.c"
+    MAIN_FILE_CPP="main.cpp"
     MAIN_FILE_LATEX="main.tex"
     MAIN_FILE_PYTHON='main.py'
     MAIN_FILE_RUST="src/main.rs"
-    if [[ -f "$MAIN_FILE_LATEX" ]]; then
-        nvim "$MAIN_FILE_LATEX"
+    if [[ -f "$MAIN_FILE_C" ]]; then
+        # `$@` - all positional arguments, e.g. `+:42`, `-o file2`.
+        nvim "$MAIN_FILE_C" $@
+
+    elif [[ -f "$MAIN_FILE_CPP" ]]; then
+        nvim "$MAIN_FILE_CPP" $@
+
+    elif [[ -f "$MAIN_FILE_LATEX" ]]; then
+        nvim "$MAIN_FILE_LATEX" $@
+
     elif [[ -f "$MAIN_FILE_PYTHON" ]]; then
-        nvim "$MAIN_FILE_PYTHON"
+        nvim "$MAIN_FILE_PYTHON" $@
+
     elif [[ -f "$MAIN_FILE_RUST" ]]; then
-        nvim "$MAIN_FILE_RUST"
+        nvim "$MAIN_FILE_RUST" $@
+
     else
-        echo 'No main file found.'
+        echo 'No known main file found.'
     fi
 }
 alias nc='nvim Cargo.toml'

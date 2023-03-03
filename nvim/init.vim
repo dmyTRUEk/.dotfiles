@@ -708,6 +708,8 @@ require('nvim-treesitter.configs').setup {
                 ['if'] = '@function.inner',
                 ['ar'] = '@return.outer',
                 ['ir'] = '@return.inner',
+                ['is'] = '@assignment.rhs',
+                ['as'] = '@assignment.outer',
             },
         },
         move = {
@@ -720,6 +722,7 @@ require('nvim-treesitter.configs').setup {
                 [']c'] = '@class.outer',
                 [']f'] = '@function.outer',
                 [']r'] = '@return.inner',
+                [']s'] = '@assignment.rhs',
             },
             goto_previous_start = {
                 ['[['] = '@block.inner',
@@ -728,6 +731,7 @@ require('nvim-treesitter.configs').setup {
                 ['[c'] = '@class.outer',
                 ['[f'] = '@function.outer',
                 ['[r'] = '@return.inner',
+                ['[s'] = '@assignment.rhs',
             },
             goto_next_end = {
                 [']['] = '@block.inner',
@@ -736,6 +740,7 @@ require('nvim-treesitter.configs').setup {
                 [']C'] = '@class.outer',
                 [']F'] = '@function.outer',
                 [']R'] = '@return.inner',
+                [']S'] = '@assignment.rhs',
             },
             goto_previous_end = {
                 ['[]'] = '@block.inner',
@@ -744,6 +749,7 @@ require('nvim-treesitter.configs').setup {
                 ['[C'] = '@class.outer',
                 ['[F'] = '@function.outer',
                 ['[R'] = '@return.inner',
+                ['[S'] = '@assignment.rhs',
             },
         },
         swap = {

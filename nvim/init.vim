@@ -428,14 +428,14 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 "Plug 'folke/lsp-colors.nvim'
 
+" kotlin syntax highlight
+"Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
+
 " for latex
 "Plug 'lervag/vimtex'        ,{'for': ['tex']}
 
 " markdown preview in browser
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" kotlin syntax highlight
-Plug 'udalov/kotlin-vim'    ,{'for': ['kt']}
 
 " rust-analyzer additional features (inlay hints, etc)
 "Plug 'simrat39/rust-tools.nvim'

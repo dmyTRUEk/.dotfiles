@@ -676,7 +676,6 @@ require('nvim-treesitter.configs').setup {
         --"cpp",
         --"kotlin",
         --"latex",
-        --"lua",
         "python",
         "rust",
         --"yaml",

@@ -408,11 +408,12 @@ Plug 'preservim/nerdtree'
 " scrollbar
 Plug 'Xuyuanp/scrollbar.nvim'
 
-" find files and text in them
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" better syntax highlight
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground'
 
+" find files, text in them, change colorscheme(palette), etc
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'

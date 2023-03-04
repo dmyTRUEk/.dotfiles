@@ -290,25 +290,25 @@
     focus_follows_mouse always
 
     # Move your focus around
-    $btrbindsym $mod+$left focus left
-    $btrbindsym $mod+$down focus down
-    $btrbindsym $mod+$up focus up
+    $btrbindsym $mod+$left  focus left
+    $btrbindsym $mod+$down  focus down
+    $btrbindsym $mod+$up    focus up
     $btrbindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
+    bindsym $mod+Left  focus left
+    bindsym $mod+Down  focus down
+    bindsym $mod+Up    focus up
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift:
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$left  move left
+    bindsym $mod+Shift+$down  move down
+    bindsym $mod+Shift+$up    move up
     bindsym $mod+Shift+$right move right
     # with arrow keys:
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Left  move left
+    bindsym $mod+Shift+Down  move down
+    bindsym $mod+Shift+Up    move up
     bindsym $mod+Shift+Right move right
     # with gestures:
     bindgesture swipe:4:up move up

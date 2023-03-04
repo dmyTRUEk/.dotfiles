@@ -214,12 +214,12 @@ alias nd='nvim -d'
 # TODO: open all this files even when not in root of project (find root by `.git/`)
 alias nre='nvim README.md'
 function nm {
-    MAIN_FILE_C="main.c"
-    MAIN_FILE_CPP="main.cpp"
-    MAIN_FILE_LATEX="main.tex"
-    MAIN_FILE_PYTHON='main.py'
-    MAIN_FILE_RUST="src/main.rs"
-    MAIN_FILE_RUST_IN_SRC="main.rs"
+    local MAIN_FILE_C="main.c"
+    local MAIN_FILE_CPP="main.cpp"
+    local MAIN_FILE_LATEX="main.tex"
+    local MAIN_FILE_PYTHON='main.py'
+    local MAIN_FILE_RUST="src/main.rs"
+    local MAIN_FILE_RUST_IN_SRC="main.rs"
 
     if [[ -f "$MAIN_FILE_C" ]]; then
         # `$@` - all positional arguments, e.g. `+:42`, `-o file2`.
@@ -298,7 +298,7 @@ function cl {
 
 # custom scripts:
 function countlinesofcode {
-    lines_of_code=0
+    local lines_of_code=0
     for file in $(tree -fiF --noreport | /usr/bin/grep -v /$); do
         lines_of_code=$(($lines_of_code+$(cat $file | sed "/^\s*$/d" | wc -l)));
     done

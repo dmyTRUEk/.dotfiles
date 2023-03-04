@@ -219,6 +219,8 @@ function nm {
     MAIN_FILE_LATEX="main.tex"
     MAIN_FILE_PYTHON='main.py'
     MAIN_FILE_RUST="src/main.rs"
+    MAIN_FILE_RUST_IN_SRC="main.rs"
+
     if [[ -f "$MAIN_FILE_C" ]]; then
         # `$@` - all positional arguments, e.g. `+:42`, `-o file2`.
         nvim "$MAIN_FILE_C" $@
@@ -234,6 +236,9 @@ function nm {
 
     elif [[ -f "$MAIN_FILE_RUST" ]]; then
         nvim "$MAIN_FILE_RUST" $@
+
+    elif [[ -f "$MAIN_FILE_RUST_IN_SRC" ]]; then
+        nvim "$MAIN_FILE_RUST_IN_SRC" $@
 
     else
         echo 'No known main file found.'

@@ -156,7 +156,7 @@
     for_window [class="discord"] exec sh -c $HOME/.config/sway/scripts/discord_pip.sh
 
     for_window [title="Zoom"] floating enable
-    for_window [title="Skype"] floating enable
+    #for_window [title="Skype"] floating enable
 
 
 

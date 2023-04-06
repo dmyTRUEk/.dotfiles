@@ -93,8 +93,8 @@
     #gaps inner 10
     #gaps outer -10
 
-    $btrbindsym $mod+b border pixel 100
-    $btrbindsym $mod+Shift+b border pixel 20
+    $btrbindsym $mod+b border pixel 20
+    $btrbindsym $mod+Shift+b border pixel 100
     client.focused          #4c7899 #285577 #ffffff #2e9ef4 #282828
     client.focused_inactive #333333 #5f676a #ffffff #484e50 #282828
     client.unfocused        #333333 #222222 #888888 #292d2e #282828

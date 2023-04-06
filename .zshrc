@@ -294,6 +294,25 @@ function cl {
     fi
 }
 
+# rust related:
+alias cc='cargo clean'
+alias ct='cargo test'
+#alias ctr='cargo test --release'
+
+alias cr='cargo run'
+alias crr='cargo run --release'
+alias crrn='RUSTFLAGS="-C target-cpu=native" cargo run --release'
+function ctrr { ( cargo test && cargo run --release $@ ) }
+# alias ctrr='(_ctrr)'
+function ctrrn { ( cargo test && RUSTFLAGS='-C target-cpu=native' cargo run --release $@ ) }
+# alias ctrrn='(_ctrrn)'
+
+alias cb='cargo build'
+alias cbr='cargo build --release'
+alias cbrn='RUSTFLAGS="-C target-cpu=native" cargo build --release'
+alias ctb='cargo test && cargo build'
+alias ctbr='cargo test && cargo build --release'
+alias ctbrn='cargo test && RUSTFLAGS="-C target-cpu=native" cargo build --release'
 
 
 # custom scripts:

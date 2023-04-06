@@ -441,12 +441,13 @@ mode "resize" {
 ## Multimedia keys
     # Pulse Audio controls
     # --locked - makes it work even on locked screen
-    # if sound doesnt work at all, try changing @DEFAULT_SINK@ to some number (0, 1, 2, ...)
+    # if sound doesnt work at all, try changing `@DEFAULT_SINK@` to some number (0, 1, 2, ...)
 
-    # increase sound volume
+    # increase/decrease sound volume
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    # decrease sound volume
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym --locked Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+    bindsym --locked Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
     # mute/unmute sound
     bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     # mute/unmute microphone
@@ -461,7 +462,6 @@ mode "resize" {
     # source: https://www.reddit.com/r/swaywm/comments/fk08lu/nicer_brightness_control/
     bindsym --locked XF86MonBrightnessUp   exec light -S "$(light -G | awk '{ print int(($1 + .72) * 1.4) }')"
     bindsym --locked XF86MonBrightnessDown exec light -S "$(light -G | awk '{ print int($1 / 1.4) }')"
-
 
 
 

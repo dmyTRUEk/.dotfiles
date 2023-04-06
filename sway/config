@@ -45,15 +45,23 @@
     set $workspace_2 2
     set $workspace_3 3
     set $workspace_4 4
-    set $workspace_5 5
-    set $workspace_6 6
-    set $workspace_7 7
-    set $workspace_8 8
-    set $workspace_9 9
-    set $workspace_10 10
+    #
+    set $workspace_q 5
+    set $workspace_w 6
+    set $workspace_e 7
+    set $workspace_r 8
+    #
+    set $workspace_a 9
+    set $workspace_s 10
+    set $workspace_d 11
+    set $workspace_f 12
+    #
+    set $workspace_z 13
+    set $workspace_x 14
+    set $workspace_c 15
+    set $workspace_v 16
 
-    # Dolphin settings:
-    # operation (copy/move/already exists/etc) window size
+    # Dolphin operation (copy/move/already exists/etc) window size:
     set $dolphin_operation_window_width_big 800
     set $dolphin_operation_window_width_small 1000
     set $dolphin_operation_window_height_big 500
@@ -103,11 +111,11 @@
     font JetBrains Mono 10
 
     # Programs default workspaces
-    assign [app_id="firefox"]              workspace $workspace_1
-    assign [app_id="telegram"]             workspace $workspace_2
-    assign [app_id="steam"]                workspace $workspace_7
-    assign [app_id="discord"]              workspace $workspace_8
-    assign [app_id="obs"]                  workspace $workspace_9
+    assign [class="firefox"]               workspace $workspace_1
+    assign [app_id="org.telegram.desktop"] workspace $workspace_2
+    assign [app_id="steam"]                workspace $workspace_s
+    assign [app_id="discord"]              workspace $workspace_d
+    assign [app_id="obs"]                  workspace $workspace_x
 
     # floating windows
     for_window [window_role="About"]        floating enable
@@ -227,13 +235,13 @@
     # bindsym $mod+Shift+plus exec $term --class="$term_floating_scratchpaded"
 
     # Terminate focused window
-    $btrbindsym $mod+q kill
+    $btrbindsym $mod+Backspace kill
     # Kill focused window
-    $btrbindsym $mod+Shift+q kill 9
+    $btrbindsym $mod+Shift+Backspace kill 9
 
     # Start your launcher (yofi)
-    $btrbindsym $mod+Shift+d exec $menu_all
-    $btrbindsym $mod+d exec $menu_apps
+    $btrbindsym $mod+m exec $menu_apps
+    $btrbindsym $mod+Shift+m exec $menu_all
     #bindsym --release Super_L exec $menu_apps
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -242,13 +250,13 @@
     floating_modifier $mod normal
 
     # Reload the configuration file
-    $btrbindsym $mod+Shift+c reload
+    $btrbindsym $mod+Ctrl+c reload
 
     # Lock Screen
     $btrbindsym $mod+Escape $lock_command
 
     # Exit Sway
-    $btrbindsym $mod+Shift+e exec swaynag \
+    $btrbindsym $mod+Ctrl+Backspace exec swaynag \
         -t warning \
         --font='JetBrains Mono 10' \
         --text=f9f5d7 \
@@ -304,10 +312,10 @@
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift:
-    bindsym $mod+Shift+$left  move left
-    bindsym $mod+Shift+$down  move down
-    bindsym $mod+Shift+$up    move up
-    bindsym $mod+Shift+$right move right
+    $btrbindsym $mod+Shift+$left  move left
+    $btrbindsym $mod+Shift+$down  move down
+    $btrbindsym $mod+Shift+$up    move up
+    $btrbindsym $mod+Shift+$right move right
     # with arrow keys:
     bindsym $mod+Shift+Left  move left
     bindsym $mod+Shift+Down  move down
@@ -327,54 +335,73 @@
     $btrbindsym $mod+grave workspace prev
     # with gestures:
     bindgesture swipe:3:right workspace prev
-    bindgesture swipe:3:left workspace next
+    bindgesture swipe:3:left  workspace next
 
     # Switch to workspace
-    bindsym $mod+1 workspace $workspace_1
-    bindsym $mod+2 workspace $workspace_2
-    bindsym $mod+3 workspace $workspace_3
-    bindsym $mod+4 workspace $workspace_4
-    bindsym $mod+5 workspace $workspace_5
-    bindsym $mod+6 workspace $workspace_6
-    bindsym $mod+7 workspace $workspace_7
-    bindsym $mod+8 workspace $workspace_8
-    bindsym $mod+9 workspace $workspace_9
-    bindsym $mod+0 workspace $workspace_10
+    $btrbindsym $mod+1 workspace $workspace_1
+    $btrbindsym $mod+2 workspace $workspace_2
+    $btrbindsym $mod+3 workspace $workspace_3
+    $btrbindsym $mod+4 workspace $workspace_4
+    #
+    $btrbindsym $mod+q workspace $workspace_q
+    $btrbindsym $mod+w workspace $workspace_w
+    $btrbindsym $mod+e workspace $workspace_e
+    $btrbindsym $mod+r workspace $workspace_r
+    #
+    $btrbindsym $mod+a workspace $workspace_a
+    $btrbindsym $mod+s workspace $workspace_s
+    $btrbindsym $mod+d workspace $workspace_d
+    $btrbindsym $mod+f workspace $workspace_f
+    #
+    $btrbindsym $mod+z workspace $workspace_z
+    $btrbindsym $mod+x workspace $workspace_x
+    $btrbindsym $mod+c workspace $workspace_c
+    $btrbindsym $mod+v workspace $workspace_v
+
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $workspace_1
-    bindsym $mod+Shift+2 move container to workspace $workspace_2
-    bindsym $mod+Shift+3 move container to workspace $workspace_3
-    bindsym $mod+Shift+4 move container to workspace $workspace_4
-    bindsym $mod+Shift+5 move container to workspace $workspace_5
-    bindsym $mod+Shift+6 move container to workspace $workspace_6
-    bindsym $mod+Shift+7 move container to workspace $workspace_7
-    bindsym $mod+Shift+8 move container to workspace $workspace_8
-    bindsym $mod+Shift+9 move container to workspace $workspace_9
-    bindsym $mod+Shift+0 move container to workspace $workspace_10
+    $btrbindsym $mod+Shift+1 move container to workspace $workspace_1
+    $btrbindsym $mod+Shift+2 move container to workspace $workspace_2
+    $btrbindsym $mod+Shift+3 move container to workspace $workspace_3
+    $btrbindsym $mod+Shift+4 move container to workspace $workspace_4
+    #
+    $btrbindsym $mod+Shift+q move container to workspace $workspace_q
+    $btrbindsym $mod+Shift+w move container to workspace $workspace_w
+    $btrbindsym $mod+Shift+e move container to workspace $workspace_e
+    $btrbindsym $mod+Shift+r move container to workspace $workspace_r
+    #
+    $btrbindsym $mod+Shift+a move container to workspace $workspace_a
+    $btrbindsym $mod+Shift+s move container to workspace $workspace_s
+    $btrbindsym $mod+Shift+d move container to workspace $workspace_d
+    $btrbindsym $mod+Shift+f move container to workspace $workspace_f
+    #
+    $btrbindsym $mod+Shift+z move container to workspace $workspace_z
+    $btrbindsym $mod+Shift+x move container to workspace $workspace_x
+    $btrbindsym $mod+Shift+c move container to workspace $workspace_c
+    $btrbindsym $mod+Shift+v move container to workspace $workspace_v
 
     # Shortcuts for start programs:
-    bindsym $mod+F1  workspace $workspace_1,  exec firefox
-    bindsym $mod+F2  workspace $workspace_2,  exec telegram-desktop
-    bindsym $mod+F3  workspace $workspace_3,  exec kitty env RANGER_LOAD_DEFAULT_RC=false ranger
-    bindsym $mod+F4  workspace $workspace_4,  exec alacritty
-    bindsym $mod+F5  workspace $workspace_5,  exec vlc
-    bindsym $mod+F6  workspace $workspace_6,  exec helvum
-    bindsym $mod+F7  workspace $workspace_7,  exec steam
-    bindsym $mod+F8  workspace $workspace_8,  exec discord
-    bindsym $mod+F9  workspace $workspace_9,  exec obs
-    bindsym $mod+F10 workspace $workspace_10, exec alacritty -e btop
+    bindsym $mod+F1  workspace $workspace_1, exec firefox
+    bindsym $mod+F2  workspace $workspace_2, exec telegram-desktop
+    bindsym $mod+F3  workspace $workspace_3, exec kitty env RANGER_LOAD_DEFAULT_RC=false ranger
+    bindsym $mod+F4  workspace $workspace_4, exec alacritty
+    bindsym $mod+F5  workspace $workspace_v, exec vlc
+    bindsym $mod+F6  workspace $workspace_v, exec helvum
+    bindsym $mod+F7  workspace $workspace_s, exec steam
+    bindsym $mod+F8  workspace $workspace_d, exec discord
+    bindsym $mod+F9  workspace $workspace_x, exec obs
+    bindsym $mod+F10 workspace $workspace_z, exec alacritty -e btop
 
 
 ## Layout stuff
     # Switch the current container between different layout styles
-    $btrbindsym $mod+w layout tabbed
-    $btrbindsym $mod+e layout toggle split
+    $btrbindsym $mod+t layout tabbed
+    $btrbindsym $mod+y layout toggle split
     # i disabled stacking layout, because it's useless, lmao
     #$btrbindsym $mod+s layout stacking
 
     # Split current object of your focus vertically or horizontally.
-    $btrbindsym $mod+v splitv
-    $btrbindsym $mod+Shift+v splith
+    $btrbindsym $mod+p splitv
+    $btrbindsym $mod+Shift+p splith
 
     # Make the current focus fullscreen
     $btrbindsym F11 fullscreen
@@ -389,14 +416,14 @@
     bindsym $mod+Shift+space floating toggle
 
     # Toggle Sticky (make window appear on all workspaces)
-    $btrbindsym $mod+s sticky toggle
+    $btrbindsym $mod+Ctrl+s sticky toggle
 
     # Move to Center
-    $btrbindsym $mod+c move position center
+    $btrbindsym $mod+n move position center
 
 
 ## Resizing containers
-$btrbindsym $mod+r mode "resize"
+$btrbindsym $mod+i mode "resize"
 mode "resize" {
     set $resize_step_small 16px
     set $resize_step_big 128px
@@ -406,24 +433,24 @@ mode "resize" {
     bindsym Escape mode "default"
 
     # Small step:
-    $btrbindsym $right resize grow   width $resize_step_big
-    $btrbindsym $left  resize shrink width $resize_step_big
+    $btrbindsym $right resize grow   width  $resize_step_big
+    $btrbindsym $left  resize shrink width  $resize_step_big
     $btrbindsym $up    resize grow   height $resize_step_big
     $btrbindsym $down  resize shrink height $resize_step_big
     # Same, with arrow keys
-    bindsym Right resize grow   width $resize_step_big
-    bindsym Left  resize shrink width $resize_step_big
+    bindsym Right resize grow   width  $resize_step_big
+    bindsym Left  resize shrink width  $resize_step_big
     bindsym Up    resize grow   height $resize_step_big
     bindsym Down  resize shrink height $resize_step_big
 
     # Big step:
-    $btrbindsym Shift+$right resize grow   width $resize_step_small
-    $btrbindsym Shift+$left  resize shrink width $resize_step_small
+    $btrbindsym Shift+$right resize grow   width  $resize_step_small
+    $btrbindsym Shift+$left  resize shrink width  $resize_step_small
     $btrbindsym Shift+$up    resize grow   height $resize_step_small
     $btrbindsym Shift+$down  resize shrink height $resize_step_small
     # Same, with arrow keys
-    bindsym Shift+Right resize grow   width $resize_step_small
-    bindsym Shift+Left  resize shrink width $resize_step_small
+    bindsym Shift+Right resize grow   width  $resize_step_small
+    bindsym Shift+Left  resize shrink width  $resize_step_small
     bindsym Shift+Up    resize grow   height $resize_step_small
     bindsym Shift+Down  resize shrink height $resize_step_small
 

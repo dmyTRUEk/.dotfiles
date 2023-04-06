@@ -5,6 +5,9 @@
     "position": "bottom",
     "height": 20,
 
+    // "ipc": true,
+    // "id": "bar-0",
+
     "modules-left": [
         "battery",
         "network",
@@ -44,16 +47,29 @@
         /* "format": "{name}{icon}", */
         "format": "{icon}",
         "format-icons": {
-            "1":  "一  ",  //  
-            "2":  "二   ",
-            "3":  "三   ",
-            "4":  "四   ",
-            "5":  "五",
-            "6":  "六",
-            "7":  "七   ",
-            "8":  "八   ",  //   
-            "9":  "九   ",
-            "10": "十   ",
+            // other icons:            
+            "1": "一  ",
+            "2": "二   ",
+            "3": "三   ",
+            "4": "四",
+            // hiragana symbols:
+            "5": "く",
+            "6": "わ",
+            "7": "え",
+            "8": "ら",
+            //
+            "9": "あ",
+            "10": "す   ",
+            "11": "ディ   ",
+            "12": "ふ",
+            //
+            "13": "ざ   ",
+            "14": "か   ",
+            "15": "つ",
+            "16": "を",
+            //
+            // katakana symbols:
+            // TODO
             "urgent" : "",
             "focused": "",
             "default": "",
@@ -78,10 +94,10 @@
 
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {signalStrength}%", // 直 睊  
-        "format-ethernet": "", //      
+        "format-wifi": " {signalStrength}%", // 直 睊 
+        "format-ethernet": "", //     
         "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "睊  Disconnected", // ⚠ 
+        "format-disconnected": "睊  Disconnected", // ⚠
         "format-alt": " {essid} ({signalStrength}%)",
         //"tooltip-format": "{ifname}",
         "tooltip-format-wifi": " {essid} ({signalStrength}%)",
@@ -134,8 +150,8 @@
         // "format-full": "",
         // "format-icons": ["", "", "", "", ""],
         "format-icons": ["", "", "", "", "", "", "", "", "", "", "", ""],
-        //                          
-        //           
+        //                         
+        //         
         "states": {
             "good": 75,
             "warning": 25,

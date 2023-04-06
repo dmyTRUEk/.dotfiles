@@ -139,25 +139,23 @@ Workaround: uninstall `imagemagick`.
 
 # TODO:
 - `! meta`: remove screenshots from `.git/`, so they don't take up space
-- `sway`: create binds and scripts for translating text from one keyboard layout to another.
-- `sway`: make skype not floating
+- `neovim`: better autocompletitions:
+  - set first option as default selected (sometimes it is, sometimes not)
+  - sort (keywords (true/false), vars, funcs (local, global, external lib's, rust's), text(aka buffer))
 - `neovim`: find/make binds for `var_name` <-> `VarName` <-> `VAR_NAME`
-- `neovim`: change default rust snippets for macros (`println!()`, `todo!()`, `dbg!();`(also fix cursor position)) to have `;` at the end
+- `neovim`: change default rust snippets for macros (`println!()`, `todo!()`, `dbg!()`(also fix cursor position)) to have `;` at the end
 - `sddm`: enable "tap to click"
 - `sway`: bind for cut text and paste it in upper/lower case
 - `ranger`: refactor maps (add two/three spaces after `map x`)
 - `sway`: do smt with `sddm.service`, so that it dont freeze shutdown and reboot for 10 seconds
 - `zathura`: make better color for `f`(follow link/ref)
-- `sway`: make rebind, so that workspaces binds are 123qweasdzxc instead of 1234567890
 - `sway`: in window resizing mode add binds for move window till edge, especially discord pop-up, etc
 - `ranger`: binds for compressing/extracting archives (`zip`, `7z`, `tar.gz`, `tar`?)
-- `alacritty`: remake config file
 - `lock screen`: fix bind: Win+Esc(physically Esc, but caps in os) presses caps, so password then is capsed
 - `sway`: black screen while startup -> is it possible to set some image while it's loading, so there is no black screen
 - `waybar`,`current layout`: if caps is enabled: `en`->`EN`, `ua`->`UA` (for caps try use [this](https://wayland-book.com/seat/xkb.html) or just read `/sys/class/leds/input3::capslock/brightness`)
 - `zoom`: fix crashes when join by link (how?)
-- `sway-relative-keyboard-rs`, `systemd`: even though it is systemd service, it sometimes stops, why?
-- `systemd`?: internet sometimes don't work
+- `sway-relative-keyboard-rs`, `systemd`: even though it is systemd service, it sometimes stops when reloading sway config
 - `sway`?: make Meta+Shift+Enter terminal be in scratchpad by default
 - `kdeconnect`: fix mouse movement (impossible?)
 

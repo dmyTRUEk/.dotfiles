@@ -454,17 +454,17 @@ call plug#end()
 set termguicolors       " enable true colors support
 set background=dark
 lua << EOF
-require("gruvbox").setup({
+require('gruvbox').setup({
     overrides = {
-        Operator = { link = "GruvboxOrange" }, -- undo italic
+        Operator = { link = 'GruvboxOrange' }, -- undo italic
         -- change diagnostic colors:
-        DiagnosticHint = { link = "GruvboxYellow" },
-        DiagnosticSignHint = { link = "GruvboxYellowSign" },
-        DiagnosticUnderlineHint = { link = "GruvboxYellowUnderline" },
-        DiagnosticFloatingHint = { link = "GruvboxYellow" },
-        DiagnosticVirtualTextHint = { link = "GruvboxYellow" },
+        DiagnosticHint = { link = 'GruvboxYellow' },
+        DiagnosticSignHint = { link = 'GruvboxYellowSign' },
+        DiagnosticUnderlineHint = { link = 'GruvboxYellowUnderline' },
+        DiagnosticFloatingHint = { link = 'GruvboxYellow' },
+        DiagnosticVirtualTextHint = { link = 'GruvboxYellow' },
         -- rust btw
-        rustCommentLineDoc = { link = "Special" },
+        rustCommentLineDoc = { link = 'Special' },
     }
 })
 EOF
@@ -608,7 +608,7 @@ require('lualine').setup {
         always_divide_middle = false,
     },
     sections = {
-        lualine_a = {'mode'},
+        lualine_a = { 'mode' },
         lualine_b = { 'filename' },
         lualine_c = {
             --'branch',
@@ -619,7 +619,7 @@ require('lualine').setup {
         lualine_x = {
             {
                 'encoding',
-                fmt = function(str) if str == "utf-8" then return "" else return str end end
+                fmt = function(str) if str == 'utf-8' then return '' else return str end end
             },
             {
                 'fileformat',
@@ -682,16 +682,16 @@ let g:scrollbar_shape = { 'head': '', 'body': '░', 'tail': '' }
 lua << EOF
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
-        "c", "lua", "vim", "help", -- these are reqired
-        --"cpp",
-        --"kotlin",
-        --"latex",
-        "python",
-        "rust",
-        --"yaml",
+        'c', 'lua', 'vim', 'help', -- these are reqired
+        --'cpp',
+        --'kotlin',
+        --'latex',
+        'python',
+        'rust',
+        --'yaml',
     },
     highlight = { enable = true },
-    -- indent = { enable = false, disable = { "python", "css" } },
+    -- indent = { enable = false, disable = { 'python', 'css' } },
     -- indent = { enable = false },
     incremental_selection = {
         enable = true,
@@ -813,12 +813,12 @@ nnoremap <leader>u :Telescope jumplist <cr>
 nnoremap <leader>г :Telescope jumplist <cr>
 "nnoremap <leader>x :Telescope quickfix <cr>
 lua << EOF
-local actions = require("telescope.actions")
-require("telescope").setup{
+local actions = require('telescope.actions')
+require('telescope').setup{
     defaults = {
         mappings = {
             i = {
-                ["<esc>"] = actions.close
+                ['<esc>'] = actions.close
             },
         },
     },
@@ -903,7 +903,7 @@ cmp.setup({
     snippet = {
         -- REQUIRED, IMPORTANT!!! - you MUST specify a snippet engine
         expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)           -- for `ultisnips` users
+            vim.fn['UltiSnips#Anon'](args.body)           -- for `ultisnips` users
             --vim.fn["vsnip#anonymous"](args.body)        -- for `vsnip` users
             --require'snippy'.expand_snippet(args.body)   -- for `snippy` users
             --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users

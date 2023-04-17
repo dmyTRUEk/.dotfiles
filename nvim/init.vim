@@ -454,7 +454,7 @@ call plug#end()
 set termguicolors       " enable true colors support
 set background=dark
 lua << EOF
-require('gruvbox').setup({
+require('gruvbox').setup {
     overrides = {
         Operator = { link = 'GruvboxOrange' }, -- undo italic
         -- change diagnostic colors:
@@ -466,7 +466,7 @@ require('gruvbox').setup({
         -- rust btw
         rustCommentLineDoc = { link = 'Special' },
     }
-})
+}
 EOF
 colorscheme gruvbox
 
@@ -814,7 +814,7 @@ nnoremap <leader>г :Telescope jumplist <cr>
 "nnoremap <leader>x :Telescope quickfix <cr>
 lua << EOF
 local actions = require('telescope.actions')
-require('telescope').setup{
+require('telescope').setup {
     defaults = {
         mappings = {
             i = {
@@ -862,7 +862,7 @@ lua << EOF
 -- enable this to print debug info to ~/.cache/nvim/lsp.log
 --vim.lsp.set_log_level('debug')
 local cmp = require('cmp')
-cmp.setup({
+cmp.setup {
     mapping = {
         ['<cr>'] = cmp.mapping.confirm({ select = true }),
         ['<tab>'] = function(fallback)
@@ -909,7 +909,7 @@ cmp.setup({
             --require'luasnip'.lsp_expand(args.body)      -- for `luasnip` users
         end,
     },
-})
+}
 -- use buffer source for `/` (if you enabled `native_menu`, this won't work anymore)
 --cmp.setup.cmdline('/', {
 --    sources = {

@@ -15,7 +15,7 @@ export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Firefox
-#export MOZ_ENABLE_WAYLAND=1
+export MOZ_ENABLE_WAYLAND=1
 
 # SDL
 #export SDL_VIDEODRIVER=wayland

@@ -45,19 +45,18 @@
 /* #disk, */
 /* #idle_inhibitor, */
 /* #idle_inhibitor, */
-/* #language, */
 /* #memory, */
 /* #scratchpad, */
 /* #temperature, */
-#battery,
-#network,
 #backlight,
-#pulseaudio,
+#battery,
+#clock,
+#language,
 #mode,
-#window,
+#network,
+#pulseaudio,
 #tray,
-#custom-keyboard-layout,
-#clock
+#window
 {
     color: rgb(255, 255, 255);
     padding-left:  12px;
@@ -78,10 +77,9 @@
     color: rgb(0, 0, 0);
 }
 
-/* TODO: fix it, when #1419 got merged */
-#waybar.empty
+#waybar.empty,
+#waybar.floating
 /* #waybar.solo */
-/* #waybar.floating */
 {
     background: transparent;
     /* opacity: 0.5; */

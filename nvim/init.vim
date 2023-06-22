@@ -11,10 +11,10 @@ set encoding=utf-8          " use utf-8 encoding
 set number relativenumber   " set line numbers relative to caret
 set cursorline              " highlight cursor line
 set showmatch               " shows matching brackets
-set completeopt-=preview    " dont show preview if using autocomplete
 set laststatus=2            " it controls, when/how to display status-bar: 0=never, 1={if > than 2 windows}, 2=always
 set autochdir               " change current dir to file's dir (folder directory)
 "set showcmd                 " ? show last command (if you pressed 'j' then 'j' will be showed)
+set virtualedit=block
 
 " better search
 set incsearch               " show search results immedeatly
@@ -22,7 +22,7 @@ set hlsearch                " highlight found
 set ignorecase              " /word will find 'word' or 'Word' or 'WORD'
 set smartcase               " when 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not; for example, '/The' would find only 'The', while '/the' would find both 'the' and 'The'
 
-" 'smart' tabs
+" better tabs
 set tabstop=4               " when indenting with '>', use 4 spaces width
 set shiftwidth=4            " on pressing tab, insert 4 spaces
 set expandtab               " use spaces instead of tabs
@@ -49,7 +49,7 @@ set redrawtime=10000
 set mouse=a
 
 " hide command line if it is not used directly
-"set cmdheight=0
+set cmdheight=0
 
 " use ukr in normal mode
 set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,мv,нy,оj,пg,рh,сc,тn,уe,фa,х[,цw,чx,шi,щo,ьm,ю.,яz,АF,Б<,ВD,ГU,ДL,ЕT,Є\\",Ж:,ЗP,ИB,ІS,Ї},ЙQ,КR,ЛK,МV,НY,ОJ,ПG,РH,СC,ТN,УE,ФA,Х{,ЦW,ЧX,ШI,ЩO,ЬM,Ю>,ЯZ
@@ -59,6 +59,14 @@ set langmap=ʼ~,аf,б\\,,вd,гu,дl,еt,є',ж\\;,зp,иb,іs,ї],йq,кr,лk,
 " unmap ex mode
 map Q <nop>
 map Й <nop>
+
+" fix `h` and `l` motions
+nnoremap ch lc2h
+nnoremap cl c2l
+nnoremap dh ld2h
+nnoremap dl d2l
+nnoremap yh ly2h
+nnoremap yl y2l
 
 " better copy till end of line
 nnoremap Y y$
@@ -84,12 +92,16 @@ nnoremap gf $F
 nnoremap па $F
 
 " work with function names:
-xnoremap  n  t(
 nnoremap cn ct(
 nnoremap dn dt(
 nnoremap yn yt(
 nnoremap cu ct_
 nnoremap du df_
+" xnoremap  n  t(
+
+nnoremap c; ct;
+nnoremap d; dt;
+nnoremap y; yt;
 
 " move selected text up/down
 vnoremap J :m '>+1<cr>gv=gv
@@ -150,6 +162,7 @@ noremap <f3> ^
 noremap <f4> $
 inoremap <f3> <home>
 inoremap <f4> <end>
+" TODO: insert mode: ctrl0- -> 0$
 
 
 " set leader key
@@ -296,7 +309,7 @@ func! SetRelativeScrollOff(fraction)
 endf
 
 autocmd BufEnter,BufLeave,BufWinEnter,BufWinLeave,WinNew,WinEnter,WinLeave,VimResized * call SetRelativeScrollOff(g:relative_scrolloff_fraction)
-nnoremap <silent> <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction) <cr> zz
+"nnoremap <silent> <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction) <cr> zz
 
 
 
@@ -411,6 +424,7 @@ Plug 'Xuyuanp/scrollbar.nvim'
 " better syntax highlight
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+"Plug '~/Code/nvim-plugins/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground'
 
 " find files, text in them, change colorscheme(palette), etc
@@ -451,7 +465,7 @@ call plug#end()
 
 
 """ Colorscheme Settings:
-set termguicolors       " enable true colors support
+set termguicolors   " enable true colors support
 set background=dark
 lua << EOF
 require('gruvbox').setup {
@@ -464,7 +478,11 @@ require('gruvbox').setup {
         DiagnosticFloatingHint = { link = 'GruvboxYellow' },
         DiagnosticVirtualTextHint = { link = 'GruvboxYellow' },
         -- rust btw
-        rustCommentLineDoc = { link = 'Special' },
+        --['@lsp.type.comment.rust'] = { link = 'GruvboxYellow' },
+        ['@lsp.type.struct.rust'] = { link = 'GruvboxYellow' },
+        -- TODO: special color for traits (interfaces).
+        --['@lsp.type.interface.rust'] = { link = 'GruvboxOrange' },
+        ['@lsp.typemod.comment.documentation.rust'] = { link = 'GruvboxOrange' },
     }
 }
 EOF
@@ -612,9 +630,7 @@ require('lualine').setup {
         lualine_b = { 'filename' },
         lualine_c = {
             --'branch',
-            {
-                'diff',
-            },
+            'diff',
         },
         lualine_x = {
             {
@@ -632,7 +648,26 @@ require('lualine').setup {
             --'filetype',
         },
         lualine_y = {
-            'diagnostics',
+            {
+                'diagnostics',
+                --sources = { 'nvim_diagnostic' },
+                sections = { 'error', 'warn', 'info', 'hint' },
+                diagnostics_color = {
+                    error = 'DiagnosticError',
+                    warn  = 'DiagnosticWarn',
+                    info  = 'DiagnosticInfo',
+                    hint  = 'DiagnosticHint',
+                },
+                symbols = {
+                    error = '󰅚 ', -- 󰅙
+                    warn  = ' ', -- 
+                    info  = ' ', -- 
+                    hint  = ' ', --  
+                },
+                update_in_insert = false,
+                always_visible = false,   -- Show diagnostics even if there are none.
+                colored = true,
+            },
             'selectioncount',
             {
                 'searchcount',
@@ -708,18 +743,18 @@ require('nvim-treesitter.configs').setup {
             lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
-                ['aa'] = '@parameter.outer',
-                ['ia'] = '@parameter.inner',
                 --['ab'] = '@block.outer',
                 --['ib'] = '@block.inner',
                 ['ac'] = '@class.outer',
                 ['ic'] = '@class.inner',
                 ['af'] = '@function.outer',
                 ['if'] = '@function.inner',
+                ['ap'] = '@parameter.outer',
+                ['ip'] = '@parameter.inner',
                 ['ar'] = '@return.outer',
                 ['ir'] = '@return.inner',
-                ['is'] = '@assignment.rhs',
                 ['as'] = '@assignment.outer',
+                ['is'] = '@assignment.rhs',
             },
         },
         move = {
@@ -727,48 +762,52 @@ require('nvim-treesitter.configs').setup {
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
                 [']]'] = '@block.inner',
-                [']a'] = '@parameter.inner',
                 [']b'] = '@block.inner',
                 [']c'] = '@class.outer',
                 [']f'] = '@function.outer',
+                [']m'] = '@scopename.inner',
+                [']p'] = '@parameter.inner',
                 [']r'] = '@return.inner',
                 [']s'] = '@assignment.rhs',
             },
             goto_previous_start = {
                 ['[['] = '@block.inner',
-                ['[a'] = '@parameter.inner',
                 ['[b'] = '@block.inner',
                 ['[c'] = '@class.outer',
                 ['[f'] = '@function.outer',
+                ['[m'] = '@scopename.inner',
+                ['[p'] = '@parameter.inner',
                 ['[r'] = '@return.inner',
                 ['[s'] = '@assignment.rhs',
             },
             goto_next_end = {
-                [']['] = '@block.inner',
-                [']A'] = '@parameter.inner',
                 [']B'] = '@block.inner',
                 [']C'] = '@class.outer',
                 [']F'] = '@function.outer',
+                [']M'] = '@scopename.inner',
+                [']P'] = '@parameter.inner',
                 [']R'] = '@return.inner',
                 [']S'] = '@assignment.rhs',
+                [']['] = '@block.inner',
             },
             goto_previous_end = {
-                ['[]'] = '@block.inner',
-                ['[A'] = '@parameter.inner',
                 ['[B'] = '@block.inner',
                 ['[C'] = '@class.outer',
                 ['[F'] = '@function.outer',
+                ['[M'] = '@scopename.inner',
+                ['[P'] = '@parameter.inner',
                 ['[R'] = '@return.inner',
                 ['[S'] = '@assignment.rhs',
+                ['[]'] = '@block.inner',
             },
         },
         swap = {
             enable = true,
             swap_next = {
-                ['>a'] = '@parameter.inner',
+                ['>p'] = '@parameter.inner',
             },
             swap_previous = {
-                ['<a'] = '@parameter.inner',
+                ['<p'] = '@parameter.inner',
             },
         },
     },
@@ -926,7 +965,7 @@ cmp.setup {
 --})
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local servers = {
-    'rust_analyzer',
+    'rust_analyzer', -- TODO: enable `clippy`
     'pyright',
     'clangd',
 }

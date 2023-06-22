@@ -1,0 +1,36 @@
+# dmyTRUEk's swayimg config
+
+scale = fit
+fullscreen = yes
+background = grid
+window = #000000
+antialiasing = no
+info = no
+font = JetBrains Mono
+font-size = 16
+font-color = #ff00ff
+order = alpha
+loop = yes
+recursive = no
+#all = no
+slideshow = 3
+#app_id =
+sway = yes
+
+[keys]
+i = zoom_in
+o = zoom_out
+# `b` mnemonics: about
+b = info
+s = zoom_reset
+
+Left = prev_file
+Right = next_file
+#Up = prev_dir
+#Down = next_dir
+
+#Up = step_up
+#Down = step_down
+#Left = step_left
+#Right = step_right
+

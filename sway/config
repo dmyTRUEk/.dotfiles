@@ -172,6 +172,12 @@
     for_window [title="Zoom"] floating enable
     #for_window [title="Skype"] floating enable
 
+    # kdenlive
+    for_window [title="Rendering — Kdenlive"] resize set width 1200, resize set height 1000, move position center
+    for_window [app_id="kdenlive" title=""] floating enable, resize set width 1200, resize set height 1000, move position center
+    # TODO: dont work? (appears when not exiting not saved project)
+    # for_window [floating title="Warning — Kdenlive"] resize set width 600, resize set height 300, move position center
+
 
 
 

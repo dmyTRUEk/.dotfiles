@@ -101,6 +101,7 @@
     #gaps inner 10
     #gaps outer -10
 
+    $btrbindsym $mod+0 border pixel 0
     $btrbindsym $mod+b border pixel 20
     $btrbindsym $mod+Shift+b border pixel 100
     # class                  border   background  text    indicator  child_border

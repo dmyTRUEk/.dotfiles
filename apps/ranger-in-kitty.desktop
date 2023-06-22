@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=System;FileTools;FileManager;Utility;Core;
+Comment=Terminal file manager launched in Kitty terminal emulator
+Exec=kitty env RANGER_LOAD_DEFAULT_RC=false ranger %U
+Icon=user-desktop
+MimeType=inode/directory;
+Name=Ranger (by Kitty)
+Terminal=false
+Type=Application

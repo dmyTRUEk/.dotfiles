@@ -30,5 +30,6 @@ ln -sfn ~/.dotfiles/yofi ~/.config/
 ln -sfn ~/.dotfiles/zathura ~/.config/
 
 # custom applications' desktop entries:
-ln -sf ~/.dotfiles/apps/ranger-by-kitty.desktop ~/.local/share/applications/
+ln -sf ~/.dotfiles/apps/ranger-in-kitty.desktop ~/.local/share/applications/
+ln -sf ~/.dotfiles/apps/nvim-in-alacritty.desktop ~/.local/share/applications/
 

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Utility;TextEditor;
+Comment=Terminal text editor launched in Alacritty terminal emulator
+Exec=alacritty -e nvim
+Icon=terminal
+MimeType=text/plain;
+Name=NeoVim (by Alacritty)
+Terminal=false
+Type=Application

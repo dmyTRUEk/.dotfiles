@@ -107,11 +107,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+    export VISUAL='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -173,8 +174,8 @@ function warn_deprecated {
 
 ## Useful programs:
 alias l='lsd'
-alias la='lsd -a'
-alias ll='lsd -al'
+alias la='lsd -A'
+alias ll='lsd -Al'
 alias duai='dua i'
 alias yay='paru'
 #alias cat='bat'
@@ -220,9 +221,11 @@ function nm {
     local MAIN_FILE_PYTHON='main.py'
     local MAIN_FILE_RUST="src/main.rs"
     local MAIN_FILE_RUST_IN_SRC="main.rs"
+    local MAIN_FILE_RUST_LIB="src/lib.rs"
+    local MAIN_FILE_RUST_LIB_IN_SRC="lib.rs"
 
     if [[ -f "$MAIN_FILE_C" ]]; then
-        # `$@` - all positional arguments, e.g. `+:42`, `-o file2`.
+        # `$@` - all positional arguments, e.g. `+:42`, `-o file2`, etc.
         nvim "$MAIN_FILE_C" $@
 
     elif [[ -f "$MAIN_FILE_CPP" ]]; then
@@ -240,6 +243,12 @@ function nm {
     elif [[ -f "$MAIN_FILE_RUST_IN_SRC" ]]; then
         nvim "$MAIN_FILE_RUST_IN_SRC" $@
 
+    elif [[ -f "$MAIN_FILE_RUST_LIB" ]]; then
+        nvim "$MAIN_FILE_RUST_LIB" $@
+
+    elif [[ -f "$MAIN_FILE_RUST_LIB_IN_SRC" ]]; then
+        nvim "$MAIN_FILE_RUST_LIB_IN_SRC" $@
+
     else
         echo 'No known main file found.'
     fi
@@ -247,6 +256,7 @@ function nm {
 alias nc='nvim Cargo.toml'
 # config files:
 alias na='nvim ~/.config/alacritty/alacritty.yml'
+alias ni='nvim ~/.config/swayimg/config'
 alias nk='nvim ~/.config/kitty/kitty.conf'
 alias nn='nvim ~/.config/nvim/init.vim'
 alias nr='nvim ~/.config/ranger/rc.conf'
@@ -297,22 +307,22 @@ function cl {
 # rust related:
 alias cc='cargo clean'
 alias ct='cargo test'
-#alias ctr='cargo test --release'
+alias ctr='cargo test --release'
+alias ctrn='RUSTFLAGS="-C target-cpu=native" cargo test --release'
 
 alias cr='cargo run'
 alias crr='cargo run --release'
 alias crrn='RUSTFLAGS="-C target-cpu=native" cargo run --release'
-function ctrr { ( cargo test && cargo run --release $@ ) }
-# alias ctrr='(_ctrr)'
-function ctrrn { ( cargo test && RUSTFLAGS='-C target-cpu=native' cargo run --release $@ ) }
-# alias ctrrn='(_ctrrn)'
+function ctcr { ( cargo test && cargo run $@ ) }
+function ctcrr { ( cargo test && cargo run --release $@ ) }
+function ctcrrn { ( cargo test && RUSTFLAGS='-C target-cpu=native' cargo run --release $@ ) }
 
 alias cb='cargo build'
 alias cbr='cargo build --release'
 alias cbrn='RUSTFLAGS="-C target-cpu=native" cargo build --release'
-alias ctb='cargo test && cargo build'
-alias ctbr='cargo test && cargo build --release'
-alias ctbrn='cargo test && RUSTFLAGS="-C target-cpu=native" cargo build --release'
+alias ctcb='cargo test && cargo build'
+alias ctcbr='cargo test && cargo build --release'
+alias ctcbrn='cargo test && RUSTFLAGS="-C target-cpu=native" cargo build --release'
 
 
 # custom scripts:
@@ -324,9 +334,25 @@ function countlinesofcode {
     echo $lines_of_code
 }
 alias whatismyip='curl -s https://icanhazip.com'
-alias whatismylocalip='ip addr | rg -o "192\.168\.\d{1,3}\.\d{1,3}" | head -n 1'
+alias whatismylocalip='ip addr | grep -oE "192\.168\.[0-9]{1,3}\.[0-9]{1,3}" | head -n 1'
 alias dv='yt-dlp'
 alias dm='yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata'
 alias dm_without_covers='yt-dlp -x --audio-format mp3 --embed-metadata'
-alias interactive_python="python -ic 'from math import *; from time import sleep; import numpy as np; avg=lambda l:sum(l)/len(l); diff=lambda a,b:abs(a-b)/(0.5*(a+b));'"
+alias interactive_python="python -ic '
+from math import *
+from time import sleep
+import numpy as np
+avg = lambda l: sum(l) / len(l)
+diff = lambda a, b: abs(a-b) / (0.5*(a+b))
+# std_dev = lambda l: sqrt(sum(map(lambda x: (x-avg(l))**2, l))/(len(l)-1))
+def std_dev(l: list) -> float:
+    avg_ = avg(l)
+    return sqrt( sum(map(lambda x: (x-avg_)**2, l)) / (len(l) - 1) )
+lerp = lambda a, b, t: a*(1-t) + b*t
+def frange(start: float, end: float, step: float):
+    x = start
+    while x < end:
+        yield x
+        x += step
+'"
 

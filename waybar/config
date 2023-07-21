@@ -13,6 +13,8 @@
         "network",
         "backlight",
         "pulseaudio",
+        // TODO: add Bluetooth icon when it's on
+        // TODO: remove this:?
         "sway/mode",
         "sway/window",
     ],
@@ -43,8 +45,8 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        /* "format": "{name}", */
-        /* "format": "{name}{icon}", */
+        //"format": "{name}",
+        //"format": "{name}{icon}",
         "format": "{icon}",
         "format-icons": {
             // other icons:        
@@ -68,11 +70,7 @@
             "15": "つ",
             "16": "を",
             //
-            // katakana symbols version:
-            // TODO
-            "urgent" : "",
-            "focused": "",
-            "default": "",
+            // katakana symbols version: TODO
             /* "urgent" : "", */
             /* "focused": "", */
             /* "default": "", */

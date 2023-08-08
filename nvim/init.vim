@@ -278,6 +278,8 @@ nnoremap <leader>S :setlocal spell! <cr>
 autocmd FileType gitcommit,markdown setlocal spell
 
 
+let g:python3_host_prog = '/usr/bin/python3'
+
 
 """ Compiles:
 " latex
@@ -312,7 +314,6 @@ autocmd BufEnter,BufLeave,BufWinEnter,BufWinLeave,WinNew,WinEnter,WinLeave,VimRe
 "nnoremap <silent> <C-r> :call SetRelativeScrollOff(g:relative_scrolloff_fraction) <cr> zz
 
 
-
 " fix vim/neovim and alacritty compatibility:
 " source: https://github.com/alacritty/alacritty/issues/919
 " TODO?: turn on/off? if some strange bug will occur => remove next line:
@@ -329,11 +330,9 @@ autocmd BufEnter,BufLeave,BufWinEnter,BufWinLeave,WinNew,WinEnter,WinLeave,VimRe
 "set ttymouse=sgr
 
 
-
 " VIM or NEOVIM specific configs
 " https://learnvimscriptthehardway.stevelosh.com/chapters/21.html
 " https://vi.stackexchange.com/questions/12794/how-to-share-config-between-vim-and-neovim
-
 
 
 func! ToggleHorizontalVerticalSplit()

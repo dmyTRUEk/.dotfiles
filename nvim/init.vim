@@ -411,8 +411,9 @@ Plug 'dmytruek/find-and-replace'
 
 """ UI Plugins:
 " better status bar
-Plug 'nvim-lualine/lualine.nvim'
-"Plug '~/Code/nvim-plugins/lualine.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
+" Plug '~/Code/nvim-plugins/lualine.nvim-my-fork'
+Plug '~/Code/nvim-plugins/lualine.nvim'
 
 " file manager
 Plug 'preservim/nerdtree'

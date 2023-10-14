@@ -274,8 +274,8 @@ alias nzh='nvim ~/.zsh_history'
 
 ## GIT related:
 alias g='git'
-alias ga.='git add .'
 alias ga='git add'
+alias ga.='git add .'
 alias gap='git add --patch'
 alias gap.='git add --patch .'
 alias gb='git branch'

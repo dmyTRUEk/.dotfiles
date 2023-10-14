@@ -172,17 +172,6 @@ function warn_deprecated {
     python -c 'input("Press enter to continue...")'
 }
 
-## Useful programs:
-alias l='lsd'
-alias la='lsd -A'
-alias ll='lsd -Al'
-alias duai='dua i'
-alias yay='paru'
-#alias cat='bat'
-#alias find='fd'
-#alias du='dua'
-#alias fzf='sk'
-
 # Useful aliases:
 #alias cl='clear' # real `cl` is further in this file
 alias cdd='cd ~/.dotfiles'
@@ -203,6 +192,21 @@ function mcd {
     cd "$1"
 }
 compdef mcd=cd
+
+## Useful programs:
+alias l='lsd'
+alias la='lsd -A'
+alias ll='lsd -Al'
+alias duai='dua i'
+#alias cat='bat'
+#alias find='fd'
+#alias du='dua'
+#alias fzf='sk'
+# Arch only:
+alias yay='paru'
+function pacls {
+    pacman -Ql $1 | grep -v '/$'
+}
 
 alias v='vim'
 

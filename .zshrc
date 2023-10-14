@@ -263,6 +263,7 @@ alias na='nvim ~/.config/alacritty/alacritty.yml'
 alias ni='nvim ~/.config/swayimg/config'
 alias nk='nvim ~/.config/kitty/kitty.conf'
 alias nn='nvim ~/.config/nvim/init.vim'
+alias np='nvim ~/.dotfiles/init_interactive_python.py'
 alias nr='nvim ~/.config/ranger/rc.conf'
 alias ns='nvim ~/.config/sway/config'
 alias nu='nvim ~/.config/nvim/UltiSnips/'
@@ -344,21 +345,5 @@ alias whatismylocalip='ip addr | grep -oE "192\.168\.[0-9]{1,3}\.[0-9]{1,3}" | h
 alias dv='yt-dlp'
 alias dm='yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata'
 alias dm_without_covers='yt-dlp -x --audio-format mp3 --embed-metadata'
-alias interactive_python="python -ic '
-from math import *
-from time import sleep
-import numpy as np
-avg = lambda l: sum(l) / len(l)
-diff = lambda a, b: abs(a-b) / (0.5*(a+b))
-# std_dev = lambda l: sqrt(sum(map(lambda x: (x-avg(l))**2, l))/(len(l)-1))
-def std_dev(l: list) -> float:
-    avg_ = avg(l)
-    return sqrt( sum(map(lambda x: (x-avg_)**2, l)) / (len(l) - 1) )
-lerp = lambda a, b, t: a*(1-t) + b*t
-def frange(start: float, end: float, step: float):
-    x = start
-    while x < end:
-        yield x
-        x += step
-'"
+alias interactive_python='python -i ~/.dotfiles/init_interactive_python.py'
 

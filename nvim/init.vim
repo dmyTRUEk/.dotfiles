@@ -523,6 +523,7 @@ nmap ySS <Plug>YSsurround
 xmap s   <Plug>VSurround
 xmap і   <Plug>VSurround
 " TODO: surround by spaces without double press space
+"autocmd FileType * let g:surround_{char2nr(" ")} = " \r "
 autocmd FileType * let g:surround_{char2nr("\<CR>")} = "\n\t\r\n"
 autocmd FileType * let b:surround_{char2nr("<")} = "<\r>"
 autocmd FileType * let b:surround_{char2nr("(")} = "(\r)"
@@ -730,9 +731,14 @@ require('nvim-treesitter.configs').setup {
         'rust',
         --'yaml',
     },
-    highlight = { enable = true },
-    -- indent = { enable = false, disable = { 'python', 'css' } },
-    -- indent = { enable = false },
+    highlight = {
+        enable = true,
+        disable = function(lang, bufnr)
+            --return vim.api.nvim_buf_line_count(bufnr) > 99999
+            return vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > 999999
+        end,
+    },
+    --indent = { enable = false, disable = { 'python', 'css' } },
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -742,7 +748,7 @@ require('nvim-treesitter.configs').setup {
             node_decremental = '<c-backspace>',
         },
     },
-    textobjects = { -- `nvim-treesitter-textobjects` required for this.
+    textobjects = { -- `nvim-treesitter-textobjects` required for this
         select = {
             enable = true,
             lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
@@ -764,7 +770,7 @@ require('nvim-treesitter.configs').setup {
         },
         move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
+            set_jumps = true, -- set jumps in jumplist
             goto_next_start = {
                 [']]'] = '@block.inner',
                 [']b'] = '@block.inner',

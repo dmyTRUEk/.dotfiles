@@ -104,6 +104,7 @@
     $btrbindsym $mod+0 border pixel 0
     $btrbindsym $mod+b border pixel 20
     $btrbindsym $mod+Shift+b border pixel 100
+    # TODO: change colors for when moving windows by mouse
     # class                  border   background  text    indicator  child_border
    #client.background        n/a       #ffffff   n/a       n/a       n/a
     client.focused           #4c7899   #285577   #ffffff   #282828   #282828
@@ -131,6 +132,8 @@
     for_window [window_role="task_dialog"]  floating enable
     for_window [window_type="dialog"]       floating enable
     for_window [window_type="menu"]         floating enable
+    # TODO: dont work?
+    #for_window [floating] move position center
     # TODO:
     #for_window [window_type="floating_con"] floating enable
 

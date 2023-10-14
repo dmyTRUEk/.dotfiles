@@ -40,6 +40,9 @@ from pipe import (
 
 # abcdefghijklmnopqrstuvwxyz
 
+def at(l: list["T"], index: int) -> "T": # pyright: ignore[reportUndefinedVariable]
+    return l[index]
+
 def avg(l: list["T"]) -> "T": # pyright: ignore[reportUndefinedVariable]
     return sum(l) / len(l)
 
@@ -77,6 +80,7 @@ def unzip2(xy: Iterator) -> tuple[Iterator, Iterator]:
 
 
 # Pipes:
+at_ = Pipe(at)
 avg_ = Pipe(avg)
 enumerate_ = Pipe(enumerate)
 filter_remove_ = Pipe(filter_remove)

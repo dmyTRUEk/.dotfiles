@@ -346,4 +346,5 @@ alias dv='yt-dlp'
 alias dm='yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata'
 alias dm_without_covers='yt-dlp -x --audio-format mp3 --embed-metadata'
 alias interactive_python='python -i ~/.dotfiles/init_interactive_python.py'
+alias ipy='interactive_python'
 

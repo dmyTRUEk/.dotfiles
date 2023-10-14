@@ -518,6 +518,8 @@ mode "resize" {
 bar {
     swaybar_command waybar
 }
+# hide waybar
+$btrbindsym $mod+g exec killall -SIGUSR1 waybar
 
 
 

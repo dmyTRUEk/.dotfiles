@@ -91,11 +91,23 @@ Solution: install corresponding package:
 - Japanese -> `adobe-source-han-sans-jp-fonts`.
 
 ## Setup default file opener
-Solution: run `xdg-mime default <program>.desktop <filetype>`. You can find your program's desktop file at `/usr/share/applications/` or `~/.local/share/applications/`.
+Solution: run `xdg-mime default <program>.desktop <filetype>`. You can find your program's desktop file at `~/.local/share/applications/` or `/usr/share/applications/`.
 
 For example:
 - `xdg-mime default org.pwmt.zathura.desktop application/pdf`
 - `xdg-mime default ranger-by-kitty.desktop inode/directory`
+- `xdg-mime default nvim-in-alacritty.desktop text/plain`
+
+Other useful commands to find out the issue:
+- `xdg-mime query filetype myfile.txt` => `text/plain`
+- `xdg-mime query default text/plain` => `nvim-in-alacritty.desktop`
+- `xdg-open myfile.txt` => opens a file by first possible application
+- `XDG_UTILS_DEBUG_LEVEL=2 xdg-mime query default text/plain` => shows files that it searches in ([source](https://superuser.com/questions/962687/problems-with-using-xdg-mime-default-the-default-was-successfully-set-but-it-is))
+
+If none of the above helps, try updating desktop database by this command: ([source](https://superuser.com/questions/962687/problems-with-using-xdg-mime-default-the-default-was-successfully-set-but-it-is))
+```
+update-desktop-database ~/.local/share/applications/
+```
 
 [source](https://unix.stackexchange.com/questions/36380/how-to-properly-and-easily-configure-xdg-open-without-any-environment)
 

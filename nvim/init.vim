@@ -97,6 +97,7 @@ nnoremap dn dt(
 nnoremap yn yt(
 nnoremap cu ct_
 nnoremap du df_
+nnoremap d_ df_
 " xnoremap  n  t(
 
 nnoremap c; ct;
@@ -670,7 +671,7 @@ require('lualine').setup {
                     info  = ' ', -- 
                     hint  = ' ', --  
                 },
-                update_in_insert = false,
+                update_in_insert = true,
                 always_visible = false,   -- Show diagnostics even if there are none.
                 colored = true,
             },

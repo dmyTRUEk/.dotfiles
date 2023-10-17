@@ -413,8 +413,8 @@ Plug 'dmytruek/find-and-replace'
 """ UI Plugins:
 " better status bar
 " Plug 'nvim-lualine/lualine.nvim'
-" Plug '~/Code/nvim-plugins/lualine.nvim-my-fork'
-Plug '~/Code/nvim-plugins/lualine.nvim'
+Plug '~/Code/nvim-plugins/lualine.nvim-my-fork'
+" Plug '~/Code/nvim-plugins/lualine.nvim'
 
 " file manager
 Plug 'preservim/nerdtree'
@@ -636,13 +636,13 @@ require('lualine').setup {
         lualine_a = { 'mode' },
         lualine_b = { 'filename' },
         lualine_c = {
-            --'branch',
+            'branch',
             'diff',
         },
         lualine_x = {
             {
                 'encoding',
-                fmt = function(str) if str == 'utf-8' then return '' else return str end end
+                fmt = function(str) if str == 'utf-8' then return '' else return str end end,
             },
             {
                 'fileformat',
@@ -675,10 +675,19 @@ require('lualine').setup {
                 always_visible = false,   -- Show diagnostics even if there are none.
                 colored = true,
             },
-            'selectioncount',
+            {
+                'selectioncount',
+                format = {
+                    single_line_no_multibyte = '%c',
+                    single_line_multibyte = '%c-%b',
+                    multi_line_no_multibyte = '%c / %l',
+                    multi_line_multibyte = '%c-%b / %l',
+                    visual_block_mode = '%cx%l',
+                },
+            },
             {
                 'searchcount',
-                maxcount = 99999
+                maxcount = 99999,
             },
         },
         lualine_z = {

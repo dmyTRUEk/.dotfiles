@@ -261,6 +261,7 @@ alias nc='nvim Cargo.toml'
 # config files:
 alias na='nvim ~/.config/alacritty/alacritty.yml'
 alias ni='nvim ~/.config/swayimg/config'
+alias ng='nvim ~/.config/gammastep/config.ini'
 alias nk='nvim ~/.config/kitty/kitty.conf'
 alias nn='nvim ~/.config/nvim/init.vim'
 alias np='nvim ~/.dotfiles/init_interactive_python.py'

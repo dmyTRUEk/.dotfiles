@@ -25,8 +25,8 @@
 
     # Application launcher
     # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
-    set $menu_all yofi binapps
-    set $menu_apps yofi
+    # set $menu_all yofi binapps
+    set $menu_apps anyrun
 
     # Wallpaper
     #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
@@ -256,7 +256,7 @@
 
     # Start your launcher (yofi)
     $btrbindsym $mod+m exec $menu_apps
-    $btrbindsym $mod+Shift+m exec $menu_all
+    # $btrbindsym $mod+Shift+m exec $menu_all
     #bindsym --release Super_L exec $menu_apps
 
     # Drag floating windows by holding down $mod and left mouse button.

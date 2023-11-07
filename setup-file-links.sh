@@ -15,6 +15,7 @@ ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 
 # folders:
 ln -sfn ~/.dotfiles/alacritty ~/.config/
+ln -sfn ~/.dotfiles/anyrun ~/.config/
 ln -sfn ~/.dotfiles/gammastep ~/.config/
 ln -sfn ~/.dotfiles/imv ~/.config/
 ln -sfn ~/.dotfiles/kitty ~/.config/

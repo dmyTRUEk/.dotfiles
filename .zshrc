@@ -187,11 +187,11 @@ alias grep='grep -i --color'
 alias whereami='pwd'
 alias findtextinfiles='grep -rn'
 # TODO?: `cd path/to/non/existing/folder | m` to create that folder
-function mkcd {
+function mcd {
     mkdir "$1"
     cd "$1"
 }
-compdef mkcd=cd
+compdef mcd=cd
 
 ## Useful programs:
 alias l='lsd'

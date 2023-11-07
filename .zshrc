@@ -258,6 +258,7 @@ function nm {
     fi
 }
 alias nc='nvim Cargo.toml'
+alias ncl='nvim Cargo.lock'
 # config files:
 alias na='nvim ~/.config/alacritty/alacritty.yml'
 alias ni='nvim ~/.config/swayimg/config'

@@ -1,35 +1,11 @@
-? alphaplot
-? baobab
-? bluez-utils
-? djvulibre
-? ffmpeg
-? glu
-? glxinfo
-? gnome-bluetooth
-? hollywood
-? linux-headers
-? man-db
-? mangohud
-? mesa
-? mesa-utils
-? playerctl
-? polkit-qt5
-? rust-analyzer
-? wlrobs
-? xargs
-[optioanl] clinfo
-[optional] arrayfire
-[optional] opencl
-[optional] opencl-amd
-[via cargo] lolcat
-[via github] sway-relative-keyboard-rs
+[main]
 alacritty
 android-studio
+anyrun
 awk
 blueberry
 bluez
 btop
-cmatrix
 curl
 discord
 discord-canary
@@ -42,11 +18,13 @@ firefox
 flatpak
 gammastep
 gcc
+git
+gnome-keyring
 grim
 helvum
-imv
+hyperfine
+inkscape
 jq
-kdeconnect
 kdenlive
 kitty
 krita
@@ -57,7 +35,6 @@ mako
 neofetch
 nvim
 obs-studio
-ocenaudio
 p7zip
 pacman-contrib
 paru
@@ -66,6 +43,9 @@ pipewire-pulse
 polkit
 polkit-gnome
 pyright
+python-numpy
+python-pipe
+python-pynvim
 python3
 qt5-graphicaleffects
 qt5-quickcontrols2
@@ -76,7 +56,6 @@ qt6-wayland
 ranger
 ripgrep
 rustup
-scidavis
 skim
 skypeforlinux
 slurp
@@ -84,6 +63,8 @@ steam
 strip
 sway
 swaybg
+swayidle
+swayimg
 swaylock
 telegram-desktop
 texlive
@@ -96,22 +77,85 @@ texlive-langcyrillic
 texlive-latexextra
 texlive-pictures
 texlive-science
+tokei
 tree
+ttf-jetbrains-mono
 ttf-ms-fonts
-ttf-nerd-fonts-symbols-2048-em-mono
+ttf-nerd-fonts-symbols-mono
 unzip
 upx
 v4l2loopback
+ventoy
 vlc
 waybar
-wev
 wget
 wl-clipboard
 xdg-desktop-portal-wlr
 xwayland
-yofi
+yt-dlp
 zathura
 zip
 zoom
 zsh
 zsh-syntax-highlight
+
+[optional]
+activate-linux
+alphaplot
+arrayfire
+baobab
+bat
+bottom
+clinfo
+cmatrix
+code (aka vscode)
+docker
+elisa
+exa
+ffmpeg
+gnome-boxes
+godot
+hollywood
+mangohud
+neovide
+ocenaudio
+opencl
+opencl-amd
+pcmanfm
+python-matplotlib
+python-pillow
+scidavis
+strawberry
+transmission
+unrar
+uutils-coreutils
+
+[via cargo]
+lolcat
+
+[via flatpak]
+discord
+zoom
+
+[via github]
+sway-relative-keyboard-rs
+
+[unknown/undecided]
+blueman
+bluez-utils
+djvulibre
+glu
+glxinfo
+gnome-bluetooth
+linux-headers
+man-db
+mesa
+mesa-utils
+playerctl
+polkit-qt5
+tesseract-data-eng
+tesseract-data-ukr
+wev
+wlrobs
+xargs
+

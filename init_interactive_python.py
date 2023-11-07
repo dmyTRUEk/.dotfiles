@@ -78,6 +78,22 @@ def unzip2(xy: Iterator) -> tuple[Iterator, Iterator]:
     xy1, xy2 = itertools.tee(xy)
     return ( (x for x, _ in xy1), (y for _, y in xy2) )
 
+def windows(it: Iterator["T"] | list["T"], window_size: int) -> Iterator[tuple["T", ...]] | list[tuple["T", ...]]: # pyright: ignore[reportUndefinedVariable]
+    # simple impl for lists:
+    # assert window_size <= len(l)
+    # res = []
+    # for i in range(len(l) - window_size + 1):
+    #     this_window = tuple(l[i+j] for j in range(window_size))
+    #     res.append(this_window)
+    # return res
+    # better impl for iterable:
+    it = iter(it)
+    res = tuple(next(it) for _ in range(window_size))
+    yield res
+    for el in it:
+        res = res[1:] + (el,)
+        yield res
+
 
 # Pipes:
 at_ = Pipe(at)
@@ -91,6 +107,7 @@ split_at_percentage_ = Pipe(split_at_percentage)
 std_dev_ = Pipe(std_dev)
 sum_ = Pipe(sum)
 unzip2_ = Pipe(unzip2)
+windows_ = Pipe(windows)
 
 
 if __name__ == "__main__":

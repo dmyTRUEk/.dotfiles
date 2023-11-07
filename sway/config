@@ -402,7 +402,7 @@
     bindsym $mod+F5  workspace $workspace_v, exec vlc
     bindsym $mod+F6  workspace $workspace_v, exec helvum
     bindsym $mod+F7  workspace $workspace_s, exec steam
-    bindsym $mod+F8  workspace $workspace_d, exec discord
+    bindsym $mod+F8  workspace $workspace_d, exec com.discordapp.Discord
     bindsym $mod+F9  workspace $workspace_x, exec obs
     bindsym $mod+F10 workspace $workspace_z, exec alacritty -e btop
 

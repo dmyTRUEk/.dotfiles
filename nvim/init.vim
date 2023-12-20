@@ -156,6 +156,11 @@ inoremap <C-д> <right>
 nnoremap <C-p> $p
 nnoremap <C-з> $p
 
+" TODO:
+" paste at begin of line
+"nnoremap <C-S-p> 0p
+"nnoremap <C-S-з> 0p
+
 
 " TODO: <f1> -> open nvim help for current word
 " noremap <f2> mapped in 'dmytruek/find-and-replace' plugin
@@ -790,7 +795,7 @@ require('nvim-treesitter.configs').setup {
                 [']m'] = '@scopename.inner',
                 [']p'] = '@parameter.inner',
                 [']r'] = '@return.inner',
-                [']s'] = '@assignment.rhs',
+                [']s'] = '@assignment.rhs', -- TODO: resolve conflict/overlap with next spelling
             },
             goto_previous_start = {
                 ['[['] = '@block.inner',
@@ -800,7 +805,7 @@ require('nvim-treesitter.configs').setup {
                 ['[m'] = '@scopename.inner',
                 ['[p'] = '@parameter.inner',
                 ['[r'] = '@return.inner',
-                ['[s'] = '@assignment.rhs',
+                ['[s'] = '@assignment.rhs', -- TODO: resolve conflict/overlap with next spelling
             },
             goto_next_end = {
                 [']B'] = '@block.inner',

@@ -261,6 +261,7 @@ alias nc='nvim Cargo.toml'
 alias ncl='nvim Cargo.lock'
 # config files:
 alias na='nvim ~/.config/alacritty/alacritty.yml'
+alias ne='nvim ~/.config/eww/eww.yuck'
 alias ni='nvim ~/.config/swayimg/config'
 alias ng='nvim ~/.config/gammastep/config.ini'
 alias nk='nvim ~/.config/kitty/kitty.conf'

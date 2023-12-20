@@ -740,6 +740,7 @@ require('nvim-treesitter.configs').setup {
         'python',
         'rust',
         --'yaml',
+        'yuck',
     },
     highlight = {
         enable = true,

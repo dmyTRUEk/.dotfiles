@@ -1,0 +1,60 @@
+(defvar name "Myshko")
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0px"
+    :width "100%"
+    :height "20px"
+    :anchor "bottom center"
+  )
+  :exclusive true
+  :stacking "fg" ; options: bottom, bg, fg, overlay
+  (centerbox
+    :orientation "horizontal"
+    (box
+      :halign "start"
+      (battery)
+    )
+    (greeter :text "Say hello!")
+    (box
+      :halign "end"
+      ;time
+      ;""
+      (time)
+    )
+  )
+)
+
+; FIX: subsecond delay
+(defpoll time
+  :interval "1s"
+  "date +'%Y %b %d, %H:%M:%S'"
+  ;"date +'%S'"
+)
+; this one has a bit less delay, but still has subsecond delay
+(defwidget time []
+  {formattime(EWW_TIME, "%Y %b %d, %H:%M:%S")}
+  ;{formattime(EWW_TIME, "%S")}
+)
+
+(defwidget battery []
+  ;"${EWW_BATTERY}"
+  "${EWW_BATTERY.BAT1.capacity}%"
+)
+
+(defwidget greeter [?text]
+  (box
+    :orientation "horizontal"
+    :halign "center"
+    text
+    (button
+      :onclick "notify-send 'Greeter' 'Hello, ${name}!'"
+      "Greet ${name}"
+    )
+  )
+)
+
+(deflisten current_track "playerctl --follow metadata --format {{title}}")
+

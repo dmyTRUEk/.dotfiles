@@ -130,8 +130,15 @@ fi
 
 export RANGER_LOAD_DEFAULT_RC=false
 
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-#export NDK_HOME="$HOME/Android/Sdk/ndk/21.4.7075529"
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+
+export ANDROID_NDK="/opt/android-ndk"
+# Some programs such as gradle ask this as well:
+export ANDROID_NDK_HOME="/opt/android-ndk"
+# Some other programs like Godot wants this:
+export ANDROID_NDK_ROOT="/opt/android-ndk"
+
 #export JAVA_HOME="/etc/java-11-openjdk"
 
 

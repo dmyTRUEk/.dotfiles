@@ -351,4 +351,12 @@ alias dm='yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata'
 alias dm_without_covers='yt-dlp -x --audio-format mp3 --embed-metadata'
 alias interactive_python='python -i ~/.dotfiles/init_interactive_python.py'
 alias ipy='interactive_python'
+function random_hash {
+    local default_len=6
+    local hash_len=$default_len
+    if [[ -n $1 ]]; then
+        local hash_len=$1
+    fi
+    echo $(date +%s%N | sha512sum | cut -c -$hash_len)
+}
 

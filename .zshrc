@@ -344,13 +344,6 @@ alias ctcbrn='cargo test && RUSTFLAGS="-C target-cpu=native" cargo build --relea
 
 
 # custom scripts:
-function countlinesofcode {
-    local lines_of_code=0
-    for file in $(tree -fiF --noreport | /usr/bin/grep -v /$); do
-        lines_of_code=$(($lines_of_code+$(cat $file | sed "/^\s*$/d" | wc -l)));
-    done
-    echo $lines_of_code
-}
 alias whatismyip='curl -s https://icanhazip.com'
 alias whatismylocalip='ip addr | grep -oE "192\.168\.[0-9]{1,3}\.[0-9]{1,3}" | head -n 1'
 alias dv='yt-dlp'

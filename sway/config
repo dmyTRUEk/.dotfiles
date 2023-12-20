@@ -342,58 +342,58 @@ bindgesture swipe:3:right workspace prev
 bindgesture swipe:3:left  workspace next
 
 # Switch to workspace
-$btrbindsym $mod+1 workspace $workspace_1
-$btrbindsym $mod+2 workspace $workspace_2
-$btrbindsym $mod+3 workspace $workspace_3
-$btrbindsym $mod+4 workspace $workspace_4
+$btrbindsym $mod+1 workspace number $workspace_1
+$btrbindsym $mod+2 workspace number $workspace_2
+$btrbindsym $mod+3 workspace number $workspace_3
+$btrbindsym $mod+4 workspace number $workspace_4
 #
-$btrbindsym $mod+q workspace $workspace_q
-$btrbindsym $mod+w workspace $workspace_w
-$btrbindsym $mod+e workspace $workspace_e
-$btrbindsym $mod+r workspace $workspace_r
+$btrbindsym $mod+q workspace number $workspace_q
+$btrbindsym $mod+w workspace number $workspace_w
+$btrbindsym $mod+e workspace number $workspace_e
+$btrbindsym $mod+r workspace number $workspace_r
 #
-$btrbindsym $mod+a workspace $workspace_a
-$btrbindsym $mod+s workspace $workspace_s
-$btrbindsym $mod+d workspace $workspace_d
-$btrbindsym $mod+f workspace $workspace_f
+$btrbindsym $mod+a workspace number $workspace_a
+$btrbindsym $mod+s workspace number $workspace_s
+$btrbindsym $mod+d workspace number $workspace_d
+$btrbindsym $mod+f workspace number $workspace_f
 #
-$btrbindsym $mod+z workspace $workspace_z
-$btrbindsym $mod+x workspace $workspace_x
-$btrbindsym $mod+c workspace $workspace_c
-$btrbindsym $mod+v workspace $workspace_v
+$btrbindsym $mod+z workspace number $workspace_z
+$btrbindsym $mod+x workspace number $workspace_x
+$btrbindsym $mod+c workspace number $workspace_c
+$btrbindsym $mod+v workspace number $workspace_v
 
 # Move focused container to workspace
-$btrbindsym $mod+Shift+1 move container to workspace $workspace_1
-$btrbindsym $mod+Shift+2 move container to workspace $workspace_2
-$btrbindsym $mod+Shift+3 move container to workspace $workspace_3
-$btrbindsym $mod+Shift+4 move container to workspace $workspace_4
+$btrbindsym $mod+Shift+1 move container to workspace number $workspace_1
+$btrbindsym $mod+Shift+2 move container to workspace number $workspace_2
+$btrbindsym $mod+Shift+3 move container to workspace number $workspace_3
+$btrbindsym $mod+Shift+4 move container to workspace number $workspace_4
 #
-$btrbindsym $mod+Shift+q move container to workspace $workspace_q
-$btrbindsym $mod+Shift+w move container to workspace $workspace_w
-$btrbindsym $mod+Shift+e move container to workspace $workspace_e
-$btrbindsym $mod+Shift+r move container to workspace $workspace_r
+$btrbindsym $mod+Shift+q move container to workspace number $workspace_q
+$btrbindsym $mod+Shift+w move container to workspace number $workspace_w
+$btrbindsym $mod+Shift+e move container to workspace number $workspace_e
+$btrbindsym $mod+Shift+r move container to workspace number $workspace_r
 #
-$btrbindsym $mod+Shift+a move container to workspace $workspace_a
-$btrbindsym $mod+Shift+s move container to workspace $workspace_s
-$btrbindsym $mod+Shift+d move container to workspace $workspace_d
-$btrbindsym $mod+Shift+f move container to workspace $workspace_f
+$btrbindsym $mod+Shift+a move container to workspace number $workspace_a
+$btrbindsym $mod+Shift+s move container to workspace number $workspace_s
+$btrbindsym $mod+Shift+d move container to workspace number $workspace_d
+$btrbindsym $mod+Shift+f move container to workspace number $workspace_f
 #
-$btrbindsym $mod+Shift+z move container to workspace $workspace_z
-$btrbindsym $mod+Shift+x move container to workspace $workspace_x
-$btrbindsym $mod+Shift+c move container to workspace $workspace_c
-$btrbindsym $mod+Shift+v move container to workspace $workspace_v
+$btrbindsym $mod+Shift+z move container to workspace number $workspace_z
+$btrbindsym $mod+Shift+x move container to workspace number $workspace_x
+$btrbindsym $mod+Shift+c move container to workspace number $workspace_c
+$btrbindsym $mod+Shift+v move container to workspace number $workspace_v
 
 # Shortcuts for start programs:
-bindsym $mod+F1  workspace $workspace_1, exec firefox
-bindsym $mod+F2  workspace $workspace_2, exec telegram-desktop
-bindsym $mod+F3  workspace $workspace_3, exec kitty env RANGER_LOAD_DEFAULT_RC=false ranger
-bindsym $mod+F4  workspace $workspace_4, exec alacritty
-bindsym $mod+F5  workspace $workspace_v, exec vlc
-bindsym $mod+F6  workspace $workspace_v, exec helvum
-bindsym $mod+F7  workspace $workspace_s, exec steam
-bindsym $mod+F8  workspace $workspace_d, exec com.discordapp.Discord
-bindsym $mod+F9  workspace $workspace_x, exec obs
-bindsym $mod+F10 workspace $workspace_z, exec alacritty -e btop
+bindsym $mod+F1  workspace number $workspace_1, exec firefox
+bindsym $mod+F2  workspace number $workspace_2, exec telegram-desktop
+bindsym $mod+F3  workspace number $workspace_3, exec kitty env RANGER_LOAD_DEFAULT_RC=false ranger
+bindsym $mod+F4  workspace number $workspace_4, exec alacritty
+bindsym $mod+F5  workspace number $workspace_v, exec vlc
+bindsym $mod+F6  workspace number $workspace_v, exec helvum
+bindsym $mod+F7  workspace number $workspace_s, exec steam
+bindsym $mod+F8  workspace number $workspace_d, exec com.discordapp.Discord
+bindsym $mod+F9  workspace number $workspace_x, exec obs
+bindsym $mod+F10 workspace number $workspace_z, exec alacritty -e btop
 
 
 ## Layout stuff
@@ -544,4 +544,6 @@ exec dropbox
 #exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
 exec gammastep
+
+exec_always "pkill autoname-worksp; $HOME/.config/sway/scripts/autoname-workspaces.py"
 

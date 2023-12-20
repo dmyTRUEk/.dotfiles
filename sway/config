@@ -7,234 +7,222 @@
 
 
 ### VARIABLES
-    # Logo key. Use Mod1 for Alt.
-    set $mod Mod4
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
 
-    # Home row direction keys, like vim
-    set $left h
-    set $down j
-    set $up k
-    set $right l
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
 
-    # Keyboard shortcuts, that doesnt work with secondary languages must use `$btrbindsym`
-    # btr stands for better
-    set $btrbindsym bindsym --to-code
+# Keyboard shortcuts, that doesnt work with secondary languages must use `$btrbindsym`
+# btr stands for better
+set $btrbindsym bindsym --to-code
 
-    # Your preferred terminal emulator
-    set $term alacritty
+# Your preferred terminal emulator
+set $term alacritty
 
-    # Application launcher
-    # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
-    # set $menu_all yofi binapps
-    set $menu_apps anyrun
+# Application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
+# set $menu_all yofi binapps
+set $menu_apps anyrun
 
-    # Wallpaper
-    #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
-    #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/solis-2560x1440.jpg
-    #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/marigold_myshko_dm_crop.jpg
-    #set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/games/elden-ring.png
-    set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/sonny-boy-bg-spamton.png
+# Wallpaper
+#set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/vector_control_dreams.jpg
+#set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/art/solis-2560x1440.jpg
+#set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/marigold_myshko_dm_crop.jpg
+#set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/games/elden-ring.png
+set $wallpaper $HOME/Dropbox/Pictures/Wallpapers/sonny-boy-bg-spamton.png
 
-    # Lockscreen
-    set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
+# Lockscreen
+set $lock_command exec sh -c $HOME/.config/sway/scripts/lock_screen_manually.sh
 
-    set $test_notification notify-send "Notification" "This is test notification"
+set $test_notification notify-send "Notification" "This is test notification"
 
-    # Workspaces names
-    set $workspace_1 1
-    set $workspace_2 2
-    set $workspace_3 3
-    set $workspace_4 4
-    #
-    set $workspace_q 5
-    set $workspace_w 6
-    set $workspace_e 7
-    set $workspace_r 8
-    #
-    set $workspace_a 9
-    set $workspace_s 10
-    set $workspace_d 11
-    set $workspace_f 12
-    #
-    set $workspace_z 13
-    set $workspace_x 14
-    set $workspace_c 15
-    set $workspace_v 16
-
-    # Dolphin operation (copy/move/already exists/etc) window size:
-    set $dolphin_operation_window_width_big 800
-    set $dolphin_operation_window_width_small 1000
-    set $dolphin_operation_window_height_big 500
-    set $dolphin_operation_window_height_small 300
+# Workspaces names
+set $workspace_1 1
+set $workspace_2 2
+set $workspace_3 3
+set $workspace_4 4
+#
+set $workspace_q 5
+set $workspace_w 6
+set $workspace_e 7
+set $workspace_r 8
+#
+set $workspace_a 9
+set $workspace_s 10
+set $workspace_d 11
+set $workspace_f 12
+#
+set $workspace_z 13
+set $workspace_x 14
+set $workspace_c 15
+set $workspace_v 16
 
 
 
 
 
 ### OUTPUT CONFIGURATION
-    # Wallpaper (Background)
-    # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-    #output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-    #output * bg ~/Dropbox/Pictures/Wallpapers/pinetree_pablo-garcia-saldana.jpg fill
-    output * bg $wallpaper fill
+# Wallpaper (Background)
+# Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
+#output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg ~/Dropbox/Pictures/Wallpapers/pinetree_pablo-garcia-saldana.jpg fill
+output * bg $wallpaper fill
 
-    # Example configuration
-    #output HDMI-A-1 resolution 1920x1080 position 1920,0
-    # You can get the names of your outputs by running: swaymsg -t get_outputs
+# Example configuration
+#output HDMI-A-1 resolution 1920x1080 position 1920,0
+# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-    # for screen sharing
-    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# for screen sharing
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 ## Custom window options / rules
-    # for_window <criteria> <command>
-    #
-    # Some useful commands
-    # floating enable|disable|toggle
-    # sticky enable|disable|toggle - show window on all workspaces (as pin in kde)
-    # layout default|splith|splitv|stacking|tabbed
+# for_window <criteria> <command>
+#
+# Some useful commands
+# floating enable|disable|toggle
+# sticky enable|disable|toggle - show window on all workspaces (as pin in kde)
+# layout default|splith|splitv|stacking|tabbed
 
-    # if window have title bar (border), its text will be aligned to center
-    title_align center
+# if window have title bar (border), its text will be aligned to center
+title_align center
 
-    # Windows borders and gaps
-    default_border none
-    #gaps inner 10
-    #gaps outer -10
+# Windows borders and gaps
+default_border none
+#gaps inner 10
+#gaps outer -10
 
-    $btrbindsym $mod+0 border pixel 0
-    $btrbindsym $mod+b border pixel 20
-    $btrbindsym $mod+Shift+b border pixel 100
-    # TODO: change colors for when moving windows by mouse
-    # class                  border   background  text    indicator  child_border
-   #client.background        n/a       #ffffff   n/a       n/a       n/a
-    client.focused           #4c7899   #285577   #ffffff   #282828   #282828
-    client.focused_inactive  #333333   #5f676a   #ffffff   #282828   #282828
-   #client.focused_tab_title #333333   #5f676a   #ffffff   n/a       n/a
-    client.unfocused         #333333   #222222   #888888   #292d2e   #282828
-   #client.urgent            #2f343a   #900000   #ffffff   #900000   #900000
-   #client.placeholder       #000000   #0c0c0c   #ffffff   #000000   #0c0c0c
+$btrbindsym $mod+0 border pixel 0
+$btrbindsym $mod+b border pixel 20
+$btrbindsym $mod+Shift+b border pixel 100
+# TODO: change colors for when moving windows by mouse
+# class                  border   background  text    indicator  child_border
+#client.background        n/a       #ffffff   n/a       n/a       n/a
+client.focused           #4c7899   #285577   #ffffff   #282828   #282828
+client.focused_inactive  #333333   #5f676a   #ffffff   #282828   #282828
+#client.focused_tab_title #333333   #5f676a   #ffffff   n/a       n/a
+client.unfocused         #333333   #222222   #888888   #292d2e   #282828
+#client.urgent            #2f343a   #900000   #ffffff   #900000   #900000
+#client.placeholder       #000000   #0c0c0c   #ffffff   #000000   #0c0c0c
 
-    # font in title bars
-    font JetBrains Mono 10
+# font in title bars
+font JetBrains Mono 10
 
-    # Programs default workspaces
-    assign [class="firefox"]               workspace $workspace_1
-    assign [app_id="org.telegram.desktop"] workspace $workspace_2
-    assign [app_id="steam"]                workspace $workspace_s
-    assign [app_id="discord"]              workspace $workspace_d
-    assign [app_id="obs"]                  workspace $workspace_x
+# Programs default workspaces
+assign [class="firefox"]               workspace $workspace_1
+assign [app_id="org.telegram.desktop"] workspace $workspace_2
+assign [app_id="steam"]                workspace $workspace_s
+assign [app_id="discord"]              workspace $workspace_d
+assign [app_id="obs"]                  workspace $workspace_x
 
-    # floating windows
-    for_window [window_role="About"]        floating enable
-    for_window [window_role="Preferences"]  floating enable
-    for_window [window_role="bubble"]       floating enable
-    for_window [window_role="pop-up"]       floating enable
-    for_window [window_role="task_dialog"]  floating enable
-    for_window [window_type="dialog"]       floating enable
-    for_window [window_type="menu"]         floating enable
-    # TODO: dont work?
-    #for_window [floating] move position center
-    # TODO:
-    #for_window [window_type="floating_con"] floating enable
+# floating windows
+for_window [window_role="About"]        floating enable
+for_window [window_role="Preferences"]  floating enable
+for_window [window_role="bubble"]       floating enable
+for_window [window_role="pop-up"]       floating enable
+for_window [window_role="task_dialog"]  floating enable
+for_window [window_type="dialog"]       floating enable
+for_window [window_type="menu"]         floating enable
+# TODO: dont work?
+#for_window [floating] move position center
+# TODO:
+#for_window [window_type="floating_con"] floating enable
 
-    # for_window [title="dialog"] floating enable
-    # for_window [instance="gl"] floating enable
+# for_window [title="dialog"] floating enable
+# for_window [instance="gl"] floating enable
 
-    for_window [class="xdg-desktop-portal-kde"] floating enable
+for_window [class="xdg-desktop-portal-kde"] floating enable
 
-    # Auto floating for windows like Terminals started with Mod+Shift+Return
-    # if app_id contains "floating" word, then make it floating
-    for_window [app_id="floating"] floating enable
+# Auto floating for windows like Terminals started with Mod+Shift+Return
+# if app_id contains "floating" word, then make it floating
+for_window [app_id="floating"] floating enable
 
-    # polkit is Authentification Agent
-    for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, border normal
+# polkit is Authentification Agent
+for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable, border normal
 
-    # Dolphin:
-    for_window [title="Properties for .*— Dolphin"] floating enable, border normal, resize set width 500, resize set height 500
-    for_window [title="File Already Exists .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_big, resize set height $dolphin_operation_window_height_big
-    for_window [title="Copying .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
-    for_window [title="Progress Dialog — Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
-    for_window [title="Extracting Files .*— Dolphin"] floating enable, border normal, resize set width $dolphin_operation_window_width_small, resize set height $dolphin_operation_window_height_small
+# Image Viewers:
+#for_window [app_id="gwenview"] layout tabbed
+for_window [app_id="gwenview"] fullscreen enable
+for_window [class="Display"] floating enable
 
-    # Image Viewers:
-    #for_window [app_id="gwenview"] layout tabbed
-    for_window [app_id="gwenview"] fullscreen enable
-    for_window [class="Display"] floating enable
+# make Pavucontrol floating in bottom right corner:
+for_window [app_id="pavucontrol"] floating enable, move position cursor, move up 22px
+for_window [app_id="blueberry"] floating enable, move position cursor, move up 22px
 
-    # make Pavucontrol floating in bottom right corner:
-    for_window [app_id="pavucontrol"] floating enable, move position cursor, move up 22px
-    for_window [app_id="blueberry"] floating enable, move position cursor, move up 22px
+# make Firefox Picture-In-Picture floating and sticky
+for_window [title="Picture-in-Picture"] floating enable, sticky enable, border none
 
-    # make Firefox Picture-In-Picture floating and sticky
-    for_window [title="Picture-in-Picture"] floating enable, sticky enable, border none
+# make Discord Picture-In-Picture floating and sticky
+# if this doesnt work, just increase sleep time in discord_pip.sh
+for_window [class="discord"] exec sh -c $HOME/.config/sway/scripts/discord_pip.sh
 
-    # make Discord Picture-In-Picture floating and sticky
-    # if this doesnt work, just increase sleep time in discord_pip.sh
-    for_window [class="discord"] exec sh -c $HOME/.config/sway/scripts/discord_pip.sh
+#for_window [title="Zoom"] floating enable
+#for_window [title="Skype"] floating enable
 
-    #for_window [title="Zoom"] floating enable
-    #for_window [title="Skype"] floating enable
-
-    # kdenlive
-    for_window [title="Rendering — Kdenlive"] resize set width 1200, resize set height 1000, move position center
-    for_window [app_id="kdenlive" title=""] floating enable, resize set width 1200, resize set height 1000, move position center
-    # TODO: dont work? (appears when not exiting not saved project)
-    # for_window [floating title="Warning — Kdenlive"] resize set width 600, resize set height 300, move position center
+# kdenlive
+for_window [title="Rendering — Kdenlive"] resize set width 1200, resize set height 1000, move position center
+for_window [app_id="kdenlive" title=""] floating enable, resize set width 1200, resize set height 1000, move position center
+# TODO: dont work? (appears when not exiting not saved project)
+# for_window [floating title="Warning — Kdenlive"] resize set width 600, resize set height 300, move position center
 
 
 
 
 
 ### IDLE CONFIGURATION
-    # Example configuration
-    # This will lock your screen after 300 seconds of inactivity, then turn off
-    # your displays after another 300 seconds, and turn your screens back on when
-    # resumed. It will also lock your screen before your computer goes to sleep.
-    # ?TODO?
-    # exec swayidle -w \
-    #      timeout 10 'swaylock -f -c 000000' \
-    #      timeout 20 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    #      before-sleep 'swaylock -f -c 000000'
+# Example configuration
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+# ?TODO?
+# exec swayidle -w \
+#      timeout 10 'swaylock -f -c 000000' \
+#      timeout 20 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#      before-sleep 'swaylock -f -c 000000'
 
-    exec swayidle -w before-sleep '/home/myshko/.config/sway/scripts/lock_screen_manually.sh'
-    # for details look in `sway/scripts/lock_screen_manually.sh`
+exec swayidle -w before-sleep '/home/myshko/.config/sway/scripts/lock_screen_manually.sh'
+# for details look in `sway/scripts/lock_screen_manually.sh`
 
 
 
 
 
 ### INPUT CONFIGURATION
-    # Get names of inputs: `swaymsg -t get_inputs`
-    # More info: `man 5 sway-input`
-    input type:keyboard {
-        xkb_layout "us,ua"
-        # possible options: `man xkeyboard-config`
-        xkb_options "grp:shifts_toggle,grp:menu_toggle,caps:swapescape,ctrl:swap_lalt_lctl"
-        # TODO: make `grp:lctrl_toggle` or `grp:lalt_toggle` work
+# Get names of inputs: `swaymsg -t get_inputs`
+# More info: `man 5 sway-input`
+input type:keyboard {
+    xkb_layout "us,ua"
+    # possible options: `man xkeyboard-config`
+    xkb_options "grp:shifts_toggle,grp:menu_toggle,caps:swapescape,ctrl:swap_lalt_lctl"
+    # TODO: make `grp:lctrl_toggle` or `grp:lalt_toggle` work
 
-        repeat_delay 200
-        repeat_rate 30
-    }
+    repeat_delay 200
+    repeat_rate 30
+}
 
-    $btrbindsym $mod+Ctrl+u exec wl-paste | python -c 'from fileinput import input as get_stdin; is_caseable=lambda c: c.lower() != c.upper(); eng_to_ukr={"q":"й","w":"ц","e":"у","r":"к","t":"е","y":"н","u":"г","i":"ш","o":"щ","p":"з","[":"х","{":"Х","]":"ї","}":"Ї","a":"ф","s":"і","d":"в","f":"а","g":"п","h":"р","j":"о","k":"л","l":"д",";":"ж",":":"Ж",chr(39):"є",chr(34):"Є","z":"я","x":"ч","c":"с","v":"м","b":"и","n":"т","m":"ь",",":"б","<":"Б",".":"ю",">":"Ю","/":".","?":",","`":chr(39),"~":"ʼ","@":chr(34),"#":"№","$":";","^":":","&":"?"}; print("".join(map(lambda c: c if (c.lower() not in eng_to_ukr) else (eng_to_ukr[c] if (c.islower() or not is_caseable(c)) else eng_to_ukr[c.lower()].upper()), "".join(get_stdin())[:-1])))' | exec wl-copy
-    $btrbindsym $mod+Ctrl+e exec wl-paste | python -c 'from fileinput import input as get_stdin; is_caseable=lambda c: c.lower() != c.upper(); eng_to_ukr={"й":"q","ц":"w","у":"e","к":"r","е":"t","н":"y","г":"u","ш":"i","щ":"o","з":"p","х":"[","Х":"{","ї":"]","Ї":"}","ф":"a","і":"s","в":"d","а":"f","п":"g","р":"h","о":"j","л":"k","д":"l","ж":";","Ж":":","є":chr(39),"Є":chr(34),"я":"z","ч":"x","с":"c","м":"v","и":"b","т":"n","ь":"m","б":",","Б":"<","ю":".","Ю":">",".":"/",",":"?",chr(39):"`","ʼ":"~",chr(34):"@","№":"#",";":"$",":":"^","?":"&"}; print("".join(map(lambda c: c if (c.lower() not in eng_to_ukr) else (eng_to_ukr[c] if (c.islower() or not is_caseable(c)) else eng_to_ukr[c.lower()].upper()), "".join(get_stdin())[:-1])))' | exec wl-copy
+# TODO: move them to files
+$btrbindsym $mod+Ctrl+u exec wl-paste | python -c 'from fileinput import input as get_stdin; is_caseable=lambda c: c.lower() != c.upper(); eng_to_ukr={"q":"й","w":"ц","e":"у","r":"к","t":"е","y":"н","u":"г","i":"ш","o":"щ","p":"з","[":"х","{":"Х","]":"ї","}":"Ї","a":"ф","s":"і","d":"в","f":"а","g":"п","h":"р","j":"о","k":"л","l":"д",";":"ж",":":"Ж",chr(39):"є",chr(34):"Є","z":"я","x":"ч","c":"с","v":"м","b":"и","n":"т","m":"ь",",":"б","<":"Б",".":"ю",">":"Ю","/":".","?":",","`":chr(39),"~":"ʼ","@":chr(34),"#":"№","$":";","^":":","&":"?"}; print("".join(map(lambda c: c if (c.lower() not in eng_to_ukr) else (eng_to_ukr[c] if (c.islower() or not is_caseable(c)) else eng_to_ukr[c.lower()].upper()), "".join(get_stdin())[:-1])))' | exec wl-copy
+$btrbindsym $mod+Ctrl+e exec wl-paste | python -c 'from fileinput import input as get_stdin; is_caseable=lambda c: c.lower() != c.upper(); eng_to_ukr={"й":"q","ц":"w","у":"e","к":"r","е":"t","н":"y","г":"u","ш":"i","щ":"o","з":"p","х":"[","Х":"{","ї":"]","Ї":"}","ф":"a","і":"s","в":"d","а":"f","п":"g","р":"h","о":"j","л":"k","д":"l","ж":";","Ж":":","є":chr(39),"Є":chr(34),"я":"z","ч":"x","с":"c","м":"v","и":"b","т":"n","ь":"m","б":",","Б":"<","ю":".","Ю":">",".":"/",",":"?",chr(39):"`","ʼ":"~",chr(34):"@","№":"#",";":"$",":":"^","?":"&"}; print("".join(map(lambda c: c if (c.lower() not in eng_to_ukr) else (eng_to_ukr[c] if (c.islower() or not is_caseable(c)) else eng_to_ukr[c.lower()].upper()), "".join(get_stdin())[:-1])))' | exec wl-copy
 
-    # mouse
-    input type:pointer {
-        # nothing for now
-    }
+# mouse
+input type:pointer {
+    # nothing for now
+}
 
-    input type:touchpad {
-        tap enabled
-        natural_scroll enabled
-        dwt disable
-        #drag_lock disable
-        scroll_factor 0.3
-    }
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+    dwt disable
+    #drag_lock disable
+    scroll_factor 0.3
+}
 
-    ## Mouse Cursor
-    # TODO: fix and change
-    # seat seat0 xcursor_theme breeze_cursors 24
+## Mouse Cursor
+# TODO: fix and change
+# seat seat0 xcursor_theme breeze_cursors 24
 
 
 
@@ -243,272 +231,273 @@
 ### KEY BINDINGS
 
 ## Basics
-    # Start a terminal
-    bindsym $mod+Return exec $term
-    bindsym $mod+Shift+Return exec $term --class="$term_floating"
-    # TODO?:
-    # bindsym $mod+Shift+plus exec $term --class="$term_floating_scratchpaded"
+# Start a terminal
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term --class="$term_floating"
+# TODO?:
+# bindsym $mod+Shift+plus exec $term --class="$term_floating_scratchpaded"
 
-    # Terminate focused window
-    $btrbindsym $mod+Backspace kill
-    # Kill focused window
-    $btrbindsym $mod+Shift+Backspace kill 9
+# Terminate focused window
+$btrbindsym $mod+Backspace kill
+# Kill focused window
+$btrbindsym $mod+Shift+Backspace kill 9
 
-    # Start your launcher (yofi)
-    $btrbindsym $mod+m exec $menu_apps
-    # $btrbindsym $mod+Shift+m exec $menu_all
-    #bindsym --release Super_L exec $menu_apps
+# Start your launcher (yofi)
+$btrbindsym $mod+m exec $menu_apps
+# $btrbindsym $mod+Shift+m exec $menu_all
+#bindsym --release Super_L exec $menu_apps
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with $mod + right mouse button.
-    # Despite the name, also works for non-floating windows.
-    floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with $mod + right mouse button.
+# Despite the name, also works for non-floating windows.
+floating_modifier $mod normal
 
-    # Reload the configuration file
-    $btrbindsym $mod+Ctrl+c reload
+# Reload the configuration file
+$btrbindsym $mod+Ctrl+c reload
 
-    # Lock Screen
-    $btrbindsym $mod+Escape $lock_command
+# Lock Screen
+$btrbindsym $mod+Escape $lock_command
 
-    # Exit Sway
-    $btrbindsym $mod+Ctrl+Backspace exec swaynag \
-        -t warning \
-        --font='JetBrains Mono 10' \
-        --text=f9f5d7 \
-        --button-text=f9f5d7 \
-        --background=282828 \
-        --button-background=303030 \
-        --border=242424 \
-        --border-bottom=242424 \
-        --button-gap=20 \
-        --button-dismiss-gap=20 \
-        --button-margin-right=10 \
-        -m '  You pressed the exit shortcut. What do you want?' \
-        -s '  Cancel  ' \
-        -b '  Shutdown  ' 'systemctl poweroff' \
-        -b '  Reboot  ' 'systemctl reboot' \
-        -b '  Sleep  ' 'systemctl suspend' \
-        -b '  Logout  ' 'swaymsg exit'
+# Exit Sway
+$btrbindsym $mod+Ctrl+Backspace exec \
+    swaynag \
+    -t warning \
+    --font='JetBrains Mono 10' \
+    --text=f9f5d7 \
+    --button-text=f9f5d7 \
+    --background=282828 \
+    --button-background=303030 \
+    --border=242424 \
+    --border-bottom=242424 \
+    --button-gap=20 \
+    --button-dismiss-gap=20 \
+    --button-margin-right=10 \
+    -m '  You pressed the exit shortcut. What do you want?' \
+    -s '  Cancel  ' \
+    -b '  Shutdown  ' 'systemctl poweroff' \
+    -b '  Reboot  ' 'systemctl reboot' \
+    -b '  Sleep  ' 'systemctl suspend' \
+    -b '  Logout  ' 'swaymsg exit'
 
-    # Screenshots
-    # screenshot (of current monitor?)
-    bindsym Print exec \
-        filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
-        && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
-        && wl-copy "file://$filename" -t text/uri-list
-    # bind to make screenshot when alt is pressed (in tabletop simulator)
-    # bindsym Alt+Print exec \
-    #     filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
-    #     && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
-    #     && wl-copy "file://$filename" -t text/uri-list
+# Screenshots
+# screenshot (of current monitor?)
+bindsym Print exec \
+    filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+    && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
+    && wl-copy "file://$filename" -t text/uri-list
+# bind to make screenshot when alt is pressed (in tabletop simulator)
+# bindsym Alt+Print exec \
+#     filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+#     && grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$filename" \
+#     && wl-copy "file://$filename" -t text/uri-list
 
-    # screenshot of rectangular selection
-    bindsym Control+Print exec \
-        filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
-        && grim -g "$(slurp)" "$filename" \
-        && wl-copy "file://$filename" -t text/uri-list
+# screenshot of rectangular selection
+bindsym Control+Print exec \
+    filename=$HOME/Pictures/Screenshots/Screenshot_$(date +'%Y%m%d_%H%M%S.png') \
+    && grim -g "$(slurp)" "$filename" \
+    && wl-copy "file://$filename" -t text/uri-list
 
 
 ## Moving Focus
-    # focus_follows_mouse yes|no|always
-    #   yes: window under cursor will be focused if mouse moved (out and then) in window (again).
-    #   always: window under cursor will be focused if mouse moved.
-    focus_follows_mouse always
+# focus_follows_mouse yes|no|always
+#   yes: window under cursor will be focused if mouse moved (out and then) in window (again).
+#   always: window under cursor will be focused if mouse moved.
+focus_follows_mouse always
 
-    # Move your focus around
-    $btrbindsym $mod+$left  focus left
-    $btrbindsym $mod+$down  focus down
-    $btrbindsym $mod+$up    focus up
-    $btrbindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left  focus left
-    bindsym $mod+Down  focus down
-    bindsym $mod+Up    focus up
-    bindsym $mod+Right focus right
+# Move your focus around
+$btrbindsym $mod+$left  focus left
+$btrbindsym $mod+$down  focus down
+$btrbindsym $mod+$up    focus up
+$btrbindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift:
-    $btrbindsym $mod+Shift+$left  move left
-    $btrbindsym $mod+Shift+$down  move down
-    $btrbindsym $mod+Shift+$up    move up
-    $btrbindsym $mod+Shift+$right move right
-    # with arrow keys:
-    bindsym $mod+Shift+Left  move left
-    bindsym $mod+Shift+Down  move down
-    bindsym $mod+Shift+Up    move up
-    bindsym $mod+Shift+Right move right
-    # with gestures:
-    bindgesture swipe:4:up move up
-    bindgesture swipe:4:down move down
-    bindgesture swipe:4:left move left
-    bindgesture swipe:4:right move right
+# Move the focused window with the same, but add Shift:
+$btrbindsym $mod+Shift+$left  move left
+$btrbindsym $mod+Shift+$down  move down
+$btrbindsym $mod+Shift+$up    move up
+$btrbindsym $mod+Shift+$right move right
+# with arrow keys:
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+# with gestures:
+bindgesture swipe:4:up move up
+bindgesture swipe:4:down move down
+bindgesture swipe:4:left move left
+bindgesture swipe:4:right move right
 
 
 ## Workspaces
-    # Switch to next/prev workspace
-    bindsym $mod+tab workspace next
-    bindsym $mod+Shift+Tab workspace prev
-    $btrbindsym $mod+grave workspace prev
-    # with gestures:
-    bindgesture swipe:3:right workspace prev
-    bindgesture swipe:3:left  workspace next
+# Switch to next/prev workspace
+bindsym $mod+tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+$btrbindsym $mod+grave workspace prev
+# with gestures:
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left  workspace next
 
-    # Switch to workspace
-    $btrbindsym $mod+1 workspace $workspace_1
-    $btrbindsym $mod+2 workspace $workspace_2
-    $btrbindsym $mod+3 workspace $workspace_3
-    $btrbindsym $mod+4 workspace $workspace_4
-    #
-    $btrbindsym $mod+q workspace $workspace_q
-    $btrbindsym $mod+w workspace $workspace_w
-    $btrbindsym $mod+e workspace $workspace_e
-    $btrbindsym $mod+r workspace $workspace_r
-    #
-    $btrbindsym $mod+a workspace $workspace_a
-    $btrbindsym $mod+s workspace $workspace_s
-    $btrbindsym $mod+d workspace $workspace_d
-    $btrbindsym $mod+f workspace $workspace_f
-    #
-    $btrbindsym $mod+z workspace $workspace_z
-    $btrbindsym $mod+x workspace $workspace_x
-    $btrbindsym $mod+c workspace $workspace_c
-    $btrbindsym $mod+v workspace $workspace_v
+# Switch to workspace
+$btrbindsym $mod+1 workspace $workspace_1
+$btrbindsym $mod+2 workspace $workspace_2
+$btrbindsym $mod+3 workspace $workspace_3
+$btrbindsym $mod+4 workspace $workspace_4
+#
+$btrbindsym $mod+q workspace $workspace_q
+$btrbindsym $mod+w workspace $workspace_w
+$btrbindsym $mod+e workspace $workspace_e
+$btrbindsym $mod+r workspace $workspace_r
+#
+$btrbindsym $mod+a workspace $workspace_a
+$btrbindsym $mod+s workspace $workspace_s
+$btrbindsym $mod+d workspace $workspace_d
+$btrbindsym $mod+f workspace $workspace_f
+#
+$btrbindsym $mod+z workspace $workspace_z
+$btrbindsym $mod+x workspace $workspace_x
+$btrbindsym $mod+c workspace $workspace_c
+$btrbindsym $mod+v workspace $workspace_v
 
-    # Move focused container to workspace
-    $btrbindsym $mod+Shift+1 move container to workspace $workspace_1
-    $btrbindsym $mod+Shift+2 move container to workspace $workspace_2
-    $btrbindsym $mod+Shift+3 move container to workspace $workspace_3
-    $btrbindsym $mod+Shift+4 move container to workspace $workspace_4
-    #
-    $btrbindsym $mod+Shift+q move container to workspace $workspace_q
-    $btrbindsym $mod+Shift+w move container to workspace $workspace_w
-    $btrbindsym $mod+Shift+e move container to workspace $workspace_e
-    $btrbindsym $mod+Shift+r move container to workspace $workspace_r
-    #
-    $btrbindsym $mod+Shift+a move container to workspace $workspace_a
-    $btrbindsym $mod+Shift+s move container to workspace $workspace_s
-    $btrbindsym $mod+Shift+d move container to workspace $workspace_d
-    $btrbindsym $mod+Shift+f move container to workspace $workspace_f
-    #
-    $btrbindsym $mod+Shift+z move container to workspace $workspace_z
-    $btrbindsym $mod+Shift+x move container to workspace $workspace_x
-    $btrbindsym $mod+Shift+c move container to workspace $workspace_c
-    $btrbindsym $mod+Shift+v move container to workspace $workspace_v
+# Move focused container to workspace
+$btrbindsym $mod+Shift+1 move container to workspace $workspace_1
+$btrbindsym $mod+Shift+2 move container to workspace $workspace_2
+$btrbindsym $mod+Shift+3 move container to workspace $workspace_3
+$btrbindsym $mod+Shift+4 move container to workspace $workspace_4
+#
+$btrbindsym $mod+Shift+q move container to workspace $workspace_q
+$btrbindsym $mod+Shift+w move container to workspace $workspace_w
+$btrbindsym $mod+Shift+e move container to workspace $workspace_e
+$btrbindsym $mod+Shift+r move container to workspace $workspace_r
+#
+$btrbindsym $mod+Shift+a move container to workspace $workspace_a
+$btrbindsym $mod+Shift+s move container to workspace $workspace_s
+$btrbindsym $mod+Shift+d move container to workspace $workspace_d
+$btrbindsym $mod+Shift+f move container to workspace $workspace_f
+#
+$btrbindsym $mod+Shift+z move container to workspace $workspace_z
+$btrbindsym $mod+Shift+x move container to workspace $workspace_x
+$btrbindsym $mod+Shift+c move container to workspace $workspace_c
+$btrbindsym $mod+Shift+v move container to workspace $workspace_v
 
-    # Shortcuts for start programs:
-    bindsym $mod+F1  workspace $workspace_1, exec firefox
-    bindsym $mod+F2  workspace $workspace_2, exec telegram-desktop
-    bindsym $mod+F3  workspace $workspace_3, exec kitty env RANGER_LOAD_DEFAULT_RC=false ranger
-    bindsym $mod+F4  workspace $workspace_4, exec alacritty
-    bindsym $mod+F5  workspace $workspace_v, exec vlc
-    bindsym $mod+F6  workspace $workspace_v, exec helvum
-    bindsym $mod+F7  workspace $workspace_s, exec steam
-    bindsym $mod+F8  workspace $workspace_d, exec com.discordapp.Discord
-    bindsym $mod+F9  workspace $workspace_x, exec obs
-    bindsym $mod+F10 workspace $workspace_z, exec alacritty -e btop
+# Shortcuts for start programs:
+bindsym $mod+F1  workspace $workspace_1, exec firefox
+bindsym $mod+F2  workspace $workspace_2, exec telegram-desktop
+bindsym $mod+F3  workspace $workspace_3, exec kitty env RANGER_LOAD_DEFAULT_RC=false ranger
+bindsym $mod+F4  workspace $workspace_4, exec alacritty
+bindsym $mod+F5  workspace $workspace_v, exec vlc
+bindsym $mod+F6  workspace $workspace_v, exec helvum
+bindsym $mod+F7  workspace $workspace_s, exec steam
+bindsym $mod+F8  workspace $workspace_d, exec com.discordapp.Discord
+bindsym $mod+F9  workspace $workspace_x, exec obs
+bindsym $mod+F10 workspace $workspace_z, exec alacritty -e btop
 
 
 ## Layout stuff
-    # Switch the current container between different layout styles
-    $btrbindsym $mod+t layout tabbed
-    $btrbindsym $mod+y layout toggle split
-    # i disabled stacking layout, because it's useless, lmao
-    #$btrbindsym $mod+s layout stacking
+# Switch the current container between different layout styles
+$btrbindsym $mod+t layout tabbed
+$btrbindsym $mod+y layout toggle split
+# i disabled stacking layout, because it's useless, lmao
+#$btrbindsym $mod+s layout stacking
 
-    # Split current object of your focus vertically or horizontally.
-    $btrbindsym $mod+p splitv
-    $btrbindsym $mod+Shift+p splith
+# Split current object of your focus vertically or horizontally.
+$btrbindsym $mod+p splitv
+$btrbindsym $mod+Shift+p splith
 
-    # Make the current focus fullscreen
-    $btrbindsym F11 fullscreen
+# Make the current focus fullscreen
+$btrbindsym F11 fullscreen
 
-    # Move focus to the parent container
-    #$btrbindsym $mod+a focus parent
+# Move focus to the parent container
+#$btrbindsym $mod+a focus parent
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
 
-    # Toggle the current focus (window) between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Toggle the current focus (window) between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Toggle Sticky (make window appear on all workspaces)
-    $btrbindsym $mod+Ctrl+s sticky toggle
+# Toggle Sticky (make window appear on all workspaces)
+$btrbindsym $mod+Ctrl+s sticky toggle
 
-    # Move to Center
-    $btrbindsym $mod+n move position center
+# Move to Center
+$btrbindsym $mod+n move position center
 
 
 ## Resizing containers
 $btrbindsym $mod+i mode "resize"
 mode "resize" {
-    set $resize_step_small 16px
-    set $resize_step_big 128px
+set $resize_step_small 16px
+set $resize_step_big 128px
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+# Return to default mode
+bindsym Return mode "default"
+bindsym Escape mode "default"
 
-    # Small step:
-    $btrbindsym $right resize grow   width  $resize_step_big
-    $btrbindsym $left  resize shrink width  $resize_step_big
-    $btrbindsym $up    resize grow   height $resize_step_big
-    $btrbindsym $down  resize shrink height $resize_step_big
-    # Same, with arrow keys
-    bindsym Right resize grow   width  $resize_step_big
-    bindsym Left  resize shrink width  $resize_step_big
-    bindsym Up    resize grow   height $resize_step_big
-    bindsym Down  resize shrink height $resize_step_big
+# Small step:
+$btrbindsym $right resize grow   width  $resize_step_big
+$btrbindsym $left  resize shrink width  $resize_step_big
+$btrbindsym $up    resize grow   height $resize_step_big
+$btrbindsym $down  resize shrink height $resize_step_big
+# Same, with arrow keys
+bindsym Right resize grow   width  $resize_step_big
+bindsym Left  resize shrink width  $resize_step_big
+bindsym Up    resize grow   height $resize_step_big
+bindsym Down  resize shrink height $resize_step_big
 
-    # Big step:
-    $btrbindsym Shift+$right resize grow   width  $resize_step_small
-    $btrbindsym Shift+$left  resize shrink width  $resize_step_small
-    $btrbindsym Shift+$up    resize grow   height $resize_step_small
-    $btrbindsym Shift+$down  resize shrink height $resize_step_small
-    # Same, with arrow keys
-    bindsym Shift+Right resize grow   width  $resize_step_small
-    bindsym Shift+Left  resize shrink width  $resize_step_small
-    bindsym Shift+Up    resize grow   height $resize_step_small
-    bindsym Shift+Down  resize shrink height $resize_step_small
+# Big step:
+$btrbindsym Shift+$right resize grow   width  $resize_step_small
+$btrbindsym Shift+$left  resize shrink width  $resize_step_small
+$btrbindsym Shift+$up    resize grow   height $resize_step_small
+$btrbindsym Shift+$down  resize shrink height $resize_step_small
+# Same, with arrow keys
+bindsym Shift+Right resize grow   width  $resize_step_small
+bindsym Shift+Left  resize shrink width  $resize_step_small
+bindsym Shift+Up    resize grow   height $resize_step_small
+bindsym Shift+Down  resize shrink height $resize_step_small
 
-    # Move to Center
-    $btrbindsym c       move position center
+# Move to Center
+$btrbindsym c       move position center
 }
 
 
 ## Scratchpad
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-    # bindsym $mod+Shift+plus move scratchpad
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+Shift+plus move scratchpad
 
-    # Show the next or hide scratchpad window
-    bindsym $mod+minus scratchpad show
+# Show the next or hide scratchpad window
+bindsym $mod+minus scratchpad show
 
 
 ## Multimedia keys
-    # Pulse Audio controls
-    # --locked - makes it work even on locked screen
-    # if sound doesnt work at all, try changing `@DEFAULT_SINK@` to some number (0, 1, 2, ...)
+# Pulse Audio controls
+# --locked - makes it work even on locked screen
+# if sound doesnt work at all, try changing `@DEFAULT_SINK@` to some number (0, 1, 2, ...)
 
-    # increase/decrease sound volume
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym --locked Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
-    bindsym --locked Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
-    # mute/unmute sound
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    # mute/unmute microphone
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# increase/decrease sound volume
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym --locked Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+# mute/unmute sound
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# mute/unmute microphone
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-    # Media player controls
-    bindsym --locked XF86AudioPlay exec playerctl play-pause
-    bindsym --locked XF86AudioNext exec playerctl next
-    bindsym --locked XF86AudioPrev exec playerctl previous
-    bindsym --locked XF86AudioStop exec playerctl stop
+# Media player controls
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioStop exec playerctl stop
 
-    # source: https://www.reddit.com/r/swaywm/comments/fk08lu/nicer_brightness_control/
-    bindsym --locked XF86MonBrightnessUp   exec light -S "$(light -G | awk '{ print int(($1 + .72) * 1.4) }')"
-    bindsym --locked XF86MonBrightnessDown exec light -S "$(light -G | awk '{ print int($1 / 1.4) }')"
-    bindsym --locked Shift+XF86MonBrightnessUp   exec light -A 1
-    bindsym --locked Shift+XF86MonBrightnessDown exec light -U 1
+# source: https://www.reddit.com/r/swaywm/comments/fk08lu/nicer_brightness_control/
+bindsym --locked XF86MonBrightnessUp   exec light -S "$(light -G | awk '{ print int(($1 + .72) * 1.4) }')"
+bindsym --locked XF86MonBrightnessDown exec light -S "$(light -G | awk '{ print int($1 / 1.4) }')"
+bindsym --locked Shift+XF86MonBrightnessUp   exec light -A 1
+bindsym --locked Shift+XF86MonBrightnessDown exec light -U 1
 
 
 

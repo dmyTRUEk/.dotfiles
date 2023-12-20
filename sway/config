@@ -112,11 +112,11 @@ client.unfocused         #333333   #222222   #888888   #292d2e   #282828
 font JetBrains Mono 10
 
 # Programs default workspaces
-assign [class="firefox"]               workspace $workspace_1
-assign [app_id="org.telegram.desktop"] workspace $workspace_2
-assign [app_id="steam"]                workspace $workspace_s
-assign [app_id="discord"]              workspace $workspace_d
-assign [app_id="obs"]                  workspace $workspace_x
+#assign [class="firefox"]               workspace $workspace_1
+#assign [app_id="org.telegram.desktop"] workspace $workspace_2
+#assign [app_id="steam"]                workspace $workspace_s
+#assign [app_id="discord"]              workspace $workspace_d
+#assign [app_id="obs"]                  workspace $workspace_x
 
 # floating windows
 for_window [window_role="About"]        floating enable

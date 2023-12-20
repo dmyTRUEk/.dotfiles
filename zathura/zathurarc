@@ -7,11 +7,13 @@ set guioptions "sv"
 set window-title-basename true
 set statusbar-home-tilde true
 
-map Q quit
+
 unmap q
+map Q quit
 
 set zoom-step 10
 set zoom-center true
+
 map i zoom in
 map o zoom out
 # TODO: make this work:
@@ -23,7 +25,9 @@ map d feedkeys <C-d>
 # TODO: map dual page to <C-d>
 #map <C-d> feedkeys d
 
-map <C-i> recolor
+map <C-o> jumplist backward
+map <C-i> jumplist forward
+
 
 # colors:
 #set recolor true

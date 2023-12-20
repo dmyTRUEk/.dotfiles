@@ -225,6 +225,7 @@ alias nd='nvim -d'
 # some specific files:
 # TODO: open all this files even when not in root of project (find root by `.git/`)
 alias nre='nvim README.md'
+alias nl='nvim src/lib.rs'
 function nm {
     local MAIN_FILE_C="main.c"
     local MAIN_FILE_CPP="main.cpp"

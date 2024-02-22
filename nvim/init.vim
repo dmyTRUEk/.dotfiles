@@ -769,6 +769,8 @@ require('nvim-treesitter.configs').setup {
             enable = true,
             lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
+                ['aa'] = '@assignment.outer',
+                ['ia'] = '@assignment.rhs',
                 -- You can use the capture groups defined in textobjects.scm
                 --['ab'] = '@block.outer',
                 --['ib'] = '@block.inner',
@@ -789,6 +791,7 @@ require('nvim-treesitter.configs').setup {
             set_jumps = true, -- set jumps in jumplist
             goto_next_start = {
                 [']]'] = '@block.inner',
+                [']a'] = '@assignment.rhs',
                 [']b'] = '@block.inner',
                 [']c'] = '@class.outer',
                 [']f'] = '@function.outer',
@@ -799,6 +802,7 @@ require('nvim-treesitter.configs').setup {
             },
             goto_previous_start = {
                 ['[['] = '@block.inner',
+                ['[a'] = '@assignment.rhs',
                 ['[b'] = '@block.inner',
                 ['[c'] = '@class.outer',
                 ['[f'] = '@function.outer',
@@ -808,6 +812,7 @@ require('nvim-treesitter.configs').setup {
                 ['[s'] = '@assignment.rhs', -- TODO: resolve conflict/overlap with next spelling
             },
             goto_next_end = {
+                [']A'] = '@assignment.rhs',
                 [']B'] = '@block.inner',
                 [']C'] = '@class.outer',
                 [']F'] = '@function.outer',
@@ -818,6 +823,7 @@ require('nvim-treesitter.configs').setup {
                 [']['] = '@block.inner',
             },
             goto_previous_end = {
+                ['[A'] = '@assignment.rhs',
                 ['[B'] = '@block.inner',
                 ['[C'] = '@class.outer',
                 ['[F'] = '@function.outer',

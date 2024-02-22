@@ -105,10 +105,11 @@ nnoremap d; dt;
 nnoremap y; yt;
 
 " move selected text up/down
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap О :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
-vnoremap Л :m '<-2<cr>gv=gv
+" TODO: 1. fix it. 2. remap to something different.
+" vnoremap J :m '>+1<cr>gv=gv
+" vnoremap О :m '>+1<cr>gv=gv
+" vnoremap K :m '<-2<cr>gv=gv
+" vnoremap Л :m '<-2<cr>gv=gv
 
 " TODO:
 "xnoremap <leader>I :<C-U>call InsertAtBeginOfLine() <cr>
@@ -469,6 +470,12 @@ call plug#end()
 
 
 
+" paste at start of line
+nnoremap <A-p> ^P
+nnoremap <A-з> ^P
+
+
+
 
 """ Colorscheme Settings:
 set termguicolors   " enable true colors support
@@ -502,6 +509,7 @@ colorscheme gruvbox
 " auto-pairs (automatically pair brackets and quotes):
 let g:AutoPairsMapCh = 0
 let g:AutoPairsMultilineClose = 0
+let g:AutoPairsShortcutToggle = ''
 "autocmd BufReadPost * let g:AutoPairs['<'] = '>'
 "autocmd BufReadPost *.cpp let g:AutoPairs['<'] = ''
 " TODO: yswtOption: `|String` -> `Option<String>` (t stands for trait/type)
@@ -918,9 +926,9 @@ set completeopt=menu,menuone
 nnoremap <silent> <leader>r <cmd>lua vim.lsp.buf.rename() <cr>
 nnoremap <silent> <leader>d <cmd>lua vim.diagnostic.open_float() <cr>
 nnoremap <silent> g[        <cmd>lua vim.diagnostic.goto_prev() <cr>
+"nnoremap <silent> <c-[>     <cmd>lua vim.diagnostic.goto_prev() <cr>
 nnoremap <silent> g]        <cmd>lua vim.diagnostic.goto_next() <cr>
-"nnoremap <silent> [c        <cmd>lua vim.diagnostic.goto_prev() <cr>
-"nnoremap <silent> ]c        <cmd>lua vim.diagnostic.goto_next() <cr>
+nnoremap <silent> <c-]>     <cmd>lua vim.diagnostic.goto_next() <cr>
 nnoremap <silent> ga        <cmd>lua vim.lsp.buf.code_action() <cr>
 nnoremap <silent> K         <cmd>lua vim.lsp.buf.hover() <cr>
 "nnoremap <silent> gD        <cmd>lua vim.lsp.buf.type_definition() <cr>

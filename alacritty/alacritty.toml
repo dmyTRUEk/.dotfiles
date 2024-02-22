@@ -1,0 +1,82 @@
+live_config_reload = true
+
+[colors.primary]
+background = "#282828"
+foreground = "#c5c8c6"
+
+[cursor.style]
+shape = "Block"
+
+[font]
+builtin_box_drawing = true
+size = 13.0
+
+[font.bold]
+family = "JetBrains Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
+
+# [hints.mouse]
+# enabled = true
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Escape"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageDown"
+key = "J"
+mode = "Vi|~Search"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollHalfPageUp"
+key = "K"
+mode = "Vi|~Search"
+mods = "Control"
+
+# TODO: center after `n` -> `nz`
+# alacritty msg -s ? CenterAroundViCursor
+[[keyboard.bindings]]
+action = "SearchNext"
+key = "N"
+mode = "Vi|~Search"
+
+# TODO: dynamic window transparency/opacity
+# - { key: Equals, mods: Control|Shift,                   action: IncreaseWindowOpacity }
+# - { key: Minus,  mods: Control|Shift,                   action: DecreaseWindowOpacity }
+
+[scrolling]
+# auto_scroll = false
+# faux_multiplier = 1
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[window]
+dynamic_title = true
+opacity = 1.0

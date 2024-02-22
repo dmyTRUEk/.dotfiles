@@ -1,5 +1,8 @@
 # dmyTRUEk's Zathura config file
 
+
+# OPTIONS:
+
 set selection-clipboard clipboard
 set font "JetBrains Mono"
 set guioptions "sv"
@@ -7,29 +10,36 @@ set guioptions "sv"
 set window-title-basename true
 set statusbar-home-tilde true
 
+set zoom-step 10
+set zoom-center true
+
+
+
+# MAPS:
 
 unmap q
 map Q quit
 
-set zoom-step 10
-set zoom-center true
-
 map i zoom in
 map o zoom out
 # TODO: make this work:
-map <S-i> zoom in 50
-map <S-o> zoom out 50
+# map <S-i> zoom in 50
+# map <S-o> zoom out 50
 
-map u feedkeys <C-u>
-map d feedkeys <C-d>
-# TODO: map dual page to <C-d>
-#map <C-d> feedkeys d
+unmap d
+map d scroll half-down
+map u scroll half-up
+
+unmap <C-d>
+map <C-d> toggle_page_mode
 
 map <C-o> jumplist backward
 map <C-i> jumplist forward
 
 
-# colors:
+
+# COLORS:
+
 #set recolor true
 set recolor-keephue true
 set recolor-darkcolor "#f9f5d7"

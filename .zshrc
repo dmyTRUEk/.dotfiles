@@ -265,6 +265,9 @@ function nm {
         echo 'No known main file found.'
     fi
 }
+function o {
+    cd $1 && nm
+}
 alias nc='nvim Cargo.toml'
 alias ncl='nvim Cargo.lock'
 # config files:

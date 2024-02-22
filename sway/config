@@ -393,7 +393,7 @@ bindsym $mod+F6  workspace number $workspace_v, exec helvum
 bindsym $mod+F7  workspace number $workspace_s, exec steam
 bindsym $mod+F8  workspace number $workspace_d, exec com.discordapp.Discord
 bindsym $mod+F9  workspace number $workspace_x, exec obs
-bindsym $mod+F10 workspace number $workspace_z, exec alacritty -e btop
+bindsym $mod+F10 workspace number $workspace_z, exec kitty btop
 
 
 ## Layout stuff

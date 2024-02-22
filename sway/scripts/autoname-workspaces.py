@@ -27,14 +27,18 @@ import i3ipc
 # - use only lowercase
 # - assuming all icons to be ONE symbol (search for `ae36d1` in this file)
 WINDOW_ICONS: dict[str, str] = {
-    "alacritty": "",
-    "btop": "󰄪", # TODO: somehow make it's priority higher, but not for apps that may change their's title, like firefox or telegram
+    "alacritty": "", #   
+    "btop": "󰄪",
     "discord": "", # 󰙯
     "firefox": "", # 󰈹
+    "krita": "",
     "obs": "󰐾", # 󱔛 󰟞 󰐻 󰐾 󰻃 󰠿 󰚀 󱜠
+    "ranger": "", #     
+    "skype": "󰒯", # 
+    "steam": "", # 
     "telegram": "", # 
-    "ranger": "", #    
-    "steam": "",
+    "zoom": "󰬇",
+    #      
 }
 
 DEFAULT_ICON: str = "?"

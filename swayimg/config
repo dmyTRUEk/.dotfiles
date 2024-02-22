@@ -1,36 +1,56 @@
 # dmyTRUEk's swayimg config
 
+[general]
 scale = fit
 fullscreen = yes
-background = grid
-window = #000000
 antialiasing = no
-info = no
-font = JetBrains Mono
-font-size = 16
-font-color = #ff00ff
+background = 000000
+
+[list]
 order = alpha
 loop = yes
 recursive = no
-#all = no
-slideshow = 3
-#app_id =
-sway = yes
+all = yes
+
+[font]
+name = JetBrains Mono
+size = 16
+color = #ff00ff
+
+[info]
+mode = off
 
 [keys]
-i = zoom_in
-o = zoom_out
+q = exit
+
+h = step_left
+j = step_down
+k = step_up
+l = step_right
+Shift+h = step_left 50
+Shift+j = step_down 50
+Shift+k = step_up 50
+Shift+l = step_right 50
+
+i = zoom 10
+o = zoom -10
+Shift+i = zoom 50
+Shift+o = zoom -50
+
+a = antialiasing
+
+n = next_file
+p = prev_file
+bracketleft = next_dir
+bracketright = prev_dir
+
 # `b` mnemonics: about
 b = info
-s = zoom_reset
+s = zoom fix
 
-Left = prev_file
-Right = next_file
-#Up = prev_dir
-#Down = next_dir
+Shift+space = animation
 
-#Up = step_up
-#Down = step_down
-#Left = step_left
-#Right = step_right
+space = animation
+comma = next_frame
+period = prev_frame
 
